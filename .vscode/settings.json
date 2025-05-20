@@ -56,6 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Unity-Large-space-V2.sln",
+    "dotnet.defaultSolution": "RadiationSourceHandlingExperiment.sln",
     "dotnet.preferCSharpExtension": true
 }

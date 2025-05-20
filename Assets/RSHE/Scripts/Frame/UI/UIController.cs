@@ -1,18 +1,24 @@
 using Mirror;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-
     static UIController instance;
 
     MyNetworkDiscovery networkDiscovery;
 
     [Header("Control")]
 
-    [Tooltip("人数文本")]
-    public TMP_Text personCountText;
+    // 人数文本
+    private TMP_Text personCountText;
+
+    // 主机按钮
+    private Button hostButton;
+
+    // Scene Window UI
+    SceneUI sceneUI;
 
     public static UIController Get()
     {
@@ -31,10 +37,19 @@ public class UIController : MonoBehaviour
     void Awake()
     {
         networkDiscovery = FindObjectOfType<MyNetworkDiscovery>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
+        if (SwitchCameraController.Get().isTeacher)
+        {
+            gameObject.TryFindAndSetStatus("HostButton", true, out hostButton);
+            gameObject.TryFindAndSetStatus("PersonCountText", true, out personCountText);
+            gameObject.TryFindAndSetStatus("SceneWindow", false, out sceneUI);
+        }
+        
         if (!SwitchCameraController.Get().isTeacher)
             OnClickJoinButton();
     }
@@ -43,6 +58,9 @@ public class UIController : MonoBehaviour
     {
         NetworkManager.singleton.StartHost();
         networkDiscovery.AdvertiseServer();
+
+        hostButton.gameObject.SetActive(false);
+        sceneUI.gameObject.SetActive(true);
     }
 
     public void OnClickJoinButton()
