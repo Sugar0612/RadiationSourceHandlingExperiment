@@ -9,6 +9,14 @@ public class UIController : MonoBehaviour
 
     MyNetworkDiscovery networkDiscovery;
 
+    [Header("Panel")]
+
+    // VR面板
+    public GameObject vrPanel;
+
+    // PC面板
+    public GameObject normalPanel;
+
     [Header("Control")]
 
     // 人数文本
@@ -43,14 +51,19 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        if (SwitchCameraController.Get().isTeacher)
+        int isPicoDevice = Config.Get().projectConfig.PicoDevice;
+
+        vrPanel.SetActive(isPicoDevice == 1);
+        normalPanel.SetActive(isPicoDevice == 0);
+
+        if (isPicoDevice == 0)
         {
             gameObject.TryFindAndSetStatus("HostButton", true, out hostButton);
             gameObject.TryFindAndSetStatus("PersonCountText", true, out personCountText);
             gameObject.TryFindAndSetStatus("SceneWindow", false, out sceneUI);
         }
         
-        if (!SwitchCameraController.Get().isTeacher)
+        if (isPicoDevice == 1)
             OnClickJoinButton();
     }
 

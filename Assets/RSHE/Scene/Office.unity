@@ -728,6 +728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb9aa07ecfd70a48b1fcda769a1042e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vrPanel: {fileID: 477167095}
+  normalPanel: {fileID: 1325042560}
 --- !u!4 &409856773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4903030365090809977, guid: 45ea5e1a608b8f84da664e15772c12c0, type: 3}
@@ -1182,7 +1184,6 @@ MonoBehaviour:
   cameraList:
   - {fileID: 766952727}
   - {fileID: 588202547}
-  isTeacher: 0
 --- !u!1 &642314622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,6 +1556,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTag: 1
+--- !u!1 &799260380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799260381}
+  - component: {fileID: 799260382}
+  m_Layer: 0
+  m_Name: ================= Config
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &799260381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799260380}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 501.6384, y: 426.36343, z: -3.32444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799260382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799260380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85d2a21697a70341aa1b2999548cccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &962963461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,7 +2038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1325042561
 Transform:
   m_ObjectHideFlags: 0
@@ -2974,4 +3019,5 @@ SceneRoots:
   - {fileID: 228217121}
   - {fileID: 364845167}
   - {fileID: 180366532}
+  - {fileID: 799260381}
   - {fileID: 710803887}

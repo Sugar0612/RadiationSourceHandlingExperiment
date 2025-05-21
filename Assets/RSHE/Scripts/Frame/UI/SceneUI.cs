@@ -27,7 +27,7 @@ public class SceneUI : MonoBehaviour
 
     void Start()
     {
-        if (SwitchCameraController.Get().isTeacher)
+        if (Config.Get().projectConfig.PicoDevice == 0)
         {
             gameObject.TryFindAndSetStatus("SceneButton_1", true, out SceneButton_1);
             gameObject.TryFindAndSetStatus("SceneButton_2", true, out SceneButton_2);

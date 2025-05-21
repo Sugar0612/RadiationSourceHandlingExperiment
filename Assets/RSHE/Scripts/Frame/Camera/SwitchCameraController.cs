@@ -6,7 +6,7 @@ public class SwitchCameraController : MonoBehaviour
 {
     public List<CameraItem> cameraList = new List<CameraItem>();
 
-    public bool isTeacher = false;
+    // public bool isTeacher = false;
 
     static SwitchCameraController instance;
 
@@ -31,7 +31,7 @@ public class SwitchCameraController : MonoBehaviour
 
     void Start()
     {
-        if (isTeacher)
+        if (Config.Get().projectConfig.PicoDevice == 0)
         {
             SwitchToCamera(CameraTag.Manager);
         }
