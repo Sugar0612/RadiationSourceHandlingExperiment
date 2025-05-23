@@ -1,8 +1,9 @@
+
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneUI : MonoBehaviour
+public class SceneWindow : WinBase
 {
     // 场景一切换
     Button SceneButton_1;
@@ -25,8 +26,10 @@ public class SceneUI : MonoBehaviour
     [Scene]
     public string scene_3;
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
+        
         if (Config.Get().projectConfig.PicoDevice == 0)
         {
             gameObject.TryFindAndSetStatus("SceneButton_1", true, out SceneButton_1);

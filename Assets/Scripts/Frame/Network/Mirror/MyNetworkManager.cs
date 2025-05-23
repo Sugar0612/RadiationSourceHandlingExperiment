@@ -149,7 +149,7 @@ public class MyNetworkManager : NetworkManager
     public override void OnServerConnect(NetworkConnectionToClient conn) 
     {
         MyVRStaticVariables.personCount += 1;
-        UIController.Get().ChangedpersonCountText(MyVRStaticVariables.personCount);
+        (UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow)?.ChangedpersonCountText(MyVRStaticVariables.personCount);
         Log.input($"A client connected! {MyVRStaticVariables.personCount}");
     }
 
@@ -181,7 +181,7 @@ public class MyNetworkManager : NetworkManager
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         MyVRStaticVariables.personCount -= 1;
-        UIController.Get().ChangedpersonCountText(MyVRStaticVariables.personCount);
+        (UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow)?.ChangedpersonCountText(MyVRStaticVariables.personCount);
         base.OnServerDisconnect(conn);
         Log.input($"A client disconnected! {MyVRStaticVariables.personCount}");
     }
