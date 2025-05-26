@@ -46,11 +46,9 @@ public class Config : MonoBehaviour
     /// </summary>
     static async UniTaskVoid Init()
     {
-        Log.cinput("red", "Config Init");
-
         // 读取配置文件
         instance.projectConfig = await ConfigHelper.SetConfigObject<ProjectConfig>(FilePath.ProjectConfigPath);
-        Debug.Log("ProjectConfig: " + JsonMapper.ToJson(instance.projectConfig));
+        // Debug.Log("ProjectConfig: " + JsonMapper.ToJson(instance.projectConfig));
 
         // 设置初始化完毕
         _isInit = true;

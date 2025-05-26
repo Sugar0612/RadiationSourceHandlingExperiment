@@ -4,10 +4,15 @@ using Mirror;
 
 public class VRJoinWindow : WinBase
 {
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
     public override void Start()
-    {  
-        base.Start(); 
-        
+    {
+        base.Start();
+
         if (StaticGlobalVar.isPicoDevice == 1)
             OnClickJoinButton();
     }

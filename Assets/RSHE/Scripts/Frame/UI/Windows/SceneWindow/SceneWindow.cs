@@ -1,4 +1,5 @@
 
+using DG.Tweening;
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,10 +27,15 @@ public class SceneWindow : WinBase
     [Scene]
     public string scene_3;
 
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
     public override void Start()
     {
         base.Start();
-        
+
         if (Config.Get().projectConfig.PicoDevice == 0)
         {
             gameObject.TryFindAndSetStatus("SceneButton_1", true, out SceneButton_1);

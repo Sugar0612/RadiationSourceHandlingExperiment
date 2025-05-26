@@ -26,7 +26,7 @@ public class SwitchCameraController : MonoBehaviour
 
     void Awake()
     {
-     
+    
     }
 
     void Start()
@@ -43,16 +43,16 @@ public class SwitchCameraController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Log.cinput("red", "key down alpha1");
-            SwitchToCamera(CameraTag.Manager);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Log.cinput("red", "key down alpha2");
-            SwitchToCamera(CameraTag.Player);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     Log.cinput("red", "key down alpha1");
+        //     SwitchToCamera(CameraTag.Manager);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha2))
+        // {
+        //     Log.cinput("red", "key down alpha2");
+        //     SwitchToCamera(CameraTag.Player);
+        // }
     }
 
     public void SwitchToCamera(CameraTag tag)

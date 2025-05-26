@@ -31,14 +31,13 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        OnlyShowWindow(EWindowType.MainWindow);
+        ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
     }
 
     public void HidePanel()
     {
         gameObject.SetActive(false);
     }
-
 
     public void Register(WinBase window)
     {
@@ -76,18 +75,12 @@ public class UIController : MonoBehaviour
         return null;
     }
 
-    public void OnlyShowWindow(EWindowType type)
+    public void ShowWindows(EWindowType types)
     {
-        foreach (var window in windows)
+        foreach (var win in windows)
         {
-            if (window.windowType == type)
-            {
-                window.gameObject.SetActive(true);
-            }
-            else
-            {
-                window.gameObject.SetActive(false);
-            }
+            bool shouldShow = (types & win.windowType) == win.windowType;
+            win.gameObject.SetActive(shouldShow);
         }
     }
 }
