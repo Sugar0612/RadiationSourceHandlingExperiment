@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
         return instance;
     }
 
-    List<WinBase> windows = new List<WinBase>();
+    List<IWin> windows = new List<IWin>();
 
     void Awake()
     {
@@ -32,6 +32,12 @@ public class UIController : MonoBehaviour
     void Start()
     {
         ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
+
+        if (StaticGlobalVar.isPicoDevice == 0)
+        {
+            MainWindow mainWindow = GetWindow<MainWindow>(EWindowType.MainWindow) as MainWindow;
+            mainWindow.OnClickHostButton();
+        }
     }
 
     public void HidePanel()
@@ -39,30 +45,31 @@ public class UIController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Register(WinBase window)
+    public void Register(IWin window)
     {
         if (windows.Contains(window))
         {
-            Log.cinput("red", "UIController: Register: " + window.name + " already registered");
+            //Log.cinput("red", "UIController: Register: " + window.name + " already registered");
             return;
         }
-
+        //Log.cinput("green", $"UIController: Register type: {window.windowType}");
         windows.Add(window);
     }
 
-    public void Unregister(WinBase window)
+    public void Unregister(IWin window)
     {
         if (!windows.Contains(window))
         {
-            Log.cinput("red", "UIController: Unregister: " + window.name + " not registered");
+            //Log.cinput("red", "UIController: Unregister: " + window.name + " not registered");
             return;
         }
 
         windows.Remove(window);
     }
 
-    public WinBase GetWindow<T>(EWindowType type) where T : WinBase
+    public IWin GetWindow<T>(EWindowType type) where T : IWin
     {
+        //Log.cinput("red", $"windows count: {windows.Count}, type: {type}");
         foreach (var window in windows)
         {
             if (window.GetType() == typeof(T) && window.windowType == type)
@@ -71,7 +78,7 @@ public class UIController : MonoBehaviour
             }
         }
 
-        Log.cinput("red", "UIController: GetWindow: " + typeof(T).Name + " not found");
+        // Log.cinput("red", "UIController: GetWindow: " + typeof(T).Name + " not found");
         return null;
     }
 
@@ -80,7 +87,7 @@ public class UIController : MonoBehaviour
         foreach (var win in windows)
         {
             bool shouldShow = (types & win.windowType) == win.windowType;
-            win.gameObject.SetActive(shouldShow);
+            win.SetActive(shouldShow);
         }
     }
 }

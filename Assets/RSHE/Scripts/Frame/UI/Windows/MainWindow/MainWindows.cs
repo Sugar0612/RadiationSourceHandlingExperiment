@@ -3,8 +3,10 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainWindow : WinBase
+public class MainWindow : WinLocalBase, IWin
 {
+    public override EWindowType windowType => EWindowType.MainWindow;
+
     public GameObject vrPanel;
     public GameObject normalPanel;
 

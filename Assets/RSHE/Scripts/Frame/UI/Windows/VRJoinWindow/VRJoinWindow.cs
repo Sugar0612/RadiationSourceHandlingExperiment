@@ -2,8 +2,10 @@
 using UnityEngine;
 using Mirror;
 
-public class VRJoinWindow : WinBase
+public class VRJoinWindow : WinLocalBase, IWin
 {
+    public override EWindowType windowType => EWindowType.VRJoinWindow;
+
     public override void Awake()
     {
         base.Awake();

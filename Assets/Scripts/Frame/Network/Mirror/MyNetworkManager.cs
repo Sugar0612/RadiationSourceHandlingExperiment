@@ -149,7 +149,12 @@ public class MyNetworkManager : NetworkManager
     public override void OnServerConnect(NetworkConnectionToClient conn) 
     {
         MyVRStaticVariables.personCount += 1;
-        (UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow)?.ChangedpersonCountText(MyVRStaticVariables.personCount);
+        UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+        userWindow?.ChangedpersonCountText(MyVRStaticVariables.personCount);
+        userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!\n");
+
+        //userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " connected!\n";
+        // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!");
         Log.input($"A client connected! {MyVRStaticVariables.personCount}");
     }
 
@@ -181,7 +186,12 @@ public class MyNetworkManager : NetworkManager
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         MyVRStaticVariables.personCount -= 1;
-        (UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow)?.ChangedpersonCountText(MyVRStaticVariables.personCount);
+        UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+        userWindow?.ChangedpersonCountText(MyVRStaticVariables.personCount);
+        userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!\n");
+        
+        // userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " disconnected!\n";
+        // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!");
         base.OnServerDisconnect(conn);
         Log.input($"A client disconnected! {MyVRStaticVariables.personCount}");
     }
@@ -209,14 +219,17 @@ public class MyNetworkManager : NetworkManager
     public override void OnClientConnect()
     {
         base.OnClientConnect();
-        Log.input("Connected to server.");
+        //UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+        
+        // userWindow.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!\n");
+        //Log.cinput("red", "Connected to server.");
     }
 
     /// <summary>
     /// Called on clients when disconnected from a server.
     /// <para>This is called on the client when it disconnects from the server. Override this function to decide what happens when the client disconnects.</para>
     /// </summary>
-    public override void OnClientDisconnect() { Log.input("Disconnected from server."); }
+    public override void OnClientDisconnect() { Log.cinput("red", "Disconnected from server."); }
 
     /// <summary>
     /// Called on clients when a servers tells the client it is no longer ready.
