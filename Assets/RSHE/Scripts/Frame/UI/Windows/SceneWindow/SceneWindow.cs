@@ -4,10 +4,8 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneWindow : WinLocalBase, IWin
+public class SceneWindow : WinBase
 {
-    public override EWindowType windowType => EWindowType.SceneWindow;
-
     // 场景一切换
     Button SceneButton_1;
 

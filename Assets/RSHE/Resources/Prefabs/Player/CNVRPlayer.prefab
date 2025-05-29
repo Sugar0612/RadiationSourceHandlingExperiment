@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3921725938020594998}
   - component: {fileID: 6489022855756773459}
   - component: {fileID: 8356053382437077450}
+  - component: {fileID: -2337407976546325056}
   m_Layer: 0
   m_Name: CNVRPlayer
   m_TagString: Trigger
@@ -276,6 +277,21 @@ MonoBehaviour:
   m_LHandModel: {fileID: 465529162033633478}
   m_RHandModel: {fileID: 4938878741849134738}
   textPlayerName: {fileID: 3069002722878179239}
+--- !u!114 &-2337407976546325056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734799815635286640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d03211acc4312142b1f768af2670268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!1 &2319475652799005014
 GameObject:
   m_ObjectHideFlags: 0

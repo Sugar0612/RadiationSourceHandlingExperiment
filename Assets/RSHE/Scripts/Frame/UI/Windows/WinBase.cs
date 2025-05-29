@@ -1,9 +1,9 @@
 using Mirror;
 using UnityEngine;
 
-public abstract class WinNetBase : NetworkBehaviour, IWin
+public class WinBase : MonoBehaviour
 {
-    public abstract EWindowType windowType { get; }
+    public EWindowType windowType  = EWindowType.None;
 
     public virtual void Awake()
     {

@@ -3,10 +3,8 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainWindow : WinLocalBase, IWin
+public class MainWindow : WinBase
 {
-    public override EWindowType windowType => EWindowType.MainWindow;
-
     public GameObject vrPanel;
     public GameObject normalPanel;
 
@@ -35,6 +33,7 @@ public class MainWindow : WinLocalBase, IWin
 
     public void OnClickHostButton()
     {
+        Log.cinput("green", "Host Button Clicked");
         NetworkManager.singleton.StartHost();
         StaticGlobalVar.networkDiscovery.AdvertiseServer();
 

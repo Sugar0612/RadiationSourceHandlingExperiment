@@ -4,10 +4,8 @@ using Telepathy;
 using TMPro;
 using UnityEngine;
 
-public class UserWindow : WinNetBase, IWin
+public class UserWindow : WinBase
 {
-    public override EWindowType windowType => EWindowType.UserWindow;
-
     // 人数文本
     public TMP_Text personCountText;
 
@@ -38,11 +36,11 @@ public class UserWindow : WinNetBase, IWin
         personCountText.text = personCount.ToString();
     }
 
-    public void UpdateMessageOfUser(string message)
-    {
-        Log.cinput("red", $"UpdateMessageOfUser: {message}");
-        messageText.text += message + "\n";
-    }
+    // public void UpdateMessageOfUser(string message)
+    // {
+    //     Log.cinput("red", $"UpdateMessageOfUser: {message}");
+    //     messageText.text += message + "\n";
+    // }
 
     // [Command(requiresAuthority = false)]
     // public void UpdateMessageOfUser(string _, string New)

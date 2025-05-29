@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
         return instance;
     }
 
-    List<IWin> windows = new List<IWin>();
+    List<WinBase> windows = new List<WinBase>();
 
     void Awake()
     {
@@ -31,13 +31,13 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
+        // ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
 
-        if (StaticGlobalVar.isPicoDevice == 0)
-        {
-            MainWindow mainWindow = GetWindow<MainWindow>(EWindowType.MainWindow) as MainWindow;
-            mainWindow.OnClickHostButton();
-        }
+        // if (StaticGlobalVar.isPicoDevice == 0)
+        // {
+        //     MainWindow mainWindow = GetWindow<MainWindow>(EWindowType.MainWindow) as MainWindow;
+        //     mainWindow.OnClickHostButton();
+        // }
     }
 
     public void HidePanel()
@@ -45,7 +45,7 @@ public class UIController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Register(IWin window)
+    public void Register(WinBase window)
     {
         if (windows.Contains(window))
         {
@@ -56,7 +56,7 @@ public class UIController : MonoBehaviour
         windows.Add(window);
     }
 
-    public void Unregister(IWin window)
+    public void Unregister(WinBase window)
     {
         if (!windows.Contains(window))
         {
@@ -67,7 +67,7 @@ public class UIController : MonoBehaviour
         windows.Remove(window);
     }
 
-    public IWin GetWindow<T>(EWindowType type) where T : IWin
+    public WinBase GetWindow<T>(EWindowType type) where T : WinBase
     {
         //Log.cinput("red", $"windows count: {windows.Count}, type: {type}");
         foreach (var window in windows)
@@ -88,6 +88,7 @@ public class UIController : MonoBehaviour
         {
             bool shouldShow = (types & win.windowType) == win.windowType;
             win.SetActive(shouldShow);
+            Log.cinput("red", $"UIController: ShowWindows: {win.name} active: {shouldShow}");
         }
     }
 }
