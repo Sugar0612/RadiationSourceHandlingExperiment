@@ -1,5 +1,6 @@
 
 using Mirror;
+using System.Collections.Generic;
 using Telepathy;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,12 @@ public class UserWindow : WinBase
 
     // [SyncVar(hook = nameof(UpdateMessageOfUser))]
     // [HideInInspector] public string messageTextStr = "";
+
+    public UserItem userItemTemp;
+
+    public Transform userItemParent;
+
+    List<UserItem> userItemList = new List<UserItem>();
 
     public override void Awake()
     {
@@ -36,19 +43,9 @@ public class UserWindow : WinBase
         personCountText.text = personCount.ToString();
     }
 
-    // public void UpdateMessageOfUser(string message)
-    // {
-    //     Log.cinput("red", $"UpdateMessageOfUser: {message}");
-    //     messageText.text += message + "\n";
-    // }
+    // TODO...
+    public void Init(string deviceID)
+    {
 
-    // [Command(requiresAuthority = false)]
-    // public void UpdateMessageOfUser(string _, string New)
-    // {
-    //     if (isServer)
-    //     {
-    //         Log.cinput("red", $"UpdateMessageOfUser: {New}");
-    //         messageText.text += New + "\n";
-    //     }
-    // }
+    }
 }

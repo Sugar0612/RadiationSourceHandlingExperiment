@@ -22,6 +22,7 @@ public class ServerDisplay : MonoBehaviour
         {
             Log.cinput("green", "ServerDisplay: NetworkServer is active, registering handler");
             NetworkServer.RegisterHandler<MirrorMsg>(OnDeviceIDReceived);
+            //NetworkServer.UnregisterHandler<MirrorMsg>();
         }
     }
 

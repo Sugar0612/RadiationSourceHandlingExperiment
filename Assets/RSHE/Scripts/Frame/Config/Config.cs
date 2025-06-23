@@ -36,6 +36,9 @@ public class Config : MonoBehaviour
     [HideInInspector]
     public ProjectConfig projectConfig = new ProjectConfig();
 
+    [HideInInspector]
+    public List<UserConfig> userConfig = new List<UserConfig>();
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -48,7 +51,8 @@ public class Config : MonoBehaviour
     {
         // 读取配置文件
         instance.projectConfig = await ConfigHelper.SetConfigObject<ProjectConfig>(FilePath.ProjectConfigPath);
-        // Debug.Log("ProjectConfig: " + JsonMapper.ToJson(instance.projectConfig));
+
+        // instance.userConfig = await ConfigHelper.SetConfigObject<List<UserConfig>>(FilePath.UserConfigPath);
 
         // 设置初始化完毕
         _isInit = true;

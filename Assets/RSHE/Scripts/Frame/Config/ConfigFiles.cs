@@ -5,3 +5,9 @@ public class ProjectConfig
     public string GameVersion = "1.0.0";
     public int PicoDevice = 0;
 }
+
+public class UserConfig
+{
+    public string deviceID = "";
+    public int identity = -1;
+}
