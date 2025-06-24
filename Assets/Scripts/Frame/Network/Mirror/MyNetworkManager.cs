@@ -229,7 +229,10 @@ public class MyNetworkManager : NetworkManager
     /// Called on clients when disconnected from a server.
     /// <para>This is called on the client when it disconnects from the server. Override this function to decide what happens when the client disconnects.</para>
     /// </summary>
-    public override void OnClientDisconnect() { Log.cinput("red", "Disconnected from server."); }
+    public override void OnClientDisconnect() 
+    {
+        Log.cinput("red", "Disconnected from server.");
+    }
 
     /// <summary>
     /// Called on clients when a servers tells the client it is no longer ready.

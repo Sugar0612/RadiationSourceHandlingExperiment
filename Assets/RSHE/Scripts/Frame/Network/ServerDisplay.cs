@@ -9,7 +9,7 @@ public class ServerDisplay : MonoBehaviour
     public TMP_Text deviceIDText; // 在Inspector中拖拽赋值
 
     void Start()
-    { 
+    {
         // UIController.Get().ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
         if (StaticGlobalVar.isPicoDevice == 0)
         {
@@ -17,24 +17,31 @@ public class ServerDisplay : MonoBehaviour
             mainWindow.OnClickHostButton();
         }
 
-        Log.cinput("green", "ServerDisplay: Start called");
         if (NetworkServer.active)
         {
             Log.cinput("green", "ServerDisplay: NetworkServer is active, registering handler");
-            NetworkServer.RegisterHandler<MirrorMsg>(OnDeviceIDReceived);
-            //NetworkServer.UnregisterHandler<MirrorMsg>();
+            NetworkServer.RegisterHandler<MirrorConnMsg>(OnCliConnected);
+            NetworkServer.RegisterHandler<MirrorDisConnMsg>(OnCliDisConnected);
         }
     }
 
-    // 服务器收到设备ID时的处理
-    private void OnDeviceIDReceived(NetworkConnection conn, MirrorMsg msg)
-    {
-        Log.cinput("green", $"ServerDisplay: Received device ID from client: {msg.deviceID}");
-        // 在主线程更新UI
-        UnityMainThreadDispatcher.Instance().Enqueue(() => 
+    private void OnCliConnected(NetworkConnection conn, MirrorConnMsg msg)
         {
-            Log.cinput("green", "ServerDisplay: Updating deviceIDText");
+        Log.cinput("yellow", $"Client connected: {msg.deviceID}");
+        // 在主线程更新UI
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
             deviceIDText.text += $"Client connected!\nDevice ID: {msg.deviceID}\n";
+        });
+    }
+
+    private void OnCliDisConnected(NetworkConnection conn, MirrorDisConnMsg msg)
+    {
+        Log.cinput("yellow", $"Client Disconnected: {msg.deviceID}");
+        // 在主线程更新UI
+        UnityMainThreadDispatcher.Instance().Enqueue(() =>
+        {
+            deviceIDText.text += $"Client dis connected!\nDevice ID: {msg.deviceID}\n";
         });
     }
 }

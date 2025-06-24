@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public struct  MirrorMsg : NetworkMessage
+public struct  MirrorConnMsg : NetworkMessage
+{
+    public string deviceID;
+}
+
+public struct MirrorDisConnMsg : NetworkMessage
 {
     public string deviceID;
 }

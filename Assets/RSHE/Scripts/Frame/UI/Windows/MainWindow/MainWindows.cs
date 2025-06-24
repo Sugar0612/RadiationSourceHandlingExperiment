@@ -28,6 +28,7 @@ public class MainWindow : WinBase
         if (StaticGlobalVar.isPicoDevice == 0)
         {
             gameObject.TryFindAndSetStatus("HostButton", true, out hostButton);
+            //OnClickHostButton();
         }
     }
 

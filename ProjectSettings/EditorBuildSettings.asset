@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/RSHE/Scene/Office.unity
     guid: 2d5e1e8bd6161a64891bab806c81199c
   - enabled: 1
-    path: Assets/RSHE/Scene/GameScene/Scene_1.unity
-    guid: b6d01971c7ad8714aa6add5caccd9e66
+    path: Assets/RSHE/Scene/GameScene/Scene_3.unity
+    guid: 56fc8b24bbb90934096b3e200568335b
   - enabled: 1
     path: Assets/RSHE/Scene/GameScene/Scene_2.unity
     guid: e597a12bb4f04f5498af9eeee25ad6ce
   - enabled: 1
-    path: Assets/RSHE/Scene/GameScene/Scene_3.unity
-    guid: 56fc8b24bbb90934096b3e200568335b
+    path: Assets/RSHE/Scene/GameScene/Scene_1.unity
+    guid: b6d01971c7ad8714aa6add5caccd9e66
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 888d48b45cc3246d29397bcf04d21676, type: 2}
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 509c58b5a62187d468227a398dd03fb0, type: 2}

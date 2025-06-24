@@ -9,7 +9,6 @@ public class ClientSender : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            Log.cinput("green", "ClientSender: OnStartLocalPlayer called");
             SendDeviceIDToServer();
         }
     }
@@ -19,7 +18,7 @@ public class ClientSender : NetworkBehaviour
         Log.cinput("green", "ClientSender: Sending device ID to server");
         string deviceID = SystemInfo.deviceUniqueIdentifier;
         
-        MirrorMsg msg = new MirrorMsg
+        MirrorConnMsg msg = new MirrorConnMsg
         {
             deviceID = deviceID
         };

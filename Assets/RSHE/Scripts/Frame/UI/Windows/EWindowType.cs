@@ -6,4 +6,5 @@ public enum EWindowType
     SceneWindow = 1 << 1,
     UserWindow = 1 << 2,
     VRJoinWindow = 1 << 3,
+    VRExitWindow = 1 << 4,
 }

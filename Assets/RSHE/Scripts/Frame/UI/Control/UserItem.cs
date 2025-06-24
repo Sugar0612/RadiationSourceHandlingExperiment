@@ -9,15 +9,18 @@ public class UserItem : MonoBehaviour
 
     [SerializeField] TMP_Text stateTx;
 
-    public void Init(int _indentity, int _state) 
+    [HideInInspector] public UserConfig userCfg = new UserConfig();
+
+    public void Init(UserConfig _userCfg) 
     {
-        identityTx.text = ((EIdentity)_indentity).ToString();
-        stateTx.text = m_UserStateDic[(EUserState)_state];
+        userCfg = _userCfg;
+        identityTx.text = ((EIdentity)userCfg.identity).ToString();
+        stateTx.text = m_UserStateDic[0];
     }
 
     public void SetState(int _state)
     {
-        stateTx.text = m_UserStateDic[(EUserState)_state]; ;
+        stateTx.text = m_UserStateDic[(EUserState)_state];
     }
 
     public enum EIdentity
