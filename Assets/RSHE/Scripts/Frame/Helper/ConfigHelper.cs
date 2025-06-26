@@ -1,11 +1,21 @@
-using Cysharp.Threading.Tasks;
+using System;
+using System.Collections;
 using LitJson;
+using UnityEngine;
 
 public class ConfigHelper
 {
-    public static async UniTask<T> SetConfigObject<T>(string filePath)
+    public static IEnumerator SetConfigObject(MonoBehaviour runner, string filePath, Action<string> onLoaded = null)
     {
-        string SettingJson = await FileHelper.DownLoadTextFromServer(filePath);
-        return JsonMapper.ToObject<T>(SettingJson);
+        string settingJson = null;
+        yield return  runner.StartCoroutine(FileHelper.DownLoadTextFromServer(filePath, content => settingJson = content));
+
+        if (string.IsNullOrEmpty(settingJson))
+        {
+            yield break;
+        }
+
+        //T config = JsonMapper.ToObject<T>(settingJson);
+        onLoaded?.Invoke(settingJson);
     }
 }

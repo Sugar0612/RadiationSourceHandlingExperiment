@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class ServerDisplay : MonoBehaviour
 {
-    public TMP_Text deviceIDText; // 在Inspector中拖拽赋值
+    public TMP_Text LogText; // 在Inspector中拖拽赋值
 
     void Start()
     {
-        // UIController.Get().ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
-        if (StaticGlobalVar.isPicoDevice == 0)
+        if (!Config.Get().PicoDevice)
         {
             MainWindow mainWindow = UIController.Get().GetWindow<MainWindow>(EWindowType.MainWindow) as MainWindow;
             mainWindow.OnClickHostButton();
@@ -19,7 +18,8 @@ public class ServerDisplay : MonoBehaviour
 
         if (NetworkServer.active)
         {
-            Log.cinput("green", "ServerDisplay: NetworkServer is active, registering handler");
+            // Log.cinput("green", "ServerDisplay: NetworkServer is active, registering handler");
+
             NetworkServer.RegisterHandler<MirrorConnMsg>(OnCliConnected);
             NetworkServer.RegisterHandler<MirrorDisConnMsg>(OnCliDisConnected);
         }
@@ -27,21 +27,23 @@ public class ServerDisplay : MonoBehaviour
 
     private void OnCliConnected(NetworkConnection conn, MirrorConnMsg msg)
         {
-        Log.cinput("yellow", $"Client connected: {msg.deviceID}");
-        // 在主线程更新UI
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
-            deviceIDText.text += $"Client connected!\nDevice ID: {msg.deviceID}\n";
+            LogText.text += $"Client connected! Device ID: {msg.deviceID}\n";
+
+            UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+            userWin.SetItemState(msg.deviceID, UserItem.EUserState.Online);
         });
     }
 
     private void OnCliDisConnected(NetworkConnection conn, MirrorDisConnMsg msg)
     {
-        Log.cinput("yellow", $"Client Disconnected: {msg.deviceID}");
-        // 在主线程更新UI
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
-            deviceIDText.text += $"Client dis connected!\nDevice ID: {msg.deviceID}\n";
+            LogText.text += $"Client Disconnected! Device ID: {msg.deviceID}\n";
+
+            UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+            userWin.SetItemState(msg.deviceID, UserItem.EUserState.Offline);
         });
     }
 }

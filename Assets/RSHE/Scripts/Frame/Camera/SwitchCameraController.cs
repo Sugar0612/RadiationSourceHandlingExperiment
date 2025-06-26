@@ -26,12 +26,12 @@ public class SwitchCameraController : MonoBehaviour
 
     void Awake()
     {
-    
+
     }
 
     void Start()
     {
-        if (Config.Get().projectConfig.PicoDevice == 0)
+        if (!Config.Get().PicoDevice)
         {
             SwitchToCamera(CameraTag.Manager);
         }

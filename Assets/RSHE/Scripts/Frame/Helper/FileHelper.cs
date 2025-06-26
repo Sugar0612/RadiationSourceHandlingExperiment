@@ -1,8 +1,6 @@
 using System.IO;
 using UnityEngine.Networking;
-using Cysharp.Threading.Tasks;
-using System;
-using System.Threading.Tasks;
+using System.Collections;
 
 public class FileHelper
 {
@@ -19,15 +17,35 @@ public class FileHelper
     // }
 
 
-    public static async UniTask<string> DownLoadTextFromServer(string path_url)
+    public static IEnumerator DownLoadTextFromServer(string url, System.Action<string> onSuccess)
     {
-        UnityWebRequest req = UnityWebRequest.Get(path_url);
-        await req.SendWebRequest();
+        using (UnityWebRequest req = UnityWebRequest.Get(url))
+        {
+            yield return req.SendWebRequest();
 
-        string content = req.downloadHandler.text;
+#if UNITY_2020_1_OR_NEWER
+            if (req.result == UnityWebRequest.Result.ConnectionError ||
+                req.result == UnityWebRequest.Result.ProtocolError)
+#else
+            if (req.isNetworkError || req.isHttpError)
+#endif
+            {
+                yield break;
+            }
 
-        return content;
+            onSuccess?.Invoke(req.downloadHandler.text);
+        }
     }
+
+    //public static async UniTask<string> DownLoadTextFromServer(string path_url)
+    //{
+    //    UnityWebRequest req = UnityWebRequest.Get(path_url);
+    //    await req.SendWebRequest();
+
+    //    string content = req.downloadHandler.text;
+
+    //    return content;
+    //}
 
     public static void WriteFile(string filePath, string content)
     {

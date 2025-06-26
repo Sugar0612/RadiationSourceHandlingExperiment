@@ -12,7 +12,7 @@ public class VRJoinWindow : WinBase
     {
         base.Start();
 
-        if (StaticGlobalVar.isPicoDevice == 1)
+        if (Config.Get().PicoDevice)
             OnClickJoinButton();
     }
 

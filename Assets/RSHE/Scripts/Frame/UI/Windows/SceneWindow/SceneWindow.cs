@@ -36,7 +36,7 @@ public class SceneWindow : WinBase
     {
         base.Start();
 
-        if (Config.Get().projectConfig.PicoDevice == 0)
+        if (!Config.Get().PicoDevice)
         {
             gameObject.TryFindAndSetStatus("SceneButton_1", true, out SceneButton_1);
             gameObject.TryFindAndSetStatus("SceneButton_2", true, out SceneButton_2);

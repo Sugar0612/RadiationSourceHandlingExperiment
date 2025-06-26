@@ -18,9 +18,9 @@ public class UserItem : MonoBehaviour
         stateTx.text = m_UserStateDic[0];
     }
 
-    public void SetState(int _state)
+    public void SetState(EUserState _state)
     {
-        stateTx.text = m_UserStateDic[(EUserState)_state];
+        stateTx.text = m_UserStateDic[_state];
     }
 
     public enum EIdentity

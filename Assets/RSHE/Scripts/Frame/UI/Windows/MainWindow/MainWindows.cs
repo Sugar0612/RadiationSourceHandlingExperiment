@@ -22,10 +22,10 @@ public class MainWindow : WinBase
     {
         base.Start();
         
-        vrPanel.SetActive(StaticGlobalVar.isPicoDevice == 1);
-        normalPanel.SetActive(StaticGlobalVar.isPicoDevice == 0);
+        vrPanel.SetActive(Config.Get().PicoDevice == true);
+        normalPanel.SetActive(Config.Get().PicoDevice == false);
 
-        if (StaticGlobalVar.isPicoDevice == 0)
+        if (Config.Get().PicoDevice == false)
         {
             gameObject.TryFindAndSetStatus("HostButton", true, out hostButton);
             //OnClickHostButton();
