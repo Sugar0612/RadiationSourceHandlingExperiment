@@ -19,4 +19,9 @@ public class WinBase : MonoBehaviour
     {
         gameObject.SetActive(active);
     }
+
+    private void OnDestroy()
+    {
+        UIController.Get().Unregister(this);
+    }
 }

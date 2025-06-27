@@ -22,22 +22,24 @@ public class UIController : MonoBehaviour
         return instance;
     }
 
-    List<WinBase> windows = new List<WinBase>();
+    public List<WinBase> windows = new List<WinBase>();
 
     void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
         DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        // ShowWindows((StaticGlobalVar.isPicoDevice == 0) ? EWindowType.MainWindow : EWindowType.VRJoinWindow);
 
-        // if (StaticGlobalVar.isPicoDevice == 0)
-        // {
-        //     MainWindow mainWindow = GetWindow<MainWindow>(EWindowType.MainWindow) as MainWindow;
-        //     mainWindow.OnClickHostButton();
-        // }
     }
 
     public void HidePanel()
@@ -47,7 +49,7 @@ public class UIController : MonoBehaviour
 
     public void Register(WinBase window)
     {
-        if (windows.Contains(window))
+        if (windows.Find(win => window.windowType == win.windowType))
         {
             //Log.cinput("red", "UIController: Register: " + window.name + " already registered");
             return;
@@ -58,9 +60,9 @@ public class UIController : MonoBehaviour
 
     public void Unregister(WinBase window)
     {
-        if (!windows.Contains(window))
+        if (!windows.Find(win => window.windowType == win.windowType))
         {
-            //Log.cinput("red", "UIController: Unregister: " + window.name + " not registered");
+            Log.cinput("red", "UIController: Unregister: " + window.name + " not registered");
             return;
         }
 
@@ -88,7 +90,7 @@ public class UIController : MonoBehaviour
         {
             bool shouldShow = (types & win.windowType) == win.windowType;
             win.SetActive(shouldShow);
-            Log.cinput("red", $"UIController: ShowWindows: {win.name} active: {shouldShow}");
+            // Log.cinput("red", $"UIController: ShowWindows: {win.name} active: {shouldShow}");
         }
     }
 }

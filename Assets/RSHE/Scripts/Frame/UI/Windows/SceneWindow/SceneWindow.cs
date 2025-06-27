@@ -50,16 +50,16 @@ public class SceneWindow : WinBase
 
     public void OnClickSceneButton_1()
     {
-        NetworkManager.singleton.ServerChangeScene(scene_1);
+        Game.Get().SwitchGameScene(scene_1);
     }
 
     public void OnClickSceneButton_2()
     {
-        NetworkManager.singleton.ServerChangeScene(scene_2);
+        Game.Get().SwitchGameScene(scene_2);
     }
     
     public void OnClickSceneButton_3()
     {
-        NetworkManager.singleton.ServerChangeScene(scene_3);
+        Game.Get().SwitchGameScene(scene_3);
     }
 }

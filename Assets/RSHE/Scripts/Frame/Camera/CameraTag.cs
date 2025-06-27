@@ -5,7 +5,14 @@ using UnityEngine;
 public enum CameraTag
 {
     None,
+
     Manager,
+
     Player,
-    Witness,
+
+    WitnessFront,
+
+    WitnessLeftSide,
+
+    WitnessRightSide
 }

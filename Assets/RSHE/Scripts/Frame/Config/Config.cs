@@ -17,11 +17,6 @@ public partial class Config : MonoBehaviour
         return instance;
     }
 
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     private IEnumerator GetObject<T>(Action<T> callback, string filePath)
     {
         string jsonContent = null;

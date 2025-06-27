@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using LitJson;
+using Mirror;
 using Pico.Platform.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,6 +25,12 @@ public partial class Config : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+
         StartCoroutine(InitializeConfig());
     }
 }

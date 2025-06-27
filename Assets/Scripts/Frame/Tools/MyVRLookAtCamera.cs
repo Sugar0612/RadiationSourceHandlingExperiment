@@ -32,6 +32,7 @@ public class MyVRLookAtCamera : MonoBehaviour
             else { }
         }
         else
-            _mainCameraTrans = Camera.main.transform;
+            _mainCameraTrans 
+                = Camera.main.transform;
     }
 }
