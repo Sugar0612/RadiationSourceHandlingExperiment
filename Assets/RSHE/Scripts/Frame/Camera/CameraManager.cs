@@ -18,25 +18,25 @@ public class CameraManager : MonoBehaviour
             instance = FindObjectOfType<CameraManager>();
             if (instance == null)
             {
-                GameObject obj = new GameObject("SwitchCameraController");
+                GameObject obj = new GameObject("CameraManager");
                 instance = obj.AddComponent<CameraManager>();
             }
-            DontDestroyOnLoad(instance);    
+            DontDestroyOnLoad(instance);
         }
         return instance;
     }
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if (instance != null)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
 
-        instance = this;
+        //instance = this;
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     public void Init()

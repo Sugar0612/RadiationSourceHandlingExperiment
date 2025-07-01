@@ -588,7 +588,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 1734799815635286640, guid: a9c519b9fa9228045bf5f613030037e7, type: 3}
+  playerPrefab: {fileID: 7623384365488413754, guid: 9b1b47d61b1b1c649b9dcc4958684678, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
@@ -4152,7 +4152,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 134957718}
   m_HandleRect: {fileID: 134957717}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

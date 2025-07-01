@@ -6,6 +6,7 @@ public class CameraLuncher : MonoBehaviour
 {
     private void Awake()
     {
+        Log.cinput("purple", "================= CameraLuncher Awake.");
         CameraManager.Get().Init();
     }
 
