@@ -22,6 +22,7 @@ public class WinBase : MonoBehaviour
 
     private void OnDestroy()
     {
-        UIController.Get().Unregister(this);
+        if(UIController.Get() != null)
+            UIController.Get().Unregister(this);
     }
 }

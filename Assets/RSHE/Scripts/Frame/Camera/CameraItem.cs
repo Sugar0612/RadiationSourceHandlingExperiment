@@ -16,6 +16,8 @@ public class CameraItem : MonoBehaviour
     private void OnDestroy()
     {
         // Log.cinput("yellow", $"{cameraTag.ToString()} OnDestroy!");
-        CameraManager.Get().Remove(this);
+
+        if (!CameraManager.InstanceIsNull())
+            CameraManager.Get().Remove(this);
     }
 }

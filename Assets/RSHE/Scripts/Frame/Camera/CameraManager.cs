@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,21 +10,21 @@ public class CameraManager : MonoBehaviour
 {
     public List<CameraItem> cameraList = new List<CameraItem>();
 
-    static CameraManager instance;
+    static CameraManager m_Instance;
 
     public static CameraManager Get()
     {
-        if (instance == null)
+        if (m_Instance == null)
         {
-            instance = FindObjectOfType<CameraManager>();
-            if (instance == null)
+            m_Instance = FindObjectOfType<CameraManager>();
+            if (m_Instance == null)
             {
                 GameObject obj = new GameObject("CameraManager");
-                instance = obj.AddComponent<CameraManager>();
+                m_Instance = obj.AddComponent<CameraManager>();
             }
-            DontDestroyOnLoad(instance);
+            DontDestroyOnLoad(m_Instance);
         }
-        return instance;
+        return m_Instance;
     }
 
     void Awake()
@@ -105,4 +106,6 @@ public class CameraManager : MonoBehaviour
             cameraList.Remove(item);
         }
     }
+
+    public static bool InstanceIsNull() => m_Instance == null;
 }

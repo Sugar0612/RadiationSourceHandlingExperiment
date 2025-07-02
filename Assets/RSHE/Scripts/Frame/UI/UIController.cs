@@ -6,33 +6,33 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    static UIController instance;
+    static UIController m_Instance;
 
     public static UIController Get()
     {
-        if (instance == null)
+        if (m_Instance == null)
         {
-            instance = FindObjectOfType<UIController>();
-            if (instance == null)
+            m_Instance = FindObjectOfType<UIController>();
+            if (m_Instance == null)
             {
                 GameObject obj = new GameObject("UIController");
-                instance = obj.AddComponent<UIController>();
+                m_Instance = obj.AddComponent<UIController>();
             }
         }
-        return instance;
+        return m_Instance;
     }
 
     public List<WinBase> windows = new List<WinBase>();
 
     void Awake()
     {
-        if (instance != null)
+        if (m_Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        m_Instance = this;
 
         DontDestroyOnLoad(gameObject);
     }
