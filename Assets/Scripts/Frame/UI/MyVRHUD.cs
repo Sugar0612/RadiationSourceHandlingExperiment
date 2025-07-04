@@ -53,6 +53,6 @@ public class MyVRHUD : MonoBehaviour
     /// <param name="content"></param>
     public void InputLog(string content)
     {
-       logText.text = content;
+        logText.text = content;
     }
 }

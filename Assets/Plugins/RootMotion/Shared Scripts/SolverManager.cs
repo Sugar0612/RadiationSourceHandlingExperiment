@@ -70,6 +70,7 @@ namespace RootMotion {
 		}
 
 		// Finds the first Animator/Animation up the hierarchy
+
 		private void FindAnimatorRecursive(Transform t, bool findInChildren) {
 			if (isAnimated) return;
 

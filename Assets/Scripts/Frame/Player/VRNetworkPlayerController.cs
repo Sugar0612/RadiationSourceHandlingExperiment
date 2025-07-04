@@ -14,6 +14,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// <summary>
     /// Right Hand Transform.
     /// </summary>
+    [HideInInspector]
     public Transform rHand
     {
         get => m_RHand;
@@ -26,6 +27,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// <summary>
     /// Left Hand Transform.
     /// </summary>
+    [HideInInspector]
     public Transform lHand
     {
         get => m_LHand;
@@ -38,6 +40,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// <summary>
     /// Head Transform.
     /// </summary>
+    [HideInInspector]
     public Transform head
     {
         get => m_Head;
@@ -134,14 +137,14 @@ public class VRNetworkPlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         InitObject();
-        m_HeadModel.SetActive(false);
-        m_LHandModel.SetActive(false);
-        m_RHandModel.SetActive(false);
+        //m_HeadModel.SetActive(false);
+        //m_LHandModel.SetActive(false);
+        //m_RHandModel.SetActive(false);
         if (VRStaticVariables.playerName != "")
         {
             CmdSetupName(VRStaticVariables.playerName + netId);
         }
-        else 
+        else
         {
             CmdSetupName("Player" + netId);
         }
@@ -159,10 +162,10 @@ public class VRNetworkPlayerController : NetworkBehaviour
             m_VRHUD = (MyVRHUD)FindObjectOfType(typeof(MyVRHUD));
 
         if (m_VRPlayerRig != null)
-        {    
+        {
             m_VRPlayerRig.vrPlayerController = this;
         }
-        
+
         if (m_VRHUD != null)
         {
             m_VRHUD.vrPlayerController = this;

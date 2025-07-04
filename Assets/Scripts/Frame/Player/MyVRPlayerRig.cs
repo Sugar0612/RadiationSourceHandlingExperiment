@@ -59,9 +59,26 @@ public class MyVRPlayerRig : MonoBehaviour
         get => m_VRPlayerController;
         set => m_VRPlayerController = value;
     }
-    
-    /// <summary> ���볡��/�˳�����ʱ�Ľ���Ч�� </summary>
+
+    VRPlayerController m_VRPlayerCtrl;
+
+    public VRPlayerController vrPlayerCtrl
+    {
+        get => m_VRPlayerCtrl;
+        set => m_VRPlayerCtrl = value;
+    }
+
+    /// <summary> 渐变效果 </summary>
     private VRScreenFade vrScreenFade;
+
+    [Space]
+    [Header("VR IK")]
+
+    public Transform ikHeadTarget;
+
+    public Transform ikRightHandTarget;
+
+    public Transform ikLeftHandTarget;
 
     public void Awake()
     {
@@ -88,10 +105,20 @@ public class MyVRPlayerRig : MonoBehaviour
             vrPlayerController.rHand.position = rHand.transform.position;
             vrPlayerController.rHand.rotation = rHand.transform.rotation;
         }
+
+        if (vrPlayerCtrl && vrPlayerCtrl.ik)
+        {
+            vrPlayerCtrl.ik.solver.spine.headTarget = ikHeadTarget;
+            vrPlayerCtrl.ik.solver.leftArm.target = ikLeftHandTarget;
+            vrPlayerCtrl.ik.solver.rightArm.target = ikRightHandTarget;
+
+            // TODO..
+            // vrPlayerCtrl.isInitIK = true;
+        }
     }
 
     void Update()
     {
-        PlayerModleSync();
+       PlayerModleSync();
     }
 }
