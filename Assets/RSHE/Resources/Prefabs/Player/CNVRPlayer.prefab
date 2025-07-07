@@ -148,7 +148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734799815635286640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
   m_Name: 
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734799815635286640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
   m_Name: 
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734799815635286640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
   m_Name: 
@@ -301,6 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293172812215009720}
+  - component: {fileID: 3412235097945808585}
   m_Layer: 0
   m_Name: HeadModel
   m_TagString: Untagged
@@ -326,6 +327,39 @@ Transform:
   - {fileID: 9011302431318613193}
   m_Father: {fileID: 41987923829919899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3412235097945808585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319475652799005014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 7293172812215009720}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &4817858945057539092
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +759,10 @@ PrefabInstance:
     - {fileID: 1641038862298055217, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
     - {fileID: 1251372816237616134, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3741874462076707703, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8592778261867431498}
   m_SourcePrefab: {fileID: 100100000, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
 --- !u!1 &465529162033633478 stripped
 GameObject:
@@ -737,6 +774,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3741874462076707696, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
   m_PrefabInstance: {fileID: 3266664097668416819}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2213602019732383300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3741874462076707703, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
+  m_PrefabInstance: {fileID: 3266664097668416819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8592778261867431498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213602019732383300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 2213602019732383299}
+  clientAuthority: 1
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1001 &3959266346575737337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,13 +884,54 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2305010794356864655, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8129811722673939051, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5830490324817755798}
   m_SourcePrefab: {fileID: 100100000, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
 --- !u!1 &4938878741849134738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8248430471133489003, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
   m_PrefabInstance: {fileID: 3959266346575737337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5053258082705429394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8129811722673939051, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
+  m_PrefabInstance: {fileID: 3959266346575737337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5830490324817755798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053258082705429394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 5053258082705429395}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!4 &5053258082705429395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8129811722673939050, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
