@@ -86,11 +86,6 @@ public class VRNetworkPlayerController : NetworkBehaviour
     private MyVRPlayerRig m_VRPlayerRig;
 
     /// <summary>
-    /// VR ui component.
-    /// </summary>
-    private MyVRHUD m_VRHUD;
-
-    /// <summary>
     /// Player Name ui component in Scene.
     /// </summary>
     public TMP_Text textPlayerName;
@@ -158,17 +153,9 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (m_VRPlayerRig == null)
             m_VRPlayerRig = (MyVRPlayerRig)FindObjectOfType(typeof(MyVRPlayerRig));
 
-        if (m_VRHUD == null)
-            m_VRHUD = (MyVRHUD)FindObjectOfType(typeof(MyVRHUD));
-
         if (m_VRPlayerRig != null)
         {
             m_VRPlayerRig.vrPlayerController = this;
-        }
-
-        if (m_VRHUD != null)
-        {
-            m_VRHUD.vrPlayerController = this;
         }
     }
 

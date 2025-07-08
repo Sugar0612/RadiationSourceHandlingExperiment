@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Mirror;
 using Mirror.Examples.Basic;
 using RootMotion.FinalIK;
@@ -15,15 +16,7 @@ public class VRPlayerController : NetworkBehaviour
 
     [HideInInspector] public VRIK ik;
 
-    public bool isInitIK = false;
-
     MyVRPlayerRig playerRig;
-
-    public Transform headTarget;
-
-    public Transform leftHandTarget;
-
-    public Transform rightHandTarget;
 
     public GameObject humanModel;
 
@@ -37,6 +30,7 @@ public class VRPlayerController : NetworkBehaviour
 
     private void Start()
     {
+        Log.cinput("yellow", "@@@@@@@@@@@@@@@@@@@@@@ VRPlayerController Start.");
         ik = GetComponent<VRIK>();
 
         if (!isLocalPlayer && ik)
@@ -60,13 +54,22 @@ public class VRPlayerController : NetworkBehaviour
             }
         }
 
-
         if (isServer && isLocalPlayer)
             gameObject.SetActive(false);
+
+        if (isLocalPlayer)
+        {
+            SkinnedMeshRenderer[] renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+            foreach (var renderer in renderers)
+            {
+                renderer.sharedMesh = null;
+            }
+        }
     }
 
     public override void OnStartLocalPlayer()
     {
+        Log.cinput("yellow", "@@@@@@@@@@@@@@@@@@@@@@ VRPlayerController OnStartLocalPlayer.");
         Initialized();
 
         // gameObject.SetActive(false);
@@ -75,6 +78,9 @@ public class VRPlayerController : NetworkBehaviour
             CmdSetupName(VRStaticVariables.playerName + netId);
         else
             CmdSetupName("Player" + netId);
+
+        // humanModel.SetActive(false);
+        // helmetModel.SetActive(false);
     }
 
     public void Initialized()
@@ -88,30 +94,6 @@ public class VRPlayerController : NetworkBehaviour
                 playerRig.vrPlayerCtrl = this;
             }
         }
-
-
-        //headTarget = playerRig.ikHeadTarget;
-        //leftHandTarget = playerRig.ikLeftHandTarget;
-        //rightHandTarget = playerRig.ikRightHandTarget;
-
-        //if (headTarget == null)
-        //    Log.cinput("yellow", "@@@@@@@@@@@@@@headTarget is NULL!");
-
-        //if (leftHandTarget == null)
-        //    Log.cinput("yellow", "@@@@@@@@@@@@@@leftHandTarget is NULL!");
-
-        //if (rightHandTarget == null)
-        //    Log.cinput("yellow", "@@@@@@@@@@@@@@rightHandTarget is NULL!");
-
-        // humanModel.SetActive(false);
-        // helmetModel.SetActive(false);
-
-        //if (ik)
-        //{
-        //    ik.solver.spine.headTarget = headTarget.transform;
-        //    ik.solver.rightArm.target = rightHandTarget.transform;
-        //    ik.solver.leftArm.target = leftHandTarget.transform;
-        //}
     }
 
     public void OnNameChangedHook(string _old, string _new)

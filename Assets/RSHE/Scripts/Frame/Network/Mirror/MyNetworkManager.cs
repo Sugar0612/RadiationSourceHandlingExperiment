@@ -16,9 +16,6 @@ public class MyNetworkManager : NetworkManager
     public static new MyNetworkManager singleton => (MyNetworkManager)NetworkManager.singleton;
     private Log _log;
 
-    /// <summary> Animation Manager </summary>
-    private AnimManager m_AnimManager;
-
     /// <summary>
     /// Runs on both Server and Client
     /// Networking is NOT initialized when this fires
@@ -26,9 +23,6 @@ public class MyNetworkManager : NetworkManager
     public override void Awake()
     {
         base.Awake();
-
-        if (m_AnimManager == null)
-            m_AnimManager = (AnimManager)FindObjectOfType(typeof(AnimManager));
     }
 
     // ��дNetworkManager��SceneLoaded����
@@ -148,14 +142,14 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerConnect(NetworkConnectionToClient conn) 
     {
-        MyVRStaticVariables.personCount += 1;
+        StaticGlobalVar.personCount += 1;
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        userWindow?.ChangedpersonCountText(MyVRStaticVariables.personCount);
+        userWindow?.ChangedpersonCountText(StaticGlobalVar.personCount);
         //userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!\n");
 
         //userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " connected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!");
-        Log.input($"A client connected! {MyVRStaticVariables.personCount}");
+        Log.input($"A client connected! {StaticGlobalVar.personCount}");
     }
 
     /// <summary>
@@ -185,15 +179,15 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
-        MyVRStaticVariables.personCount -= 1;
+        StaticGlobalVar.personCount -= 1;
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        userWindow?.ChangedpersonCountText(MyVRStaticVariables.personCount);
+        userWindow?.ChangedpersonCountText(StaticGlobalVar.personCount);
         //userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!\n");
         
         // userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " disconnected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!");
         base.OnServerDisconnect(conn);
-        Log.input($"A client disconnected! {MyVRStaticVariables.personCount}");
+        Log.input($"A client disconnected! {StaticGlobalVar.personCount}");
     }
 
     /// <summary>

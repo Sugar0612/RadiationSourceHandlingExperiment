@@ -1,4 +1,6 @@
 
+using Mirror;
+
 public static class StaticGlobalVar
 {
     // 是否是PICO设备
@@ -17,4 +19,10 @@ public static class StaticGlobalVar
             return UnityEngine.Object.FindObjectOfType<MyNetworkDiscovery>();
         }
     }
+
+    public static string playerName = "";
+
+    /// <summary> Join in PlayGame Player Number. </summary>
+    [SyncVar]
+    public static int personCount = -1;
 }
