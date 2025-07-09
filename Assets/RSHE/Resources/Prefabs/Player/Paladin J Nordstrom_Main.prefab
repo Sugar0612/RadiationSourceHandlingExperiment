@@ -1640,7 +1640,7 @@ MonoBehaviour:
   clientAuthority: 1
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   interpolatePosition: 1
   interpolateRotation: 1
   interpolateScale: 1

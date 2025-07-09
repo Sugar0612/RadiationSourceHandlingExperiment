@@ -5,6 +5,7 @@ using RootMotion.FinalIK;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class VRPlayerController : NetworkBehaviour
@@ -28,14 +29,14 @@ public class VRPlayerController : NetworkBehaviour
     [SyncVar(hook = nameof(OnNameChangedHook))]
     string playerName;
 
+    bool isInitScale = false;
+
     private void Start()
     {
-        Log.cinput("yellow", "@@@@@@@@@@@@@@@@@@@@@@ VRPlayerController Start.");
         ik = GetComponent<VRIK>();
 
         if (!isLocalPlayer && ik)
         {
-            Log.cinput("yellow", "@@@@@@@@@ !isLocalPlayer && ik.");
             ik.solver.spine.positionWeight = 0.0f;
             ik.solver.spine.rotationWeight = 0.0f;
 
@@ -69,7 +70,6 @@ public class VRPlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        Log.cinput("yellow", "@@@@@@@@@@@@@@@@@@@@@@ VRPlayerController OnStartLocalPlayer.");
         Initialized();
 
         // gameObject.SetActive(false);
@@ -78,9 +78,6 @@ public class VRPlayerController : NetworkBehaviour
             CmdSetupName(VRStaticVariables.playerName + netId);
         else
             CmdSetupName("Player" + netId);
-
-        // humanModel.SetActive(false);
-        // helmetModel.SetActive(false);
     }
 
     public void Initialized()
@@ -92,8 +89,39 @@ public class VRPlayerController : NetworkBehaviour
             {
                 // Log.cinput("yellow", "@@@@@@@@@ Initialized playerrig vrcontorller successed.");
                 playerRig.vrPlayerCtrl = this;
+                // ScaleInitialization();
             }
         }
+    }
+
+    public void ScaleInitialization()
+    {
+        if (isInitScale) return;
+
+        if (isLocalPlayer && check())
+        {
+            float scaleMlp = 1.0f;
+            float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) * 1.0f / (ik.references.head.position.y - ik.references.root.position.y) * 1.0f;
+            float magn = (sizeF * scaleMlp);
+
+            if (magn > 0)
+            {
+                ik.references.root.localScale *= magn;
+                isInitScale = true;
+            }
+        }
+    }
+
+    public bool check()
+    {
+        return ik.solver.spine.headTarget != null && ik.solver.spine.headTarget.position != null &&
+                ik.references.root != null && ik.references.root.position != null &&
+                ik.references.head != null && ik.references.head.position != null;
+    }
+
+    private void FixedUpdate()
+    {
+        ScaleInitialization();
     }
 
     public void OnNameChangedHook(string _old, string _new)
@@ -101,7 +129,7 @@ public class VRPlayerController : NetworkBehaviour
         if (textPlayerName != null)
         {
             textPlayerName.text = playerName;
-        }
+        } 
     }
 
     /// <summary>
