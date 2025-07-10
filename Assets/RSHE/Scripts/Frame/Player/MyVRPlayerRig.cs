@@ -74,11 +74,11 @@ public class MyVRPlayerRig : MonoBehaviour
     [Space]
     [Header("VR IK")]
 
-    public Transform ikHeadTarget;
-
-    public Transform ikRightHandTarget;
-
-    public Transform ikLeftHandTarget;
+    Transform ikHeadTarget;
+    
+    Transform ikRightHandTarget;
+    
+    Transform ikLeftHandTarget;
 
     public void Awake()
     {
@@ -92,7 +92,7 @@ public class MyVRPlayerRig : MonoBehaviour
         vrScreenFade.enabled = true;
     }
 
-    private void PlayerModleSync()
+    private void NormalPlayerModleSync()
     {
         if (vrPlayerController)
         {
@@ -105,20 +105,53 @@ public class MyVRPlayerRig : MonoBehaviour
             vrPlayerController.rHand.position = rHand.transform.position;
             vrPlayerController.rHand.rotation = rHand.transform.rotation;
         }
+    }
 
-        if (vrPlayerCtrl && vrPlayerCtrl.ik)
+    void VRPlayerModleSync()
+    {
+        if (vrPlayerCtrl && vrPlayerCtrl.ik && !NetworkServer.active)
         {
+            ikHeadTarget = GameObject.Find("IKHeadTarget")?.transform;
+            ikLeftHandTarget = GameObject.Find("IKLeftHandTarget")?.transform;
+            ikRightHandTarget = GameObject.Find("IKRightHandTarget")?.transform;
+
             vrPlayerCtrl.ik.solver.spine.headTarget = ikHeadTarget;
             vrPlayerCtrl.ik.solver.leftArm.target = ikLeftHandTarget;
             vrPlayerCtrl.ik.solver.rightArm.target = ikRightHandTarget;
+
+            // TODO..
+            if (vrPlayerCtrl.ik.solver.leftArm.target != null)
+            {
+                vrPlayerCtrl.ik.solver.leftArm.positionWeight = 1.0f;
+                vrPlayerCtrl.ik.solver.leftArm.rotationWeight = 1.0f;
+            }
+
+            if (vrPlayerCtrl.ik.solver.rightArm.target != null)
+            {
+                vrPlayerCtrl.ik.solver.rightArm.positionWeight = 1.0f;
+                vrPlayerCtrl.ik.solver.rightArm.rotationWeight = 1.0f;
+            }
+
+            if (vrPlayerCtrl.ik.solver.leftArm.target == null)
+            {
+                vrPlayerCtrl.ik.solver.leftArm.positionWeight = 0.0f;
+                vrPlayerCtrl.ik.solver.leftArm.rotationWeight = 0.0f;
+            }
+
+            if (vrPlayerCtrl.ik.solver.rightArm.target == null)
+            {
+                vrPlayerCtrl.ik.solver.rightArm.positionWeight = 0.0f;
+                vrPlayerCtrl.ik.solver.rightArm.rotationWeight = 0.0f;
+            }
 
             // TODO..
             // vrPlayerCtrl.isInitIK = true;
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-       PlayerModleSync();
+        //NormalPlayerModleSync();
+        VRPlayerModleSync();
     }
 }

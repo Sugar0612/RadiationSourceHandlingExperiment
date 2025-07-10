@@ -5,6 +5,7 @@ using RootMotion.FinalIK;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -101,11 +102,17 @@ public class VRPlayerController : NetworkBehaviour
         if (isLocalPlayer && check())
         {
             float scaleMlp = 1.0f;
-            float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) * 1.0f / (ik.references.head.position.y - ik.references.root.position.y) * 1.0f;
-            float magn = (sizeF * scaleMlp);
 
-            if (magn > 0)
+            float rootPosY = ik.references.root.position.y;
+
+            float sizeF = (ik.solver.spine.headTarget.position.y - rootPosY) / (ik.references.head.position.y - rootPosY);
+            Log.cinput("red", $"headTargetY£º {ik.solver.spine.headTarget.position.y}, rootPosY: {rootPosY}, headY: {ik.references.head.position.y}");
+
+            float magn = (sizeF * scaleMlp);
+            if (magn > 0.0f)
             {
+                Log.cinput("yellow", $"@@ magn£º {magn}");
+                Log.cinput("yellow", $"@@ ScaleInitialization @@");
                 ik.references.root.localScale *= magn;
                 isInitScale = true;
             }
@@ -118,8 +125,8 @@ public class VRPlayerController : NetworkBehaviour
                 ik.references.root != null && ik.references.root.position != null &&
                 ik.references.head != null && ik.references.head.position != null;
     }
-
-    private void FixedUpdate()
+    
+    private void Update()
     {
         ScaleInitialization();
     }

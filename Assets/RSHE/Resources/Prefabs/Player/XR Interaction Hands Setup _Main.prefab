@@ -8489,9 +8489,6 @@ MonoBehaviour:
   m_RHand: {fileID: 3558255148114779674}
   m_Head: {fileID: 3684984656871491058}
   m_VRPlayerController: {fileID: 0}
-  ikHeadTarget: {fileID: 496868473552161208}
-  ikRightHandTarget: {fileID: 3185738285248756633}
-  ikLeftHandTarget: {fileID: 5201213385484239330}
 --- !u!1 &5993047235822548408
 GameObject:
   m_ObjectHideFlags: 0
