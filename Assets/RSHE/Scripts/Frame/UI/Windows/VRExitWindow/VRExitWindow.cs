@@ -1,9 +1,11 @@
 using UnityEngine;
 using Mirror;
 using System.Collections;
+using TMPro;
 
 public class VRExitWindow : WinBase
 {
+    public TMP_Text text;
     public void OnClickedExitButton()
     {
         StartCoroutine(_SendDisconnectAndQuit());
@@ -33,5 +35,10 @@ public class VRExitWindow : WinBase
 #else
         Application.Quit();
 #endif
+    }
+
+    public void ShowText(string tx)
+    {
+        text.text = tx;
     }
 }

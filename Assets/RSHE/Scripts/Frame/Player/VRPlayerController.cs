@@ -95,24 +95,23 @@ public class VRPlayerController : NetworkBehaviour
         }
     }
 
-    public void ScaleInitialization()
+    public IEnumerator ScaleInitialization()
     {
-        if (isInitScale) return;
+        if (isInitScale) yield break;
+
+        yield return new WaitForSeconds(1.0f);
 
         if (isLocalPlayer && check())
         {
             float scaleMlp = 1.0f;
 
-            float rootPosY = ik.references.root.position.y;
-
-            float sizeF = (ik.solver.spine.headTarget.position.y - rootPosY) / (ik.references.head.position.y - rootPosY);
-            Log.cinput("red", $"headTargetY£º {ik.solver.spine.headTarget.position.y}, rootPosY: {rootPosY}, headY: {ik.references.head.position.y}");
+            float sizeF = (ik.solver.spine.headTarget.position.y - ik.references.root.position.y) / (ik.references.head.position.y - ik.references.root.position.y);
 
             float magn = (sizeF * scaleMlp);
+
             if (magn > 0.0f)
             {
-                Log.cinput("yellow", $"@@ magn£º {magn}");
-                Log.cinput("yellow", $"@@ ScaleInitialization @@");
+                Log.cinput("yellow", $"@@@ headTarget: {ik.solver.spine.headTarget.position.y}, root: {ik.references.root.position.y}£¬head : {ik.references.head.position.y}");
                 ik.references.root.localScale *= magn;
                 isInitScale = true;
             }
@@ -126,9 +125,9 @@ public class VRPlayerController : NetworkBehaviour
                 ik.references.head != null && ik.references.head.position != null;
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
-        ScaleInitialization();
+        StartCoroutine(ScaleInitialization());
     }
 
     public void OnNameChangedHook(string _old, string _new)

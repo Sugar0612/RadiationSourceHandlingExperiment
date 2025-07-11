@@ -395,7 +395,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 1119600450392622362}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -485,6 +485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2425728468510330730}
   - component: {fileID: 606987290454418135}
+  - component: {fileID: 5608394556371889462}
   m_Layer: 0
   m_Name: mixamorig:RightArm
   m_TagString: Untagged
@@ -524,7 +525,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 2425728468510330730}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -542,6 +543,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &5608394556371889462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990906949644609423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561d2b0d3d2241fd9bc4929a8f64b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ik: {fileID: 5522569730006201320}
+  twistSolvers:
+  - transform: {fileID: 2425728468510330730}
+    parent: {fileID: 2425728468510330730}
+    children:
+    - {fileID: 7466092241363048400}
+    weight: 1
+    parentChildCrossfade: 0.5
+    twistAngleOffset: 0
 --- !u!1 &1434477242674102335
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1637792035931714556}
   - component: {fileID: 874951980202220673}
+  - component: {fileID: 7931074716251420304}
   m_Layer: 0
   m_Name: mixamorig:RightShoulder
   m_TagString: Untagged
@@ -686,7 +709,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 1637792035931714556}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -704,6 +727,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &7931074716251420304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845951745233133697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561d2b0d3d2241fd9bc4929a8f64b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ik: {fileID: 5522569730006201320}
+  twistSolvers:
+  - transform: {fileID: 1637792035931714556}
+    parent: {fileID: 1637792035931714556}
+    children:
+    - {fileID: 2425728468510330730}
+    weight: 1
+    parentChildCrossfade: 0.5
+    twistAngleOffset: 0
 --- !u!1 &1882809010346908752
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8697509248397800604}
   - component: {fileID: 4749875806970632323}
+  - component: {fileID: 6808848789217730734}
   m_Layer: 0
   m_Name: mixamorig:LeftForeArm
   m_TagString: Untagged
@@ -753,7 +798,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 8697509248397800604}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -771,6 +816,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &6808848789217730734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882809010346908752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561d2b0d3d2241fd9bc4929a8f64b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ik: {fileID: 5522569730006201320}
+  twistSolvers:
+  - transform: {fileID: 8697509248397800604}
+    parent: {fileID: 8697509248397800604}
+    children:
+    - {fileID: 5094736076168685353}
+    weight: 1
+    parentChildCrossfade: 0.5
+    twistAngleOffset: 0
 --- !u!1 &1999754225042834357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1165,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 5994262705990513263}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -1166,7 +1232,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 2576551453196938874}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -1194,6 +1260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7466092241363048400}
   - component: {fileID: 2998275597847219235}
+  - component: {fileID: 7543254034401781489}
   m_Layer: 0
   m_Name: mixamorig:RightForeArm
   m_TagString: Untagged
@@ -1233,7 +1300,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 7466092241363048400}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -1251,6 +1318,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &7543254034401781489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996661281718696237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561d2b0d3d2241fd9bc4929a8f64b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ik: {fileID: 5522569730006201320}
+  twistSolvers:
+  - transform: {fileID: 7466092241363048400}
+    parent: {fileID: 7466092241363048400}
+    children:
+    - {fileID: 2582825744154364392}
+    weight: 1
+    parentChildCrossfade: 0.5
+    twistAngleOffset: 0
 --- !u!1 &3019289783854584526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1506,7 @@ MonoBehaviour:
       bones: []
       target: {fileID: 0}
       positionWeight: 1
-      rotationWeight: 1
+      rotationWeight: 0.8
       shoulderRotationWeight: 1
       shoulderRotationMode: 0
       shoulderTwistWeight: 1
@@ -1440,7 +1528,7 @@ MonoBehaviour:
       bones: []
       target: {fileID: 0}
       positionWeight: 1
-      rotationWeight: 1
+      rotationWeight: 0.8
       shoulderRotationWeight: 1
       shoulderRotationMode: 0
       shoulderTwistWeight: 1
@@ -1637,7 +1725,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 4784116489290679769}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 1
@@ -1796,7 +1884,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 4905904103663926253}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -1863,7 +1951,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 8475343894438835462}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -1932,7 +2020,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 1885265544688890665}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -1999,7 +2087,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 4473775634060542138}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2090,6 +2178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7229733243465129452}
+  - component: {fileID: 5099637631937140628}
   m_Layer: 0
   m_Name: mixamorig:LeftToeBase
   m_TagString: Untagged
@@ -2113,6 +2202,40 @@ Transform:
   - {fileID: 8315684930928337375}
   m_Father: {fileID: 8292461277544645561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5099637631937140628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3786409734836043694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 7229733243465129452}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  compressRotation: 0
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &3816565049226328039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2285,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 8292461277544645561}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2233,7 +2356,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 2582825744154364392}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2325,6 +2448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713033149658583570}
   - component: {fileID: 6409627623748672667}
+  - component: {fileID: 6017733569565781869}
   m_Layer: 0
   m_Name: mixamorig:LeftShoulder
   m_TagString: Untagged
@@ -2364,7 +2488,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 4713033149658583570}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2382,6 +2506,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &6017733569565781869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798727787939476201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561d2b0d3d2241fd9bc4929a8f64b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ik: {fileID: 5522569730006201320}
+  twistSolvers:
+  - transform: {fileID: 4713033149658583570}
+    parent: {fileID: 4713033149658583570}
+    children:
+    - {fileID: 3711323834427968509}
+    weight: 1
+    parentChildCrossfade: 0.5
+    twistAngleOffset: 0
 --- !u!1 &5014811939573279291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,6 +2664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3711323834427968509}
   - component: {fileID: 9203059483038706031}
+  - component: {fileID: 8548268579018649655}
   m_Layer: 0
   m_Name: mixamorig:LeftArm
   m_TagString: Untagged
@@ -2558,7 +2704,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 3711323834427968509}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2576,6 +2722,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8548268579018649655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341165347403540677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561d2b0d3d2241fd9bc4929a8f64b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ik: {fileID: 5522569730006201320}
+  twistSolvers:
+  - transform: {fileID: 3711323834427968509}
+    parent: {fileID: 3711323834427968509}
+    children:
+    - {fileID: 8697509248397800604}
+    weight: 1
+    parentChildCrossfade: 0.5
+    twistAngleOffset: 0
 --- !u!1 &5400738893933337324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,7 +2950,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 7748906261461394701}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2852,7 +3019,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 314196103702532579}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -2879,6 +3046,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3742845169548056103}
+  - component: {fileID: 3915949167017900357}
   m_Layer: 0
   m_Name: mixamorig:RightToeBase
   m_TagString: Untagged
@@ -2902,6 +3070,40 @@ Transform:
   - {fileID: 6715360927661205312}
   m_Father: {fileID: 7748906261461394701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3915949167017900357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6187623615496177250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 3742845169548056103}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  compressRotation: 0
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &6198098512343025227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,7 +3216,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 2879602942459222959}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -3401,7 +3603,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 5094736076168685353}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -3499,7 +3701,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 6837081652328459519}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
