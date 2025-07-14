@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using RootMotion.FinalIK;
 
 public class MyVRPlayerRig : MonoBehaviour
 {
@@ -119,38 +120,28 @@ public class MyVRPlayerRig : MonoBehaviour
             vrPlayerCtrl.ik.solver.leftArm.target = ikLeftHandTarget;
             vrPlayerCtrl.ik.solver.rightArm.target = ikRightHandTarget;
 
-            var win = UIController.Get().GetWindow<VRExitWindow>(EWindowType.VRExitWindow) as VRExitWindow;
-            
-            // TODO..
-            if (vrPlayerCtrl.ik.solver.leftArm.target != null && vrPlayerCtrl.ik.solver.leftArm.target.position.x != 0.0f && vrPlayerCtrl.ik.solver.leftArm.target.position.z != 0.0f)
-            {
-                vrPlayerCtrl.ik.solver.leftArm.positionWeight = 1.0f;
-                vrPlayerCtrl.ik.solver.leftArm.rotationWeight = 0.8f;
-
-                win.ShowText($"{vrPlayerCtrl.ik.solver.leftArm.target.position}，{ikLeftHandTarget.transform.position}");
-            }
-
-            if (vrPlayerCtrl.ik.solver.rightArm.target != null && vrPlayerCtrl.ik.solver.rightArm.target.position.x != 0.0f && vrPlayerCtrl.ik.solver.rightArm.target.position.z != 0.0f)
-            {
-                vrPlayerCtrl.ik.solver.rightArm.positionWeight = 1.0f;
-                vrPlayerCtrl.ik.solver.rightArm.rotationWeight = 0.8f;
-            }
-
-            if (vrPlayerCtrl.ik.solver.leftArm.target != null && vrPlayerCtrl.ik.solver.leftArm.target.position.x == 0.0f && vrPlayerCtrl.ik.solver.leftArm.target.position.z == 0.0f)
-            {
-                vrPlayerCtrl.ik.solver.leftArm.positionWeight = 0.0f;
-                vrPlayerCtrl.ik.solver.leftArm.rotationWeight = 0.0f;
-            }
-
-            if (vrPlayerCtrl.ik.solver.rightArm.target != null && vrPlayerCtrl.ik.solver.rightArm.target.position.x == 0.0f && vrPlayerCtrl.ik.solver.rightArm.target.position.z == 0.0f)
-            {
-                vrPlayerCtrl.ik.solver.rightArm.positionWeight = 0.0f;
-                vrPlayerCtrl.ik.solver.rightArm.rotationWeight = 0.0f;
-            }
-
-            // TODO..
-            // vrPlayerCtrl.isInitIK = true;
+            if (CheckIKSolverArm(vrPlayerCtrl.ik.solver.leftArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.leftArm, 1.0f, 0.8f); }
+            if (CheckIKSolverArm(vrPlayerCtrl.ik.solver.rightArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.rightArm, 1.0f, 0.8f); }
+            if (!CheckIKSolverArm(vrPlayerCtrl.ik.solver.leftArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.leftArm); }
+            if (!CheckIKSolverArm(vrPlayerCtrl.ik.solver.rightArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.rightArm); }
         }
+    }
+
+    /// <summary>
+    /// 检查 vrik.solver.arm 是否符合条件
+    /// </summary>
+    bool CheckIKSolverArm(Transform armTrans)
+    {
+        return armTrans != null && armTrans.position.x == 0.0f && armTrans.position.z == 0.0f;
+    }
+
+    /// <summary>
+    /// 设置 vrik.solver.arm 的 position和rotation的 weight.
+    /// </summary>
+    void SetIKArmPosAndRotWeight(IKSolverVR.Arm arm, float posWeight = 0.0f, float rotWeight = 0.0f)
+    {
+        arm.positionWeight = posWeight;
+        arm.rotationWeight = rotWeight;
     }
 
     void FixedUpdate()

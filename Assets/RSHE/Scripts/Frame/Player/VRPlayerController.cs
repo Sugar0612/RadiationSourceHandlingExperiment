@@ -20,10 +20,6 @@ public class VRPlayerController : NetworkBehaviour
 
     MyVRPlayerRig playerRig;
 
-    public GameObject humanModel;
-
-    public GameObject helmetModel;
-
     /// <summary>
     /// Player name variable.
     /// </summary>
@@ -109,9 +105,9 @@ public class VRPlayerController : NetworkBehaviour
 
             float magn = (sizeF * scaleMlp);
 
-            if (magn > 0.0f)
+            if (magn > 0.0f && ik.references.root.localScale * magn != new Vector3(0f, 0f, 0f))
             {
-                Log.cinput("yellow", $"@@@ headTarget: {ik.solver.spine.headTarget.position.y}, root: {ik.references.root.position.y}£¬head : {ik.references.head.position.y}");
+                // Log.cinput("yellow", $"@@@ headTarget: {ik.solver.spine.headTarget.position.y}, root: {ik.references.root.position.y}£¬head : {ik.references.head.position.y}");
                 ik.references.root.localScale *= magn;
                 isInitScale = true;
             }
