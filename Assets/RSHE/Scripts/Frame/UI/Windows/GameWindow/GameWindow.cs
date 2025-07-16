@@ -27,7 +27,7 @@ public class GameWindow : WinBase
     /// </summary>
     public void OnClickedExitButton()
     {
-        Game.Get().BackMenu();
+        GameHelpler.Get().BackMenu();
     }
 
     /// <summary>

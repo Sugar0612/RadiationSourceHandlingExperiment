@@ -3,27 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class GameHelpler : MonoBehaviour
 {
-    static Game instance;
+    static GameHelpler m_Instance;
 
-    public static Game Get()
+    public static GameHelpler Get()
     {
-        if (instance == null)
+        if (m_Instance == null)
         {
-            instance = FindObjectOfType<Game>();
+            m_Instance = FindObjectOfType<GameHelpler>();
         }
 
-        return instance;
-    }
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
+        return m_Instance;
     }
 
     /// <summary>
@@ -31,7 +22,6 @@ public class Game : MonoBehaviour
     /// </summary>
     public void SwitchGameScene(string scene)
     {
-        Log.cinput("yellow", "=========== SwitchGameScene");
         UIController.Get().ShowWindows(EWindowType.GameWinow);
         NetworkManager.singleton.ServerChangeScene(scene);
         CameraManager.Get().SwitchCamera(CameraTag.WitnessFront); // default.
@@ -42,7 +32,6 @@ public class Game : MonoBehaviour
     /// </summary>
     public void BackMenu()
     {
-        Log.cinput("yellow", "=========== BackMenu");
         UIController.Get().ShowWindows(EWindowType.UserWindow);
         CameraManager.Get().SwitchCamera(CameraTag.Manager); // default.
         NetworkManager.singleton.ServerChangeScene("Office");

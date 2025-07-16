@@ -50,16 +50,16 @@ public class SceneWindow : WinBase
 
     public void OnClickSceneButton_1()
     {
-        Game.Get().SwitchGameScene(scene_1);
+        GameHelpler.Get().SwitchGameScene(scene_1);
     }
 
     public void OnClickSceneButton_2()
     {
-        Game.Get().SwitchGameScene(scene_2);
+        GameHelpler.Get().SwitchGameScene(scene_2);
     }
     
     public void OnClickSceneButton_3()
     {
-        Game.Get().SwitchGameScene(scene_3);
+        GameHelpler.Get().SwitchGameScene(scene_3);
     }
 }

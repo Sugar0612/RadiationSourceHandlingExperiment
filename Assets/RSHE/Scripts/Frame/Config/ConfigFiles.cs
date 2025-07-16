@@ -9,5 +9,5 @@
 public class UserConfig
 {
     public string deviceID = "";
-    public int identity = -1;
+    public EIdentity identity = 0;
 }
