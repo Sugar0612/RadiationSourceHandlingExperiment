@@ -29,7 +29,7 @@ public class ServerDisplay : MonoBehaviour
         {
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
-            LogText.text += $"Client connected! Device ID: {msg.deviceID}\n";
+            // LogText.text += $"Client connected! Device ID: {msg.deviceID}\n";
 
             UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
             userWin.SetItemState(msg.deviceID, EUserState.Online);

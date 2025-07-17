@@ -42,11 +42,11 @@ public class CameraManager : MonoBehaviour
 
     public void Init()
     {
-        Log.cinput("yellow", "========= CameraManager Init");
-        foreach (var c in cameraList)
-        {
-            Log.cinput("yellow", $"cameraList item tag: {c.cameraTag.ToString()}");
-        }
+        // Log.cinput("yellow", "========= CameraManager Init");
+        //foreach (var c in cameraList)
+        //{
+        //    Log.cinput("yellow", $"cameraList item tag: {c.cameraTag.ToString()}");
+        //}
 
         if (!Config.Get().PicoDevice)
             SwitchCamera(CameraTag.Manager);

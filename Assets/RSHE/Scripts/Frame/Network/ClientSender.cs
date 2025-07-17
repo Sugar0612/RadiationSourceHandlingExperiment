@@ -15,7 +15,7 @@ public class ClientSender : NetworkBehaviour
 
     private void SendDeviceIDToServer()
     {
-        Log.cinput("green", "ClientSender: Sending device ID to server");
+        // Log.cinput("green", "ClientSender: Sending device ID to server");
         string deviceID = SystemInfo.deviceUniqueIdentifier;
         
         MirrorConnMsg msg = new MirrorConnMsg

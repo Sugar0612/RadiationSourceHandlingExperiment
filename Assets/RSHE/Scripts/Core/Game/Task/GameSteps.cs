@@ -26,7 +26,7 @@ public class GameSteps : NetworkBehaviour
     /// </summary>
     [SerializeField]
     public List<GameTask> stepsList = new List<GameTask>();
-
+ 
     /// <summary> 当前步骤 </summary>
     GameTask currStep { get { return stepsList?[stepIdx]; } }
 
@@ -42,6 +42,11 @@ public class GameSteps : NetworkBehaviour
     [SyncVar]
     int taskIdx = 0; // 小任务索引
     #endregion
+
+    private void Start()
+    {
+        GameSteps.Get().ExecuteCurrentTask();
+    }
 
     /// <summary>
     /// 开始下一个任务

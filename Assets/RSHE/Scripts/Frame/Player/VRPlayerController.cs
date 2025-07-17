@@ -11,20 +11,28 @@ using UnityEngine;
 
 public class VRPlayerController : NetworkBehaviour
 {
-    /// <summary>
-    /// Player Name ui component in Scene.
-    /// </summary>
+#region 玩家组件
+
+    /// <summary> Player Name ui component in Scene. </summary>
     public TMP_Text textPlayerName;
 
     [HideInInspector] public VRIK ik;
 
     MyVRPlayerRig playerRig;
 
-    /// <summary>
-    /// Player name variable.
-    /// </summary>
+#endregion
+
+#region 玩家参数
+
+    /// <summary> Player name variable. </summary>
     [SyncVar(hook = nameof(OnNameChangedHook))]
     string playerName;
+
+    [SyncVar]
+    /// <summary> 身份 </summary>
+    public EIdentity identity = EIdentity.None;
+
+#endregion
 
     bool isInitScale = false;
 
@@ -63,6 +71,8 @@ public class VRPlayerController : NetworkBehaviour
                 renderer.sharedMesh = null;
             }
         }
+
+        identity = Config.Get().GetIdentityBaseOnDeviceID(SystemInfo.deviceUniqueIdentifier);
     }
 
     public override void OnStartLocalPlayer()

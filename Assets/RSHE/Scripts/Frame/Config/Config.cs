@@ -28,3 +28,5 @@ public partial class Config : MonoBehaviour
         callback?.Invoke(result);
     }
 }
+
+

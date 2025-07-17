@@ -68,8 +68,6 @@ public class UserWindow : WinBase
     /// <summary>
     /// 改变用户登录状态
     /// </summary>
-    /// <param name="deviceID"></param>
-    /// <param name="state"></param>
     public void SetItemState(string deviceID, EUserState state)
     {
         for (int i = 0; i < userItemList.Count; ++i)

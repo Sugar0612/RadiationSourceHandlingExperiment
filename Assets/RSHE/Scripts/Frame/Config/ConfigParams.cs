@@ -33,4 +33,22 @@ public partial class Config : MonoBehaviour
 
         StartCoroutine(InitializeConfig());
     }
+
+    public EIdentity GetIdentityBaseOnDeviceID(string deviceID)
+    {
+        return userConfig.GetIdentityBaseOnDeviceID(deviceID);
+    }
+}
+
+
+public static class ConfigExtensions
+{
+    public static EIdentity GetIdentityBaseOnDeviceID(this List<UserConfig> list, string deviceID)
+    {
+        UserConfig item = new UserConfig();
+
+        item = list.Find(x => x.deviceID == deviceID);
+
+        return item.identity;
+    }
 }

@@ -28,6 +28,6 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        GameSteps.Get().ExecuteCurrentTask();
+
     }
 }
