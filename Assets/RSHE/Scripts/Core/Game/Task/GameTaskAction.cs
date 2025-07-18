@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class GameTaskAction : MonoBehaviour
 {
-    public void ActionTask1()
+    public void StartTask()
     {
         Log.cinput("yellow", "@@@ Task_1 Action!");
+    }
+
+    public void EndTask()
+    { 
+
     }
 }
