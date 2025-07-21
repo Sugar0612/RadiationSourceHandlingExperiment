@@ -12,7 +12,7 @@ public class GameTaskItem : NetworkBehaviour
 {
     #region 需要编辑变量
     public string taskName = ""; // 任务名称
-    public List<EIdentity> executorsList = new List<EIdentity>(); // 执行人
+    // public List<TaskCondition> executorsList = new List<TaskCondition>(); // 执行人
     #endregion
 
     Renderer[] renderList;

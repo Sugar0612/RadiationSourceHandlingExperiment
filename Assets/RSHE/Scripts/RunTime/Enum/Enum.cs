@@ -24,6 +24,15 @@ public enum EIdentity
     C1 = 7, C2 = 8, C3 = 9,
 }
 
+// User's body parts
+public enum EBodyParts
+{
+    None,
+    Head,
+    Hand,
+    Foot
+}
+
 // User's Network State
 public enum EUserState
 {
@@ -42,4 +51,11 @@ public enum EWindowType
     VRJoinWindow = 1 << 3,
     VRExitWindow = 1 << 4,
     GameWinow = 1 << 5,
+}
+
+// Game Collider Trigger Mode
+public enum GameColliderTriggerMode
+{
+    Multiplayer,
+    Single
 }

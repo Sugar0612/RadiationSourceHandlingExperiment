@@ -9,20 +9,40 @@ public class GameCollider : MonoBehaviour
 
     Dictionary<EIdentity, int> whoTriggerCollider = new Dictionary<EIdentity, int>();
 
+    #region 游戏条件 & 触发模式
+    public List<TaskCondition> conditionList = new List<TaskCondition>();
+    public GameColliderTriggerMode trgMode = GameColliderTriggerMode.Single;
+    #endregion
+
     bool checkIfItMet
     {
-        get 
+        get
         {
-            bool isAllHere = true;
-            foreach (var executor in task.executorsList)
+            bool isAllHere = false;
+            if (trgMode == GameColliderTriggerMode.Multiplayer)
             {
-                if (whoTriggerCollider.ContainsKey(executor))
+                isAllHere = true;
+                foreach (var executor in conditionList)
                 {
-                    isAllHere &= (whoTriggerCollider[executor] == 1);
+                    if (whoTriggerCollider.ContainsKey(executor.identity))
+                    {
+                        isAllHere &= (whoTriggerCollider[executor.identity] == 1);
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
+            }
+            else
+            {
+                foreach (var executor in conditionList)
                 {
-                    return false;
+                    if (whoTriggerCollider.ContainsKey(executor.identity) && whoTriggerCollider[executor.identity] == 1)
+                    {
+                        isAllHere = true;
+                        break;
+                    }
                 }
             }
             return isAllHere;
@@ -36,13 +56,22 @@ public class GameCollider : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        EIdentity identity = other.gameObject.GetComponent<VRPlayerController>().identity;
+        EIdentity identity = other.gameObject.GetComponentInParent<VRPlayerController>().identity;
 
-        Log.cinput("yellow", $"@@ OnTriggerEnter. {identity}");
+        BodyPartInfo bodyPart;
+        bool getBodyPart = other.gameObject.TryGetComponent<BodyPartInfo>(out bodyPart);
+
+        Log.cinput("yellow", $"Trigger Enter: identity: {identity.ToString()} and body part: {bodyPart.ePart.ToString()}");
+
         if (!whoTriggerCollider.ContainsKey(identity))
         {
-            Log.cinput("yellow", $"@@ whoTriggerCollider.Add. {identity}");
-            whoTriggerCollider.Add(identity, 1);
+            whoTriggerCollider.Add(identity, 0);
+        }
+      
+        foreach (var condition in conditionList)
+        {
+            if (getBodyPart && identity == condition.identity && bodyPart.ePart == condition.bodyParts)
+                whoTriggerCollider[identity] = 1;
         }
 
         if (checkIfItMet)
@@ -55,7 +84,7 @@ public class GameCollider : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        EIdentity identity = other.gameObject.GetComponent<VRPlayerController>().identity;
+        EIdentity identity = other.gameObject.GetComponentInParent<VRPlayerController>().identity;
 
         if (whoTriggerCollider.ContainsKey(identity)) 
             whoTriggerCollider[identity] = 0;
