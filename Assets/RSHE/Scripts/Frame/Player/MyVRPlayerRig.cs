@@ -120,6 +120,10 @@ public class MyVRPlayerRig : MonoBehaviour
             vrPlayerCtrl.ik.solver.leftArm.target = ikLeftHandTarget;
             vrPlayerCtrl.ik.solver.rightArm.target = ikRightHandTarget;
 
+            string transLogStr = $"left arm trans: [{vrPlayerCtrl.ik.solver.leftArm.target.position.x}, {vrPlayerCtrl.ik.solver.leftArm.target.position.y}, {vrPlayerCtrl.ik.solver.leftArm.target.position.z}]";
+            VRExitWindow win = UIController.Get().GetWindow<VRExitWindow>(EWindowType.VRExitWindow) as VRExitWindow;
+            win.ShowText(transLogStr);
+
             if (CheckIKSolverArm(vrPlayerCtrl.ik.solver.leftArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.leftArm, 1.0f, 0.8f); }
             if (CheckIKSolverArm(vrPlayerCtrl.ik.solver.rightArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.rightArm, 1.0f, 0.8f); }
             if (!CheckIKSolverArm(vrPlayerCtrl.ik.solver.leftArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.leftArm); }
@@ -132,7 +136,7 @@ public class MyVRPlayerRig : MonoBehaviour
     /// </summary>
     bool CheckIKSolverArm(Transform armTrans)
     {
-        return armTrans != null && armTrans.position.x == 0.0f && armTrans.position.z == 0.0f;
+        return armTrans != null && armTrans.position.x != 0.0f && armTrans.position.z != 0.0f;
     }
 
     /// <summary>
