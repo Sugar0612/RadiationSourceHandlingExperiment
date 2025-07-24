@@ -12,6 +12,10 @@ public class GameTaskItem : NetworkBehaviour
 {
     #region 需要编辑变量
     public string taskName = ""; // 任务名称
+
+    /// <summary> 分数 </summary>
+    public float fraction = 0.0f;
+
     // public List<TaskCondition> executorsList = new List<TaskCondition>(); // 执行人
     #endregion
 
