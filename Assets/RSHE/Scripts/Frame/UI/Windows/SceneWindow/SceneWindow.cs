@@ -6,26 +6,18 @@ using UnityEngine.UI;
 
 public class SceneWindow : WinBase
 {
-    // 场景一切换
+    // 模式一
     Button SceneButton_1;
 
-    // 场景二切换
+    // 模式二
     Button SceneButton_2;
 
-    // 场景三切换
+    // 模式三
     Button SceneButton_3;
 
-    // 场景一
+    // 游戏场景
     [Scene]
     public string scene_1;
-
-    // 场景二
-    [Scene]
-    public string scene_2;
-
-    // 场景三
-    [Scene]
-    public string scene_3;
 
     public override void Awake()
     {
@@ -55,11 +47,11 @@ public class SceneWindow : WinBase
 
     public void OnClickSceneButton_2()
     {
-        GameHelpler.Get().SwitchGameScene(scene_2);
+        GameHelpler.Get().SwitchGameScene(scene_1);
     }
     
     public void OnClickSceneButton_3()
     {
-        GameHelpler.Get().SwitchGameScene(scene_3);
+        GameHelpler.Get().SwitchGameScene(scene_1);
     }
 }

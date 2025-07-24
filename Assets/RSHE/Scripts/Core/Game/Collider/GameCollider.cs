@@ -1,9 +1,10 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Principal;
 using UnityEngine;
 
-public class GameCollider : MonoBehaviour
+public class GameCollider : NetworkBehaviour
 {
     GameTaskItem task;
 
@@ -56,37 +57,40 @@ public class GameCollider : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        EIdentity identity = other.gameObject.GetComponentInParent<VRPlayerController>().identity;
+        Log.cinput("yellow", $"@@ GameCollider OnTriggerEnter.");
+        VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
-        BodyPartInfo bodyPart;
-        bool getBodyPart = other.gameObject.TryGetComponent<BodyPartInfo>(out bodyPart);
-
-        Log.cinput("yellow", $"Trigger Enter: identity: {identity.ToString()} and body part: {bodyPart.ePart.ToString()}");
-
-        if (!whoTriggerCollider.ContainsKey(identity))
+        if (ctrl)
         {
-            whoTriggerCollider.Add(identity, 0);
-        }
-      
-        foreach (var condition in conditionList)
-        {
-            if (getBodyPart && identity == condition.identity && bodyPart.ePart == condition.bodyParts)
+            Log.cinput("yellow", $"@@ GameCollider Enter ctrl not null.");
+            EIdentity identity = ctrl.identity;
+
+            if (!whoTriggerCollider.ContainsKey(identity))
+                whoTriggerCollider.Add(identity, 1);
+            else
                 whoTriggerCollider[identity] = 1;
-        }
 
-        if (checkIfItMet)
+            if (checkIfItMet)
+            {
+                task.EndTask.Invoke();
+                GameSteps.Get().NextTask();
+            }
+        }
+        else
         {
-            Log.cinput("yellow", $"@@@ checkIfItMet");
-            task.EndTask.Invoke();
-            GameSteps.Get().NextTask();
+            Log.cinput("yellow", $"@@ GameColliderEnter func ctrl is null.");
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        EIdentity identity = other.gameObject.GetComponentInParent<VRPlayerController>().identity;
+        VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
+        if (ctrl)
+        {
+            EIdentity identity = ctrl.identity;
 
-        if (whoTriggerCollider.ContainsKey(identity)) 
-            whoTriggerCollider[identity] = 0;
+            if (whoTriggerCollider.ContainsKey(identity))
+                whoTriggerCollider[identity] = 0;
+        }
     }
 }

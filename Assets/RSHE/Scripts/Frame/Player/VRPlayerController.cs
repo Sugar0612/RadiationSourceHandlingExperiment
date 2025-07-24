@@ -76,6 +76,12 @@ public class VRPlayerController : NetworkBehaviour
         identity = Config.Get().GetIdentityBaseOnDeviceID(SystemInfo.deviceUniqueIdentifier);
     }
 
+    private void FixedUpdate()
+    {
+        // StartCoroutine(ScaleInitialization());
+        ScaleInitialization();
+    }
+
     public override void OnStartLocalPlayer()
     {
         Initialized();
@@ -102,11 +108,11 @@ public class VRPlayerController : NetworkBehaviour
         }
     }
 
-    public IEnumerator ScaleInitialization()
+    public void ScaleInitialization()
     {
-        if (isInitScale) yield break;
+        if (isInitScale) return;
 
-        yield return new WaitForSeconds(1.0f);
+        // yield return new WaitForSeconds(1.0f);
 
         if (isLocalPlayer && check())
         {
@@ -130,11 +136,6 @@ public class VRPlayerController : NetworkBehaviour
         return ik.solver.spine.headTarget != null && ik.solver.spine.headTarget.position != null &&
                 ik.references.root != null && ik.references.root.position != null &&
                 ik.references.head != null && ik.references.head.position != null;
-    }
-    
-    private void FixedUpdate()
-    {
-        StartCoroutine(ScaleInitialization());
     }
 
     public void OnNameChangedHook(string _old, string _new)

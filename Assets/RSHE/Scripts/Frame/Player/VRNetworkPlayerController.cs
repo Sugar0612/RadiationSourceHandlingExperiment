@@ -1,67 +1,41 @@
 using Mirror;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class VRNetworkPlayerController : NetworkBehaviour
 {
+    #region 玩家 Transform
     [Header("Location's Transform")]
 
     [SerializeField]
     [Tooltip("Right Hand Transform")]
     public Transform m_RHand;
-    /// <summary>
-    /// Right Hand Transform.
-    /// </summary>
+
+    /// <summary> Right Hand Transform. </summary>
     [HideInInspector]
-    public Transform rHand
-    {
-        get => m_RHand;
-        set => m_RHand = value;
-    }
+    public Transform rHand { get => m_RHand; set => m_RHand = value; }
 
     [SerializeField]
     [Tooltip("Left Hand Transform")]
     Transform m_LHand;
-    /// <summary>
-    /// Left Hand Transform.
-    /// </summary>
+
+    /// <summary> Left Hand Transform. </summary>
     [HideInInspector]
-    public Transform lHand
-    {
-        get => m_LHand;
-        set => m_LHand = value;
-    }
+    public Transform lHand { get => m_LHand; set => m_LHand = value; }
 
     [SerializeField]
     [Tooltip("Head Transform")]
     Transform m_Head;
-    /// <summary>
-    /// Head Transform.
-    /// </summary>
+
+    /// <summary>Head Transform. </summary>
     [HideInInspector]
-    public Transform head
-    {
-        get => m_Head;
-        set => m_Head = value;
-    }
+    public Transform head { get => m_Head; set => m_Head = value; }
 
     [Tooltip("Player Collider Transform")]
     public Transform m_PlayerCollider;
+    #endregion
 
-    //[SerializeField]
-    //[Tooltip("Name Transform")]
-    //Transform m_UI;
-    /// <summary>
-    /// Name Transform.
-    /// </summary>
-    //public Transform nameUI
-    //{
-    //    get => m_UI;
-    //    set => m_UI = value;
-    //}
-
+    #region 玩家模型
     [Space]
     [Header("Model Prefab")]
 
@@ -77,34 +51,46 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [Tooltip("Player Right Hand Model Component")]
     GameObject m_RHandModel;
 
-    [Space]
-    [Header("Other Contorller")]
+    [Tooltip("游戏中帽子")]
+    public GameObject hat;
 
-    /// <summary>
-    /// PlayerRig component on player in scene.
-    /// </summary>
+    [Tooltip("游戏中衣服")]
+    public GameObject clothes;
+
+    #endregion
+
+    #region 玩家信息 & 组件
+    [Space]
+    [Header("Other Controller")]
+
+    /// <summary> PlayerRig component on player in scene. </summary>
     private MyVRPlayerRig m_VRPlayerRig;
 
-    /// <summary>
-    /// Player Name ui component in Scene.
-    /// </summary>
+    /// <summary> Player Name ui component in Scene. </summary>
     public TMP_Text textPlayerName;
 
-    /// <summary>
-    /// Player name variable.
-    /// </summary>
+    /// <summary> 身份 </summary>
+    public EIdentity identity = EIdentity.None;
+
+    /// <summary> Player name variable.</summary>
     [SyncVar(hook = nameof(OnNameChangedHook))]
     string playerName;
 
-    public void Awake()
-    {
-        //m_Dist = 0.2f;
-    }
+    /// <summary> 是否穿戴防护服 </summary>
+    [HideInInspector]
+    public bool isWearOrNot = false;
+
+    #endregion
 
     public void Start()
     {
         if (isServer && isLocalPlayer)
             gameObject.SetActive(false);
+
+        hat.SetGameObjectMeshActive(false);
+        clothes.SetGameObjectMeshActive(false);
+
+        identity = Config.Get().GetIdentityBaseOnDeviceID(SystemInfo.deviceUniqueIdentifier);
     }
 
     public void OnNameChangedHook(string _old, string _new)
@@ -115,37 +101,33 @@ public class VRNetworkPlayerController : NetworkBehaviour
         }
     }
 
-    /// <summary>
-    /// To request server revise player name.
+    /// <summary> 
+    /// To request server revise player name. 
     /// </summary>
-    /// <param name="_name"></param>
     [Command]
     public void CmdSetupName(string _name)
     {
         playerName = _name;
     }
 
-    /// <summary>
-    /// Enable local player.
-    /// Let the player ignore his own model.
+    /// <summary> 
+    /// Enable local player. Let the player ignore his own model. 
     /// </summary>
     public override void OnStartLocalPlayer()
     {
         InitObject();
-        //m_HeadModel.SetActive(false);
-        //m_LHandModel.SetActive(false);
-        //m_RHandModel.SetActive(false);
+
+        m_HeadModel.SetGameObjectMeshActive(false);
+        m_LHandModel.SetGameObjectMeshActive(false);
+        m_RHandModel.SetGameObjectMeshActive(false);
+
         if (VRStaticVariables.playerName != "")
-        {
             CmdSetupName(VRStaticVariables.playerName + netId);
-        }
         else
-        {
             CmdSetupName("Player" + netId);
-        }
     }
 
-    /// <summary>
+    /// <summary> 
     /// Init Controller.
     /// </summary>
     public void InitObject()
@@ -158,26 +140,4 @@ public class VRNetworkPlayerController : NetworkBehaviour
             m_VRPlayerRig.vrPlayerController = this;
         }
     }
-
-    private void Update()
-    {
-
-    }
-
-    #region OnStartClient
-    //public bool isMR = false;
-    //public override void OnStartClient()
-    //{
-    //    base.OnStartClient();
-    //    if (isMR)
-    //    {
-    //        Transform root = GameObject.Find("ROOT").transform;
-    //        if (root != null)
-    //        {
-    //            transform.SetParent(root);
-    //            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-    //        }
-    //    }
-    //}
-    #endregion
 }

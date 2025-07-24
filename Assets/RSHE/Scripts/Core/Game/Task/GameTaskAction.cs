@@ -6,7 +6,7 @@ public class GameTaskAction : MonoBehaviour
 {
     public void StartTask()
     {
-        Log.cinput("yellow", "@@@ Task_1 Action!");
+        //Log.cinput("yellow", "@@@ Task_1 Action!");
     }
 
     public void EndTask()

@@ -23,4 +23,13 @@ public static class GameObjectExtensions
             component = null;
         }
     }
+
+    public static void SetGameObjectMeshActive(this GameObject obj, bool active)
+    {
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+        foreach (var render in renderers)
+        {
+            render.enabled = active;
+        }
+    }
 }

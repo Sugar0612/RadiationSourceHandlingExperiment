@@ -8,8 +8,8 @@ using UnityEngine;
 public class TaskCondition
 {
     ///// <summary> 人物身份 </summary>
-    public EIdentity identity;
+    public EIdentity identity = EIdentity.None;
 
-    ///// <summary> 人物身体部件出发 </summary>
-    public EBodyParts bodyParts;
+    /// <summary> 持有物品列表 </summary>
+    public List<string> HoldingItems = new List<string>();
 }

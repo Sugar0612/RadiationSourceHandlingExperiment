@@ -12,9 +12,8 @@ public class MyVRPlayerRig : MonoBehaviour
     [SerializeField]
     [Tooltip("model's lefthand tranform")]
     Transform m_LHand;
-    /// <summary>
-    /// model's lefthand tranform
-    /// </summary>
+
+    /// <summary> model's lefthand tranform </summary>
     public Transform lHand
     {
         get => m_LHand;
@@ -24,9 +23,8 @@ public class MyVRPlayerRig : MonoBehaviour
     [SerializeField]
     [Tooltip("model's righthand tranform")]
     Transform m_RHand;
-    /// <summary>
-    /// model's righthand tranform
-    /// </summary>
+
+    /// <summary> model's righthand tranform </summary>
     public Transform rHand
     {
         get => m_RHand;
@@ -36,9 +34,8 @@ public class MyVRPlayerRig : MonoBehaviour
     [SerializeField]
     [Tooltip("model's headtranform")]
     Transform m_Head;
-    /// <summary>
-    /// model's headtranform
-    /// </summary>
+
+    /// <summary> model's headtranform </summary>
     public Transform head
     {
         get => m_Head;
@@ -51,10 +48,8 @@ public class MyVRPlayerRig : MonoBehaviour
     [SerializeField]
     [Tooltip("Prefab model manager. Used to synchronize the transform of different parts of the model with the corresponding parts of the VR origin of the real scene.")]
     VRNetworkPlayerController m_VRPlayerController;
-    /// <summary>
-    /// Prefab model manager. 
-    /// Used to synchronize the transform of different parts of the model with the corresponding parts of the VR origin of the real scene.
-    /// </summary>
+
+    /// <summary> Prefab model manager, used to synchronize the transform of different parts of the model with the corresponding parts of the VR origin of the real scene. </summary>
     public VRNetworkPlayerController vrPlayerController
     {
         get => m_VRPlayerController;
@@ -93,7 +88,13 @@ public class MyVRPlayerRig : MonoBehaviour
         vrScreenFade.enabled = true;
     }
 
-    private void NormalPlayerModleSync()
+    void FixedUpdate()
+    {
+        VRTemplatePlayerModelSync();
+        // VRPlayerModleSync();
+    }
+
+    private void VRTemplatePlayerModelSync()
     {
         if (vrPlayerController)
         {
@@ -120,10 +121,6 @@ public class MyVRPlayerRig : MonoBehaviour
             vrPlayerCtrl.ik.solver.leftArm.target = ikLeftHandTarget;
             vrPlayerCtrl.ik.solver.rightArm.target = ikRightHandTarget;
 
-            string transLogStr = $"left arm trans: [{vrPlayerCtrl.ik.solver.leftArm.target.position.x}, {vrPlayerCtrl.ik.solver.leftArm.target.position.y}, {vrPlayerCtrl.ik.solver.leftArm.target.position.z}]";
-            VRExitWindow win = UIController.Get().GetWindow<VRExitWindow>(EWindowType.VRExitWindow) as VRExitWindow;
-            win.ShowText(transLogStr);
-
             if (CheckIKSolverArm(vrPlayerCtrl.ik.solver.leftArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.leftArm, 1.0f, 0.8f); }
             if (CheckIKSolverArm(vrPlayerCtrl.ik.solver.rightArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.rightArm, 1.0f, 0.8f); }
             if (!CheckIKSolverArm(vrPlayerCtrl.ik.solver.leftArm.target)) { SetIKArmPosAndRotWeight(vrPlayerCtrl.ik.solver.leftArm); }
@@ -131,26 +128,16 @@ public class MyVRPlayerRig : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 检查 vrik.solver.arm 是否符合条件
-    /// </summary>
+    /// <summary> 检查 vrik.solver.arm 是否符合条件 </summary>
     bool CheckIKSolverArm(Transform armTrans)
     {
         return armTrans != null && armTrans.position.x != 0.0f && armTrans.position.z != 0.0f;
     }
 
-    /// <summary>
-    /// 设置 vrik.solver.arm 的 position和rotation的 weight.
-    /// </summary>
+    /// <summary> 设置 vrik.solver.arm 的 position和rotation的 weight. </summary>
     void SetIKArmPosAndRotWeight(IKSolverVR.Arm arm, float posWeight = 0.0f, float rotWeight = 0.0f)
     {
         arm.positionWeight = posWeight;
         arm.rotationWeight = rotWeight;
-    }
-
-    void FixedUpdate()
-    {
-        //NormalPlayerModleSync();
-        VRPlayerModleSync();
     }
 }

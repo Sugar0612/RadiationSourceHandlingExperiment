@@ -588,7 +588,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 8608424831190047829, guid: 408e206c7e00e3841a5e72667d6af60d, type: 3}
+  playerPrefab: {fileID: 1734799815635286640, guid: a9c519b9fa9228045bf5f613030037e7, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
@@ -3343,7 +3343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d2a21697a70341aa1b2999548cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PicoDevice: 0
+  PicoDevice: 1
 --- !u!4 &850297140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5496219515349884341, guid: 1fdf9148c9ee1434c91811f55179f77d, type: 3}
@@ -4284,9 +4284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windowType: 2
-  scene_1: Assets/RSHE/Scene/GameScene/Scene_1.unity
-  scene_2: Assets/RSHE/Scene/GameScene/Scene_2.unity
-  scene_3: Assets/RSHE/Scene/GameScene/Scene_3.unity
+  scene_1: Assets/RSHE/Scene/Scene_1.unity
 --- !u!1 &1140390365
 GameObject:
   m_ObjectHideFlags: 0
