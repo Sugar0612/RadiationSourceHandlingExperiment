@@ -20,10 +20,8 @@ public class GameSteps : NetworkBehaviour
     }
 
     #region 任务步骤参数
-    /// <summary>
-    /// 步骤存放容器
-    /// 一个步骤里面可能有很多个小任务
-    /// </summary>
+
+    /// <summary> 步骤存放容器，一个步骤里面可能有很多个小任务 </summary>
     [SerializeField]
     public List<GameTask> stepsList = new List<GameTask>();
  

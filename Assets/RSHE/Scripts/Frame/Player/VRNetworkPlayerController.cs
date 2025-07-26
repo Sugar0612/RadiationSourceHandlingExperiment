@@ -87,8 +87,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (isServer && isLocalPlayer)
             gameObject.SetActive(false);
 
-        hat.SetGameObjectMeshActive(false);
-        clothes.SetGameObjectMeshActive(false);
+        hat.SetRendererEnable(false);
+        clothes.SetRendererEnable(false);
 
         identity = Config.Get().GetIdentityBaseOnDeviceID(SystemInfo.deviceUniqueIdentifier);
     }
@@ -117,9 +117,9 @@ public class VRNetworkPlayerController : NetworkBehaviour
     {
         InitObject();
 
-        m_HeadModel.SetGameObjectMeshActive(false);
-        m_LHandModel.SetGameObjectMeshActive(false);
-        m_RHandModel.SetGameObjectMeshActive(false);
+        m_HeadModel.SetRendererEnable(false);
+        m_LHandModel.SetRendererEnable(false);
+        m_RHandModel.SetRendererEnable(false);
 
         if (VRStaticVariables.playerName != "")
             CmdSetupName(VRStaticVariables.playerName + netId);

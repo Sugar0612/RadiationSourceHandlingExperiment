@@ -25,4 +25,8 @@ public static class StaticGlobalVar
     /// <summary> Join in PlayGame Player Number. </summary>
     [SyncVar]
     public static int personCount = -1;
+
+    /// <summary> 游戏模式 </summary>
+    [SyncVar]
+    public static EGameMode Mode = EGameMode.Teaching;
 }

@@ -6,14 +6,19 @@ using UnityEngine.UI;
 
 public class SceneWindow : WinBase
 {
-    // 模式一
-    Button SceneButton_1;
+    #region UI Control
+    /// <summary> 教学模式 </summary>
+    Button _teachingButton;
 
-    // 模式二
-    Button SceneButton_2;
+    /// <summary> 实训模式 </summary>
+    Button _practicalTrainingButton;
 
-    // 模式三
-    Button SceneButton_3;
+    /// <summary> 自测模式 </summary>
+    Button _selfTestButton;
+
+    /// <summary> 实训模式 </summary>
+    Button _assessmentButton;
+    #endregion
 
     // 游戏场景
     [Scene]
@@ -26,32 +31,28 @@ public class SceneWindow : WinBase
 
     public override void Start()
     {
-        base.Start();
+        base.Start(); 
 
         if (!Config.Get().PicoDevice)
         {
-            gameObject.TryFindAndSetStatus("SceneButton_1", true, out SceneButton_1);
-            gameObject.TryFindAndSetStatus("SceneButton_2", true, out SceneButton_2);
-            gameObject.TryFindAndSetStatus("SceneButton_3", true, out SceneButton_3);
+            gameObject.TryFindAndSetStatus("Teaching", true, out _teachingButton);
+            gameObject.TryFindAndSetStatus("PracticalTraining", true, out _practicalTrainingButton);
+            gameObject.TryFindAndSetStatus("SelfTest", true, out _selfTestButton);
+            gameObject.TryFindAndSetStatus("Assessment", true, out _assessmentButton);
 
-            SceneButton_1.onClick.AddListener(OnClickSceneButton_1);
-            SceneButton_2.onClick.AddListener(OnClickSceneButton_2);
-            SceneButton_3.onClick.AddListener(OnClickSceneButton_3);
+            _teachingButton.onClick.AddListener(() => OnClickedModeButton(EGameMode.Teaching));
+            _practicalTrainingButton.onClick.AddListener(() => OnClickedModeButton(EGameMode.PracticalTraining));
+            _selfTestButton.onClick.AddListener(() => OnClickedModeButton(EGameMode.SelfTest));
+            _assessmentButton.onClick.AddListener(() => OnClickedModeButton(EGameMode.Assessment));
         }
     }
 
-    public void OnClickSceneButton_1()
+    /// <summary>
+    /// 模式按钮点击
+    /// </summary>
+    void OnClickedModeButton(EGameMode mode)
     {
         GameHelpler.Get().SwitchGameScene(scene_1);
-    }
-
-    public void OnClickSceneButton_2()
-    {
-        GameHelpler.Get().SwitchGameScene(scene_1);
-    }
-    
-    public void OnClickSceneButton_3()
-    {
-        GameHelpler.Get().SwitchGameScene(scene_1);
+        StaticGlobalVar.Mode = mode;
     }
 }

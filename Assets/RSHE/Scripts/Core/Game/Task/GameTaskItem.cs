@@ -10,69 +10,66 @@ using Unity.VisualScripting;
 [Serializable]
 public class GameTaskItem : NetworkBehaviour
 {
-    #region 需要编辑变量
-    public string taskName = ""; // 任务名称
+    #region 游戏参数 & 触发模式
+
+    /// <summary> 任务名称 </summary>
+    public string taskName = "";
 
     /// <summary> 分数 </summary>
     public float fraction = 0.0f;
 
-    // public List<TaskCondition> executorsList = new List<TaskCondition>(); // 执行人
-    #endregion
+    /// <summary> 任务完成条件 </summary>
+    public TaskCondition condition;
 
-    Renderer[] renderList;
-    Collider[] colliderList;
-    [HideInInspector] public UnityEvent StartTask = null; // 开始任务
-    [HideInInspector] public UnityEvent EndTask = null; // 结束任务
+    /// <summary> 单人触发 or 多人触发 </summary>
+    public GameColliderTriggerMode trgMode = GameColliderTriggerMode.Single;
+
+    /// <summary> 开始任务 </summary>
+    public UnityEvent StartTask = null;
+
+    /// <summary> 结束任务 </summary>
+    public UnityEvent EndTask = null;
+
+    #endregion
 
     private void Awake()
     {
-        renderList = GetComponentsInChildren<Renderer>();
-        colliderList = GetComponentsInChildren<Collider>();
-
         SetActive(false);
 
         StartTask.AddListener(() => CmdStartAction());
         EndTask.AddListener(() => CmdEndAction());
     }
 
+    #region 任务的开始与结束
     [Command(requiresAuthority = false)]
     void CmdStartAction()
     {
+        Log.cinput("yellow", $"@@@ Start Action");
         RpcSetActive(true);
     }
 
     [Command(requiresAuthority = false)]
     void CmdEndAction()
     {
-        Log.cinput("yellow", $"@@@ EndAction");
+        Log.cinput("yellow", $"@@@ End Action");
         RpcSetActive(false);
     }
+    #endregion
 
+    #region 是否显示任务在 Network & Local
     [ClientRpc]
     void RpcSetActive(bool active)
     {
         Log.cinput("yellow", $"@@@ RpcSetActive：{active}");
-        for (int i = 0; i < renderList.Count(); ++i)
-        {
-            renderList[i].enabled = active;
-        }
 
-        for (int i = 0; i < colliderList.Count(); ++i)
-        {
-            colliderList[i].enabled = active;
-        }
+        gameObject.SetRendererEnable(active);
+        gameObject.SetColliderEnable(active);
     }
 
     void SetActive(bool active)
     {
-        for (int i = 0; i < renderList.Count(); ++i)
-        {
-            renderList[i].enabled = active;
-        }
-
-        for (int i = 0; i < colliderList.Count(); ++i)
-        {
-            colliderList[i].enabled = active;
-        }
+        gameObject.SetRendererEnable(active);
+        gameObject.SetColliderEnable(active);
     }
+    #endregion
 }

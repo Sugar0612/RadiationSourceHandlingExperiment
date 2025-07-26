@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public static class GameObjectExtensions
 {
@@ -24,12 +26,22 @@ public static class GameObjectExtensions
         }
     }
 
-    public static void SetGameObjectMeshActive(this GameObject obj, bool active)
+    public static void SetRendererEnable(this GameObject obj, bool enable)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
         foreach (var render in renderers)
         {
-            render.enabled = active;
+            render.enabled = enable;
+        }
+    }
+
+
+    public static void SetColliderEnable(this GameObject obj, bool enable)
+    {
+        Collider[] colliders = obj.GetComponentsInChildren<Collider>();
+        foreach (var collider in colliders)
+        {
+            collider.enabled = enable;
         }
     }
 }

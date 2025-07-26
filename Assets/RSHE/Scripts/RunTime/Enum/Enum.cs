@@ -60,3 +60,12 @@ public enum GameColliderTriggerMode
     Multiplayer,
     Single
 }
+
+/// <summary> 游戏模式 </summary>
+public enum EGameMode
+{
+    Teaching, // 教学
+    PracticalTraining, // 实训
+    SelfTest, // 自测
+    Assessment // 考核
+}

@@ -4,13 +4,32 @@ using UnityEngine;
 
 public class GameTaskAction : MonoBehaviour
 {
-    public void StartTask()
+    IGameAction _gameAction;
+
+    private void Awake()
     {
-        //Log.cinput("yellow", "@@@ Task_1 Action!");
+        Log.cinput("yellow", $"@@ StaticGlobalVar.Mode: {StaticGlobalVar.Mode.ToString()}");
+        _gameAction = GameModeDispenser.Get().Dispenser(StaticGlobalVar.Mode);
+
+        if (_gameAction != null) 
+            Log.cinput("yellow", $"@@ _gameAction != null");
+        else 
+            Log.cinput("yellow", $"@@ _gameAction == null");
     }
 
-    public void EndTask()
-    { 
+    /// <summary>
+    /// 任务一开始阶段处理
+    /// </summary>
+    public void TaskOneStartAction() 
+    {
+        _gameAction.TaskOneStartAction();
+    }
 
+    /// <summary>
+    /// 任务一结束阶段处理
+    /// </summary>
+    public void TaskOneEndAction()
+    {
+        _gameAction.TaskOneEndAction();
     }
 }
