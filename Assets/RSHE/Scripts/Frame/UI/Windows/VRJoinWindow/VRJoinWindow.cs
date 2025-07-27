@@ -19,6 +19,6 @@ public class VRJoinWindow : WinBase
     public void OnClickJoinButton()
     {
         Log.cinput("green", "Join Button Clicked");
-        StartCoroutine(StaticGlobalVar.networkDiscovery.IEStartDiscovery()); //开始查找主机
+        StartCoroutine(StaticGlobalVar.NetworkDiscovery.IEStartDiscovery()); //开始查找主机
     }
 }

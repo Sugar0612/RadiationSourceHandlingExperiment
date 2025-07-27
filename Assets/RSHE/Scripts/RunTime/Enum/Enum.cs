@@ -64,6 +64,7 @@ public enum GameColliderTriggerMode
 /// <summary> 游戏模式 </summary>
 public enum EGameMode
 {
+    None,
     Teaching, // 教学
     PracticalTraining, // 实训
     SelfTest, // 自测

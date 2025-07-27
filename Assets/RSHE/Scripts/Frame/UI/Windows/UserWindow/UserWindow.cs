@@ -42,7 +42,7 @@ public class UserWindow : WinBase
     public void ChangedpersonCountText(int personCount)
     {
         // Log.cinput("red", $"ChangedpersonCountTextZ: {personCount}");
-        StaticGlobalVar.personCount = personCount;
+        StaticGlobalVar.PersonCount = personCount;
         personCountText.text = personCount.ToString();
     }
 

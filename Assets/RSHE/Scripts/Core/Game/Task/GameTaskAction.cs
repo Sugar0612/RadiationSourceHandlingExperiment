@@ -8,8 +8,8 @@ public class GameTaskAction : MonoBehaviour
 
     private void Awake()
     {
-        Log.cinput("yellow", $"@@ StaticGlobalVar.Mode: {StaticGlobalVar.Mode.ToString()}");
-        _gameAction = GameModeDispenser.Get().Dispenser(StaticGlobalVar.Mode);
+        Log.cinput("yellow", $"@@ StaticGlobalVar.Mode: {StaticGlobalVar.GameMode.ToString()}");
+        _gameAction = GameModeDispenser.Get().Dispenser(StaticGlobalVar.GameMode);
 
         if (_gameAction != null) 
             Log.cinput("yellow", $"@@ _gameAction != null");

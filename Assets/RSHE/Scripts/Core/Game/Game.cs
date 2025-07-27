@@ -3,31 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class Game : NetworkBehaviour
 {
-    static Game instance;
+    #region 场景切换功能
 
-    public static Game Get()
+    /// <summary> 游戏场景 </summary>
+    [Scene]
+    public string GameScene;
+
+    /// <summary> 是否游戏模式已经改变 </summary>
+    bool _isChangedMode = false;
+
+    [Command(requiresAuthority = false)]
+    public void CmdChangeGameScene(EGameMode mode)
     {
-        if (instance == null)
-        {
-            instance = FindObjectOfType<Game>();
-        }
-
-        return instance;
+        RpcSetGameModeSync(mode);
+        StartCoroutine(ReadyChangedScene());
     }
 
-    private void Awake()
+    [ClientRpc]
+    void RpcSetGameModeSync(EGameMode mode)
     {
-        if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
+        StaticGlobalVar.GameMode = mode;
+        _isChangedMode = true;
     }
 
-    private void Start()
+    IEnumerator ReadyChangedScene()
     {
-
+        yield return new WaitUntil(() => _isChangedMode == true);
+        GameHelpler.Get().SwitchGameScene(GameScene);
     }
+
+    #endregion
 }

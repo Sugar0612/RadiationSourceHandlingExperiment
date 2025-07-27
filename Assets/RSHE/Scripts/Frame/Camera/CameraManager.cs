@@ -10,21 +10,21 @@ public class CameraManager : MonoBehaviour
 {
     public List<CameraItem> cameraList = new List<CameraItem>();
 
-    static CameraManager m_Instance;
+    static CameraManager s_instance;
 
     public static CameraManager Get()
     {
-        if (m_Instance == null)
+        if (s_instance == null)
         {
-            m_Instance = FindObjectOfType<CameraManager>();
-            if (m_Instance == null)
+            s_instance = FindObjectOfType<CameraManager>();
+            if (s_instance == null)
             {
                 GameObject obj = new GameObject("CameraManager");
-                m_Instance = obj.AddComponent<CameraManager>();
+                s_instance = obj.AddComponent<CameraManager>();
             }
-            DontDestroyOnLoad(m_Instance);
+            DontDestroyOnLoad(s_instance);
         }
-        return m_Instance;
+        return s_instance;
     }
 
     void Awake()
@@ -107,5 +107,5 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    public static bool InstanceIsNull() => m_Instance == null;
+    public static bool InstanceIsNull() => s_instance == null;
 }

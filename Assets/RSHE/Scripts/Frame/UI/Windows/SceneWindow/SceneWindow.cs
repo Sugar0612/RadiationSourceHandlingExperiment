@@ -20,14 +20,8 @@ public class SceneWindow : WinBase
     Button _assessmentButton;
     #endregion
 
-    // 游戏场景
     [Scene]
-    public string scene_1;
-
-    public override void Awake()
-    {
-        base.Awake();
-    }
+    public string GameScene;
 
     public override void Start()
     {
@@ -52,7 +46,12 @@ public class SceneWindow : WinBase
     /// </summary>
     void OnClickedModeButton(EGameMode mode)
     {
-        GameHelpler.Get().SwitchGameScene(scene_1);
-        StaticGlobalVar.Mode = mode;
+        if (NetworkServer.active)
+        {
+            Game game = FindObjectOfType<Game>();
+            game.CmdChangeGameScene(mode);
+        }
+        //StaticGlobalVar.GameMode = mode;
+        // GameHelpler.Get().SwitchGameScene(GameScene);
     }
 }

@@ -13,11 +13,6 @@ public class MainWindow : WinBase
     // 主机按钮
     private Button hostButton;
 
-    public override void Awake()
-    {
-        base.Awake();
-    }
-
     public override void Start()
     {
         base.Start();
@@ -36,7 +31,7 @@ public class MainWindow : WinBase
     {
         Log.cinput("green", "Host Button Clicked");
         NetworkManager.singleton.StartHost();
-        StaticGlobalVar.networkDiscovery.AdvertiseServer();
+        StaticGlobalVar.NetworkDiscovery.AdvertiseServer();
 
         UIController.Get().ShowWindows(EWindowType.SceneWindow | EWindowType.UserWindow);
     }

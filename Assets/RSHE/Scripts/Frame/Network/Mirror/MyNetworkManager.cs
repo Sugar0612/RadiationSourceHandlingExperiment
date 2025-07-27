@@ -142,14 +142,14 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerConnect(NetworkConnectionToClient conn) 
     {
-        StaticGlobalVar.personCount += 1;
+        StaticGlobalVar.PersonCount += 1;
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        userWindow?.ChangedpersonCountText(StaticGlobalVar.personCount);
+        userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);
         //userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!\n");
 
         //userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " connected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!");
-        Log.input($"A client connected! {StaticGlobalVar.personCount}");
+        Log.input($"A client connected! {StaticGlobalVar.PersonCount}");
     }
 
     /// <summary>
@@ -179,15 +179,15 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
-        StaticGlobalVar.personCount -= 1;
+        StaticGlobalVar.PersonCount -= 1;
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        userWindow?.ChangedpersonCountText(StaticGlobalVar.personCount);
+        userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);
         //userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!\n");
         
         // userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " disconnected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!");
         base.OnServerDisconnect(conn);
-        Log.input($"A client disconnected! {StaticGlobalVar.personCount}");
+        Log.input($"A client disconnected! {StaticGlobalVar.PersonCount}");
     }
 
     /// <summary>
