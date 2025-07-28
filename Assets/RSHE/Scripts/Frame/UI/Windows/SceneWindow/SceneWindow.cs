@@ -25,7 +25,7 @@ public class SceneWindow : WinBase
 
     public override void Start()
     {
-        base.Start(); 
+        base.Start();
 
         if (!Config.Get().PicoDevice)
         {

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public interface IGameAction
 {
-    /// <summary> 任务一开始 </summary>
+    /// <summary> Task one start. </summary>
     public void TaskOneStartAction();
 
-    /// <summary> 任务一结束 </summary>
+    /// <summary> task one trigger collider. </summary>
+    public void TaskOneAction(GameColliderPackage gamePkg);
+
+    /// <summary> task one end. </summary>
     public void TaskOneEndAction();
 }

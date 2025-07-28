@@ -9,6 +9,11 @@ public class PracticalTrainingAction : BaseModeAction, IGameAction
         Log.cinput("yellow", "@@ PracticalTrainingAction TaskOneStartAction..");
     }
 
+    public void TaskOneAction(GameColliderPackage gamePkg)
+    {
+        Log.cinput("yellow", "@@ PracticalTrainingAction TaskOneAction..");
+    }
+
     public void TaskOneEndAction()
     {
         Log.cinput("yellow", "@@ PracticalTrainingAction TaskOneEndAction..");

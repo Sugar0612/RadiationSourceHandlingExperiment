@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine.Rendering;
 using Mirror;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class GameTaskItem : NetworkBehaviour
@@ -19,16 +20,16 @@ public class GameTaskItem : NetworkBehaviour
     public float fraction = 0.0f;
 
     /// <summary> 任务完成条件 </summary>
-    public TaskCondition condition;
+    public List<TaskCondition> conditions = new List<TaskCondition>();
 
-    /// <summary> 单人触发 or 多人触发 </summary>
-    public GameColliderTriggerMode trgMode = GameColliderTriggerMode.Single;
-
-    /// <summary> 开始任务 </summary>
-    public UnityEvent StartTask = null;
+    /// <summary> 当玩家触发GameCollider后触发 </summary>
+    public UnityEvent<GameColliderPackage> OnTask = null;
 
     /// <summary> 结束任务 </summary>
     public UnityEvent EndTask = null;
+     
+    /// <summary> 开始任务 </summary>
+    public UnityEvent StartTask = null;
 
     #endregion
 

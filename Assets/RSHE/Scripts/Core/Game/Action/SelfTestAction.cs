@@ -10,6 +10,18 @@ public class SelfTestAction : BaseModeAction, IGameAction
         Log.cinput("yellow", "@@ SelfTestAction TaskOneStartAction..");
     }
 
+    public void TaskOneAction(GameColliderPackage gamePkg)
+    {
+        Log.cinput("yellow", "@@ SelfTestAction TaskOneAction..");
+
+        VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
+        if (!ctrl.isLocalPlayer)
+        {
+            ctrl.hat.SetRendererEnable(true);
+            ctrl.clothes.SetRendererEnable(true);
+        }
+    }
+
     public void TaskOneEndAction() 
     {
         Log.cinput("yellow", "@@ SelfTestAction TaskOneEndAction..");

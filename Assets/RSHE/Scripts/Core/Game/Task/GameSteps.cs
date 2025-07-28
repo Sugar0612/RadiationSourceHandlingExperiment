@@ -75,12 +75,18 @@ public class GameSteps : NetworkBehaviour
     }
 
     /// <summary> 设置步骤索引 </summary>
-    public void SetStepIndex(int targetStepIdx) { if (targetStepIdx >= 0 && targetStepIdx < stepsList.Count) stepIdx = targetStepIdx; }
+    public void SetStepIndex(int targetStepIdx) 
+    {
+        if (targetStepIdx >= 0 && targetStepIdx < stepsList.Count)
+        {
+            stepIdx = targetStepIdx;
+        }
+    }
 
     /// <summary> 执行任务 </summary>
     public void ExecuteCurrentTask()
     {
-        Log.cinput("yellow", $"@@@ ExecuteCurrentTask");
+        // Log.cinput("yellow", $"@@@ ExecuteCurrentTask");
         currTask.StartTask.Invoke();
     }
 }

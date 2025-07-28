@@ -10,6 +10,11 @@ public class AssessmentAction : BaseModeAction, IGameAction
         Log.cinput("yellow", "@@ AssessmentAction TaskOneStartAction..");
     }
 
+    public void TaskOneAction(GameColliderPackage gamePkg)
+    {
+        Log.cinput("yellow", "@@ AssessmentAction TaskOneAction..");
+    }
+
     public void TaskOneEndAction() 
     {
         Log.cinput("yellow", "@@ AssessmentAction TaskOneEndAction..");

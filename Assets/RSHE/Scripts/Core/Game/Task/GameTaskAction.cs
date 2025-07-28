@@ -10,26 +10,15 @@ public class GameTaskAction : MonoBehaviour
     {
         Log.cinput("yellow", $"@@ StaticGlobalVar.Mode: {StaticGlobalVar.GameMode.ToString()}");
         _gameAction = GameModeDispenser.Get().Dispenser(StaticGlobalVar.GameMode);
-
-        if (_gameAction != null) 
-            Log.cinput("yellow", $"@@ _gameAction != null");
-        else 
-            Log.cinput("yellow", $"@@ _gameAction == null");
     }
 
-    /// <summary>
-    /// 任务一开始阶段处理
-    /// </summary>
-    public void TaskOneStartAction() 
-    {
-        _gameAction.TaskOneStartAction();
-    }
+    /// <summary> task 1 start. </summary>
+    public void TaskOneStartAction() => _gameAction.TaskOneStartAction();
 
-    /// <summary>
-    /// 任务一结束阶段处理
-    /// </summary>
-    public void TaskOneEndAction()
-    {
-        _gameAction.TaskOneEndAction();
-    }
+    /// <summary> task 1 action. </summary>
+    public void TaskOneAction(GameColliderPackage gamePkg) => _gameAction.TaskOneAction(gamePkg);
+
+    /// <summary> task 1 end. </summary>
+    public void TaskOneEndAction() => _gameAction.TaskOneEndAction();
+    
 }

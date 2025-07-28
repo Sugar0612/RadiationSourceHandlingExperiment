@@ -25,16 +25,15 @@ public enum EIdentity
 }
 
 // User's body parts
-//public enum EBodyParts
-//{
-//    None,
-//    Head,
-//    Hand,
-//    Foot
-//}
+public enum EBodyParts
+{
+    None,
+    Head,
+    Hand,
+    Foot
+}
 
 // User's Network State
-
 public enum EUserState
 {
     Offline = 0,
