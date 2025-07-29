@@ -1,7 +1,7 @@
-using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Principal;
+using Mirror;
 using UnityEngine;
 
 /// <summary>
@@ -14,12 +14,13 @@ public class GamePlayerCollider : NetworkBehaviour
 
     void Start()
     {
-        _task = GetComponentInParent<GameTaskItem>();    
+        _task = GetComponentInParent<GameTaskItem>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
+        VRNetworkPlayerController ctrl =
+            other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
         if (ctrl && _task)
         {
@@ -29,13 +30,10 @@ public class GamePlayerCollider : NetworkBehaviour
             GameColliderPackage gamePkg = new GameColliderPackage()
             {
                 VRPlayerCtrl = ctrl,
-                Condition = condition
+                TaskItem = _task,
             };
 
-            if (condition != null)
-            {
-                _task.OnTask?.Invoke(gamePkg);
-            }
+            _task.OnTask?.Invoke(gamePkg);
         }
     }
 

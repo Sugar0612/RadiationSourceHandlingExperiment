@@ -1,7 +1,7 @@
-using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Principal;
+using Mirror;
 using UnityEngine;
 
 /// <summary>
@@ -14,27 +14,20 @@ public class GamePropCollider : NetworkBehaviour
 
     void Start()
     {
-        _task = GetComponentInParent<GameTaskItem>();    
+        _task = GetComponentInParent<GameTaskItem>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        NetworkPropsCollider propCollider = other.gameObject.GetComponentInParent<NetworkPropsCollider>();
+        NetworkPropsCollider propCollider =
+            other.gameObject.GetComponentInParent<NetworkPropsCollider>();
 
         if (propCollider && _task)
         {
             EIdentity identity = propCollider.WhoHolding;
-            TaskCondition condition = _task.conditions.Find(x => x.identity == identity);
 
-            GameColliderPackage gamePkg = new GameColliderPackage()
-            {
-                Condition = condition
-            };
-
-            if (condition != null)
-            {
-                _task.OnTask?.Invoke(gamePkg);
-            }
+            GameColliderPackage gamePkg = new GameColliderPackage() { TaskItem = _task };
+            _task.OnTask?.Invoke(gamePkg);
         }
     }
 

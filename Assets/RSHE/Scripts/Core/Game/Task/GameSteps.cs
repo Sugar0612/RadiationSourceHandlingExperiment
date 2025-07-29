@@ -49,7 +49,7 @@ public class GameSteps : NetworkBehaviour
     /// <summary>
     /// 开始下一个任务
     /// </summary>
-    public void NextTask()
+    public void Next()
     {
         if (taskIdx + 1 < currTaskList.Count)
         {
@@ -64,7 +64,7 @@ public class GameSteps : NetworkBehaviour
     /// <summary>
     /// 开始下一个步骤
     /// </summary>
-    public void NextStep()
+    void NextStep()
     {
         if (stepIdx + 1 < stepsList.Count)
         {
@@ -87,6 +87,7 @@ public class GameSteps : NetworkBehaviour
     public void ExecuteCurrentTask()
     {
         // Log.cinput("yellow", $"@@@ ExecuteCurrentTask");
-        currTask.StartTask.Invoke();
+       
+        currTask.GoStartTaskEvent();
     }
 }

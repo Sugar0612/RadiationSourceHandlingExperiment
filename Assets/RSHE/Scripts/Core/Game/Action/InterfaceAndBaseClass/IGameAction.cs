@@ -5,11 +5,11 @@ using UnityEngine;
 public interface IGameAction
 {
     /// <summary> Task one start. </summary>
-    public void TaskOneStartAction();
+    public void TaskOneStartAction(GameColliderPackage gamePkg);
 
     /// <summary> task one trigger collider. </summary>
     public void TaskOneAction(GameColliderPackage gamePkg);
 
     /// <summary> task one end. </summary>
-    public void TaskOneEndAction();
+    public void TaskOneEndAction(GameColliderPackage gamePkg);
 }

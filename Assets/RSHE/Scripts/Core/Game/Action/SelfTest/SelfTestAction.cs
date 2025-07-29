@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary> ×Ô²âÄ£Ê½ </summary>
 public class SelfTestAction : BaseModeAction, IGameAction
 {
-    public void TaskOneStartAction() 
+    public void TaskOneStartAction(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ SelfTestAction TaskOneStartAction..");
     }
@@ -22,7 +22,7 @@ public class SelfTestAction : BaseModeAction, IGameAction
         }
     }
 
-    public void TaskOneEndAction() 
+    public void TaskOneEndAction(GameColliderPackage gamePkg) 
     {
         Log.cinput("yellow", "@@ SelfTestAction TaskOneEndAction..");
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary> ¿¼ºËÄ£Ê½ </summary>
 public class AssessmentAction : BaseModeAction, IGameAction
 {
-    public void TaskOneStartAction()
+    public void TaskOneStartAction(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ AssessmentAction TaskOneStartAction..");
     }
@@ -13,9 +13,10 @@ public class AssessmentAction : BaseModeAction, IGameAction
     public void TaskOneAction(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ AssessmentAction TaskOneAction..");
+        
     }
 
-    public void TaskOneEndAction() 
+    public void TaskOneEndAction(GameColliderPackage gamePkg) 
     {
         Log.cinput("yellow", "@@ AssessmentAction TaskOneEndAction..");
     }
