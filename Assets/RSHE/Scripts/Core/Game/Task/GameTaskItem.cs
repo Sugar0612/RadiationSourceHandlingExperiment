@@ -28,14 +28,14 @@ public class GameTaskItem : NetworkBehaviour
     /// <summary> 任务完成条件 </summary>
     public List<TaskCondition> conditions = new List<TaskCondition>();
 
-    /// <summary> 当玩家触发GameCollider后触发 </summary>
-    public UnityEvent<GameColliderPackage> OnTask = null;
-
     /// <summary> 结束任务 </summary>
     public UnityEvent<GameColliderPackage> EndTask = null;
      
     /// <summary> 开始任务 </summary>
     public UnityEvent<GameColliderPackage> StartTask = null;
+
+    /// <summary> 当玩家触发GameCollider后触发 </summary>
+    public UnityEvent<GameColliderPackage> OnTask = null;
 
     #endregion
 
@@ -55,23 +55,25 @@ public class GameTaskItem : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdStartActiveAction()
     {
-        Log.cinput("yellow", $"@@@ Start Action");
+        // Log.cinput("yellow", $"@@@ Start Action");
         RpcSetActive(true);
     }
 
     [Command(requiresAuthority = false)]
     void CmdEndActiveAction()
     {
-        Log.cinput("yellow", $"@@@ End Action");
+        // Log.cinput("yellow", $"@@@ End Action");
         RpcSetActive(false);
     }
 
+    /// <summary> 执行 Task Start Event. </summary>
     public void GoStartTaskEvent()
     {
         GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
         StartTask.Invoke(pkg);
     }
 
+    /// <summary> 执行 Task End Event. </summary>
     public void GoEndTaskEvent()
     {
         GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };

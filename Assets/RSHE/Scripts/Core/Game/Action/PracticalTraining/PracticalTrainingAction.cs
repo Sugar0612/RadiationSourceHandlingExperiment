@@ -1,20 +1,24 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PracticalTrainingAction : BaseModeAction, IGameAction
+public class PracticalTrainingAction : ActionBase
 {
-    public void TaskOneStartAction(GameColliderPackage gamePkg)
+    [ClientRpc]
+    public override void RpcStartAction_1(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ PracticalTrainingAction TaskOneStartAction..");
     }
 
-    public void TaskOneAction(GameColliderPackage gamePkg)
+    [ClientRpc]
+    public override void RpcTaskAction_1(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ PracticalTrainingAction TaskOneAction..");
     }
 
-    public void TaskOneEndAction(GameColliderPackage gamePkg)
+    [ClientRpc]
+    public override void RpcEndAction_1(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ PracticalTrainingAction TaskOneEndAction..");
     }

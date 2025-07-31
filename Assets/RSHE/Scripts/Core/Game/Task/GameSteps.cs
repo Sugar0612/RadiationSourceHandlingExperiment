@@ -51,6 +51,7 @@ public class GameSteps : NetworkBehaviour
     /// </summary>
     public void Next()
     {
+        Log.cinput("yellow", $"@@ Next");
         if (taskIdx + 1 < currTaskList.Count)
         {
             taskIdx++;
@@ -66,6 +67,7 @@ public class GameSteps : NetworkBehaviour
     /// </summary>
     void NextStep()
     {
+        Log.cinput("yellow", $"@@ NextStep");
         if (stepIdx + 1 < stepsList.Count)
         {
             stepIdx++;

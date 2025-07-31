@@ -1,16 +1,24 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary> ×Ô²âÄ£Ê½ </summary>
-public class SelfTestAction : BaseModeAction, IGameAction
+public class SelfTestAction : ActionBase
 {
-    public void TaskOneStartAction(GameColliderPackage gamePkg)
+    [ClientRpc]
+    public override void RpcStartAction_1(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ SelfTestAction TaskOneStartAction..");
+
+        if (gamePkg != null)
+        {
+            AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
+        }
     }
 
-    public void TaskOneAction(GameColliderPackage gamePkg)
+    [ClientRpc]
+    public override void RpcTaskAction_1(GameColliderPackage gamePkg)
     {
         Log.cinput("yellow", "@@ SelfTestAction TaskOneAction..");
 
@@ -22,7 +30,8 @@ public class SelfTestAction : BaseModeAction, IGameAction
         }
     }
 
-    public void TaskOneEndAction(GameColliderPackage gamePkg) 
+    [ClientRpc]
+    public override void RpcEndAction_1(GameColliderPackage gamePkg) 
     {
         Log.cinput("yellow", "@@ SelfTestAction TaskOneEndAction..");
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameModeDispenser
 {
     /// <summary> baseAction 多态委托 </summary>
-    private delegate IGameAction ActionCreator();
+    private delegate ActionBase ActionCreator();
 
     /// <summary> 不同的EGameMode，存储不同的action委托 </summary>
     private static readonly Dictionary<EGameMode, ActionCreator> s_actionCreators;
@@ -25,17 +25,17 @@ public class GameModeDispenser
     {
         s_actionCreators = new Dictionary<EGameMode, ActionCreator>
         {
-            { EGameMode.Teaching, () => new TeachingAction() },
-            { EGameMode.PracticalTraining, () => new PracticalTrainingAction() },
-            { EGameMode.SelfTest, () => new SelfTestAction() },
-            { EGameMode.Assessment, () => new AssessmentAction() }
+            { EGameMode.Teaching, () => GameObject.FindObjectOfType<TeachingAction>() },
+            { EGameMode.PracticalTraining, () => GameObject.FindObjectOfType<PracticalTrainingAction>() },
+            { EGameMode.SelfTest, () => GameObject.FindObjectOfType<SelfTestAction>() },
+            { EGameMode.Assessment, () => GameObject.FindObjectOfType<AssessmentAction>() }
         };
     }
 
     /// <summary>
     /// 分发器
     /// </summary>
-    public IGameAction Dispenser(EGameMode mode)
+    public ActionBase Dispenser(EGameMode mode)
     {
         if (s_actionCreators.TryGetValue(mode, out var creator))
         {
