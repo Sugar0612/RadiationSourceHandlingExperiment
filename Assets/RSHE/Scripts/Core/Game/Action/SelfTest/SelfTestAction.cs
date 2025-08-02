@@ -23,10 +23,33 @@ public class SelfTestAction : ActionBase
         Log.cinput("yellow", "@@ SelfTestAction TaskOneAction..");
 
         VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
-        if (!ctrl.isLocalPlayer)
+        if (ctrl)
         {
-            ctrl.hat.SetRendererEnable(true);
-            ctrl.clothes.SetRendererEnable(true);
+            if (!ctrl.isLocalPlayer)
+            {
+                ctrl.hat.SetRendererEnable(true);
+                ctrl.clothes.SetRendererEnable(true);
+            }
+
+            if (gamePkg != null)
+            {
+                bool canGoOn = true;
+                TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
+
+                if (condition.HoldingItemsIsEmpty())
+                    condition.IsFinished = true;
+
+                foreach (var item in gamePkg.TaskItem.conditions)
+                    canGoOn = canGoOn & item.IsFinished;
+
+                if (canGoOn)
+                {
+                    if (StaticGlobalVar.IsHost)
+                        gamePkg.TaskItem.GoEndTaskEvent();
+
+                    GameSteps.Get().Next();
+                }
+            }
         }
     }
 

@@ -66,22 +66,6 @@ public class GameTaskItem : NetworkBehaviour
         RpcSetActive(false);
     }
 
-    /// <summary> 执行 Task Start Event. </summary>
-    public void GoStartTaskEvent()
-    {
-        GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
-        StartTask.Invoke(pkg);
-    }
-
-    /// <summary> 执行 Task End Event. </summary>
-    public void GoEndTaskEvent()
-    {
-        GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
-        EndTask.Invoke(pkg);
-    }
-
-    #endregion
-
     #region 是否显示任务在 Network & Local
     [ClientRpc]
     void RpcSetActive(bool active)
@@ -96,6 +80,24 @@ public class GameTaskItem : NetworkBehaviour
     {
         gameObject.SetRendererEnable(active);
         gameObject.SetColliderEnable(active);
+    }
+    #endregion
+
+    #endregion
+
+    #region 控制 StartEvent 和 EndEvent的接口
+    /// <summary> 执行 Task Start Event. </summary>
+    public void GoStartTaskEvent()
+    {
+        GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
+        StartTask.Invoke(pkg);
+    }
+
+    /// <summary> 执行 Task End Event. </summary>
+    public void GoEndTaskEvent()
+    {
+        GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
+        EndTask.Invoke(pkg);
     }
     #endregion
 }

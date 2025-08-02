@@ -18,9 +18,18 @@ public class TaskCondition
     }
 
     ///// <summary> 人物身份 </summary>
-    public EIdentity identity = EIdentity.None;
+    public EIdentity Identity = EIdentity.None;
+
+    /// <summary> 触发部位 </summary>
+    public EBodyParts BodyPart = EBodyParts.None;
 
     /// <summary> 持有物品以及数量列表 </summary>
     [SerializeField]
     public List<PropsPackage> HoldingItems = new List<PropsPackage>();
+
+    /// <summary> 这个条件已经完成 </summary>
+    public bool IsFinished = false;
+
+    /// <summary> HoldingItem 是否为空或者其中的道具都使用结束可以进入 OnEndEvent阶段 </summary>
+    public bool HoldingItemsIsEmpty() => HoldingItems == null || HoldingItems.Count == 0;
 }

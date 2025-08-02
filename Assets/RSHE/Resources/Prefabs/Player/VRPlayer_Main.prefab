@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1000d6c3f03cce4ab55b88898b683f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePart: 1
+  Part: 1
 --- !u!1 &3468233153913631544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1000d6c3f03cce4ab55b88898b683f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePart: 2
+  Part: 2
 --- !u!1001 &3959266346575737337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1000d6c3f03cce4ab55b88898b683f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ePart: 2
+  Part: 2
 --- !u!4 &5053258082705429395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8129811722673939050, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}

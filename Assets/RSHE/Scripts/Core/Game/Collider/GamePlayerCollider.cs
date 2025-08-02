@@ -22,18 +22,24 @@ public class GamePlayerCollider : NetworkBehaviour
         VRNetworkPlayerController ctrl =
             other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
+        BodyPartInfo partinfo = 
+            other.gameObject.GetComponentInParent<BodyPartInfo>();
+
         if (ctrl && _task)
         {
             EIdentity identity = ctrl.identity;
-            TaskCondition condition = _task.conditions.Find(x => x.identity == identity);
-
-            GameColliderPackage gamePkg = new GameColliderPackage()
+            TaskCondition condition = _task.conditions.Find(x => x.Identity == identity);
+            if (partinfo != null && condition != null && condition.BodyPart == partinfo.Part)
             {
-                VRPlayerCtrl = ctrl,
-                TaskItem = _task,
-            };
+                Log.cinput("yellow", $"@@ partinfo: {partinfo.ToString()}");
+                GameColliderPackage gamePkg = new GameColliderPackage()
+                {
+                    VRPlayerCtrl = ctrl,
+                    TaskItem = _task,
+                };
 
-            _task.OnTask?.Invoke(gamePkg);
+                _task.OnTask?.Invoke(gamePkg);
+            }
         }
     }
 

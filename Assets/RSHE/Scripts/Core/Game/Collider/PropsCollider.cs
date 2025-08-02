@@ -21,7 +21,8 @@ public class NetworkPropsCollider : NetworkBehaviour
         BodyPartInfo bodyInfo = other.gameObject.GetComponentInParent<BodyPartInfo>();
         VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
-        if (ctrl & bodyInfo.EPart == EBodyParts.Hand)
+        // ±ÿ–Î « ÷ƒ√
+        if (ctrl && bodyInfo && bodyInfo.Part == EBodyParts.Hand)
         {
             WhoHolding = ctrl.identity;
         }
@@ -32,7 +33,7 @@ public class NetworkPropsCollider : NetworkBehaviour
         BodyPartInfo bodyInfo = other.gameObject.GetComponentInParent<BodyPartInfo>();
         VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
-        if (ctrl & bodyInfo.EPart == EBodyParts.Hand)
+        if (ctrl & bodyInfo.Part == EBodyParts.Hand)
         {
             WhoHolding = (ctrl.identity == WhoHolding) ? EIdentity.None : WhoHolding;
         }

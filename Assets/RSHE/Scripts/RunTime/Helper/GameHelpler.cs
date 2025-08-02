@@ -5,16 +5,26 @@ using UnityEngine;
 
 public class GameHelpler : MonoBehaviour
 {
-    static GameHelpler m_Instance;
+    static GameHelpler Instance;
 
     public static GameHelpler Get()
     {
-        if (m_Instance == null)
+        if (Instance == null)
         {
-            m_Instance = FindObjectOfType<GameHelpler>();
+            Instance = FindObjectOfType<GameHelpler>();
         }
 
-        return m_Instance;
+        return Instance;
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Log.cinput("yellow", "@@ GameHelper Awake..");
+            Instance = FindObjectOfType<GameHelpler>();
+            DontDestroyOnLoad(this);
+        }
     }
 
     /// <summary>

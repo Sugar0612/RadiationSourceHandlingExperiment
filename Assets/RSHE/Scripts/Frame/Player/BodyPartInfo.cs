@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BodyPartInfo : MonoBehaviour
 {
-    public EBodyParts EPart;
+    public EBodyParts Part;
 }
