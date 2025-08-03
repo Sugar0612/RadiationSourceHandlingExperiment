@@ -1,4 +1,5 @@
 using Mirror;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -86,11 +87,17 @@ public class VRNetworkPlayerController : NetworkBehaviour
     {
         if (isServer && isLocalPlayer)
             gameObject.SetActive(false);
+        else
+            StartCoroutine(Config.Get().GetLocalIdentity(arg => identity = arg));
 
         hat.SetRendererEnable(false);
         clothes.SetRendererEnable(false);
 
-        identity = Config.Get().GetIdentityBaseOnDeviceID(SystemInfo.deviceUniqueIdentifier);
+    }
+
+    IEnumerator A()
+    {
+        yield return null;
     }
 
     public void OnNameChangedHook(string _old, string _new)

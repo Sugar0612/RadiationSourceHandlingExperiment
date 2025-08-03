@@ -31,7 +31,7 @@ public class ServerDisplay : MonoBehaviour
         {
             // LogText.text += $"Client connected! Device ID: {msg.deviceID}\n";
             UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-            userWin.SetItemState(msg.deviceID, EUserState.Online);
+            userWin.SetItemState(msg.Identity, EUserState.Online);
         });
     }
 
@@ -39,10 +39,10 @@ public class ServerDisplay : MonoBehaviour
     {
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
-            LogText.text += $"Client Disconnected! Device ID: {msg.deviceID}\n";
+            LogText.text += $"Client Disconnected! Device ID: {msg.Identity.ToString()}\n";
 
             UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-            userWin.SetItemState(msg.deviceID, EUserState.Offline);
+            userWin.SetItemState(msg.Identity, EUserState.Offline);
         });
     }
 }

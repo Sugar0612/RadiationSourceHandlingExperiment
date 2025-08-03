@@ -8,6 +8,5 @@
 
 public class UserConfig
 {
-    public string deviceID = "";
-    public EIdentity identity = 0;
+    public EIdentity Identity = 0;
 }

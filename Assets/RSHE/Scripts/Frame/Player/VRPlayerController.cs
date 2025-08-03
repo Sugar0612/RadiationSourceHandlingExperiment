@@ -73,7 +73,7 @@ public class VRPlayerController : NetworkBehaviour
         }
 
         textPlayerName.enabled = false;
-        identity = Config.Get().GetIdentityBaseOnDeviceID(SystemInfo.deviceUniqueIdentifier);
+        StartCoroutine(Config.Get().GetLocalIdentity(arg => identity = arg));
     }
 
     private void FixedUpdate()

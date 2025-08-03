@@ -14,7 +14,7 @@ public class UserItem : MonoBehaviour
     public void Init(UserConfig _userCfg) 
     {
         userCfg = _userCfg;
-        identityTx.text = (userCfg.identity).ToString();
+        identityTx.text = (userCfg.Identity).ToString();
         stateTx.text = m_UserStateDic[0];
     }
 

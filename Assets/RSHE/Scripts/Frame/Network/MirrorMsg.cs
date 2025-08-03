@@ -5,10 +5,10 @@ using UnityEngine;
 
 public struct  MirrorConnMsg : NetworkMessage
 {
-    public string deviceID;
+    public EIdentity Identity;
 }
 
 public struct MirrorDisConnMsg : NetworkMessage
 {
-    public string deviceID;
+    public EIdentity Identity;
 }

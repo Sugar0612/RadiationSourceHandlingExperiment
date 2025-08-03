@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class FilePath
 {
-    public static string ProjectConfigPath = Application.streamingAssetsPath + "/Config/ProjectConfig.ini";
+    /// <summary> 获取玩家身份列表 </summary>
+    public static string UserConfigListPath = Application.streamingAssetsPath + "/Config/UserConfigList.json";
 
-    public static string UserConfigPath = Application.streamingAssetsPath + "/Config/UserConfig.json";
+    /// <summary> 获取本地玩家的身份 </summary>
+    public static string LocalUserIdentityPath = Application.streamingAssetsPath + "/Config/LocalUserIdentity.json";
 }

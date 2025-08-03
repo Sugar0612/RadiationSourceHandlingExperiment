@@ -1,5 +1,6 @@
 
 using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using Telepathy;
 using TMPro;
@@ -51,40 +52,37 @@ public class UserWindow : WinBase
     /// </summary>
     void InitList()
     {
-        userItemList.Clear();
-        List<UserConfig> configList = Config.Get().userConfig;
-        // Debug.LogError($"configList Count: {configList.Count}, {FilePath.UserConfigPath}");
-        LogText.text += $"configList Count: {configList.Count}.\n";
-
-        for (int i = 0; i < configList.Count; ++i)
+        StartCoroutine(Config.Get().GetUserConfigList(arg =>
         {
-            var itemClone = GameObject.Instantiate(userItemTemp, userItemParent);
-            itemClone.Init(configList[i]);
-            itemClone.gameObject.SetActive(true);
-            userItemList.Add(itemClone);
-        }
+            userItemList.Clear();
+            List<UserConfig> configList = arg;
+            // Debug.LogError($"configList Count: {configList.Count}, {FilePath.UserConfigPath}");
+            LogText.text += $"@@@ configList Count: {configList.Count}.\n";
+
+            for (int i = 0; i < configList.Count; ++i)
+            {
+                var itemClone = GameObject.Instantiate(userItemTemp, userItemParent);
+                itemClone.Init(configList[i]);
+                itemClone.gameObject.SetActive(true);
+                userItemList.Add(itemClone);
+            }
+        }));
     }
 
     /// <summary>
     /// 改变用户登录状态
     /// </summary>
-    public void SetItemState(string deviceID, EUserState state)
+    public void SetItemState(EIdentity identity, EUserState state)
     {
-        for (int i = 0; i < userItemList.Count; ++i)
-        {
-            string log = $"userItemList[{i}].userCfg.deviceID = {userItemList[i].userCfg.deviceID}.\n";
-            LogText.text += log;
-        }
-
-        UserItem target = userItemList.FindUserItem(deviceID);
+        UserItem target = userItemList.FindUserItem(identity);
         if (target != null)
         {
-            LogText.text += $"{deviceID} Item not NULL!\n";
+            LogText.text += $"{identity.ToString()} Item not NULL!\n";
             target.SetState(state);
         }
         else
         {
-            LogText.text += $"{deviceID} Item NULL!\n";
+            LogText.text += $"{identity.ToString()} Item NULL!\n";
         }
     }
 
@@ -101,11 +99,11 @@ public class UserWindow : WinBase
 
 public static class UserListExtensions
 {
-    public static UserItem FindUserItem(this List<UserItem> list, string deviceID)
+    public static UserItem FindUserItem(this List<UserItem> list, EIdentity identity)
     {
         UserItem item = new UserItem();
 
-        item = list.Find(x => x.userCfg.deviceID == deviceID);
+        item = list.Find(x => x.userCfg.Identity == identity);
 
         return item;
     }

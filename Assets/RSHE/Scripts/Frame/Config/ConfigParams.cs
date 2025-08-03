@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using LitJson;
@@ -13,15 +14,15 @@ using UnityEngine.InputSystem.LowLevel;
 public partial class Config : MonoBehaviour
 {
     [HideInInspector]
-    public List<UserConfig> userConfig = new List<UserConfig>();
+    public List<UserConfig> _userConfigList = new List<UserConfig>();
+
+    private UserConfig _localUserConfig;
+
+    bool _isConfigListInit = false;
+
+    bool _isUserInit = false;
 
     public bool PicoDevice;
-
-    private IEnumerator InitializeConfig()
-    {
-        var usrCfg = GetObject<List<UserConfig>>(result => userConfig = result, FilePath.UserConfigPath);
-        yield return usrCfg;
-    }
 
     private void Awake()
     {
@@ -30,25 +31,38 @@ public partial class Config : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             instance = this;
         }
-
-        StartCoroutine(InitializeConfig());
     }
 
-    public EIdentity GetIdentityBaseOnDeviceID(string deviceID)
+    public IEnumerator GetUserConfigList(Action<List<UserConfig>> callback)
     {
-        return userConfig.GetIdentityBaseOnDeviceID(deviceID);
+        if (_isConfigListInit)
+        {
+            callback(_userConfigList);
+            yield break;
+        }
+
+        StartCoroutine(ConfigHelper.SetConfigObject(this, FilePath.UserConfigListPath, content =>
+        {
+            _userConfigList = JsonMapper.ToObject<List<UserConfig>>(content);
+            _isConfigListInit = true;
+            callback(_userConfigList);
+        }));
     }
-}
 
-
-public static class ConfigExtensions
-{
-    public static EIdentity GetIdentityBaseOnDeviceID(this List<UserConfig> list, string deviceID)
+    public IEnumerator GetLocalIdentity(Action<EIdentity> callback)
     {
-        UserConfig item = new UserConfig();
+        if (_isUserInit)
+        {
+            callback(_localUserConfig.Identity);
+            yield break;
+        }
 
-        item = list.Find(x => x.deviceID == deviceID);
-
-        return item.identity;
+        StartCoroutine(ConfigHelper.SetConfigObject(this, FilePath.LocalUserIdentityPath, content =>
+        {
+            _localUserConfig = JsonMapper.ToObject<UserConfig>(content);
+            _isUserInit = true;
+            callback(_localUserConfig.Identity);
+        }));
     }
+
 }

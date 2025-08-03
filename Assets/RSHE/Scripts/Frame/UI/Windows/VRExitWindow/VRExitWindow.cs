@@ -14,9 +14,11 @@ public class VRExitWindow : WinBase
     private IEnumerator _SendDisconnectAndQuit()
     {
         // 发送断开消息
-        string deviceID = SystemInfo.deviceUniqueIdentifier;
-        MirrorDisConnMsg msg = new MirrorDisConnMsg { deviceID = deviceID };
-        NetworkClient.Send(msg);
+        StartCoroutine(Config.Get().GetLocalIdentity(arg => 
+        {
+            MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
+            NetworkClient.Send(msg);
+        }));
 
         Log.cinput("yellow", "Disconnect notification sent");
 

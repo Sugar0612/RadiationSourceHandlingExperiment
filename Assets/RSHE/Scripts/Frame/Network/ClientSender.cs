@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ClientSender : NetworkBehaviour
 {
-    public override void OnStartLocalPlayer()
+    public void Start()
     {
         if (isLocalPlayer)
         {
@@ -16,13 +16,11 @@ public class ClientSender : NetworkBehaviour
     private void SendDeviceIDToServer()
     {
         // Log.cinput("green", "ClientSender: Sending device ID to server");
-        string deviceID = SystemInfo.deviceUniqueIdentifier;
-        
-        MirrorConnMsg msg = new MirrorConnMsg
-        {
-            deviceID = deviceID
-        };
 
-        NetworkClient.Send(msg);
+        StartCoroutine(Config.Get().GetLocalIdentity(arg => 
+        {
+            MirrorConnMsg msg = new MirrorConnMsg() { Identity = arg };
+            NetworkClient.Send(msg);
+        }));
     }
 }
