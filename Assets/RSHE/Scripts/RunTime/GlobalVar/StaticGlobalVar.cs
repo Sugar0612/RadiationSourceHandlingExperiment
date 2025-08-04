@@ -1,5 +1,6 @@
 
 using Mirror;
+using Mirror.Examples.MultipleMatch;
 using UnityEngine;
 
 public static class StaticGlobalVar
@@ -22,4 +23,10 @@ public static class StaticGlobalVar
 
     /// <summary> 本设备的客户端 </summary>
     public static bool IsClient { get => NetworkClient.active; }
+
+    /// <summary> bodyinfo 是手部吗 </summary>
+    public static bool IsHand(BodyPartInfo bodyInfo)
+    {
+        return (bodyInfo.Part == EBodyParts.RightHand || bodyInfo.Part == EBodyParts.LeftHand);
+    }
 }

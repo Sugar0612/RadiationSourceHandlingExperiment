@@ -26,6 +26,17 @@ public class GamePropCollider : NetworkBehaviour
         {
             EIdentity identity = propCollider.WhoHolding;
 
+            int idx = _task.conditions.FindIndex(arg => arg.Identity == identity);
+            if (idx != -1)
+            {
+                int porpidx = _task.conditions[idx].HoldingItems.FindIndex(arg => arg.pName == propCollider.PropName);
+                if (porpidx != -1)
+                {
+                    _task.conditions[idx].HoldingItems[porpidx].pCount 
+                        -= (_task.conditions[idx].HoldingItems[porpidx].pCount <= 0) ? 0 : 1;
+                }
+            }
+
             GameColliderPackage gamePkg = new GameColliderPackage() { TaskItem = _task };
             _task.OnTask?.Invoke(gamePkg);
         }

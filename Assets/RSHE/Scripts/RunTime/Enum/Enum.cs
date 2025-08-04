@@ -29,7 +29,8 @@ public enum EBodyParts
 {
     None,
     Head,
-    Hand,
+    RightHand,
+    LeftHand,
     Foot
 }
 

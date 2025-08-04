@@ -95,11 +95,6 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     }
 
-    IEnumerator A()
-    {
-        yield return null;
-    }
-
     public void OnNameChangedHook(string _old, string _new)
     {
         if (textPlayerName != null)
@@ -127,11 +122,12 @@ public class VRNetworkPlayerController : NetworkBehaviour
         m_HeadModel.SetRendererEnable(false);
         m_LHandModel.SetRendererEnable(false);
         m_RHandModel.SetRendererEnable(false);
+        textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 
-        if (VRStaticVariables.playerName != "")
-            CmdSetupName(VRStaticVariables.playerName + netId);
-        else
-            CmdSetupName("Player" + netId);
+        StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+        {
+            CmdSetupName(arg.ToString());
+        }));
     }
 
     /// <summary> 
@@ -144,7 +140,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
         if (m_VRPlayerRig != null)
         {
-            m_VRPlayerRig.vrPlayerController = this;
+            m_VRPlayerRig.VRPlayerController = this;
         }
     }
 }

@@ -36,11 +36,7 @@ public class Detector : MonoBehaviour
             float disance_1 = Vector3.Distance(gameObject.transform.position, TargetTrans_1.position);
             float disance_2 = Vector3.Distance(gameObject.transform.position, TargetTrans_2.position);
             DistanceText.text = Mathf.Min(disance_1, disance_2).ToString("F2") + "M";
-            Log.cinput("yellow", $"@@@ disance_1£º{disance_1}, disance_2: {disance_2}, ShowVal: {DistanceText.text}");
-        }
-        else
-        {
-            Log.cinput("yellow", $"@@@ _targetTrans_1 is null or _targetTrans_2 is null.");
+            //Log.cinput("yellow", $"@@@ disance_1£º{disance_1}, disance_2: {disance_2}, ShowVal: {DistanceText.text}");
         }
     }
 
@@ -52,7 +48,6 @@ public class Detector : MonoBehaviour
             float disance_1 = Vector3.Distance(gameObject.transform.position, TargetTrans_1.position);
             float disance_2 = Vector3.Distance(gameObject.transform.position, TargetTrans_2.position);
             DistanceText.text = Mathf.Min(disance_1, disance_2).ToString("F2") + "M";
-            Log.cinput("yellow", $"@@@ disance_1£º{disance_1}, disance_2: {disance_2}, ShowVal: {DistanceText.text}");
         }
 
         yield return null;

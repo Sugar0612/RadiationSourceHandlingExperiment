@@ -10958,8 +10958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5873a6160a0cdd458a858d1c37095bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LHand: {fileID: 8336446414931158583}
-  m_RHand: {fileID: 3558255148114779674}
+  m_LHand: {fileID: 3635221684098673514}
+  m_RHand: {fileID: 5036499728989587464}
   m_Head: {fileID: 3684984656871491058}
   m_VRPlayerController: {fileID: 0}
 --- !u!1 &5993047235822548408

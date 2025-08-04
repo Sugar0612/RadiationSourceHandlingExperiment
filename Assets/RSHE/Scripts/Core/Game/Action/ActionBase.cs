@@ -16,4 +16,13 @@ public abstract class ActionBase : NetworkBehaviour
 
     /// <summary> task one end. </summary>
     public virtual void RpcEndAction_1(GameColliderPackage gamePkg) { }
+
+    /// <summary> Task 2 start. </summary>
+    public virtual void RpcStartAction_2(GameColliderPackage gamePkg) { }
+
+    /// <summary> task 2 trigger collider. </summary>
+    public virtual void RpcTaskAction_2(GameColliderPackage gamePkg) { }
+
+    /// <summary> task 2 end. </summary>
+    public virtual void RpcEndAction_2(GameColliderPackage gamePkg) { }
 }

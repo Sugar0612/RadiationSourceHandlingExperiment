@@ -7,6 +7,7 @@ using RootMotion.FinalIK;
 
 public class MyVRPlayerRig : MonoBehaviour
 {
+    #region Model Transform
     [Header("Model Transform")]
 
     [SerializeField]
@@ -14,59 +15,45 @@ public class MyVRPlayerRig : MonoBehaviour
     Transform m_LHand;
 
     /// <summary> model's lefthand tranform </summary>
-    public Transform lHand
-    {
-        get => m_LHand;
-        set => m_LHand = value;
-    }
+    public Transform lHand { get => m_LHand; set => m_LHand = value; }
 
     [SerializeField]
     [Tooltip("model's righthand tranform")]
     Transform m_RHand;
 
     /// <summary> model's righthand tranform </summary>
-    public Transform rHand
-    {
-        get => m_RHand;
-        set => m_RHand = value;
-    }
+    public Transform rHand { get => m_RHand; set => m_RHand = value; }
 
     [SerializeField]
     [Tooltip("model's headtranform")]
     Transform m_Head;
 
     /// <summary> model's headtranform </summary>
-    public Transform head
-    {
-        get => m_Head;
-        set => m_Head = value;
-    }
+    public Transform head { get => m_Head; set => m_Head = value; }
 
+    #endregion
+
+    #region Player Controller
     [Space]
     [Header("Controller")]
 
     [SerializeField]
     [Tooltip("Prefab model manager. Used to synchronize the transform of different parts of the model with the corresponding parts of the VR origin of the real scene.")]
-    VRNetworkPlayerController m_VRPlayerController;
+    VRNetworkPlayerController _vRPlayerController;
 
     /// <summary> Prefab model manager, used to synchronize the transform of different parts of the model with the corresponding parts of the VR origin of the real scene. </summary>
-    public VRNetworkPlayerController vrPlayerController
-    {
-        get => m_VRPlayerController;
-        set => m_VRPlayerController = value;
-    }
+    public VRNetworkPlayerController VRPlayerController { get => _vRPlayerController; set => _vRPlayerController = value; }
 
     VRPlayerController m_VRPlayerCtrl;
 
-    public VRPlayerController vrPlayerCtrl
-    {
-        get => m_VRPlayerCtrl;
-        set => m_VRPlayerCtrl = value;
-    }
+    public VRPlayerController vrPlayerCtrl { get => m_VRPlayerCtrl; set => m_VRPlayerCtrl = value; }
 
     /// <summary> 渐变效果 </summary>
     private VRScreenFade vrScreenFade;
 
+    #endregion
+
+    #region VR IK
     [Space]
     [Header("VR IK")]
 
@@ -75,6 +62,8 @@ public class MyVRPlayerRig : MonoBehaviour
     Transform ikRightHandTarget;
     
     Transform ikLeftHandTarget;
+
+    #endregion
 
     public void Awake()
     {
@@ -86,6 +75,11 @@ public class MyVRPlayerRig : MonoBehaviour
     {
         vrScreenFade.SetAlphaVar(1.0f, 0.0f);
         vrScreenFade.enabled = true;
+
+        if (StaticGlobalVar.IsHost)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -96,16 +90,16 @@ public class MyVRPlayerRig : MonoBehaviour
 
     private void VRTemplatePlayerModelSync()
     {
-        if (vrPlayerController)
+        if (VRPlayerController)
         {
-            vrPlayerController.head.position = head.transform.position;
-            vrPlayerController.head.rotation = head.transform.rotation;
+            VRPlayerController.head.position = head.transform.position;
+            VRPlayerController.head.rotation = head.transform.rotation;
 
-            vrPlayerController.lHand.position = lHand.transform.position;
-            vrPlayerController.lHand.rotation = lHand.transform.rotation;
+            VRPlayerController.lHand.position = lHand.transform.position;
+            VRPlayerController.lHand.rotation = lHand.transform.rotation;
 
-            vrPlayerController.rHand.position = rHand.transform.position;
-            vrPlayerController.rHand.rotation = rHand.transform.rotation;
+            VRPlayerController.rHand.position = rHand.transform.position;
+            VRPlayerController.rHand.rotation = rHand.transform.rotation;
         }
     }
 

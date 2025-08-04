@@ -31,7 +31,6 @@ public class GamePlayerCollider : NetworkBehaviour
             TaskCondition condition = _task.conditions.Find(x => x.Identity == identity);
             if (partinfo != null && condition != null && condition.BodyPart == partinfo.Part)
             {
-                Log.cinput("yellow", $"@@ partinfo: {partinfo.ToString()}");
                 GameColliderPackage gamePkg = new GameColliderPackage()
                 {
                     VRPlayerCtrl = ctrl,

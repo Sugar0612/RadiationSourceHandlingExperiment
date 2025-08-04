@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7687931990740385784}
   - component: {fileID: 3171740623084773583}
   - component: {fileID: 2656049829618014883}
+  - component: {fileID: 5052242074349599991}
   m_Layer: 0
   m_Name: PropTemplate
   m_TagString: Untagged
@@ -90,8 +91,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.73403573, y: 0.75345165, z: 0.8609104}
-  m_Center: {x: 0.010316327, y: 0.03721556, z: -0.03804779}
+  m_Size: {x: 0.33956468, y: 0.2742443, z: 0.28538203}
+  m_Center: {x: -0.003827542, y: 0.0024644136, z: -0.015394129}
 --- !u!54 &6550116934840197279
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,8 +135,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  propName: cube
-  whoHolding: 0
+  PropName: 
+  WhoHolding: 0
 --- !u!114 &3171740623084773583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +324,39 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &5052242074349599991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230531955142332962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 8279698092313804376}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &7376334285623342703
 GameObject:
   m_ObjectHideFlags: 0

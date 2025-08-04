@@ -42,11 +42,6 @@ public class UIController : MonoBehaviour
 
     }
 
-    public void HidePanel()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void Register(WinBase window)
     {
         if (windows.Find(win => window.windowType == win.windowType))
@@ -91,6 +86,16 @@ public class UIController : MonoBehaviour
             bool shouldShow = (types & win.windowType) == win.windowType;
             win.SetActive(shouldShow);
             // Log.cinput("red", $"UIController: ShowWindows: {win.name} active: {shouldShow}");
+        }
+    }
+
+    public void HideWindows(EWindowType types)
+    {
+        foreach (var win in windows)
+        {
+            bool isTarget = (types & win.windowType) == win.windowType;
+            if (isTarget)
+                win.SetActive(false);
         }
     }
 }

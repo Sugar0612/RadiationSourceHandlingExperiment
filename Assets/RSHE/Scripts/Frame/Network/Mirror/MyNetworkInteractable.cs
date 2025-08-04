@@ -18,7 +18,6 @@ public class MyNetworkInteractable : NetworkBehaviour
 
     public void EventPick()
     {
-        Debug.Log("Event Pick");
         ResetInteractableVelocity();
         CmdPickup(connectionToClient);
     }
