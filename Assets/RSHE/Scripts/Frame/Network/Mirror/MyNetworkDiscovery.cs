@@ -133,8 +133,8 @@ public class MyNetworkDiscovery : NetworkDiscoveryBase<ServerRequest, ServerResp
         Log.cinput("green", $"Connected to: {response.serverId}");
         StopDiscovery(); //停止查找主机
         NetworkManager.singleton.StartClient(response.uri);
-        //UIController.Get().HidePanel(); //隐藏UI面板
-        UIController.Get().ShowWindows(EWindowType.VRExitWindow); //隐藏UI面板
+        // UIController.Get().HidePanel(); //隐藏UI面板
+        // UIController.Get().ShowWindows(EWindowType.VRExitWindow); //隐藏UI面板
     }
 
     #endregion

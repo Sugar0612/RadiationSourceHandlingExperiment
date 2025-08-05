@@ -80,6 +80,9 @@ public class MyVRPlayerRig : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        //if (Config.Get().PicoDevice)
+        //    StartCoroutine(StaticGlobalVar.NetworkDiscovery.IEStartDiscovery());
     }
 
     void FixedUpdate()

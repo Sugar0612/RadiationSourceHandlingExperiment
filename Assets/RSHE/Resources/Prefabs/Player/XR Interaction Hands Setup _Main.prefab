@@ -10961,7 +10961,7 @@ MonoBehaviour:
   m_LHand: {fileID: 3635221684098673514}
   m_RHand: {fileID: 5036499728989587464}
   m_Head: {fileID: 3684984656871491058}
-  m_VRPlayerController: {fileID: 0}
+  _vRPlayerController: {fileID: 0}
 --- !u!1 &5993047235822548408
 GameObject:
   m_ObjectHideFlags: 0

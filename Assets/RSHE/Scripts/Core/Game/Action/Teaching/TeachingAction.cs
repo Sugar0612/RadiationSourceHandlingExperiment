@@ -7,23 +7,12 @@ public partial class TeachingAction : ActionBase
     [ClientRpc]
     public override void RpcStartAction_1(GameColliderPackage gamePkg)
     {
-        Log.cinput("yellow", "@@@  TeachingAction TaskOneStartAction");
 
         if (gamePkg != null)
         {
             AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
-            Timer.Delay(
-                gamePkg.TaskItem.duration,
-                () =>
-                {
-                    if (StaticGlobalVar.IsHost)
-                    {
-                        gamePkg.TaskItem.GoEndTaskEvent();
-                    }
-
-                    GameSteps.Get().Next();
-                }
-            );
+            Timer.Delay( gamePkg.TaskItem.duration,
+                () => { CoreAction.Get().HostIssuesTheGoNext(gamePkg, true); } );
         }
     }
 

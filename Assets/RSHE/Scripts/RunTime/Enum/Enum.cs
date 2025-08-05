@@ -49,9 +49,10 @@ public enum EWindowType
     MainWindow = 1 << 0,
     SceneWindow = 1 << 1,
     UserWindow = 1 << 2,
-    VRJoinWindow = 1 << 3,
-    VRExitWindow = 1 << 4,
+    VideoWindow = 1 << 3,
+    VRJoinWindow = 1 << 4,
     GameWinow = 1 << 5,
+    VRVideoWindow = 1 << 6,
 }
 
 // Game Collider Trigger Mode

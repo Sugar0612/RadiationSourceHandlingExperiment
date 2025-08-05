@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RSHE/Scene/Scene_1.unity
     guid: b6d01971c7ad8714aa6add5caccd9e66
+  - enabled: 1
+    path: Assets/RSHE/Scene/Scene_2.unity
+    guid: c0c1624bef39a1648844050da363a386
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 888d48b45cc3246d29397bcf04d21676, type: 2}
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 509c58b5a62187d468227a398dd03fb0, type: 2}

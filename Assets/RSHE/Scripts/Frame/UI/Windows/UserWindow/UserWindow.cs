@@ -61,7 +61,7 @@ public class UserWindow : WinBase
 
             for (int i = 0; i < configList.Count; ++i)
             {
-                var itemClone = GameObject.Instantiate(userItemTemp, userItemParent);
+                UserItem itemClone = GameObject.Instantiate(userItemTemp, userItemParent);
                 itemClone.Init(configList[i]);
                 itemClone.gameObject.SetActive(true);
                 userItemList.Add(itemClone);
