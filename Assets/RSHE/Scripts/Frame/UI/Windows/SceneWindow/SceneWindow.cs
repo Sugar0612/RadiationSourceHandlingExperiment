@@ -66,7 +66,8 @@ public class SceneWindow : WinBase
 
     void OnClickedPrevFactsButton()
     {
-        UIController.Get().ShowWindows(EWindowType.VideoWindow | EWindowType.VRVideoWindow);
+        UIController.Get().ShowWindows(EWindowType.VideoWindow);
         NetworkManager.singleton.ServerChangeScene(PrevFactsScene);
+        CameraManager.Get().SwitchCamera(CameraTag.Video);
     }
 }

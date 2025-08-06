@@ -9,7 +9,7 @@ public class VideoController : NetworkBehaviour
 {
     public VideoPlayer VideoPlayer;
 
-    VRVideoWindow _vrVideoWindow;
+    public RawImage VideoScreen;
 
     static VideoController _instance;
 
@@ -23,10 +23,10 @@ public class VideoController : NetworkBehaviour
 
     void Start()
     {
-        _vrVideoWindow = UIController.Get().GetWindow<VRVideoWindow>(EWindowType.VRVideoWindow) as VRVideoWindow;
+        // _vrVideoWindow = UIController.Get().GetWindow<VRVideoWindow>(EWindowType.VRVideoWindow) as VRVideoWindow;
 
         VideoPlayer = GetComponent<VideoPlayer>();
-        _vrVideoWindow.VideoScreen.texture = VideoPlayer.targetTexture;
+        VideoScreen.texture = VideoPlayer.targetTexture;
         VideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         VideoPlayer.SetTargetAudioSource(0, GetComponent<AudioSource>());
     }

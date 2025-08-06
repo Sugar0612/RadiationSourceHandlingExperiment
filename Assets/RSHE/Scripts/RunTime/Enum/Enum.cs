@@ -3,16 +3,12 @@
 public enum CameraTag
 {
     None,
-
     Manager,
-
     Player,
-
     WitnessFront,
-
     WitnessLeftSide,
-
-    WitnessRightSide
+    WitnessRightSide,
+    Video
 }
 
 // User's Identity
@@ -52,7 +48,7 @@ public enum EWindowType
     VideoWindow = 1 << 3,
     VRJoinWindow = 1 << 4,
     GameWinow = 1 << 5,
-    VRVideoWindow = 1 << 6,
+    // VRVideoWindow = 1 << 6,
 }
 
 // Game Collider Trigger Mode
