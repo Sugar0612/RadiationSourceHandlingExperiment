@@ -53,7 +53,7 @@ public class SceneWindow : WinBase
     /// <summary>
     /// 模式按钮点击
     /// </summary>
-    void OnClickedModeButton(EGameMode mode)
+    public void OnClickedModeButton(EGameMode mode)
     {
         if (NetworkServer.active)
         {

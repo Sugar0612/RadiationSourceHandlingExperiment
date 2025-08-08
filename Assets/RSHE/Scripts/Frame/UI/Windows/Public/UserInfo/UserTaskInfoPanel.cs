@@ -13,6 +13,11 @@ public class UserTaskInfoPanel : MonoBehaviour
 
     public Image Image;
 
+    public void Start()
+    {
+        SetActive(false);
+    }
+
     public void SetPanelContent(string name, string info)
     {
         UserIndentityText.text = name;
