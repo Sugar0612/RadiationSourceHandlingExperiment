@@ -78,8 +78,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     string playerName;
 
     /// <summary> ÊÇ·ñ´©´÷·À»¤·þ </summary>
-    [HideInInspector]
-    public bool isWearOrNot = false;
+    public WearStatus WStatus = WearStatus.NoWear;
 
     #endregion
 
@@ -142,5 +141,13 @@ public class VRNetworkPlayerController : NetworkBehaviour
         {
             m_VRPlayerRig.VRPlayerController = this;
         }
+    }
+
+    public enum WearStatus
+    {
+        NoWear,
+        Wearing,
+        Wore,
+        None
     }
 }

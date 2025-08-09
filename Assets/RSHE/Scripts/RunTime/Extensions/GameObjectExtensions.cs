@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.UI;
 
 public static class GameObjectExtensions
 {

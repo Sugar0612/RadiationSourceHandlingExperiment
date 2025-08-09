@@ -17,29 +17,32 @@ public partial class CoreAction : NetworkBehaviour
     public void TaskAction_1(GameColliderPackage gamePkg, Action callback = null)
     {
         VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
+
         if (ctrl)
         {
-            if (!ctrl.isLocalPlayer)
+            PlayerWearPanel wearPanel = FindObjectOfType<PlayerWearPanel>();
+            if (wearPanel && ctrl.WStatus != VRNetworkPlayerController.WearStatus.Wore)
             {
-                ctrl.hat.SetRendererEnable(true);
-                ctrl.clothes.SetRendererEnable(true);
+                wearPanel.SetActive(true);
+                wearPanel.Wearing(ctrl, () => 
+                {
+                    if (gamePkg != null)
+                    {
+                        bool canGoOn = true;
+                        TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
+
+                        if (condition != null && condition.HoldingItemsIsEmpty())
+                            condition.IsFinished = true;
+
+                        foreach (var item in gamePkg.TaskItem.conditions)
+                            canGoOn = canGoOn & item.IsFinished;
+
+                        HostIssuesTheGoNext(gamePkg, canGoOn);
+                    }
+
+                    callback?.Invoke();
+                });
             }
-
-            if (gamePkg != null)
-            {
-                bool canGoOn = true;
-                TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
-
-                if (condition != null && condition.HoldingItemsIsEmpty())
-                    condition.IsFinished = true;
-
-                foreach (var item in gamePkg.TaskItem.conditions)
-                    canGoOn = canGoOn & item.IsFinished;
-
-                HostIssuesTheGoNext(gamePkg, canGoOn);
-            }
-
-            callback?.Invoke();
         }
     }
 

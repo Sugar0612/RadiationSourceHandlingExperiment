@@ -37,6 +37,9 @@ public class GameTaskItem : NetworkBehaviour
     /// <summary> 当玩家触发GameCollider后触发 </summary>
     public UnityEvent<GameColliderPackage> OnTask = null;
 
+    /// <summary> 是否一直展示场景中该任务下的所有子物体 </summary>
+    public bool IsAlwayShow = false;
+
     #endregion
 
     private void Awake()
@@ -96,8 +99,11 @@ public class GameTaskItem : NetworkBehaviour
     /// <summary> 执行 Task End Event. </summary>
     public void GoEndTaskEvent()
     {
-        GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
-        EndTask.Invoke(pkg);
+        if (!IsAlwayShow)
+        {
+            GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
+            EndTask.Invoke(pkg);
+        }
     }
     #endregion
 }

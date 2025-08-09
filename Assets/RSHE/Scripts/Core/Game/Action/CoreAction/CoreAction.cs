@@ -1,6 +1,6 @@
 using Mirror;
 using UnityEngine.InputSystem;
-
+using System.Collections;
 
 public partial class CoreAction : NetworkBehaviour
 {
@@ -25,5 +25,5 @@ public partial class CoreAction : NetworkBehaviour
 
             GameSteps.Get().Next();
         }
-    }  
+    }
 }
