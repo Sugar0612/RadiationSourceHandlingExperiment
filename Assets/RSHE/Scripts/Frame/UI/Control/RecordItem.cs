@@ -10,7 +10,7 @@ public class RecordItem : MonoBehaviour
 
     public Button RecordButton;
 
-    private void Start()
+    private void Awake()
     {
         HintText.SetAciveForTheUIControl<TextMeshProUGUI>(false);
     }
@@ -25,9 +25,18 @@ public class RecordItem : MonoBehaviour
 
     public void SetActive(bool active)
     {
+        SetActiveForButton(active);
+        SetActiveForText(active);
+    }
+
+    public void SetActiveForButton(bool active)
+    {
         RecordButton.SetAciveForTheUIControl<Image>(active);
         RecordButton.SetAciveForTheUIControl<TextMeshProUGUI>(active);
+    }
 
+    public void SetActiveForText(bool active)
+    {
         HintText.SetAciveForTheUIControl<TextMeshProUGUI>(active);
     }
 }

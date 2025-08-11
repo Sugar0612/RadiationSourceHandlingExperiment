@@ -36,10 +36,8 @@ public class MyNetworkInteractable : NetworkBehaviour
 
     private void ResetInteractableVelocity()
     {
-        Debug.Log("ResetInteractableVelocity");
         if (m_Rigidbody)
         {
-            Debug.Log("Reset");
             m_Rigidbody.velocity = Vector3.zero;
             m_Rigidbody.angularVelocity = Vector3.zero;
         }

@@ -25,9 +25,6 @@ public class RecordPanel : NetworkBehaviour
     /// <summary> 放射源2 </summary>
     Transform _targetTrans_2;
 
-    /// <summary> 当前围栏列表的Idx </summary>
-    int _currFenceIdx = 0;
-
     #endregion
 
     List<float> _disanceList = new List<float>();
@@ -36,12 +33,17 @@ public class RecordPanel : NetworkBehaviour
 
     void Start()
     {
+        _targetTrans_1 = SceneObjectManager.Get().RadioactiveSource_1;
+        _targetTrans_2 = SceneObjectManager.Get().RadioactiveSource_2;
+
+        PlaceButton_1.RecordButton.onClick.AddListener(() => OnClickedPlaceButton_1());
+        PlaceButton_2.RecordButton.onClick.AddListener(() => OnClickedPlaceButton_2());
+        PlaceButton_3.RecordButton.onClick.AddListener(() => OnClickedPlaceButton_3());
+        PlaceButton.RecordButton.onClick.AddListener(() => OnClickedPlaceButton());
+
         PlaceButton_2.SetActive(false);
         PlaceButton_3.SetActive(false);
         PlaceButton.SetActive(false);
-
-        _targetTrans_1 = SceneObjectManager.Get().RadioactiveSource_1;
-        _targetTrans_2 = SceneObjectManager.Get().RadioactiveSource_2;
     }
 
     public void Record()
@@ -70,21 +72,21 @@ public class RecordPanel : NetworkBehaviour
     {
         Record();
         PlaceButton_1.OnClickedRecordButton();
-        PlaceButton_2.SetActive(true);
+        PlaceButton_2.SetActiveForButton(true);
     }
 
     void OnClickedPlaceButton_2()
     {
         Record();
         PlaceButton_2.OnClickedRecordButton();
-        PlaceButton_3.SetActive(true);
+        PlaceButton_3.SetActiveForButton(true);
     }
 
     void OnClickedPlaceButton_3()
     {
         Record();
         PlaceButton_3.OnClickedRecordButton();
-        PlaceButton.SetActive(true);
+        PlaceButton.SetActiveForButton(true);
     }
 
     void OnClickedPlaceButton()
