@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 using System;
+using Unity.VisualScripting;
 
 public class PlayerWearPanel : NetworkBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerWearPanel : NetworkBehaviour
     public TMP_Text HintText;
 
     public Slider WearSlider;
+
+    /// <summary> 已穿戴提示框 </summary>
+    public GameObject ShwoWorePanel;
 
     VRNetworkPlayerController _vrPlayerController;
 
@@ -30,6 +34,12 @@ public class PlayerWearPanel : NetworkBehaviour
         {
             StartCoroutine(WearingClothing(callback));
         }
+    }
+
+    public void SetWorePanelActive(bool active)
+    {
+        ShwoWorePanel.SetActiveForTheUI<TextMeshProUGUI>(active);
+        ShwoWorePanel.SetActiveForTheUI<Image>(active);
     }
 
     IEnumerator WearingClothing(Action callback)
@@ -74,6 +84,7 @@ public class PlayerWearPanel : NetworkBehaviour
 
     void ResetUI()
     {
+        SetWorePanelActive(false);
         HintText.text = $"正在穿戴中...";
         PercentText.text = "0%";
         WearSlider.value = 0.0f;

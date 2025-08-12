@@ -43,6 +43,11 @@ public partial class CoreAction : NetworkBehaviour
                     callback?.Invoke();
                 });
             }
+            else if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wore)
+            {
+                wearPanel.SetActive(false);
+                wearPanel.SetWorePanelActive(true);
+            }
         }
     }
 

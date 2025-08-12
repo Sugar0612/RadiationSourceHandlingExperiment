@@ -37,7 +37,6 @@ public static class GameObjectExtensions
         }
     }
 
-
     public static void SetColliderEnable(this GameObject obj, bool enable)
     {
         Collider[] colliders = obj.GetComponentsInChildren<Collider>();
@@ -45,5 +44,12 @@ public static class GameObjectExtensions
         {
             collider.enabled = enable;
         }
+    }
+
+    public static void SetActiveForTheUI<T>(this GameObject obj, bool active) where T : MonoBehaviour
+    {
+        T[] ts = obj.gameObject.GetComponentsInChildren<T>();
+        foreach (var item in ts)
+            item.gameObject.GetComponent<T>().enabled = active;
     }
 }
