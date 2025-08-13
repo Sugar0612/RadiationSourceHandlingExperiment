@@ -44,6 +44,7 @@ public class PlayerWearPanel : NetworkBehaviour
 
     IEnumerator WearingClothing(Action callback)
     {
+        HintText.text = $"穿戴中...";
         _vrPlayerController.WStatus = VRNetworkPlayerController.WearStatus.Wearing;
         while(_vrPlayerController.WStatus == VRNetworkPlayerController.WearStatus.Wearing && WearSlider.value != 1.0f)
         {
@@ -85,7 +86,7 @@ public class PlayerWearPanel : NetworkBehaviour
     void ResetUI()
     {
         SetWorePanelActive(false);
-        HintText.text = $"正在穿戴中...";
+        HintText.text = $"穿戴区";
         PercentText.text = "0%";
         WearSlider.value = 0.0f;
     }

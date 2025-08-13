@@ -45,6 +45,11 @@ public partial class CoreAction : NetworkBehaviour
             }
             else if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wore)
             {
+                if (!ctrl.isLocalPlayer)
+                {
+                    ctrl.hat.SetRendererEnable(true);
+                    ctrl.clothes.SetRendererEnable(true);
+                }
                 wearPanel.SetActive(false);
                 wearPanel.SetWorePanelActive(true);
             }

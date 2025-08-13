@@ -9,7 +9,7 @@ public class SelfTestAction : ActionBase
     [ClientRpc] public override void RpcStartAction_1(GameColliderPackage gamePkg) { CoreAction.Get().StartAction_1(gamePkg); }
 
     [ClientRpc] public override void RpcTaskAction_1(GameColliderPackage gamePkg) { CoreAction.Get().TaskAction_1(gamePkg); }
-
+     
     [ClientRpc] public override void RpcEndAction_1(GameColliderPackage gamePkg) { CoreAction.Get().EndAction_1(gamePkg); }
 
     [ClientRpc] public override void RpcStartAction_2(GameColliderPackage gamePkg) { CoreAction.Get().StartAction_2(gamePkg); }

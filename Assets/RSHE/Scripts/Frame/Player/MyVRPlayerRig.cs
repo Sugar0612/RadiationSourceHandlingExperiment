@@ -51,6 +51,9 @@ public class MyVRPlayerRig : MonoBehaviour
     /// <summary> 渐变效果 </summary>
     private VRScreenFade vrScreenFade;
 
+    /// <summary> 用户消息窗口 </summary>
+    public PlayerHintPanel HintPanel;
+
     #endregion
 
     #region VR IK
