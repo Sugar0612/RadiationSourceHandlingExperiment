@@ -14,6 +14,8 @@ public class UserWindow : WinBase
     // 人数文本
     public TMP_Text personCountText;
 
+    public TMP_Text WaitPersonCountText;
+
     public TMP_Text messageText;
 
     // [SyncVar(hook = nameof(UpdateMessageOfUser))]
@@ -47,6 +49,12 @@ public class UserWindow : WinBase
         personCountText.text = personCount.ToString();
     }
 
+    public void ChangedWaitPersonCountText(int personCount)
+    {
+        // Log.cinput("red", $"ChangedpersonCountTextZ: {personCount}");
+        WaitPersonCountText.text = personCount.ToString();
+    }
+
     /// <summary>
     /// 初始化列表
     /// </summary>
@@ -57,7 +65,7 @@ public class UserWindow : WinBase
             userItemList.Clear();
             List<UserConfig> configList = arg;
             // Debug.LogError($"configList Count: {configList.Count}, {FilePath.UserConfigPath}");
-            LogText.text += $"@@@ configList Count: {configList.Count}.\n";
+            // LogText.text += $"@@@ configList Count: {configList.Count}.\n";
 
             for (int i = 0; i < configList.Count; ++i)
             {

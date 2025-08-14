@@ -12,7 +12,16 @@ public class CheckClothingCollider : MonoBehaviour
 
         if (vrRig && vrRig.VRPlayerController.WStatus != VRNetworkPlayerController.WearStatus.Wore)
         {
-            vrRig.HintPanel.ShowHintPanel("Î´´©´÷·À»¤·þ£¡ÇëÁ¢¼´·µ»Ø´©´÷£¡", 5f);
+            switch (StaticGlobalVar.GameMode)
+            {
+                case EGameMode.SelfTest:
+                    vrRig.HintPanel.ShowHintPanel("Î´´©´÷·À»¤·þ£¡ÇëÁ¢¼´·µ»Ø´©´÷£¡", 5f);
+                    break;
+                case EGameMode.Assessment:
+                    // TODO..
+                    break;
+                default: break;
+            }
         }
     }
 }

@@ -8,16 +8,17 @@ public enum CameraTag
     WitnessFront,
     WitnessLeftSide,
     WitnessRightSide,
-    Video
+    Video,
+    OverviewPlayer
 }
 
 // User's Identity
 public enum EIdentity
 {
     None = 0,
-    A1 = 1, A2 = 2, A3 = 3,
-    B1 = 4, B2 = 5, B3 = 6,
-    C1 = 7, C2 = 8, C3 = 9,
+    A1 = 1, A2 = 2, 
+    B1 = 3, B2 = 4, 
+    C1 = 5, C2 = 6, C3 = 7,
 }
 
 // User's body parts
@@ -48,7 +49,7 @@ public enum EWindowType
     VideoWindow = 1 << 3,
     VRJoinWindow = 1 << 4,
     GameWinow = 1 << 5,
-    // VRVideoWindow = 1 << 6,
+    OverviewWindow = 1 << 6,
 }
 
 // Game Collider Trigger Mode

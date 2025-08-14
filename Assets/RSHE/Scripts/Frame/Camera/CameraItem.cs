@@ -8,7 +8,7 @@ public class CameraItem : MonoBehaviour
 
     public void Awake()
     {
-        Log.cinput("yellow", $"{cameraTag.ToString()} Awake!");
+        // Log.cinput("yellow", $"{cameraTag.ToString()} Awake!");
 
         CameraManager.Get().Register(this);
     }

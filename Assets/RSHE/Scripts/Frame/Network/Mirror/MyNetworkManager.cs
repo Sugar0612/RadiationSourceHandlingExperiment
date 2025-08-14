@@ -145,7 +145,7 @@ public class MyNetworkManager : NetworkManager
         StaticGlobalVar.PersonCount += 1;
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
         userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);
-        //userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!\n");
+        // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!\n");
 
         //userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " connected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!");
@@ -182,7 +182,7 @@ public class MyNetworkManager : NetworkManager
         StaticGlobalVar.PersonCount -= 1;
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
         userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);
-        //userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!\n");
+        // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!\n");
         
         // userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " disconnected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!");
