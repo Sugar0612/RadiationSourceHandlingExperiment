@@ -10,7 +10,7 @@ public class SceneObjectManager : NetworkBehaviour
     public static SceneObjectManager Get()
     {
         if (_instance == null)
-            _instance = FindObjectOfType<SceneObjectManager>();
+            _instance = FindObjectOfType<SceneObjectManager>(); 
 
         return _instance;
     }

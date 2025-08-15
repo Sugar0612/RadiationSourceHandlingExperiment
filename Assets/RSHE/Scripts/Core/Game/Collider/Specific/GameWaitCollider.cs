@@ -13,8 +13,7 @@ public class GameWaitCollider : NetworkBehaviour
 
     Dictionary<EIdentity, int> _personDic = new Dictionary<EIdentity, int>() { { EIdentity.A1, 0 }, { EIdentity.A2, 0 }, { EIdentity.B1, 0 }, { EIdentity.B2, 0 }, { EIdentity.C1, 0 }, { EIdentity.C2, 0 },{ EIdentity.C3, 0 }, };
 
-    /// <summary> 这个Event的目的是 配合一些外部操作，可以让不同场景想利用 personCount参数反应到前端页面的开发者提供 </summary>
-    public UnityEvent<int> TriggerEvent;
+    Dictionary<EIdentity, VRNetworkPlayerController> _playerCtrlDic = new Dictionary<EIdentity, VRNetworkPlayerController>() { { EIdentity.A1, null }, { EIdentity.A2, null }, { EIdentity.B1, null }, { EIdentity.B2, null }, { EIdentity.C1, null }, { EIdentity.C2, null }, { EIdentity.C3, null }, };
 
     private void Awake()
     {
@@ -24,20 +23,7 @@ public class GameWaitCollider : NetworkBehaviour
     [ServerCallback]
     public void OnTriggerStay(Collider other)
     {
-        VRNetworkPlayerController ctrl =
-            other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
-
-        if (ctrl && ctrl.identity != EIdentity.None && _personDic[ctrl.identity] == 0)
-        {
-            _personDic[ctrl.identity] = 1;
-            _personCount++;
-
-            if (TriggerEvent != null)
-                TriggerEvent.Invoke(_personCount);
-            
-            if (_personCount == StaticGlobalVar.PersonCount)
-                SetPanelButtonEnable(true);
-        }
+        CheckNumberOfPersonInColliderBox(other);
     }
 
     //public void OnTriggerEnter(Collider other)
@@ -63,11 +49,12 @@ public class GameWaitCollider : NetworkBehaviour
             other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
         if (ctrl && ctrl.identity != EIdentity.None && _personDic[ctrl.identity] == 1 && _personCount - 1 >= 0)
         {
+            _playerCtrlDic[ctrl.identity] = null;
             _personDic[ctrl.identity] = 0;
             _personCount--;
 
-            if (TriggerEvent != null)
-                TriggerEvent.Invoke(_personCount);
+            if (EventManager.OnEventTriggered != null)
+                EventManager.OnEventTriggered.Invoke(_personCount);
 
             if (_personCount != StaticGlobalVar.PersonCount)
                 SetPanelButtonEnable(false);
@@ -75,9 +62,10 @@ public class GameWaitCollider : NetworkBehaviour
     }
 
     public void SetPanelButtonEnable(bool enable)
-    {
+    {   
         foreach (var panel in GamePanelList)
         {
+            if (panel == null) continue;
             Button[] buttons = panel.GetComponentsInChildren<Button>();
 
             foreach (Button button in buttons)
@@ -85,5 +73,56 @@ public class GameWaitCollider : NetworkBehaviour
                 button.enabled = enable;
             }
         }
+    }
+
+    [Server]
+    public void CheckNumberOfPersonInColliderBox(Collider other)
+    {
+        VRNetworkPlayerController ctrl =
+                other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
+
+        // counting
+        if (ctrl && ctrl.identity != EIdentity.None && _personDic[ctrl.identity] == 0)
+        {
+            _playerCtrlDic[ctrl.identity] = ctrl;
+            _personDic[ctrl.identity] = 1;
+            _personCount++;
+        }
+
+        // check
+        foreach (var pair in _playerCtrlDic)
+        {
+            if (pair.Value == null && _personDic[pair.Key] == 1)
+            {
+                // EventManager.UsrStateEvent.Invoke(pair.Key, EUserState.Offline);
+                _personDic[pair.Key] = 0;
+                _personCount--;
+            }
+        }
+
+        if (_personCount == StaticGlobalVar.PersonCount)
+            SetPanelButtonEnable(true);
+
+        if (EventManager.OnEventTriggered != null)
+            EventManager.OnEventTriggered.Invoke(_personCount);
+    }
+
+    [ServerCallback]
+    private void Update()
+    {
+        // Log.cinput("red", $"_personCount：{_personCount}, StaticGlobalVar.PersonCount：{StaticGlobalVar.PersonCount} ");
+
+        if (_personCount > StaticGlobalVar.PersonCount)
+        {
+            _personCount = StaticGlobalVar.PersonCount;
+
+            if (EventManager.OnEventTriggered != null)
+                EventManager.OnEventTriggered.Invoke(_personCount);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        GamePanelList.Clear();
     }
 }

@@ -51,7 +51,7 @@ public class UserWindow : WinBase
 
     public void ChangedWaitPersonCountText(int personCount)
     {
-        // Log.cinput("red", $"ChangedpersonCountTextZ: {personCount}");
+        // Log.cinput("red", $"@@ ChangedpersonCountTextZ: {personCount}");
         WaitPersonCountText.text = personCount.ToString();
     }
 
@@ -93,6 +93,17 @@ public class UserWindow : WinBase
             LogText.text += $"{identity.ToString()} Item NULL!\n";
         }
     }
+
+    //[Server]
+    //private void Update()
+    //{
+    //    int waitCnt = int.Parse(WaitPersonCountText.text);
+    //    int personCnt = int.Parse(personCountText.text);
+
+
+    //    if (waitCnt > personCnt)
+    //        WaitPersonCountText.text = personCountText.text;
+    //}
 
     public void OnDestroy()
     {

@@ -6385,6 +6385,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windowType: 2
+  _teachingButton: {fileID: 625367022}
+  _practicalTrainingButton: {fileID: 1572003153}
+  _selfTestButton: {fileID: 2042322586}
+  _assessmentButton: {fileID: 469869277}
+  _prevFactsButton: {fileID: 1514123839}
   GameScene: Assets/RSHE/Scene/Scene_1.unity
   PrevFactsScene: Assets/RSHE/Scene/Scene_2.unity
 --- !u!1 &1136381159
@@ -6642,6 +6647,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140390365}
   m_CullTransparentMesh: 1
+--- !u!1 &1144212219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144212220}
+  - component: {fileID: 1144212221}
+  m_Layer: 0
+  m_Name: UILimiteExpansion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1144212220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144212219}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144212221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144212219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0a301fda793824b823fa3610df2daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1155841495
 GameObject:
   m_ObjectHideFlags: 0
@@ -12847,21 +12896,6 @@ MonoBehaviour:
   syncInterval: 0
   GamePanelList:
   - {fileID: 953855849}
-  TriggerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 953855851}
-        m_TargetAssemblyTypeName: UserWindow, Assembly-CSharp
-        m_MethodName: ChangedWaitPersonCountText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &8406126292690467443 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3415559338745042820, guid: acb32cf33daeea64d9401cb21e3328a2, type: 3}
@@ -13122,6 +13156,7 @@ SceneRoots:
   - {fileID: 566236567}
   - {fileID: 943485079}
   - {fileID: 1038550519}
+  - {fileID: 1144212220}
   - {fileID: 7484960908245053341}
   - {fileID: 1879842358}
   - {fileID: 2059071523}

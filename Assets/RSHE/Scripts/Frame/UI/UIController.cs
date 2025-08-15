@@ -47,10 +47,12 @@ public class UIController : MonoBehaviour
     {
         if (windows.Find(win => window.windowType == win.windowType))
         {
-            Log.cinput("red", "UIController: Register: " + window.windowType.ToString() + " already registered");
+            //Log.cinput("red", "UIController: Register: " + window.windowType.ToString() + " already registered");
+            // windows.Remove(window);
             return;
         }
-        Log.cinput("green", $"UIController: Register type: {window.windowType.ToString()}");
+
+        //Log.cinput("green", $"UIController: Register type: {window.windowType.ToString()}");
         windows.Add(window);
     }
 
@@ -58,7 +60,7 @@ public class UIController : MonoBehaviour
     {
         if (!windows.Find(win => window.windowType == win.windowType))
         {
-            Log.cinput("red", "UIController: Unregister: " + window.name + " not registered");
+            //Log.cinput("red", "UIController: Unregister: " + window.name + " not registered");
             return;
         }
 

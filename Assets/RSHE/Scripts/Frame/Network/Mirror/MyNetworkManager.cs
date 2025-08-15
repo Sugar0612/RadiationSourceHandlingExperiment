@@ -149,7 +149,7 @@ public class MyNetworkManager : NetworkManager
 
         //userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " connected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " connected!");
-        Log.input($"A client connected! {StaticGlobalVar.PersonCount}");
+        //Log.input($"A client connected! {StaticGlobalVar.PersonCount}");
     }
 
     /// <summary>
@@ -180,14 +180,20 @@ public class MyNetworkManager : NetworkManager
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         StaticGlobalVar.PersonCount -= 1;
+        StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+        {
+            MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
+            NetworkClient.Send(msg);
+        }));
+
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
         userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!\n");
-        
+
         // userWindow.messageTextStr += SystemInfo.deviceUniqueIdentifier + " disconnected!\n";
         // userWindow?.UpdateMessageOfUser(SystemInfo.deviceUniqueIdentifier + " disconnected!");
         base.OnServerDisconnect(conn);
-        Log.input($"A client disconnected! {StaticGlobalVar.PersonCount}");
+        //Log.input($"A client disconnected! {StaticGlobalVar.PersonCount}");
     }
 
     /// <summary>

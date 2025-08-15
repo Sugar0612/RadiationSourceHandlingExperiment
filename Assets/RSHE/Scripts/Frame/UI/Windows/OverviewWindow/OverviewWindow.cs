@@ -25,11 +25,13 @@ public class OverviewWindow : WinBase
     {
         bool active = CameraPanel.activeSelf;
         CameraPanel.SetActive(!active);
+        ModePanel.SetActive(false);
     }
 
     public void OnClickedModePanelButton()
     {
         bool active = ModePanel.activeSelf;
         ModePanel.SetActive(!active);
+        CameraPanel.SetActive(false);
     }
 }
