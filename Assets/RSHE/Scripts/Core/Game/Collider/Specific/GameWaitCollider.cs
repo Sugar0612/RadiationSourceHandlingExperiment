@@ -112,13 +112,13 @@ public class GameWaitCollider : NetworkBehaviour
     {
         // Log.cinput("red", $"_personCount£º{_personCount}, StaticGlobalVar.PersonCount£º{StaticGlobalVar.PersonCount} ");
 
-        if (_personCount > StaticGlobalVar.PersonCount)
-        {
-            _personCount = StaticGlobalVar.PersonCount;
+        //if (_personCount > StaticGlobalVar.PersonCount)
+        //{
+        //    _personCount = StaticGlobalVar.PersonCount;
 
-            if (EventManager.OnEventTriggered != null)
-                EventManager.OnEventTriggered.Invoke(_personCount);
-        }
+        //    if (EventManager.OnEventTriggered != null)
+        //        EventManager.OnEventTriggered.Invoke(_personCount);
+        //}
     }
 
     private void OnDestroy()

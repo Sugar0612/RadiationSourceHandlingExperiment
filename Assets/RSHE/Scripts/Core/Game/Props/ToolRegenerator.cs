@@ -25,6 +25,9 @@ public class ToolRegenerator : NetworkBehaviour
     /// <summary> 生成的初始位置 </summary>
     Dictionary<string, Vector3> _spawnPos = new Dictionary<string, Vector3>();
 
+    /// <summary> 生成的初始位置 </summary>
+    Dictionary<string, Quaternion> _spawnRot = new Dictionary<string, Quaternion>();
+
     #endregion
 
     public override void OnStartServer()
@@ -47,16 +50,22 @@ public class ToolRegenerator : NetworkBehaviour
             {
                 _spawnPos.Add(propCollider.PropName, obj.transform.position);
             }
+
+            if (propCollider && !_spawnRot.ContainsKey(propCollider.PropName))
+            {
+                _spawnRot.Add(propCollider.PropName, obj.transform.rotation);
+            }
         }
     }
 
     [Server]
     void RegenerateProp(string propName)
     {
-        if (_propPrefabDic.TryGetValue(propName, out GameObject prefab) && _spawnPos.ContainsKey(propName))
+        if (_propPrefabDic.TryGetValue(propName, out GameObject prefab) && _spawnPos.ContainsKey(propName) && _spawnRot.ContainsKey(propName))
         {
             Vector3 spawnPos = _spawnPos[propName];
-            GameObject newObj = Instantiate(prefab, spawnPos, Quaternion.identity, PorpTransform);
+            Quaternion spawnRot = _spawnRot[propName];
+            GameObject newObj = Instantiate(prefab, spawnPos, spawnRot, PorpTransform);
             NetworkServer.Spawn(newObj);   
         }
     }
@@ -65,9 +74,10 @@ public class ToolRegenerator : NetworkBehaviour
     void OnTriggerExit(Collider other)
     {
         NetworkPropsCollider propCollider = other.GetComponent<NetworkPropsCollider>();
-        if (propCollider && _propPrefabDic.ContainsKey(propCollider.PropName))
+        if (propCollider && !propCollider.isCloned && _propPrefabDic.ContainsKey(propCollider.PropName))
         {
             StartCoroutine(DelayedRegeneration(propCollider.PropName));
+            propCollider.isCloned = true;
         }
     }
 

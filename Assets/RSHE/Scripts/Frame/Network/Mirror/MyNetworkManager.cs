@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 using Unity.XR.CoreUtils;
+using Unity.VisualScripting;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-manager
@@ -180,11 +181,17 @@ public class MyNetworkManager : NetworkManager
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
         StaticGlobalVar.PersonCount -= 1;
-        StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+
+
+        try
         {
-            MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
-            NetworkClient.Send(msg);
-        }));
+            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+            {
+                MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
+                NetworkClient.Send(msg);
+            }));
+        }
+        catch { }
 
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
         userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);

@@ -16,6 +16,9 @@ public class GameTaskItem : NetworkBehaviour
     /// <summary> 任务名称 </summary>
     public string taskName = "";
 
+    /// <summary> 任务指向箭头 </summary>
+    public Arrow Arrow;
+
     /// <summary>  </summary>
     public AudioClip HintAudio;
 
@@ -99,11 +102,8 @@ public class GameTaskItem : NetworkBehaviour
     /// <summary> 执行 Task End Event. </summary>
     public void GoEndTaskEvent()
     {
-        if (!IsAlwayShow)
-        {
-            GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
-            EndTask.Invoke(pkg);
-        }
+        GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
+        EndTask.Invoke(pkg);
     }
     #endregion
 }

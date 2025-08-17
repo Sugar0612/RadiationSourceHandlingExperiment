@@ -94,16 +94,16 @@ public class UserWindow : WinBase
         }
     }
 
-    //[Server]
-    //private void Update()
-    //{
-    //    int waitCnt = int.Parse(WaitPersonCountText.text);
-    //    int personCnt = int.Parse(personCountText.text);
+    [Server]
+    private void Update()
+    {
+        int waitCnt = int.Parse(WaitPersonCountText.text);
+        int personCnt = int.Parse(personCountText.text);
 
 
-    //    if (waitCnt > personCnt)
-    //        WaitPersonCountText.text = personCountText.text;
-    //}
+        if (waitCnt > personCnt)
+            WaitPersonCountText.text = personCountText.text;
+    }
 
     public void OnDestroy()
     {

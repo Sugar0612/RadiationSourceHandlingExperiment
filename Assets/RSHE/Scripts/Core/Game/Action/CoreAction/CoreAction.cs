@@ -1,6 +1,8 @@
 using Mirror;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public partial class CoreAction : NetworkBehaviour
 {
@@ -18,12 +20,26 @@ public partial class CoreAction : NetworkBehaviour
 
     public void HostIssuesTheGoNext(GameColliderPackage gamePkg, bool canGoOn)
     {
+        SetTaskArrowActive(gamePkg, false);
         if (canGoOn)
         {
             if (StaticGlobalVar.IsHost)
-                gamePkg.TaskItem.GoEndTaskEvent();
-
+            {
+                if (!gamePkg.TaskItem.IsAlwayShow)
+                {
+                    gamePkg.TaskItem.GoEndTaskEvent();
+                }
+            }
             GameSteps.Get().Next();
+        }
+    }
+
+    public void SetTaskArrowActive(GameColliderPackage gamePkg, bool active)
+    {
+        if (gamePkg != null)
+        {
+            Arrow arrow = gamePkg.TaskItem.Arrow;
+            arrow.SetActive(active);
         }
     }
 }

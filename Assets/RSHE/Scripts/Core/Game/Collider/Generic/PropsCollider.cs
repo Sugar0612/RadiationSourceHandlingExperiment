@@ -14,6 +14,9 @@ public class NetworkPropsCollider : NetworkBehaviour
     /// <summary> 目前的持有人 </summary>
     public EIdentity WhoHolding = EIdentity.None;
 
+    /// <summary> 是否已经被克隆过了 </summary>
+    public bool isCloned = false;
+
     #endregion
 
     public void OnTriggerEnter(Collider other)

@@ -68,3 +68,11 @@ public enum EGameMode
     SelfTest, // 自测
     Assessment // 考核
 }
+
+/// <summary> 任务箭头类型 </summary>
+public enum ArrowType
+{ 
+    None,
+    Horizontal,
+    Vertical
+}
