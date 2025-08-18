@@ -1,3 +1,5 @@
+using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,16 +15,14 @@ public class Arrow : MonoBehaviour
 
     Dictionary<ArrowType, string> _animParamDic = new Dictionary<ArrowType, string>() { { ArrowType.None, "isHor" }, { ArrowType.Horizontal, "isHor" }, { ArrowType.Vertical, "isVer" }, };
 
-    void Start()
+    private void Awake()
     {
-        SetActive(IsActive);
-
         _animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     public void SetActive(bool active)
     {
-        gameObject.SetRendererEnable(active);
+        gameObject.SetActive<Renderer>(active);
         if (active)
             Play();
         else

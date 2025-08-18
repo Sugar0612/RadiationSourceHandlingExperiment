@@ -86,4 +86,32 @@ public partial class CoreAction : NetworkBehaviour
 
     /// <summary> task 2 end. </summary>
     public void EndAction_2(GameColliderPackage gamePkg, Action callback = null) { }
+
+    /// <summary> Task 3 start. </summary>
+    public void StartAction_3(GameColliderPackage gamePkg, Action callback = null) { }
+
+    /// <summary> task 3 trigger collider. </summary>
+    public void TaskAction_3(GameColliderPackage gamePkg, Action callback = null)
+    {
+        if (gamePkg != null)
+        {
+            bool canGoOn = true;
+            foreach (var condition in gamePkg.TaskItem.conditions)
+            {
+                bool isFinish = true;
+                foreach (var item in condition.HoldingItems)
+                {
+                    isFinish = isFinish & (item.pCount == 0);
+                }
+                condition.IsFinished = isFinish;
+                canGoOn = canGoOn & condition.IsFinished;
+            }
+
+            HostIssuesTheGoNext(gamePkg, canGoOn);
+        }
+        callback?.Invoke();
+    }
+
+    /// <summary> task 3 end. </summary>
+    public void EndAction_3(GameColliderPackage gamePkg, Action callback = null) { }
 }

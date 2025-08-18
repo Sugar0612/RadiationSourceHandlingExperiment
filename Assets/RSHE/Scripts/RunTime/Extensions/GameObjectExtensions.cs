@@ -28,6 +28,29 @@ public static class GameObjectExtensions
         }
     }
 
+    public static void SetActive<T>(this GameObject gameObject, bool enabled) where T : Component
+    {
+        if (gameObject == null) return;
+
+        T[] components = gameObject.GetComponentsInChildren<T>();
+        foreach (T comp in components)
+        {
+            var prop = comp.GetType().GetProperty("enabled");
+            if (prop != null && prop.CanWrite && prop.PropertyType == typeof(bool))
+            {
+                //Log.cinput("yellow", $"gameObject enabled: {gameObject.name} : {enabled}");
+                prop.SetValue(comp, enabled, null);
+            }
+        }
+    }
+
+    //public static void SetActive<T> (this GameObject _this, bool active) where T : Behaviour
+    //{
+    //    T[] tArray = _this.gameObject.GetComponentsInChildren<T>();
+    //    foreach (var t in tArray)
+    //        t.enabled = active;
+    //}
+
     public static void SetRendererEnable(this GameObject obj, bool enable)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
