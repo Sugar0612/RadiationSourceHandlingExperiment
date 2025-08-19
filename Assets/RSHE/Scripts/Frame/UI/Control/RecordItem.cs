@@ -6,13 +6,20 @@ using UnityEngine.UI;
 
 public class RecordItem : MonoBehaviour
 {
-    public TMP_Text HintText;
-
     public Button RecordButton;
 
-    private void Awake()
+    public TMP_Text HintText;
+
+    public TMP_Text ValueText;
+
+    public Toggle SelectedToggle;
+
+    public float Value = 0.0f;
+
+    private void Start()
     {
         HintText.SetAciveForTheUIControl<TextMeshProUGUI>(false);
+        RecordButton.onClick.AddListener(OnClickedRecordButton);
     }
 
     public void OnClickedRecordButton()
@@ -26,7 +33,6 @@ public class RecordItem : MonoBehaviour
     public void SetActive(bool active)
     {
         SetActiveForButton(active);
-        SetActiveForText(active);
     }
 
     public void SetActiveForButton(bool active)
@@ -35,8 +41,9 @@ public class RecordItem : MonoBehaviour
         RecordButton.SetAciveForTheUIControl<TextMeshProUGUI>(active);
     }
 
-    public void SetActiveForText(bool active)
+    public void SetValueText(float value)
     {
-        HintText.SetAciveForTheUIControl<TextMeshProUGUI>(active);
+        Value = value;
+        ValueText.text = value.ToString("F2");
     }
 }

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5417665513418541079}
   - component: {fileID: 7645804024108880578}
   m_Layer: 0
-  m_Name: BeltBoard
+  m_Name: InBeltBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

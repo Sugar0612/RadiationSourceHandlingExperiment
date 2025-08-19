@@ -21,6 +21,6 @@ public class Detector : NetworkBehaviour
 
     public void Update()
     {
-        DistanceText.text = Mathf.Min(Utility.Record(gameObject)).ToString("F2") + "M";
+        DistanceText.text = Utility.Record(gameObject).ToString("F2") + "mSv/h";
     }
 }

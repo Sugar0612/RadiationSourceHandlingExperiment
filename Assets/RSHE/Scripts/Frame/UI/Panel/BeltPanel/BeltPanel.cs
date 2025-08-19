@@ -1,6 +1,7 @@
 using Mirror;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,75 +10,38 @@ public class BeltPanel : NetworkBehaviour
 {
     #region UI控件
 
-    public RecordItem PlaceButton_1;
+    public PutItem PutItem_1;
 
-    public RecordItem PlaceButton_2;
-
-    public RecordItem PlaceButton_3;
-
-    public RecordItem PlaceButton;
+    protected List<RecordItem> _recordList = new List<RecordItem>();
 
     #endregion
 
-    List<float> _disanceList = new List<float>();
+    protected List<float> _valueList = new List<float>();
 
-    float _disanceMin = 0.0f; 
-
-    void Start()
+    virtual public void Start()
     {
-        PlaceButton_1.RecordButton.onClick.AddListener(() => OnClickedPlaceButton_1());
-        PlaceButton_2.RecordButton.onClick.AddListener(() => OnClickedPlaceButton_2());
-        PlaceButton_3.RecordButton.onClick.AddListener(() => OnClickedPlaceButton_3());
-        PlaceButton.RecordButton.onClick.AddListener(() => OnClickedPlaceButton());
+        _recordList = GetComponentsInChildren<RecordItem>().ToList();
 
-        PlaceButton_2.SetActive(false);
-        PlaceButton_3.SetActive(false);
-        PlaceButton.SetActive(false);
+        for (int i = 0; i < _recordList.Count; ++i)
+        {
+            int index = i;
+            _recordList[i].RecordButton.onClick.AddListener(() =>
+            {
+                _recordList[index].SetValueText(Utility.Record(gameObject));
+            });
+        }
     }
 
-    public void Record()
+    public virtual void RpcOnClickedPutButton()
     {
-        _disanceList.Add(_disanceMin);
-    }
-
-    public void Update()
-    {
-        // StartCoroutine(CalculateTheMinDistance());
-
-        _disanceMin = Utility.Record(gameObject);
-    }
-
-    void OnClickedPlaceButton_1()
-    {
-        Record();
-        PlaceButton_1.OnClickedRecordButton();
-        PlaceButton_2.SetActiveForButton(true);
-    }
-
-    void OnClickedPlaceButton_2()
-    {
-        Record();
-        PlaceButton_2.OnClickedRecordButton();
-        PlaceButton_3.SetActiveForButton(true);
-    }
-
-    void OnClickedPlaceButton_3()
-    {
-        Record();
-        PlaceButton_3.OnClickedRecordButton();
-        PlaceButton.SetActiveForButton(true);
-    }
-
-    void OnClickedPlaceButton()
-    {
-
-        foreach (var fence in SceneObjectManager.Get().FencesList)
-            SceneObjectManager.Get().CmdSetSceneObjectActive(fence, true);
-
-        PlaceButton.OnClickedRecordButton();
-        CoreAction.Get().EndAction_2(null);
-
-        // TODO..考核判断是否正确
+        foreach (RecordItem item in _recordList)
+        {
+            if (item.SelectedToggle.isOn)
+            {
+                _valueList.Add(item.Value);
+            }
+        }    
+        PutItem_1.OnClickedPutButton();
     }
 
     public void SetActive(bool active)

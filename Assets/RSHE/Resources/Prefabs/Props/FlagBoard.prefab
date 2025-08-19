@@ -1229,9 +1229,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecordButton_1: {fileID: 4655004797605726284}
   RecordButton_2: {fileID: 6628119009214996260}
+  PlaceButton_1: {fileID: 4840837794555018932}
   RecordButton_3: {fileID: 9055516295734038243}
   RecordButton_4: {fileID: 5502267775642538805}
-  PlaceButton_1: {fileID: 4840837794555018932}
   PlaceButton_2: {fileID: 1100181678715235219}
 --- !u!1 &4423569132630022488
 GameObject:

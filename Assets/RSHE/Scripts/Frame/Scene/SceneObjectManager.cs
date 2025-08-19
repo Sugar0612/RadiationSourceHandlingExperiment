@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class SceneObjectManager : NetworkBehaviour
+public partial class SceneObjectManager : MonoBehaviour
 {
     static SceneObjectManager _instance;
 
@@ -24,7 +24,10 @@ public partial class SceneObjectManager : NetworkBehaviour
     public Transform RadioactiveSource_2;
 
     /// <summary> 围栏场景列表 </summary>
-    public List<GameObject> FencesList = new List<GameObject>();
+    public List<GameObject> OutSideFencesList = new List<GameObject>();
+
+    /// <summary> 内圈警戒带列表 </summary>
+    public List<GameObject> InSideFencesList = new List<GameObject>();
 
     /// <summary> 旗子列表 </summary>
     public List<GameObject> FlagList = new List<GameObject>();
@@ -38,7 +41,12 @@ public partial class SceneObjectManager : NetworkBehaviour
 
     void Init()
     {
-        foreach (var fence in FencesList)
+        foreach (var fence in OutSideFencesList)
+        {
+            CmdSetSceneObjectActive(fence, false);
+        }
+
+        foreach (var fence in InSideFencesList)
         {
             CmdSetSceneObjectActive(fence, false);
         }
@@ -49,5 +57,15 @@ public partial class SceneObjectManager : NetworkBehaviour
         }
     }
 
-    
+    public void CmdSetSceneObjectActive(GameObject go, bool active)
+    {
+        RpcSetSceneObjectActive(go, active);
+    }
+
+    void RpcSetSceneObjectActive(GameObject go, bool active)
+    {
+        // go.gameObject.SetRendererEnable(active);
+        go.SetActive<Renderer>(active);
+    }
+
 }
