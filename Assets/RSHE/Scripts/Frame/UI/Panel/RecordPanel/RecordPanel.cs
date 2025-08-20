@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BeltPanel : NetworkBehaviour
+public class RecordPanel : NetworkBehaviour
 {
     #region UI¿Ø¼þ
 
@@ -40,7 +41,7 @@ public class BeltPanel : NetworkBehaviour
             {
                 _valueList.Add(item.Value);
             }
-        }    
+        }
         PutItem_1.OnClickedPutButton();
     }
 
@@ -48,5 +49,23 @@ public class BeltPanel : NetworkBehaviour
     {
         gameObject.SetActive<Image>(active);
         gameObject.SetActive<TextMeshProUGUI>(active);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdOnClickedPutButton(List<GameObject> goList)
+    {
+        RpcClickedPutButton(goList);
+    }
+
+    [ClientRpc]
+    public void RpcClickedPutButton(List<GameObject> goList)
+    {
+        PutItem_1.OnClickedPutButton();
+
+        foreach (var go in goList)
+            go.SetActive<Renderer>(true);
+
+        // GO on Task...
+        
     }
 }

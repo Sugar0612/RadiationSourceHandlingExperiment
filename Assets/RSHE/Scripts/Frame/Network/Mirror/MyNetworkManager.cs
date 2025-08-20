@@ -185,14 +185,11 @@ public class MyNetworkManager : NetworkManager
 
         try
         {
-            if (!StaticGlobalVar.IsHost)
+            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
             {
-                StartCoroutine(Config.Get().GetLocalIdentity(arg =>
-                {
-                    MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
-                    NetworkClient.Send(msg);
-                }));
-            }
+                MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
+                NetworkClient.Send(msg);
+            }));
         }
         catch { }
 

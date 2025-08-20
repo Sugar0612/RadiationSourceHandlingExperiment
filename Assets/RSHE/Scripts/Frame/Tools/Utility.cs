@@ -29,7 +29,7 @@ public static class Utility
             //Log.cinput("yellow", $"@@@ disance_1£º{disance_1}, disance_2: {disance_2}, ShowVal: {DistanceText.text}");
         }
 
-        value = (0.332f * 1110f) / ((disanceMin * disanceMin) + 0.1f);
+        value = (0.332f * 1110f) / ((disanceMin * disanceMin));
 
         return value;
     }
