@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LongPole : NetworkBehaviour
+public class NuclideIdentifier: NetworkBehaviour
 {
     /// <summary> 计算的最短距离显示 </summary>
     public TMP_Text ValueText;

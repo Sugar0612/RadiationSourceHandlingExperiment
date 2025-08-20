@@ -10,6 +10,9 @@ public class Detector : NetworkBehaviour
     /// <summary> 计算的最短距离显示 </summary>
     public TMP_Text DistanceText;
 
+    /// <summary> 测试点 </summary>
+    public GameObject TestPoint;
+
     public void Awake()
     {
         
@@ -21,6 +24,6 @@ public class Detector : NetworkBehaviour
 
     public void Update()
     {
-        DistanceText.text = Utility.Record(gameObject).ToString("F2") + "mSv/h";
+        DistanceText.text = Utility.Record(TestPoint).ToString("F2") + "mSv/h";
     }
 }
