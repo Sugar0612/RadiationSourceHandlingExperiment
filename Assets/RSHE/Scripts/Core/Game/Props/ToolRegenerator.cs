@@ -36,7 +36,11 @@ public class ToolRegenerator : NetworkBehaviour
 
         foreach (var prefab in PropPrefabs)
         {
-            NetworkPropsCollider propCollider = prefab.GetComponent<NetworkPropsCollider>();
+            NetworkPropsCollider propCollider = prefab.GetComponentInChildren<NetworkPropsCollider>();
+
+            if (propCollider == null)
+                propCollider = prefab.GetComponentInParent<NetworkPropsCollider>();
+
             if (propCollider && !_propPrefabDic.ContainsKey(propCollider.PropName))
             {
                 _propPrefabDic.Add(propCollider.PropName, prefab);
@@ -45,7 +49,11 @@ public class ToolRegenerator : NetworkBehaviour
 
         foreach (var obj in PorpScenes)
         {
-            NetworkPropsCollider propCollider = obj.GetComponent<NetworkPropsCollider>();
+            NetworkPropsCollider propCollider = obj.GetComponentInChildren<NetworkPropsCollider>();
+
+            if (propCollider == null)
+                propCollider = obj.GetComponentInParent<NetworkPropsCollider>();
+
             if (propCollider && !_spawnPos.ContainsKey(propCollider.PropName))
             {
                 _spawnPos.Add(propCollider.PropName, obj.transform.position);
@@ -73,7 +81,10 @@ public class ToolRegenerator : NetworkBehaviour
     [ServerCallback]
     void OnTriggerExit(Collider other)
     {
-        NetworkPropsCollider propCollider = other.GetComponent<NetworkPropsCollider>();
+        NetworkPropsCollider propCollider = other.GetComponentInChildren<NetworkPropsCollider>();
+        if (propCollider == null)
+            propCollider = other.GetComponentInParent<NetworkPropsCollider>();
+
         if (propCollider && !propCollider.isCloned && _propPrefabDic.ContainsKey(propCollider.PropName))
         {
             StartCoroutine(DelayedRegeneration(propCollider.PropName));

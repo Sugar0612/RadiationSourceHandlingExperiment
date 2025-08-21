@@ -1,0 +1,69 @@
+using Mirror;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PickUpPanel : NetworkBehaviour
+{
+    /// <summary> 进度条 </summary>
+    public Slider Progress;
+
+    /// <summary> 提示TEXT <summary>
+    public TMP_Text HintText;
+
+    float _value = 0.0f;
+
+    public bool IsPickingUp = false;
+
+    private void Start()
+    {
+        ResetUI();
+    }
+
+    public void PickingUp(Action Success, Action Cancel)
+    {
+        HintText.text = "废料处理中...";
+        Progress.SetAciveForTheUIControl<Image>(true);
+        StartCoroutine(StartProgessIncreasing(Success, Cancel));
+    }
+
+    IEnumerator StartProgessIncreasing(Action Success, Action Cancel)
+    {
+        while (_value <= 1.0f && IsPickingUp)
+        {
+            _value += 0.005f;
+            Progress.value = _value;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (Progress.value == 1.0f)
+        {
+            Success();
+        }
+        else
+        {
+            Cancel();
+        }
+        _value = 0.0f;
+
+        yield return null;
+    }
+
+    public void ResetUI()
+    {
+        _value = 0.0f;
+        Progress.value = 0.0f;
+        HintText.text = "待处理废料";
+
+        Progress.SetAciveForTheUIControl<Image>(false);
+    }
+
+    public void SetActive(bool active)
+    {
+        Progress.SetAciveForTheUIControl<Image>(active);
+        HintText.SetAciveForTheUIControl<TextMeshProUGUI>(active);
+    }
+}
