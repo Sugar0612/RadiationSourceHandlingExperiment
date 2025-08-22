@@ -1358,13 +1358,14 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 5995614720216307410, guid: 866e0cdb9db25614fa1233a60f527797, type: 3}
-  - {fileID: 2195134806428639930, guid: 342c5b014db602b44a23f403245197bd, type: 3}
+  - {fileID: 2817825375291480433, guid: 342c5b014db602b44a23f403245197bd, type: 3}
   - {fileID: 652331334090700089, guid: a7b4b5b304ef80147950b5c6eb178db4, type: 3}
   - {fileID: 652331334090700089, guid: 98d76eb8b2942bd4384d4a425741cc3a, type: 3}
   - {fileID: 652331334090700089, guid: 7c00b2f01142964419aba12a442c2847, type: 3}
   - {fileID: 1253696526757629339, guid: ce07e35b205631f47a956bbf82bc340d, type: 3}
   - {fileID: 1253696526757629339, guid: 2cff0f67fb7693b49a99d78e31b47625, type: 3}
   - {fileID: 8749082060228181352, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
+  - {fileID: 272208494085347223, guid: c026b16be101c6f4ebdba384af58d6f9, type: 3}
   snapshotSettings:
     bufferTimeMultiplier: 2
     catchupNegativeThreshold: -1

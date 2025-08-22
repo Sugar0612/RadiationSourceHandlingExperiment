@@ -18,6 +18,13 @@ public class PickUpCollider : NetworkBehaviour
 
     bool _isPicked = false;
 
+    RadiationSource _radiationSource;
+
+    private void Start()
+    {
+        _radiationSource = GetComponentInParent<RadiationSource>();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         TransporterCollider collider = gameObject.GetComponentInParent<TransporterCollider>();
@@ -58,6 +65,10 @@ public class PickUpCollider : NetworkBehaviour
     [ClientRpc]
     void RpcPickupSuccessed()
     {
+        if (_radiationSource == null)
+            _radiationSource = GetComponentInParent<RadiationSource>();
+
+        _radiationSource.PickupNumber--;
         _isPicked = true;
         PickupPanel.HintText.text = "“—¥¶¿Ì";
         PickupPanel.Progress.SetAciveForTheUIControl<Image>(false);

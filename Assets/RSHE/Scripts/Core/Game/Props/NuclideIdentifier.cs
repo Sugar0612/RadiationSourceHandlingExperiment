@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,6 +27,16 @@ public class NuclideIdentifier: NetworkBehaviour
     /// <summary> ½üµãÖµ </summary>
     public float NearVal;
 
+    #region ¼ì²â²ÎÊý
+    public float ScanRadius = 1.5f; // É¨Ãè°ë¾¶
+
+    public float scanInterval = 1f; // É¨Ãè¼ä¸ô£¨Ãë£©
+
+    private float _timer;
+
+    private List<RadiationSource> _radiationSourceList = new List<RadiationSource>();
+    #endregion
+
     [SyncVar]
     bool _isWork = false;
 
@@ -40,11 +51,55 @@ public class NuclideIdentifier: NetworkBehaviour
         OffWork.onClick.AddListener(() => _isWork = false);
     }
 
+    //public void Update()
+    //{
+
+    //}
+
     public void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_timer >= scanInterval)
+        {
+            _timer = 0;
+            ScanArea();
+        }
+
+        // ScanArea();
+    }
+
+    void ScanArea()
+    {
+        _radiationSourceList.Clear();
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ScanRadius);
+
+        foreach (Collider col in hitColliders)
+        {
+            RadiationSource rs = col.gameObject.GetComponent<RadiationSource>();
+            if (rs)
+            {
+                if (!rs.IsClear)
+                {
+                    _radiationSourceList.Add(rs);
+                }
+            }
+        }
+
+        float value = 0.0f;
+        foreach (RadiationSource rs in _radiationSourceList)
+        {
+            value = Math.Max(value, Utility.Record(rs, TestPoint));
+        }
+
+        UpdateView(value);
+    }
+
+    void UpdateView(float value)
     {
         if (_isWork)
         {
-            float val = Utility.Record(TestPoint);
+            float val = value;
             ValueText.text = val.ToString("F2") + "mSv/h";
 
             string Hint;

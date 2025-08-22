@@ -17,6 +17,16 @@ public class RecordPanel : NetworkBehaviour
 
     #endregion
 
+    #region ºÏ≤‚≤Œ ˝
+    public float ScanRadius = 1.5f; // …®√Ë∞Îæ∂
+
+    public float scanInterval = 1f; // …®√Ëº‰∏Ù£®√Î£©
+
+    private float _timer;
+
+    private List<RadiationSource> _radiationSourceList = new List<RadiationSource>();
+    #endregion
+
     protected List<float> _valueList = new List<float>();
 
     virtual public void Start()
@@ -28,9 +38,40 @@ public class RecordPanel : NetworkBehaviour
             int index = i;
             _recordList[i].RecordButton.onClick.AddListener(() =>
             {
-                _recordList[index].SetValueText(Utility.Record(gameObject));
+                _recordList[index].SetValueText(ScanArea());
             });
         }
+    }
+
+    private void Update()
+    {
+
+    }
+
+    float ScanArea()
+    {
+        _radiationSourceList.Clear();
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ScanRadius);
+
+        foreach (Collider col in hitColliders)
+        {
+            RadiationSource rs = col.gameObject.GetComponent<RadiationSource>();
+            if (rs)
+            {
+                if (!rs.IsClear)
+                {
+                    _radiationSourceList.Add(rs);
+                }
+            }
+        }
+
+        float value = 0.0f;
+        foreach (RadiationSource rs in _radiationSourceList)
+        {
+            value = Math.Max(value, Utility.Record(rs, gameObject));
+        }
+        return value;
     }
 
     public virtual void RpcOnClickedPutButton()
