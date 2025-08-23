@@ -28,7 +28,7 @@ public class NuclideIdentifier: NetworkBehaviour
     public float NearVal;
 
     #region ¼ì²â²ÎÊý
-    public float ScanRadius = 1.5f; // É¨Ãè°ë¾¶
+    public float ScanRadius = 4.0f; // É¨Ãè°ë¾¶
 
     public float scanInterval = 1f; // É¨Ãè¼ä¸ô£¨Ãë£©
 
@@ -47,8 +47,8 @@ public class NuclideIdentifier: NetworkBehaviour
 
     public void Start()
     {
-        OnWork.onClick.AddListener(() => _isWork = true);
-        OffWork.onClick.AddListener(() => _isWork = false);
+        OnWork.onClick.AddListener(() => CmdSetIsWork(true));
+        OffWork.onClick.AddListener(() => CmdSetIsWork(false));
     }
 
     //public void Update()
@@ -91,19 +91,18 @@ public class NuclideIdentifier: NetworkBehaviour
         {
             value = Math.Max(value, Utility.Record(rs, TestPoint));
         }
-
+        Log.cinput("yellow", $"value is : {value}");
         UpdateView(value);
     }
 
     void UpdateView(float value)
     {
+        ValueText.text = value.ToString("F2") + "mSv/h";
+
         if (_isWork)
         {
-            float val = value;
-            ValueText.text = val.ToString("F2") + "mSv/h";
-
             string Hint;
-            if (NearVal <= val)
+            if (NearVal <= value)
             {
                 Hint = @"¼ì²âµ½: 137Cs";
                 HintText.GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
@@ -116,5 +115,11 @@ public class NuclideIdentifier: NetworkBehaviour
                 HintText.text = Hint;
             }
         }
+    }
+
+    [Command (requiresAuthority = false)]
+    void CmdSetIsWork(bool isWork)
+    {
+        _isWork = isWork;
     }
 }

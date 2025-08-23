@@ -17,12 +17,6 @@ public partial class SceneObjectManager : MonoBehaviour
 
     #region 场景物体
 
-    /// <summary> 放射源1 </summary>
-    public RadiationSource RadioactiveSource_1;
-
-    /// <summary> 放射源2 </summary>
-    public RadiationSource RadioactiveSource_2;
-
     /// <summary> 围栏场景列表 </summary>
     public List<GameObject> OutSideFencesList = new List<GameObject>();
 

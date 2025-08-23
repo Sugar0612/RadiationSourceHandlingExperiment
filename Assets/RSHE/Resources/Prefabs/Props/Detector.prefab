@@ -132,7 +132,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  ScanRadius: 1.5
+  ScanRadius: 4
   scanInterval: 1
   DistanceText: {fileID: 1288796910701642067}
   TestPoint: {fileID: 2712930954393096647}
