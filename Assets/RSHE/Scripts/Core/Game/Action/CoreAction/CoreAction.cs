@@ -38,6 +38,7 @@ public partial class CoreAction : NetworkBehaviour
     {
         if (gamePkg != null)
         {
+            Log.cinput("yellow", $"ArrowActive is {active}");
             Arrow arrow = gamePkg.TaskItem.Arrow;
             arrow.SetActive(active);
         }

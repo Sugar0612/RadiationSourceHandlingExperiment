@@ -20,6 +20,11 @@ public class Arrow : MonoBehaviour
         _animator = gameObject.GetComponentInChildren<Animator>();
     }
 
+    private void Start()
+    {
+        gameObject.SetActive<Renderer>(false);
+    }
+
     public void SetActive(bool active)
     {
         gameObject.SetActive<Renderer>(active);
