@@ -51,11 +51,6 @@ public class NuclideIdentifier: NetworkBehaviour
         OffWork.onClick.AddListener(() => CmdSetIsWork(false));
     }
 
-    //public void Update()
-    //{
-
-    //}
-
     public void Update()
     {
         _timer += Time.deltaTime;
@@ -64,8 +59,6 @@ public class NuclideIdentifier: NetworkBehaviour
             _timer = 0;
             ScanArea();
         }
-
-        // ScanArea();
     }
 
     void ScanArea()
@@ -91,7 +84,7 @@ public class NuclideIdentifier: NetworkBehaviour
         {
             value = Math.Max(value, Utility.Record(rs, TestPoint));
         }
-        Log.cinput("yellow", $"value is : {value}");
+
         UpdateView(value);
     }
 
