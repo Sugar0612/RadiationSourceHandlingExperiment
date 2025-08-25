@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RadiationSource : MonoBehaviour
+public class RadiationSource : NetworkBehaviour
 {
     #region D = R * A / d^2
 
@@ -18,6 +18,7 @@ public class RadiationSource : MonoBehaviour
 
     public bool IsClear { get => isClear(); }
 
+    [SyncVar]
     public int PickupNumber;
 
     private void Start()
@@ -28,5 +29,11 @@ public class RadiationSource : MonoBehaviour
     bool isClear()
     {
         return PickupNumber <= 0;
+    }
+
+    [ServerCallback]
+    public void SetPickupNumber(int val)
+    {
+        PickupNumber += val;
     }
 }

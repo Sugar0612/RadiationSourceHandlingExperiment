@@ -25,13 +25,14 @@ public class PickUpCollider : NetworkBehaviour
         _radiationSource = GetComponentInParent<RadiationSource>();
     }
 
+    [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
         TransporterCollider collider = gameObject.GetComponentInParent<TransporterCollider>();
         if (collider && collider.IsExist && !_isPicked)
         {
             NetworkPropsCollider porp = other.gameObject.GetComponentInParent<NetworkPropsCollider>();
-            if (porp && porp.PropName == CanPickupPorp)
+            if (porp && porp.PropName == CanPickupPorp && !PickupPanel.IsPickingUp)
             {
                 PickupPanel.IsPickingUp = true;
                 PickupPanel.PickingUp(CmdPickupSuccessed, CmdPickupCancel);
@@ -39,6 +40,7 @@ public class PickUpCollider : NetworkBehaviour
         }
     }
 
+    [ServerCallback]
     public void OnTriggerExit(Collider other)
     {
         TransporterCollider collider = gameObject.GetComponentInParent<TransporterCollider>();
@@ -59,16 +61,16 @@ public class PickUpCollider : NetworkBehaviour
     [Command (requiresAuthority = false)]
     void CmdPickupSuccessed()
     {
+        if (_radiationSource == null)
+            _radiationSource = GetComponentInParent<RadiationSource>();
+        _radiationSource.SetPickupNumber(-1);
+
         RpcPickupSuccessed();
     }
 
     [ClientRpc]
     void RpcPickupSuccessed()
     {
-        if (_radiationSource == null)
-            _radiationSource = GetComponentInParent<RadiationSource>();
-
-        _radiationSource.PickupNumber--;
         _isPicked = true;
         PickupPanel.HintText.text = "“—¥¶¿Ì";
         PickupPanel.Progress.SetAciveForTheUIControl<Image>(false);

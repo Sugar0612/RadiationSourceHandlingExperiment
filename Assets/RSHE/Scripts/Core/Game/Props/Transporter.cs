@@ -9,6 +9,12 @@ using UnityEngine.UI;
 
 public class Transporter : NetworkBehaviour
 {
+    /// <summary> 背景图片 </summary>
+    public Image BGImage;
+
+    /// <summary> 到达Text </summary>
+    public TextMeshProUGUI ArriveText;
+
     /// <summary> 去放射源一 </summary>
     public Button GoPointOneButton;
 
@@ -34,30 +40,28 @@ public class Transporter : NetworkBehaviour
         {
             CmdSetAnimatorBool("goPointOne", true);
             CmdSetAnimatorBool("goBackOne", false);
-            GoBackButtonOne.SetButtonActive(true);
-            GoPointOneButton.SetButtonActive(false);
-            GoPointTwoButton.SetButtonActive(false);
+            SetActive(false);
         });
 
         GoPointTwoButton.onClick.AddListener(() =>
         {
             CmdSetAnimatorBool("goPointTwo", true);
             CmdSetAnimatorBool("goBackTwo", false);
-            GoBackButtonTwo.SetButtonActive(true);
-            GoPointOneButton.SetButtonActive(false);
-            GoPointTwoButton.SetButtonActive(false);
+            SetActive(false);
         });
 
         GoBackButtonTwo.onClick.AddListener(() =>
         {
             CmdSetAnimatorBool("goPointTwo", false);
             CmdSetAnimatorBool("goBackTwo", true);
+            SetActive(false);
         });
 
         GoBackButtonOne.onClick.AddListener(() =>
         {
             CmdSetAnimatorBool("goPointOne", false);
             CmdSetAnimatorBool("goBackOne", true);
+            SetActive(false);
         });
 
         GoBackButtonOne.SetButtonActive(false);
@@ -74,5 +78,31 @@ public class Transporter : NetworkBehaviour
     public void RpcSetAnimatorBool(string param, bool val)
     {
         ActionAnimator?.SetBool(param, val);
+    }
+
+
+    void SetActive(bool active)
+    {
+        GoBackButtonOne.SetButtonActive(active);
+        GoBackButtonTwo.SetButtonActive(active);
+        GoPointOneButton.SetButtonActive(active);
+        GoPointTwoButton.SetButtonActive(active);
+
+        if (ArriveText) ArriveText.text = active ? "目的地:" : "";
+        if (BGImage) BGImage.enabled = active;
+    }
+
+    public void ArriveOnePointEvent()
+    {
+        GoBackButtonOne.SetButtonActive(true);
+        if (ArriveText) ArriveText.text = "目的地:";
+        if (BGImage) BGImage.enabled = true;
+    }
+
+    public void ArriveTwoPointEvent()
+    {
+        GoBackButtonTwo.SetButtonActive(true);
+        if (ArriveText) ArriveText.text = "目的地:";
+        if (BGImage) BGImage.enabled = true;
     }
 }

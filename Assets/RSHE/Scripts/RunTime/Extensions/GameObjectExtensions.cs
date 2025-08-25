@@ -31,14 +31,14 @@ public static class GameObjectExtensions
     public static void SetActive<T>(this GameObject gameObject, bool enabled) where T : Component
     {
         if (gameObject == null) return;
-        Log.cinput("yellow", $"SetActive: {typeof(T)} : {enabled}");
+        //Log.cinput("yellow", $"SetActive: {typeof(T)} : {enabled}");
         T[] components = gameObject.GetComponentsInChildren<T>();
         foreach (T comp in components)
         {
             var prop = comp.GetType().GetProperty("enabled");
             if (prop != null && prop.CanWrite && prop.PropertyType == typeof(bool))
             {
-                Log.cinput("yellow", $"gameObject enabled: {typeof(T)} {gameObject.name} : {enabled}");
+                //Log.cinput("yellow", $"gameObject enabled: {typeof(T)} {gameObject.name} : {enabled}");
                 prop.SetValue(comp, enabled, null);
             }
         }

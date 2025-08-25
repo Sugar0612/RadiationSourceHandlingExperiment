@@ -14,6 +14,7 @@ public class PickUpPanel : NetworkBehaviour
     /// <summary> 提示TEXT <summary>
     public TMP_Text HintText;
 
+    [SyncVar(hook = nameof(RpcUpdateSlider))]
     float _value = 0.0f;
 
     public bool IsPickingUp = false;
@@ -25,23 +26,36 @@ public class PickUpPanel : NetworkBehaviour
 
     public void PickingUp(Action Success, Action Cancel)
     {
+        RpcUpdateViewUI();
+        // 
+        StartCoroutine(StartProgessIncreasing(Success, Cancel));
+    }
+
+    [ClientRpc]
+    public void RpcUpdateViewUI()
+    {
         HintText.text = "废料处理中...";
         Progress.SetAciveForTheUIControl<Image>(true);
-        StartCoroutine(StartProgessIncreasing(Success, Cancel));
+    }
+
+    //[ClientRpc]
+    void RpcUpdateSlider(float old, float New)
+    {
+        Progress.value = New;
     }
 
     IEnumerator StartProgessIncreasing(Action Success, Action Cancel)
     {
         while (_value <= 1.0f && IsPickingUp)
         {
-            _value += 0.005f;
-            Progress.value = _value;
+            _value += 0.05f;
             yield return new WaitForSeconds(0.1f);
         }
 
-        if (Progress.value == 1.0f)
+        if (_value == 1.0f)
         {
             Success();
+            gameObject.SetActive<Collider>(false);
         }
         else
         {

@@ -90,10 +90,10 @@ public class NuclideIdentifier: NetworkBehaviour
 
     void UpdateView(float value)
     {
-        ValueText.text = value.ToString("F2") + "mSv/h";
-
         if (_isWork)
         {
+            ValueText.text = value.ToString("F2") + "mSv/h";
+
             string Hint;
             if (NearVal <= value)
             {
@@ -110,7 +110,7 @@ public class NuclideIdentifier: NetworkBehaviour
         }
     }
 
-    [Command (requiresAuthority = false)]
+    [Command]
     void CmdSetIsWork(bool isWork)
     {
         _isWork = isWork;
