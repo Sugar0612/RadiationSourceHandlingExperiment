@@ -53,7 +53,7 @@ public class PlayerWearPanel : NetworkBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        if (WearSlider.value == 1.0f)
+        if (WearSlider.value >= 1.0f)
         {
             _vrPlayerController.WStatus = VRNetworkPlayerController.WearStatus.Wore;
             if (!_vrPlayerController.isLocalPlayer)

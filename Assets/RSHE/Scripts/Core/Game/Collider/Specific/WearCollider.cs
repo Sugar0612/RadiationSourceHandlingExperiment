@@ -12,6 +12,7 @@ public class WearCollider : NetworkBehaviour
         _task = gameObject.GetComponentInParent<GameTaskItem>();
     }
 
+    [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
         VRNetworkPlayerController ctrl =
@@ -28,12 +29,14 @@ public class WearCollider : NetworkBehaviour
         }      
     }
 
+    [ServerCallback]
     public void OnTriggerExit(Collider other)
     {
         VRNetworkPlayerController ctrl =
                 other.GetComponentInParent<VRNetworkPlayerController>();
 
         if (ctrl && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wearing)
-            ctrl.WStatus = VRNetworkPlayerController.WearStatus.NoWear;
+            ctrl.RpcSetWStatus(VRNetworkPlayerController.WearStatus.NoWear);
+            //ctrl.WStatus = ;
     }
 }

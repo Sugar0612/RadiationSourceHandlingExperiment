@@ -14,7 +14,7 @@ public class PickUpPanel : NetworkBehaviour
     /// <summary> Ã· æTEXT <summary>
     public TMP_Text HintText;
 
-    [SyncVar(hook = nameof(RpcUpdateSlider))]
+    [SyncVar(hook = nameof(UpdateSlider))]
     float _value = 0.0f;
 
     public bool IsPickingUp = false;
@@ -38,8 +38,7 @@ public class PickUpPanel : NetworkBehaviour
         Progress.SetAciveForTheUIControl<Image>(true);
     }
 
-    //[ClientRpc]
-    void RpcUpdateSlider(float old, float New)
+    void UpdateSlider(float old, float New)
     {
         Progress.value = New;
     }
@@ -52,10 +51,9 @@ public class PickUpPanel : NetworkBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        if (_value == 1.0f)
+        if (_value >= 1.0f)
         {
             Success();
-            gameObject.SetActive<Collider>(false);
         }
         else
         {
@@ -75,8 +73,10 @@ public class PickUpPanel : NetworkBehaviour
         Progress.SetAciveForTheUIControl<Image>(false);
     }
 
-    public void SetActive(bool active)
+    [ClientRpc]
+    public void RpcSetActive(bool active)
     {
+        gameObject.SetActive<Collider>(false);
         Progress.SetAciveForTheUIControl<Image>(active);
         HintText.SetAciveForTheUIControl<TextMeshProUGUI>(active);
     }

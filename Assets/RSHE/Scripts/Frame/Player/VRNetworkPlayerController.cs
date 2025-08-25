@@ -143,6 +143,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
         }
     }
 
+    [ClientRpc] public void RpcSetWStatus(WearStatus status) => WStatus = status;
+
     public enum WearStatus
     {
         NoWear,
