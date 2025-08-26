@@ -73,19 +73,19 @@ public class GameSteps : NetworkBehaviour
     /// <summary> 执行开始任务 </summary>
     public void RunStart()
     {
-        currTask.CmdGoStartTaskEvent();
+        currTask.RunStart();
     }
 
     /// <summary> 执行中间任务 </summary>
     public void RunEnd()
     {
-        currTask.CmdGoTaskEvent();
+        currTask.RunEnd();
     }
 
     /// <summary> 执行结束任务 </summary>
     public void Run()
     {
-        currTask.CmdGoEndTaskEvent();
+        currTask.RunTask();
     }
 
     /// <summary> 设置步骤索引 </summary>

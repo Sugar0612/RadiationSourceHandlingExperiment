@@ -9,29 +9,29 @@ using UnityEngine;
 public abstract class ActionBase : NetworkBehaviour
 {
     /// <summary> Task one start. </summary>
-    public virtual void StartAction_1(GameColliderPackage gamePkg) { }
+    public virtual void RpcStartAction_1(GameColliderPackage gamePkg) { }
 
     /// <summary> task one trigger collider. </summary>
-    public virtual void TaskAction_1(GameColliderPackage gamePkg) { }
+    public virtual void RpcTaskAction_1(GameColliderPackage gamePkg) { }
 
     /// <summary> task one end. </summary>
-    public virtual void EndAction_1(GameColliderPackage gamePkg) { }
+    public virtual void RpcEndAction_1(GameColliderPackage gamePkg) { }
 
     /// <summary> Task 2 start. </summary>
-    public virtual void StartAction_2(GameColliderPackage gamePkg) { }
+    public virtual void RpcStartAction_2(GameColliderPackage gamePkg) { }
 
     /// <summary> task 2 trigger collider. </summary>
-    public virtual void TaskAction_2(GameColliderPackage gamePkg) { }
+    public virtual void RpcTaskAction_2(GameColliderPackage gamePkg) { }
 
     /// <summary> task 2 end. </summary>
-    public virtual void EndAction_2(GameColliderPackage gamePkg) { }
+    public virtual void RpcEndAction_2(GameColliderPackage gamePkg) { }
 
     /// <summary> Task 3 start. </summary>
-    public virtual void StartAction_3(GameColliderPackage gamePkg) { }
+    public virtual void RpcStartAction_3(GameColliderPackage gamePkg) { }
 
     /// <summary> task 3 trigger collider. </summary>
-    public virtual void TaskAction_3(GameColliderPackage gamePkg) { }
+    public virtual void RpcTaskAction_3(GameColliderPackage gamePkg) { }
 
     /// <summary> task 3 end. </summary>
-    public virtual void EndAction_3(GameColliderPackage gamePkg) { }
+    public virtual void RpcEndAction_3(GameColliderPackage gamePkg) { }
 }

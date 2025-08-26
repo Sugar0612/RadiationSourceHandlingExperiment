@@ -242,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &51908644
 Transform:
   m_ObjectHideFlags: 0
@@ -1598,7 +1598,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1520833436}
         m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
-        m_MethodName: RpcEndAction_2
+        m_MethodName: EndAction_2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1613,7 +1613,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1520833436}
         m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
-        m_MethodName: RpcStartAction_2
+        m_MethodName: StartAction_2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1628,7 +1628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1520833436}
         m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
-        m_MethodName: RpcTaskAction_2
+        m_MethodName: TaskAction_2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

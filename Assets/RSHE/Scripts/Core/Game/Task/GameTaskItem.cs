@@ -32,16 +32,13 @@ public class GameTaskItem : NetworkBehaviour
     public List<TaskCondition> conditions = new List<TaskCondition>();
 
     /// <summary> 结束任务 </summary>
-    [SerializeField]
-    private UnityEvent<GameColliderPackage> EndTask = null;
+    public UnityEvent<GameColliderPackage> EndTask = null;
 
-    [SerializeField]
     /// <summary> 开始任务 </summary>
-    private UnityEvent<GameColliderPackage> StartTask = null;
+    public UnityEvent<GameColliderPackage> StartTask = null;
 
-    [SerializeField]
     /// <summary> 当玩家触发GameCollider后触发 </summary>
-    private UnityEvent<GameColliderPackage> OnTask = null;
+    public UnityEvent<GameColliderPackage> OnTask = null;
 
     /// <summary> 是否一直展示场景中该任务下的所有子物体 </summary>
     public bool IsAlwayShow = false;
@@ -86,85 +83,22 @@ public class GameTaskItem : NetworkBehaviour
 
     #region 控制 StartEvent 和 EndEvent的接口
 
-    /// <summary> 执行 Task Start Event. </summary>
-    [Command(requiresAuthority = false)]
-    public void CmdGoStartTaskEvent()
-    {
-        RpcGoStartTaskEvent();
-    }
-
-    /// <summary> 执行 Task End Event. </summary>
-    [Command(requiresAuthority = false)]
-    public void CmdGoEndTaskEvent()
-    {
-        RpcGoEndTaskEvent();
-    }
-
-    /// <summary> 执行 Task Collider Event. </summary>
-    [Command(requiresAuthority = false)]
-    public void CmdGoTaskEvent()
-    {
-        RpcGoTaskEvent();
-    }
-
-    [ClientRpc] 
-    void RpcGoStartTaskEvent()
+    public void RunStart()
     {
         GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
         StartTask.Invoke(pkg);
     }
 
-    [ClientRpc]
-    void RpcGoEndTaskEvent()
+    public void RunEnd()
     {
         GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
         EndTask.Invoke(pkg);
     }
 
-    [ClientRpc]
-    void RpcGoTaskEvent()
+    public void RunTask()
     {
         GameColliderPackage pkg = new GameColliderPackage() { TaskItem = this };
         OnTask.Invoke(pkg);
-    }
-
-    #endregion
-
-    #region Run Start, End and Task. 带参数版本
-    public void RunStart(GameColliderPackage pkg)
-    {
-        CmdGoStartTaskEvent(pkg);
-    }
-
-    public void RunEnd(GameColliderPackage pkg)
-    {
-        CmdGoEndTaskEvent(pkg);
-    }
-
-    public void Run(GameColliderPackage pkg)
-    {
-        CmdGoTaskEvent(pkg);
-    }
-
-    /// <summary> 执行 Task Start Event. </summary>
-    [Command(requiresAuthority = false)]
-    public void CmdGoStartTaskEvent(GameColliderPackage pkg)
-    {
-        RpcGoStartTaskEvent();
-    }
-
-    /// <summary> 执行 Task End Event. </summary>
-    [Command(requiresAuthority = false)]
-    public void CmdGoEndTaskEvent(GameColliderPackage pkg)
-    {
-        RpcGoEndTaskEvent();
-    }
-
-    /// <summary> 执行 Task Collider Event. </summary>
-    [Command(requiresAuthority = false)]
-    public void CmdGoTaskEvent(GameColliderPackage pkg)
-    {
-        RpcGoTaskEvent();
     }
 
     #endregion

@@ -13,21 +13,45 @@ public class TaskAction : NetworkBehaviour
     }
 
     /// <summary> task 1 start. </summary>
-    public void StartAction_1(GameColliderPackage gamePkg) =>_gameAction.StartAction_1(gamePkg);
+    public void StartAction_1(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcStartAction_1(gamePkg);
+    }
 
     /// <summary> task 1 action. </summary>
-    public void TaskAction_1(GameColliderPackage gamePkg) => _gameAction.TaskAction_1(gamePkg);
+    public void TaskAction_1(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcTaskAction_1(gamePkg);
+    }
 
     /// <summary> task 1 end. </summary>
-    public void EndAction_1(GameColliderPackage gamePkg) => _gameAction.EndAction_1(gamePkg);
-
+    public void EndAction_1(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+         _gameAction.RpcEndAction_1(gamePkg);
+    }
+   
     /// <summary> task 2 start. </summary>
-    public void StartAction_2(GameColliderPackage gamePkg) => _gameAction.StartAction_2(gamePkg);
-
+    public void StartAction_2(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcStartAction_2(gamePkg);
+    }
+    
     /// <summary> task 2 action. </summary>
-    public void TaskAction_2(GameColliderPackage gamePkg) => _gameAction.TaskAction_2(gamePkg);
+    public void TaskAction_2(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcTaskAction_2(gamePkg);
+    }
 
     /// <summary> task 2 end. </summary>
-    public void EndAction_2(GameColliderPackage gamePkg) => _gameAction.EndAction_2(gamePkg);
+    public void EndAction_2(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcEndAction_2(gamePkg);
+    }
 
 }
