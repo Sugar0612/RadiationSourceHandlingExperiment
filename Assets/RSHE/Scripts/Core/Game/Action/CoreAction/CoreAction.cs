@@ -27,7 +27,7 @@ public partial class CoreAction : NetworkBehaviour
             {
                 if (!gamePkg.TaskItem.IsAlwayShow)
                 {
-                    gamePkg.TaskItem.GoEndTaskEvent();
+                    GameSteps.Get().RunEnd();
                 }
             }
             GameSteps.Get().Next();

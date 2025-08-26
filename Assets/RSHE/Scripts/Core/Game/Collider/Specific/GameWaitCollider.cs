@@ -26,22 +26,6 @@ public class GameWaitCollider : NetworkBehaviour
         CheckNumberOfPersonInColliderBox(other);
     }
 
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    VRNetworkPlayerController ctrl =
-    //        other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
-
-    //    if (StaticGlobalVar.IsServer && ctrl)
-    //    {
-    //        _personCount++;
-
-    //        if (_personCount == StaticGlobalVar.PersonCount)
-    //        {
-    //            SetPanelButtonEnable(true);
-    //        }
-    //    }
-    //}
-
     [ServerCallback]
     public void OnTriggerExit(Collider other)
     {
@@ -94,7 +78,6 @@ public class GameWaitCollider : NetworkBehaviour
         {
             if (pair.Value == null && _personDic[pair.Key] == 1)
             {
-                // EventManager.UsrStateEvent.Invoke(pair.Key, EUserState.Offline);
                 _personDic[pair.Key] = 0;
                 _personCount--;
             }
@@ -105,20 +88,6 @@ public class GameWaitCollider : NetworkBehaviour
 
         if (EventManager.OnEventTriggered != null)
             EventManager.OnEventTriggered.Invoke(_personCount);
-    }
-
-    [ServerCallback]
-    private void Update()
-    {
-        // Log.cinput("red", $"_personCount£º{_personCount}, StaticGlobalVar.PersonCount£º{StaticGlobalVar.PersonCount} ");
-
-        //if (_personCount > StaticGlobalVar.PersonCount)
-        //{
-        //    _personCount = StaticGlobalVar.PersonCount;
-
-        //    if (EventManager.OnEventTriggered != null)
-        //        EventManager.OnEventTriggered.Invoke(_personCount);
-        //}
     }
 
     private void OnDestroy()

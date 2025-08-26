@@ -54,15 +54,4 @@ public class UILimiteExpansion : MonoBehaviour
             usrWin.ChangedWaitPersonCountText(personCnt);   
         }
     }
-
-    /// <summary>
-    /// ¸üÐÂÍæ¼ÒµÇÂ¼×´Ì¬UI
-    /// </summary>
-    /// <param name="identity"></param>
-    /// <param name="state"></param>
-    //public void UpdateUsrState(EIdentity identity, EUserState state)
-    //{
-    //    UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-    //    userWin.SetItemState(identity, state);
-    //}
 }

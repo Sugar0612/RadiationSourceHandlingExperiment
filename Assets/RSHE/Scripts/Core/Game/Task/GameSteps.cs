@@ -41,11 +41,6 @@ public class GameSteps : NetworkBehaviour
     int taskIdx = 0; // 小任务索引
     #endregion
 
-    private void Start()
-    {
-        GameSteps.Get().ExecuteCurrentTask();
-    }
-
     /// <summary>
     /// 开始下一个任务
     /// </summary>
@@ -55,7 +50,7 @@ public class GameSteps : NetworkBehaviour
         if (taskIdx + 1 < currTaskList.Count)
         {
             taskIdx++;
-            ExecuteCurrentTask();
+            RunStart();
             return;
         }
 
@@ -67,13 +62,30 @@ public class GameSteps : NetworkBehaviour
     /// </summary>
     void NextStep()
     {
-        Log.cinput("yellow", $"@@ NextStep");
         if (stepIdx + 1 < stepsList.Count)
         {
             stepIdx++;
-            ExecuteCurrentTask();
+            RunStart();
             return;
         }
+    }
+
+    /// <summary> 执行开始任务 </summary>
+    public void RunStart()
+    {
+        currTask.CmdGoStartTaskEvent();
+    }
+
+    /// <summary> 执行中间任务 </summary>
+    public void RunEnd()
+    {
+        currTask.CmdGoTaskEvent();
+    }
+
+    /// <summary> 执行结束任务 </summary>
+    public void Run()
+    {
+        currTask.CmdGoEndTaskEvent();
     }
 
     /// <summary> 设置步骤索引 </summary>
@@ -83,13 +95,5 @@ public class GameSteps : NetworkBehaviour
         {
             stepIdx = targetStepIdx;
         }
-    }
-
-    /// <summary> 执行任务 </summary>
-    public void ExecuteCurrentTask()
-    {
-        // Log.cinput("yellow", $"@@@ ExecuteCurrentTask");
-       
-        currTask.GoStartTaskEvent();
     }
 }

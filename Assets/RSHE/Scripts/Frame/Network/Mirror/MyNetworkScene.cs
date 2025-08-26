@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class MyNetworkScene : NetworkBehaviour
 {
-    public ParticleSystem particleSystem; // when button poked, particle system play.
+    // public ParticleSystem particleSystem; // when button poked, particle system play.
     public AudioSource audioSource; // when button poked, audio play.
     public Text incrementalNumberText;
 
@@ -47,10 +47,10 @@ public class MyNetworkScene : NetworkBehaviour
     [ClientRpc]
     private void RpcSetParticleState(bool state)
     {
-        if (state)
-            particleSystem.Play();
-        else
-            particleSystem.Stop();
+        //if (state)
+        //    particleSystem.Play();
+        //else
+        //    particleSystem.Stop();
     }
 
     //[Command(requiresAuthority = false)]
