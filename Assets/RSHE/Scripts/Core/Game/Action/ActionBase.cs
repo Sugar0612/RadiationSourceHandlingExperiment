@@ -34,4 +34,64 @@ public abstract class ActionBase : NetworkBehaviour
 
     /// <summary> task 3 end. </summary>
     public virtual void RpcEndAction_3(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_4(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcTaskAction_4(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_4(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_5(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_5(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_5(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_6(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_6(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_6(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_7(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_7(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_7(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_8(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_8(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_8(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_9(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_9(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_9(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_10(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_10(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_10(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_11(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_11(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_11(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_12(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_12(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_12(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartAction_13(GameColliderPackage gamePkg) {  }
+
+    public virtual void RpcTaskAction_13(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndAction_13(GameColliderPackage gamePkg) { }
 }

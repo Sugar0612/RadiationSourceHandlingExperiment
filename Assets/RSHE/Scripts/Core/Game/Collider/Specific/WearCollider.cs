@@ -18,7 +18,7 @@ public class WearCollider : NetworkBehaviour
         VRNetworkPlayerController ctrl =
                 other.GetComponentInParent<VRNetworkPlayerController>();
 
-        if (ctrl && _task)
+        if (ctrl && _task && ctrl.WStatus == VRNetworkPlayerController.WearStatus.NoWear)
         {
             GameColliderPackage gamePkg = new GameColliderPackage()
             {

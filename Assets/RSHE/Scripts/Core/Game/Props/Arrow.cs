@@ -27,7 +27,7 @@ public class Arrow : MonoBehaviour
 
     public void SetActive(bool active)
     {
-        gameObject.SetActive<Renderer>(active);
+        gameObject.SetRendererEnable(active);
         if (active)
             Play();
         else

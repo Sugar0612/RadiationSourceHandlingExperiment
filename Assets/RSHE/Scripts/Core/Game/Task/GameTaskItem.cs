@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 using Mirror;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 [Serializable]
 public class GameTaskItem : NetworkBehaviour
@@ -17,7 +18,7 @@ public class GameTaskItem : NetworkBehaviour
     public string taskName = "";
 
     /// <summary> 任务指向箭头 </summary>
-    public Arrow Arrow;
+    public List<Arrow> ArrowList = new List<Arrow>();
 
     /// <summary>  </summary>
     public AudioClip HintAudio;
@@ -47,10 +48,13 @@ public class GameTaskItem : NetworkBehaviour
 
     private void Awake()
     {
-        CmdEndActiveAction();
-
         StartTask.AddListener(pkg => CmdStartActiveAction());
         EndTask.AddListener(pkg => CmdEndActiveAction());
+    }
+
+    private void Start()
+    {
+        StartCoroutine(DelayedCommandCall());
     }
 
     #region 任务的开始与结束 [Base]
@@ -58,6 +62,16 @@ public class GameTaskItem : NetworkBehaviour
        这个region的作用就是让每个任务开始和结束相关的场景物品关闭，以及音频播放
        然后不同模式步骤不同的处理都放在了 Core/Game/Action 中
      */
+
+    private IEnumerator DelayedCommandCall()
+    {
+        // 等待直到客户端准备就绪
+        while (!NetworkClient.ready)
+            yield return null;
+
+        CmdEndActiveAction();
+    }
+
     [Command(requiresAuthority = false)]
     void CmdStartActiveAction()
     {

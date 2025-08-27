@@ -34,12 +34,34 @@ public partial class CoreAction : NetworkBehaviour
         }
     }
 
+    /// <summary> 设置箭头的Active </summary>
     public void SetTaskArrowActive(GameColliderPackage gamePkg, bool active)
     {
         if (gamePkg != null)
         {
-            Arrow arrow = gamePkg.TaskItem.Arrow;
-            arrow.SetActive(active);
+            foreach (Arrow arrow in gamePkg.TaskItem.ArrowList)
+                arrow.SetActive(active);
+        }
+    }
+
+    /// <summary> 设置音频状态 </summary>
+    public void SetAudioStatus(GameColliderPackage gamePkg, bool active)
+    {
+        if (gamePkg != null)
+        {
+            AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
+        }
+    }
+
+    /// <summary> 用于教学模式自动执行Start Task </summary>
+    public void AutoRunStartTask(GameColliderPackage gamePkg)
+    {
+        if (gamePkg != null)
+        {
+            CoreAction.Get().SetTaskArrowActive(gamePkg, true);
+            CoreAction.Get().SetAudioStatus(gamePkg, true);
+            Timer.Delay(gamePkg.TaskItem.duration,
+                () => { CoreAction.Get()?.HostIssuesTheGoNext(gamePkg, true); });
         }
     }
 }

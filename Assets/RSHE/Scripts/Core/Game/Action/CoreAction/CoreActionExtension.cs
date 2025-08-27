@@ -16,7 +16,6 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> task one trigger collider. </summary>
     public void TaskAction_1(GameColliderPackage gamePkg, Action callback = null)
     {
-        Log.cinput("red", "@@ CoreAction TaskAction_1");
         VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
 
         if (ctrl)
