@@ -20,7 +20,6 @@ public partial class CoreAction : NetworkBehaviour
 
     public void HostIssuesTheGoNext(GameColliderPackage gamePkg, bool canGoOn)
     {
-        SetTaskArrowActive(gamePkg, false);
         if (canGoOn)
         {
             if (StaticGlobalVar.IsHost)
@@ -61,7 +60,19 @@ public partial class CoreAction : NetworkBehaviour
             CoreAction.Get().SetTaskArrowActive(gamePkg, true);
             CoreAction.Get().SetAudioStatus(gamePkg, true);
             Timer.Delay(gamePkg.TaskItem.duration,
-                () => { CoreAction.Get()?.HostIssuesTheGoNext(gamePkg, true); });
+            () => 
+            {
+                StartCoroutine(TimesUpRun(gamePkg));
+            });
         }
+    }
+
+    IEnumerator TimesUpRun(GameColliderPackage gamePkg)
+    {
+        CoreAction.Get().SetTaskArrowActive(gamePkg, false);
+
+        yield return new WaitForSeconds(1.0f);
+
+        CoreAction.Get()?.HostIssuesTheGoNext(gamePkg, true);
     }
 }

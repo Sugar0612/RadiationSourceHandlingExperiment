@@ -9,6 +9,7 @@ public class PracticalTrainingAction : ActionBase
     public override void RpcStartAction_1(GameColliderPackage gamePkg) 
     {
         CoreAction.Get().SetTaskArrowActive(gamePkg, true);
+        AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
         CoreAction.Get().StartAction_1(gamePkg); 
     }
 
@@ -21,6 +22,7 @@ public class PracticalTrainingAction : ActionBase
     public override void RpcStartAction_2(GameColliderPackage gamePkg) 
     {
         CoreAction.Get().SetTaskArrowActive(gamePkg, true);
+        AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
         CoreAction.Get().StartAction_2(gamePkg); 
     }
 

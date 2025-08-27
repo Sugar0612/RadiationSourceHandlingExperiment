@@ -7,10 +7,6 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> Task one start. </summary>
     public void StartAction_1(GameColliderPackage gamePkg, Action callback = null)
     {
-        if (gamePkg != null)
-        {
-            AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
-        }
     }
 
     /// <summary> task one trigger collider. </summary>

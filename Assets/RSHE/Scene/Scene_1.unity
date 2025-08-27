@@ -564,9 +564,9 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 1272976753}
   - {fileID: 398863771}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: 4a71606567d07f944b41047aa989577b, type: 3}
   fraction: 0
-  duration: 5
+  duration: 40
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -1707,14 +1707,14 @@ MonoBehaviour:
   - {fileID: 1097705234}
   - {fileID: 2086760696}
   - {fileID: 507173532}
-  - {fileID: 734637826}
-  - {fileID: 1921608913}
-  - {fileID: 966958959}
-  - {fileID: 1026801550}
   - {fileID: 1541711495}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  - {fileID: 1026801550}
+  - {fileID: 966958959}
+  - {fileID: 1921608913}
+  - {fileID: 734637826}
+  HintAudio: {fileID: 8300000, guid: 1f5f462e7ffc9f64085509a3ecb033a8, type: 3}
   fraction: 0
-  duration: 5
+  duration: 33
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -2871,9 +2871,9 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 602804486}
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: 37edcb4b4ae271741b5b947565f61f2b, type: 3}
   fraction: 0
-  duration: 5
+  duration: 28
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -2979,9 +2979,9 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 398863771}
   - {fileID: 602804486}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: de1eff90a2cedd444819791cfed71212, type: 3}
   fraction: 0
-  duration: 5
+  duration: 39
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -3422,9 +3422,9 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 602804486}
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: b14d738fe1591c94f937ebc74435a361, type: 3}
   fraction: 0
-  duration: 5
+  duration: 27
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -3801,9 +3801,9 @@ MonoBehaviour:
   taskName: "\u4EFB\u52A11"
   ArrowList:
   - {fileID: 7262410423349610663}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: d7bb4b02afcf63c478200bf11141f597, type: 3}
   fraction: 0
-  duration: 5
+  duration: 13
   conditions:
   - Identity: 1
     BodyPart: 1
@@ -4154,9 +4154,9 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1064273762}
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: a6fbc9147f5403d43ba2716227b79bfb, type: 3}
   fraction: 0
-  duration: 5
+  duration: 15
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -4565,9 +4565,9 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 602804486}
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: e9930d3a62b0f9f43a1c6a20bf9157ae, type: 3}
   fraction: 0
-  duration: 5
+  duration: 20
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -4674,9 +4674,9 @@ MonoBehaviour:
   - {fileID: 1272976753}
   - {fileID: 602804486}
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: 6fb9850cc4b3230468c0f9beb4d072b9, type: 3}
   fraction: 0
-  duration: 5
+  duration: 40
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -5323,9 +5323,9 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1426535679}
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: 957f676e9e594484793b7f65ed173405, type: 3}
   fraction: 0
-  duration: 5
+  duration: 15
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -9185,9 +9185,9 @@ MonoBehaviour:
   taskName: "\u4EFB\u52A13"
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: a134a4b8937f8114a96346ed71343b98, type: 3}
   fraction: 0
-  duration: 5
+  duration: 10
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -10208,9 +10208,9 @@ MonoBehaviour:
   taskName: "\u4EFB\u52A13"
   ArrowList:
   - {fileID: 398863771}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: 4eea070b7e95bf14eae150da70784198, type: 3}
   fraction: 0
-  duration: 5
+  duration: 27
   conditions:
   - Identity: 1
     BodyPart: 0
@@ -10676,9 +10676,9 @@ MonoBehaviour:
   - {fileID: 1017003700}
   - {fileID: 1715802315}
   - {fileID: 648431081}
-  HintAudio: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  HintAudio: {fileID: 8300000, guid: 9e98164b6d5a6dc4b83eaf88acf556d9, type: 3}
   fraction: 0
-  duration: 5
+  duration: 30
   conditions:
   - Identity: 1
     BodyPart: 0
