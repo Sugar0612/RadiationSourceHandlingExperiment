@@ -9,12 +9,13 @@ public class TransporterCollider : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        p_Transporter = other.GetComponentInParent<Transporter>();
-        if (p_Transporter == null)
-            p_Transporter = other.GetComponentInChildren<Transporter>();
+        Transporter transporter = other.GetComponentInParent<Transporter>();
+        if (transporter == null)
+            transporter = other.GetComponentInChildren<Transporter>();
 
-        if (p_Transporter != null)
+        if (transporter != null)
         {
+            p_Transporter = transporter;
             IsExist = true;
         }
     }

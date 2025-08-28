@@ -28,16 +28,13 @@ public class PickUpCollider : NetworkBehaviour
     [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
-        Log.cinput("yellow", "@@ PickUpCollider OnTriggerEnter");
         TransporterCollider collider = gameObject.GetComponentInParent<TransporterCollider>();
         if (collider && collider.IsExist 
             && collider.p_Transporter && collider.p_Transporter.p_JarStatus == Transporter.JarStatus.Open && !_isPicked)
         {
-            Log.cinput("yellow", "@@ collider.p_Transporter.p_JarStatus == Transporter.JarStatus.Open");
             NetworkPropsCollider porp = other.gameObject.GetComponentInParent<NetworkPropsCollider>();
             if (porp && porp.PropName == CanPickupPorp && !PickupPanel.IsPickingUp)
             {
-                Log.cinput("yellow", "@@ porp && porp.PropName == CanPickupPorp && !PickupPanel.IsPickingUp");
                 PickupPanel.IsPickingUp = true;
                 PickupPanel.PickingUp(RpcPickupSuccessed, RpcPickupCancel);
             }
