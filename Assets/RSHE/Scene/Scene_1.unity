@@ -312,6 +312,11 @@ MonoBehaviour:
   syncInterval: 0
   R: 0.332
   A: 1210
+  RName: Two
+  PickUpList:
+  - {fileID: 4327930157110737012}
+  ShovelList:
+  - {fileID: 5280602715983556504}
   PickupNumber: 2
 --- !u!54 &67118121
 Rigidbody:
@@ -7570,6 +7575,10 @@ MonoBehaviour:
   syncInterval: 0
   R: 0.332
   A: 1110
+  RName: One
+  PickUpList:
+  - {fileID: 7325320003892122479}
+  ShovelList: []
   PickupNumber: 1
 --- !u!65 &1297897995
 BoxCollider:
@@ -9051,6 +9060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsExist: 0
+  p_Transporter: {fileID: 0}
 --- !u!65 &1555703953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10207,6 +10217,7 @@ MonoBehaviour:
   syncInterval: 0
   taskName: "\u4EFB\u52A13"
   ArrowList:
+  - {fileID: 439036186}
   - {fileID: 398863771}
   HintAudio: {fileID: 8300000, guid: 4eea070b7e95bf14eae150da70784198, type: 3}
   fraction: 0
@@ -10535,6 +10546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsExist: 0
+  p_Transporter: {fileID: 0}
 --- !u!1 &1903072932
 GameObject:
   m_ObjectHideFlags: 0
@@ -12712,9 +12724,9 @@ GameObject:
   - component: {fileID: 1905771758015138521}
   - component: {fileID: 1824369007759015262}
   - component: {fileID: 5280602715983556503}
-  - component: {fileID: 4327930156674682058}
+  - component: {fileID: 5280602715983556504}
   m_Layer: 0
-  m_Name: PickUp (1)
+  m_Name: Shovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13278,24 +13290,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4327930156674682058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2492491775609862760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2681e0a587781824b9bf1736dc15f471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  PickUpObject: {fileID: 2014189872}
-  PickupPanel: {fileID: 3521188833098571327}
-  CanPickupPorp: Shovel
 --- !u!114 &4327930157110737012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13814,6 +13808,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20162159, y: 0.27789837, z: 0.19454418}
   m_Center: {x: -0.002855845, y: 0.06740907, z: -0.0027394742}
+--- !u!114 &5280602715983556504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492491775609862760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3677b4bb969576949a2d135b6a3105da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  ShovelObject: {fileID: 2014189872}
+  ShovelPanel: {fileID: 3521188833098571327}
+  CanPickupPorp: Shovel
 --- !u!114 &5316912958110804936
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,13 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PickUpCollider : NetworkBehaviour
+public class ShovelCollider : NetworkBehaviour
 {
     /// <summary> 拾取的物体 </summary>
-    public GameObject PickUpObject;
+    public GameObject ShovelObject;
 
     /// <summary> 拾取进度UI </summary>
-    public PickUpPanel PickupPanel;
+    public PickUpPanel ShovelPanel;
 
     /// <summary> 可以拾取我的道具是什么 </summary>
     public string CanPickupPorp;
@@ -28,18 +28,15 @@ public class PickUpCollider : NetworkBehaviour
     [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
-        Log.cinput("yellow", "@@ PickUpCollider OnTriggerEnter");
         TransporterCollider collider = gameObject.GetComponentInParent<TransporterCollider>();
         if (collider && collider.IsExist 
             && collider.p_Transporter && collider.p_Transporter.p_JarStatus == Transporter.JarStatus.Open && !_isPicked)
         {
-            Log.cinput("yellow", "@@ collider.p_Transporter.p_JarStatus == Transporter.JarStatus.Open");
             NetworkPropsCollider porp = other.gameObject.GetComponentInParent<NetworkPropsCollider>();
-            if (porp && porp.PropName == CanPickupPorp && !PickupPanel.IsPickingUp)
+            if (porp && porp.PropName == CanPickupPorp && !ShovelPanel.IsPickingUp)
             {
-                Log.cinput("yellow", "@@ porp && porp.PropName == CanPickupPorp && !PickupPanel.IsPickingUp");
-                PickupPanel.IsPickingUp = true;
-                PickupPanel.PickingUp(RpcPickupSuccessed, RpcPickupCancel);
+                ShovelPanel.IsPickingUp = true;
+                ShovelPanel.PickingUp(RpcPickupSuccessed, RpcPickupCancel);
             }
         }
     }
@@ -53,12 +50,12 @@ public class PickUpCollider : NetworkBehaviour
             NetworkPropsCollider porp = other.gameObject.GetComponentInParent<NetworkPropsCollider>();
             if (porp && porp.PropName == CanPickupPorp)
             {
-                PickupPanel.IsPickingUp = false;
+                ShovelPanel.IsPickingUp = false;
             }
         }
         else if (collider && collider.IsExist && _isPicked)
         {
-            PickupPanel.RpcSetActive(false);
+            ShovelPanel.RpcSetActive(false);
         }
     }
 
@@ -66,16 +63,16 @@ public class PickUpCollider : NetworkBehaviour
     void RpcPickupSuccessed()
     {
         _isPicked = true;
-        PickupPanel.HintText.text = "已处理";
-        PickupPanel.Progress.SetAciveForTheUIControl<Image>(false);
+        ShovelPanel.HintText.text = "已处理";
+        ShovelPanel.Progress.SetAciveForTheUIControl<Image>(false);
 
-        PickUpObject.SetActive<Renderer>(false);
+        ShovelObject.SetActive<Renderer>(false);
     }
 
     [ClientRpc]
     void RpcPickupCancel()
     {
         _isPicked = false;
-        PickupPanel.ResetUI();
+        ShovelPanel.ResetUI();
     }
 }

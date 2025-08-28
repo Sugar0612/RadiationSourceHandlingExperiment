@@ -15,6 +15,7 @@ public class NetworkPropsCollider : NetworkBehaviour
     public EIdentity WhoHolding = EIdentity.None;
 
     /// <summary> 是否已经被克隆过了 </summary>
+    [SyncVar]
     public bool isCloned = false;
 
     #endregion

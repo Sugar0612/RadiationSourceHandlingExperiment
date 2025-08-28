@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System;
 
 public partial class CoreAction : NetworkBehaviour
 {
@@ -20,6 +21,15 @@ public partial class CoreAction : NetworkBehaviour
 
     public void HostIssuesTheGoNext(GameColliderPackage gamePkg, bool canGoOn)
     {
+        StartCoroutine(TimesUpRun(gamePkg, canGoOn));
+    }
+
+    IEnumerator TimesUpRun(GameColliderPackage gamePkg, bool canGoOn)
+    {
+        CoreAction.Get().SetTaskArrowActive(gamePkg, false);
+
+        yield return new WaitForSeconds(1.0f);
+
         if (canGoOn)
         {
             if (StaticGlobalVar.IsHost)
@@ -53,7 +63,7 @@ public partial class CoreAction : NetworkBehaviour
     }
 
     /// <summary> 用于教学模式自动执行Start Task </summary>
-    public void AutoRunStartTask(GameColliderPackage gamePkg)
+    public void AutoRunStartTask(GameColliderPackage gamePkg, Action timeupAction = null)
     {
         if (gamePkg != null)
         {
@@ -62,17 +72,10 @@ public partial class CoreAction : NetworkBehaviour
             Timer.Delay(gamePkg.TaskItem.duration,
             () => 
             {
-                StartCoroutine(TimesUpRun(gamePkg));
+                if (timeupAction != null)
+                    timeupAction();
+                HostIssuesTheGoNext(gamePkg, true);
             });
         }
-    }
-
-    IEnumerator TimesUpRun(GameColliderPackage gamePkg)
-    {
-        CoreAction.Get().SetTaskArrowActive(gamePkg, false);
-
-        yield return new WaitForSeconds(1.0f);
-
-        CoreAction.Get()?.HostIssuesTheGoNext(gamePkg, true);
     }
 }
