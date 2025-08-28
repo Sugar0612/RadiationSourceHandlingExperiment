@@ -94,4 +94,10 @@ public abstract class ActionBase : NetworkBehaviour
     public virtual void RpcTaskAction_13(GameColliderPackage gamePkg) { }
 
     public virtual void RpcEndAction_13(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcStartActionWait(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcTaskActionWait(GameColliderPackage gamePkg) { }
+
+    public virtual void RpcEndActionWait(GameColliderPackage gamePkg) { }
 }

@@ -24,7 +24,7 @@ public class GameSteps : NetworkBehaviour
     /// <summary> 步骤存放容器，一个步骤里面可能有很多个小任务 </summary>
     [SerializeField]
     public List<GameTask> stepsList = new List<GameTask>();
- 
+
     /// <summary> 当前步骤 </summary>
     GameTask currStep { get { return stepsList?[stepIdx]; } }
 
@@ -39,6 +39,9 @@ public class GameSteps : NetworkBehaviour
 
     [SyncVar]
     int taskIdx = 0; // 小任务索引
+
+    public bool isTopTask { get { return currStep.tasksList.Count - 1 == taskIdx; } }
+
     #endregion
 
     /// <summary>

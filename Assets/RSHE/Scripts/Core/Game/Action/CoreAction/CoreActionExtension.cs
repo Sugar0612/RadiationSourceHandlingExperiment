@@ -1,5 +1,6 @@
 using Mirror;
 using System;
+using static Unity.XR.PXR.ShapesRecognizer;
 
 public partial class CoreAction : NetworkBehaviour
 {
@@ -110,4 +111,30 @@ public partial class CoreAction : NetworkBehaviour
 
     /// <summary> task 3 end. </summary>
     public void EndAction_3(GameColliderPackage gamePkg, Action callback = null) { }
+
+
+    /// <summary> Task wait start. </summary>
+    public void StartActionWait(GameColliderPackage gamePkg, Action callback = null) { }
+
+    /// <summary> task wait collider. </summary>
+    public void TaskActionWait(GameColliderPackage gamePkg, Action callback = null)
+    {
+        VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
+        if (gamePkg != null && ctrl)
+        {
+            bool canGoOn = true;
+            TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
+
+            if (condition != null && condition.HoldingItemsIsEmpty())
+                condition.IsFinished = true;
+
+            foreach (var item in gamePkg.TaskItem.conditions)
+                canGoOn = canGoOn & item.IsFinished;
+
+            HostIssuesTheGoNext(gamePkg, canGoOn);
+        }
+    }
+
+    /// <summary> task wait end. </summary>
+    public void EndActionWait(GameColliderPackage gamePkg, Action callback = null) { }
 }

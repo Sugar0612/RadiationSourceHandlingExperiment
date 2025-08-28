@@ -41,4 +41,17 @@ public class PracticalTrainingAction : ActionBase
     [ClientRpc] public override void RpcTaskAction_3(GameColliderPackage gamePkg) { CoreAction.Get().TaskAction_2(gamePkg); }
 
     [ClientRpc] public override void RpcEndAction_3(GameColliderPackage gamePkg) { CoreAction.Get().StartAction_2(gamePkg); }
+
+
+
+    [ClientRpc]
+    public override void RpcStartActionWait(GameColliderPackage gamePkg)
+    {
+        CoreAction.Get().SetTaskArrowActive(gamePkg, true);
+        CoreAction.Get().StartActionWait(gamePkg);
+    }
+
+    [ClientRpc] public override void RpcTaskActionWait(GameColliderPackage gamePkg) { CoreAction.Get().TaskActionWait(gamePkg); }
+
+    [ClientRpc] public override void RpcEndActionWait(GameColliderPackage gamePkg) { CoreAction.Get().StartActionWait(gamePkg); }
 }

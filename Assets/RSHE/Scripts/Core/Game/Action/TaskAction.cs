@@ -264,7 +264,7 @@ public class TaskAction : NetworkBehaviour
         _gameAction.RpcEndAction_12(gamePkg);
     }
 
-    /// <summary> task 1 start. </summary>
+    /// <summary> task 13 start. </summary>
     public void StartAction_13(GameColliderPackage gamePkg)
     {
         if (!isServer) return;
@@ -283,5 +283,26 @@ public class TaskAction : NetworkBehaviour
     {
         if (!isServer) return;
         _gameAction.RpcEndAction_13(gamePkg);
+    }
+
+    /// <summary> task Wait Start. </summary>
+    public void StartActionWait(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcStartActionWait(gamePkg);
+    }
+
+    /// <summary> task Wait action. </summary>
+    public void TaskActionWait(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcTaskActionWait(gamePkg);
+    }
+
+    /// <summary> task Wait end. </summary>
+    public void EndActionWait(GameColliderPackage gamePkg)
+    {
+        if (!isServer) return;
+        _gameAction.RpcEndActionWait(gamePkg);
     }
 }
