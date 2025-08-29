@@ -46,6 +46,14 @@ public class GameTaskItem : NetworkBehaviour
 
     #endregion
 
+    #region 这个任务处在当前这个步骤的哪个位置(第几步骤的第几个任务)
+
+    public int StepPos;
+
+    public int TaskPos;
+
+    #endregion
+
     private void Awake()
     {
         StartTask.AddListener(pkg => CmdStartActiveAction());
@@ -55,6 +63,34 @@ public class GameTaskItem : NetworkBehaviour
     private void Start()
     {
         StartCoroutine(DelayedCommandCall());
+    }
+
+    public GameTaskItem Clone()
+    {
+        GameTaskItem copy = new GameTaskItem();
+        copy.taskName = this.taskName;
+
+        copy.ArrowList = new List<Arrow>();
+        foreach (Arrow arr in this.ArrowList)
+        {
+            copy.ArrowList.Add(arr);
+        }
+
+        copy.HintAudio = this.HintAudio;
+        copy.fraction = this.fraction;
+        copy.duration = this.duration;
+
+        copy.conditions = new List<TaskCondition>();
+        foreach (TaskCondition taskCon in this.conditions)
+        {
+            copy.conditions.Add(taskCon.Clone());
+        }
+
+        copy.EndTask = this.EndTask;
+        copy.StartTask = this.StartTask;
+        copy.OnTask = this.OnTask;
+        copy.IsAlwayShow = this.IsAlwayShow;
+        return copy;
     }
 
     #region 任务的开始与结束 [Base]

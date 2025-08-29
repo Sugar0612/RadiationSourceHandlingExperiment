@@ -20,6 +20,7 @@ public class WaitCollider : NetworkBehaviour
 
         if (ctrl && _task && GameSteps.Get().isTopTask)
         {
+            Log.cinput("yellow", " In WaitCollider OnTriggerEnter");
             GameColliderPackage gamePkg = new GameColliderPackage()
             {
                 VRPlayerCtrl = ctrl,
@@ -32,11 +33,6 @@ public class WaitCollider : NetworkBehaviour
     [ServerCallback]
     public void OnTriggerExit(Collider other)
     {
-        VRNetworkPlayerController ctrl =
-                other.GetComponentInParent<VRNetworkPlayerController>();
-
-        if (ctrl && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wearing)
-            ctrl.RpcSetWStatus(VRNetworkPlayerController.WearStatus.NoWear);
-        //ctrl.WStatus = ;
+        
     }
 }

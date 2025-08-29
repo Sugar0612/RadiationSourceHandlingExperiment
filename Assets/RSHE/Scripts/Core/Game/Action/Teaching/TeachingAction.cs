@@ -222,4 +222,10 @@ public partial class TeachingAction : ActionBase
     [ClientRpc] public override void RpcTaskAction_13(GameColliderPackage gamePkg) { }
 
     [ClientRpc] public override void RpcEndAction_13(GameColliderPackage gamePkg) { }
+
+    [ClientRpc] public override void RpcStartActionWait(GameColliderPackage gamePkg) { CoreAction.Get().AutoRunStartTask(gamePkg); }
+
+    [ClientRpc] public override void RpcTaskActionWait(GameColliderPackage gamePkg) { }
+
+    [ClientRpc] public override void RpcEndActionWait(GameColliderPackage gamePkg) { }
 }

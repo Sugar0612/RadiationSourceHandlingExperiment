@@ -564,21 +564,15 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T5
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 1272976753}
   - {fileID: 398863771}
-  HintAudio: {fileID: 8300000, guid: 4a71606567d07f944b41047aa989577b, type: 3}
+  HintAudio: {fileID: 8300000, guid: e90f261e5e739084f9d81e9270b42a58, type: 3}
   fraction: 0
   duration: 40
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -625,6 +619,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &118868144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,8 +1549,13 @@ Transform:
   - {fileID: 543483885}
   - {fileID: 1696151838}
   - {fileID: 1363467623}
+  - {fileID: 1924876323}
   - {fileID: 1305911643}
+  - {fileID: 1284340261}
+  - {fileID: 1230062984}
   - {fileID: 1461515694}
+  - {fileID: 1411590282}
+  - {fileID: 1975038551}
   m_Father: {fileID: 1751675493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251987443
@@ -1709,7 +1710,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T3
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 1979521958}
@@ -1722,16 +1723,10 @@ MonoBehaviour:
   - {fileID: 966958959}
   - {fileID: 1921608913}
   - {fileID: 734637826}
-  HintAudio: {fileID: 8300000, guid: 1f5f462e7ffc9f64085509a3ecb033a8, type: 3}
+  HintAudio: {fileID: 8300000, guid: aa765bff016459140b62340e0a179a1b, type: 3}
   fraction: 0
-  duration: 33
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  duration: 31
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -1778,6 +1773,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &344042994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2876,21 +2873,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T11
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 602804486}
-  - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 37edcb4b4ae271741b5b947565f61f2b, type: 3}
+  HintAudio: {fileID: 8300000, guid: e801f47974c3c164e98a51d0893ff944, type: 3}
   fraction: 0
   duration: 28
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -2937,6 +2927,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &543483884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2940,7 @@ GameObject:
   - component: {fileID: 543483885}
   - component: {fileID: 543483886}
   m_Layer: 0
-  m_Name: "A1,A2\u7B49\u5F85\u533A"
+  m_Name: "\u4EFB\u52A13-A1,A2\u7B49\u5F85\u533A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2985,18 +2977,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "A1,A2\u7B49\u5F85\u533A"
+  taskName: T3W
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 0}
+  HintAudio: {fileID: 8300000, guid: cd16054ba3d97e64b93ee8394e10069b, type: 3}
   fraction: 0
-  duration: 0
+  duration: 4
   conditions:
   - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -3046,6 +3034,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &557124654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,21 +3083,15 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T4
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 398863771}
   - {fileID: 602804486}
-  HintAudio: {fileID: 8300000, guid: de1eff90a2cedd444819791cfed71212, type: 3}
+  HintAudio: {fileID: 8300000, guid: bffd504c2138f3846adad6f8dc33a93a, type: 3}
   fraction: 0
   duration: 39
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -3154,6 +3138,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &559831834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,6 +3222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!54 &563717466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3435,6 +3424,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!54 &576203502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3724,21 +3716,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T9
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 602804486}
-  - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: b14d738fe1591c94f937ebc74435a361, type: 3}
+  HintAudio: {fileID: 8300000, guid: cc978e2f45e51bb43a778a4037f7cb1e, type: 3}
   fraction: 0
   duration: 27
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -3785,6 +3770,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1001 &602804484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4105,7 +4092,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A11"
+  taskName: T1
   ArrowList:
   - {fileID: 7262410423349610663}
   HintAudio: {fileID: 8300000, guid: d7bb4b02afcf63c478200bf11141f597, type: 3}
@@ -4162,6 +4149,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 1
+  StepPos: 0
+  TaskPos: 0
 --- !u!1001 &648431079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4457,20 +4446,13 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T12
   ArrowList:
   - {fileID: 1064273762}
-  - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: a6fbc9147f5403d43ba2716227b79bfb, type: 3}
+  HintAudio: {fileID: 8300000, guid: dd354755a5388e746acab09478518750, type: 3}
   fraction: 0
   duration: 15
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -4517,6 +4499,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &702946611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4867,21 +4851,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T10
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 602804486}
-  - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: e9930d3a62b0f9f43a1c6a20bf9157ae, type: 3}
+  HintAudio: {fileID: 8300000, guid: aa261076241e2764082f805972272dac, type: 3}
   fraction: 0
   duration: 20
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -4928,6 +4905,202 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
+--- !u!1 &749570432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749570433}
+  - component: {fileID: 749570436}
+  - component: {fileID: 749570435}
+  - component: {fileID: 749570434}
+  m_Layer: 0
+  m_Name: Collider_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749570433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749570432}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1975038551}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &749570434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749570432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+--- !u!54 &749570435
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749570432}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &749570436
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749570432}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 39.398735, y: 14.134437, z: 23.395016}
+  m_Center: {x: 14.69, y: 0, z: -22.523394}
+--- !u!1 &757759096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757759097}
+  - component: {fileID: 757759100}
+  - component: {fileID: 757759099}
+  - component: {fileID: 757759098}
+  m_Layer: 0
+  m_Name: Collider_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757759097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757759096}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1411590282}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &757759098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757759096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+--- !u!54 &757759099
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757759096}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &757759100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757759096}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 39.398735, y: 14.134437, z: 23.395016}
+  m_Center: {x: 14.69, y: 0, z: -22.523394}
 --- !u!1 &778119741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,22 +5148,15 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T8
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 1272976753}
   - {fileID: 602804486}
-  - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 6fb9850cc4b3230468c0f9beb4d072b9, type: 3}
+  HintAudio: {fileID: 8300000, guid: 6bc0863a4f15bfd41afbf6c93cbb7e0a, type: 3}
   fraction: 0
   duration: 40
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -5037,6 +5203,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &781731179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5626,20 +5794,13 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T7
   ArrowList:
   - {fileID: 1426535679}
-  - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: 957f676e9e594484793b7f65ed173405, type: 3}
+  HintAudio: {fileID: 8300000, guid: 50ea3856c4c823b41836a59cd1efd37c, type: 3}
   fraction: 0
   duration: 15
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -5686,6 +5847,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &881715428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6378,6 +6541,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005913135}
   m_CullTransparentMesh: 1
+--- !u!1 &1010020473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010020474}
+  - component: {fileID: 1010020477}
+  - component: {fileID: 1010020476}
+  - component: {fileID: 1010020475}
+  m_Layer: 0
+  m_Name: Collider_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010020474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010020473}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1924876323}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010020475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010020473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+--- !u!54 &1010020476
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010020473}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1010020477
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010020473}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 39.398735, y: 14.134437, z: 23.395016}
+  m_Center: {x: 14.69, y: 0, z: -22.523394}
 --- !u!1 &1014123195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,6 +7748,117 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219692647}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1230062983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230062984}
+  - component: {fileID: 1230062985}
+  m_Layer: 0
+  m_Name: "\u4EFB\u52A19-B1,B2\u7B49\u5F85\u533A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230062984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230062983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1786247618}
+  m_Father: {fileID: 236701011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230062985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230062983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce9022e2d16b2d41aa2c3bd53756707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  taskName: T9W
+  ArrowList:
+  - {fileID: 1698349392}
+  HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
+  fraction: 0
+  duration: 3
+  conditions:
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 4
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  EndTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: EndActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StartTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: StartActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: TaskActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1236108443
 GameObject:
   m_ObjectHideFlags: 0
@@ -7824,6 +8195,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7155affd5efad0046b3b5e77d4ccca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1284340260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284340261}
+  - component: {fileID: 1284340262}
+  m_Layer: 0
+  m_Name: "\u4EFB\u52A18-C1,C2,C3\u7B49\u5F85\u533A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1284340261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284340260}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1794305370}
+  m_Father: {fileID: 236701011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284340262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284340260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce9022e2d16b2d41aa2c3bd53756707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  taskName: T8W
+  ArrowList:
+  - {fileID: 1698349392}
+  HintAudio: {fileID: 8300000, guid: 140a5482c0774d744a26f633fc113629, type: 3}
+  fraction: 0
+  duration: 4
+  conditions:
+  - Identity: 5
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 6
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 7
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  EndTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: EndActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StartTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: StartActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: TaskActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1297897992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7958,7 +8444,7 @@ GameObject:
   - component: {fileID: 1305911643}
   - component: {fileID: 1305911644}
   m_Layer: 0
-  m_Name: "C3\u7B49\u5F85\u533A"
+  m_Name: "\u4EFB\u52A17-C3\u7B49\u5F85\u533A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7995,12 +8481,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "C3\u7B49\u5F85\u533A"
+  taskName: T7W
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 0}
+  HintAudio: {fileID: 8300000, guid: ff89f7aa1663a85439ee4388ad400598, type: 3}
   fraction: 0
-  duration: 0
+  duration: 4
   conditions:
   - Identity: 7
     BodyPart: 0
@@ -8052,6 +8538,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1327636336
 GameObject:
   m_ObjectHideFlags: 0
@@ -8098,6 +8586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!54 &1327636339
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8550,7 +9041,7 @@ GameObject:
   - component: {fileID: 1363467623}
   - component: {fileID: 1363467624}
   m_Layer: 0
-  m_Name: "C1,C2,C3\u7B49\u5F85\u533A"
+  m_Name: "\u4EFB\u52A15-C1,C2,C3\u7B49\u5F85\u533A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8587,12 +9078,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "C1,C2,C3\u7B49\u5F85\u533A"
+  taskName: T5W
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 0}
+  HintAudio: {fileID: 8300000, guid: 140a5482c0774d744a26f633fc113629, type: 3}
   fraction: 0
-  duration: 0
+  duration: 4
   conditions:
   - Identity: 5
     BodyPart: 0
@@ -8652,6 +9143,119 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
+--- !u!1 &1411590281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411590282}
+  - component: {fileID: 1411590283}
+  m_Layer: 0
+  m_Name: "\u4EFB\u52A111-B1,B2\u7B49\u5F85\u533A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411590282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411590281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 757759097}
+  m_Father: {fileID: 236701011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411590283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411590281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce9022e2d16b2d41aa2c3bd53756707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  taskName: T11W
+  ArrowList:
+  - {fileID: 1698349392}
+  HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
+  fraction: 0
+  duration: 3
+  conditions:
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 4
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  EndTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: EndActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StartTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: StartActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: TaskActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1415686801
 GameObject:
   m_ObjectHideFlags: 0
@@ -8848,7 +9452,7 @@ GameObject:
   - component: {fileID: 1461515694}
   - component: {fileID: 1461515695}
   m_Layer: 0
-  m_Name: "C2,C3\u7B49\u5F85\u533A"
+  m_Name: "\u4EFB\u52A110-C2,C3\u7B49\u5F85\u533A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8885,12 +9489,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "C2,C3\u7B49\u5F85\u533A"
+  taskName: T10W
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 0}
+  HintAudio: {fileID: 8300000, guid: ec908abb944649e4ca4ce7448381141b, type: 3}
   fraction: 0
-  duration: 0
+  duration: 4
   conditions:
   - Identity: 6
     BodyPart: 0
@@ -8946,6 +9550,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1480017144
 GameObject:
   m_ObjectHideFlags: 0
@@ -9915,10 +10521,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T13
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 8300000, guid: a134a4b8937f8114a96346ed71343b98, type: 3}
+  HintAudio: {fileID: 8300000, guid: d2cb5d69ec454b54ca817d63dad8462f, type: 3}
   fraction: 0
   duration: 10
   conditions:
@@ -9974,6 +10580,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1598030863
 GameObject:
   m_ObjectHideFlags: 0
@@ -10335,6 +10943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!54 &1652497780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10469,7 +11080,7 @@ GameObject:
   - component: {fileID: 1696151838}
   - component: {fileID: 1696151839}
   m_Layer: 0
-  m_Name: "B1,B2\u7B49\u5F85\u533A"
+  m_Name: "\u4EFB\u52A14-B1,B2\u7B49\u5F85\u533A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10506,12 +11117,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "B1,B2\u7B49\u5F85\u533A"
+  taskName: T4W
   ArrowList:
   - {fileID: 1698349392}
-  HintAudio: {fileID: 0}
+  HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
   fraction: 0
-  duration: 0
+  duration: 3
   conditions:
   - Identity: 3
     BodyPart: 0
@@ -10567,6 +11178,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1001 &1698349390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10829,10 +11442,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1520833435}
   - {fileID: 384275269}
   - {fileID: 236701011}
   - {fileID: 407646459}
+  - {fileID: 1520833435}
   m_Father: {fileID: 1426334426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1751675494
@@ -10866,25 +11479,25 @@ MonoBehaviour:
     - {fileID: 1363467624}
   - tasksList:
     - {fileID: 1764744838}
-    - {fileID: 1696151839}
+    - {fileID: 1924876324}
   - tasksList:
     - {fileID: 878301454}
     - {fileID: 1305911644}
   - tasksList:
     - {fileID: 778119743}
-    - {fileID: 1363467624}
+    - {fileID: 1284340262}
   - tasksList:
     - {fileID: 601458541}
-    - {fileID: 1696151839}
+    - {fileID: 1230062985}
   - tasksList:
     - {fileID: 746470067}
     - {fileID: 1461515695}
   - tasksList:
     - {fileID: 537351331}
-    - {fileID: 1696151839}
+    - {fileID: 1411590283}
   - tasksList:
     - {fileID: 689214515}
-    - {fileID: 1461515695}
+    - {fileID: 1975038552}
   - tasksList:
     - {fileID: 1584019527}
 --- !u!114 &1751675495
@@ -11151,20 +11764,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A13"
+  taskName: T6
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 398863771}
-  HintAudio: {fileID: 8300000, guid: 4eea070b7e95bf14eae150da70784198, type: 3}
+  HintAudio: {fileID: 8300000, guid: 4bf2d03efa1cb2741ae368ece7fe769a, type: 3}
   fraction: 0
   duration: 27
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -11211,6 +11818,202 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
+--- !u!1 &1786247617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1786247618}
+  - component: {fileID: 1786247621}
+  - component: {fileID: 1786247620}
+  - component: {fileID: 1786247619}
+  m_Layer: 0
+  m_Name: Collider_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1786247618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786247617}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1230062984}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1786247619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786247617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+--- !u!54 &1786247620
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786247617}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1786247621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786247617}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 39.398735, y: 14.134437, z: 23.395016}
+  m_Center: {x: 14.69, y: 0, z: -22.523394}
+--- !u!1 &1794305369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1794305370}
+  - component: {fileID: 1794305373}
+  - component: {fileID: 1794305372}
+  - component: {fileID: 1794305371}
+  m_Layer: 0
+  m_Name: Collider_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1794305370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794305369}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1284340261}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1794305371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794305369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+--- !u!54 &1794305372
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794305369}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1794305373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794305369}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 39.398735, y: 14.134437, z: 23.395016}
+  m_Center: {x: 14.69, y: 0, z: -22.523394}
 --- !u!1 &1814073777
 GameObject:
   m_ObjectHideFlags: 0
@@ -11617,23 +12420,17 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  taskName: "\u4EFB\u52A12"
+  taskName: T2
   ArrowList:
   - {fileID: 439036186}
   - {fileID: 1733262186}
   - {fileID: 1017003700}
   - {fileID: 1715802315}
   - {fileID: 648431081}
-  HintAudio: {fileID: 8300000, guid: 9e98164b6d5a6dc4b83eaf88acf556d9, type: 3}
+  HintAudio: {fileID: 8300000, guid: 97fa63d85b903984699061c1a4e60227, type: 3}
   fraction: 0
   duration: 30
-  conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
+  conditions: []
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -11680,6 +12477,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1 &1918311524
 GameObject:
   m_ObjectHideFlags: 0
@@ -11804,6 +12603,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7155affd5efad0046b3b5e77d4ccca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1924876322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924876323}
+  - component: {fileID: 1924876324}
+  m_Layer: 0
+  m_Name: "\u4EFB\u52A16-B1,B2\u7B49\u5F85\u533A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924876323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924876322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1010020474}
+  m_Father: {fileID: 236701011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924876324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924876322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce9022e2d16b2d41aa2c3bd53756707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  taskName: T6W
+  ArrowList:
+  - {fileID: 1698349392}
+  HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
+  fraction: 0
+  duration: 3
+  conditions:
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 4
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  EndTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: EndActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StartTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: StartActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: TaskActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1001 &1952558767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11961,8 +12871,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 39.398735, y: 14.134437, z: 23.395016}
-  m_Center: {x: 14.69, y: 0, z: -22.523394}
+  m_Size: {x: 39.398735, y: 23.990343, z: 23.395016}
+  m_Center: {x: 14.69, y: 11.535648, z: -22.523394}
 --- !u!114 &1966271067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11975,6 +12885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca61954a24e3b04ca4cf558bb9c29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!1001 &1971964500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12037,6 +12950,113 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8810343295875022411, guid: a9ad9281203462f47a3c8c251d2cb0d5, type: 3}
   m_PrefabInstance: {fileID: 1971964500}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1975038550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975038551}
+  - component: {fileID: 1975038552}
+  m_Layer: 0
+  m_Name: "\u4EFB\u52A112-C3\u7B49\u5F85\u533A"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1975038551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975038550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 749570433}
+  m_Father: {fileID: 236701011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975038552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975038550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce9022e2d16b2d41aa2c3bd53756707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  taskName: T12W
+  ArrowList:
+  - {fileID: 1698349392}
+  HintAudio: {fileID: 8300000, guid: ff89f7aa1663a85439ee4388ad400598, type: 3}
+  fraction: 0
+  duration: 4
+  conditions:
+  - Identity: 7
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  EndTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: EndActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StartTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: StartActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTask:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1520833436}
+        m_TargetAssemblyTypeName: TaskAction, Assembly-CSharp
+        m_MethodName: TaskActionWait
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsAlwayShow: 0
+  StepPos: 0
+  TaskPos: 0
 --- !u!1001 &1979521956
 PrefabInstance:
   m_ObjectHideFlags: 0

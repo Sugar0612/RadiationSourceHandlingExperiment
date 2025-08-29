@@ -76,3 +76,10 @@ public enum ArrowType
     Horizontal,
     Vertical
 }
+
+/// <summary> 任务步骤标签 </summary>
+public enum TaskName
+{
+    T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13,
+    T3W, T4W, T5W, T6W, T7W, T8W, T9W, T10W, T11W, T12W
+}

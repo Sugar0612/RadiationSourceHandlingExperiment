@@ -43,6 +43,11 @@ public class OutBeltPanel : RecordPanel
         foreach (var go in SceneObjectManager.Get().OutSideFencesList)
             go.SetActive<Renderer>(true);
 
+        // 2-1
+        if (!GameSteps.Get().IsCheckTaskFinished(TaskName.T2))
+        {
+            GameSteps.Get().Run();
+        }
         // GO on Task...
 
     }

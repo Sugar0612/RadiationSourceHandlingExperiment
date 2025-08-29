@@ -21,6 +21,7 @@ public partial class CoreAction : NetworkBehaviour
 
     public void HostIssuesTheGoNext(GameColliderPackage gamePkg, bool canGoOn)
     {
+        Log.cinput("yellow", "HostIssuesTheGoNext");
         StartCoroutine(TimesUpRun(gamePkg, canGoOn));
     }
 

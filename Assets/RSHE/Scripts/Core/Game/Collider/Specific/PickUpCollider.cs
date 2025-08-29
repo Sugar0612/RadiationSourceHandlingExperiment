@@ -36,7 +36,7 @@ public class PickUpCollider : NetworkBehaviour
             if (porp && porp.PropName == CanPickupPorp && !PickupPanel.IsPickingUp)
             {
                 PickupPanel.IsPickingUp = true;
-                PickupPanel.PickingUp(RpcPickupSuccessed, RpcPickupCancel);
+                PickupPanel.PickingUp(PickupSuccessed, PickupCancel);
             }
         }
     }
@@ -59,6 +59,15 @@ public class PickUpCollider : NetworkBehaviour
         }
     }
 
+    void PickupSuccessed()
+    {
+        if (_radiationSource == null)
+            _radiationSource = GetComponentInParent<RadiationSource>();
+        _radiationSource.SetPickupNumber(-1);
+
+        RpcPickupSuccessed();
+    }
+
     [ClientRpc]
     void RpcPickupSuccessed()
     {
@@ -67,6 +76,11 @@ public class PickUpCollider : NetworkBehaviour
         PickupPanel.Progress.SetAciveForTheUIControl<Image>(false);
 
         PickUpObject.SetActive<Renderer>(false);
+    }
+
+    void PickupCancel()
+    {
+        RpcPickupCancel();
     }
 
     [ClientRpc]

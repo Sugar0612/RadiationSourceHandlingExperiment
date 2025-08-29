@@ -1,5 +1,6 @@
 using Mirror;
 using System;
+using System.Linq;
 using static Unity.XR.PXR.ShapesRecognizer;
 
 public partial class CoreAction : NetworkBehaviour
@@ -13,18 +14,20 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> task one trigger collider. </summary>
     public void TaskAction_1(GameColliderPackage gamePkg, Action callback = null)
     {
+        Log.cinput("yellow", "TaskAction_1");
         VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
 
         if (ctrl)
         {
             PlayerWearPanel wearPanel = FindObjectOfType<PlayerWearPanel>();
-            if (wearPanel && ctrl.WStatus != VRNetworkPlayerController.WearStatus.Wore)
+            if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.NoWear)
             {
                 wearPanel.SetActive(true);
                 wearPanel.Wearing(ctrl, () => 
                 {
                     if (gamePkg != null)
                     {
+                        TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
                         bool canGoOn = true;
                         TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
 
@@ -33,6 +36,9 @@ public partial class CoreAction : NetworkBehaviour
 
                         foreach (var item in gamePkg.TaskItem.conditions)
                             canGoOn = canGoOn & item.IsFinished;
+
+                        if (canGoOn)
+                            GameSteps.Get().SetTaskFinished(taskNameEnum);
 
                         HostIssuesTheGoNext(gamePkg, canGoOn);
                     }
@@ -62,8 +68,10 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> task 2 trigger collider. </summary>
     public void TaskAction_2(GameColliderPackage gamePkg, Action callback = null)
     {
+        Log.cinput("yellow", "TaskAction_2");
         if (gamePkg != null)
         {
+            TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
             bool canGoOn = true;
             foreach (var condition in gamePkg.TaskItem.conditions)
             {
@@ -75,6 +83,9 @@ public partial class CoreAction : NetworkBehaviour
                 condition.IsFinished = isFinish;
                 canGoOn = canGoOn & condition.IsFinished;
             }
+
+            if (canGoOn)
+                GameSteps.Get().SetTaskFinished(taskNameEnum);
 
             HostIssuesTheGoNext(gamePkg, canGoOn);
         }
@@ -92,6 +103,7 @@ public partial class CoreAction : NetworkBehaviour
     {
         if (gamePkg != null)
         {
+            TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
             bool canGoOn = true;
             foreach (var condition in gamePkg.TaskItem.conditions)
             {
@@ -103,6 +115,43 @@ public partial class CoreAction : NetworkBehaviour
                 condition.IsFinished = isFinish;
                 canGoOn = canGoOn & condition.IsFinished;
             }
+
+            if (canGoOn)
+                GameSteps.Get().SetTaskFinished(taskNameEnum);
+
+            HostIssuesTheGoNext(gamePkg, canGoOn);
+        }
+        callback?.Invoke();
+    }
+
+    /// <summary> task 3 end. </summary>
+    public void EndAction_4(GameColliderPackage gamePkg, Action callback = null) { }
+
+
+    /// <summary> Task 3 start. </summary>
+    public void StartAction_4(GameColliderPackage gamePkg, Action callback = null) { }
+
+    /// <summary> task 3 trigger collider. </summary>
+    public void TaskAction_4(GameColliderPackage gamePkg, Action callback = null)
+    {
+        if (gamePkg != null)
+        {
+            TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
+
+            bool canGoOn = true;
+            foreach (var condition in gamePkg.TaskItem.conditions)
+            {
+                bool isFinish = true;
+                foreach (var item in condition.HoldingItems)
+                {
+                    isFinish = isFinish & (item.pCount == 0);
+                }
+                condition.IsFinished = isFinish;
+                canGoOn = canGoOn & condition.IsFinished;
+            }
+
+            if (canGoOn)
+                GameSteps.Get().SetTaskFinished(taskNameEnum);
 
             HostIssuesTheGoNext(gamePkg, canGoOn);
         }
@@ -122,16 +171,24 @@ public partial class CoreAction : NetworkBehaviour
         VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
         if (gamePkg != null && ctrl)
         {
-            bool canGoOn = true;
-            TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
+            TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
+            if (!GameSteps.Get().IsCheckTaskFinished(taskNameEnum))
+            {
+                Log.cinput("yellow", "In TaskActionWait");
+                bool canGoOn = true;
+                TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
 
-            if (condition != null && condition.HoldingItemsIsEmpty())
-                condition.IsFinished = true;
+                if (condition != null && condition.HoldingItemsIsEmpty())
+                    condition.IsFinished = true;
 
-            foreach (var item in gamePkg.TaskItem.conditions)
-                canGoOn = canGoOn & item.IsFinished;
+                foreach (var item in gamePkg.TaskItem.conditions)
+                    canGoOn = canGoOn & item.IsFinished;
 
-            HostIssuesTheGoNext(gamePkg, canGoOn);
+                if (canGoOn)
+                    GameSteps.Get().SetTaskFinished(taskNameEnum);                
+
+                HostIssuesTheGoNext(gamePkg, canGoOn);
+            }
         }
     }
 

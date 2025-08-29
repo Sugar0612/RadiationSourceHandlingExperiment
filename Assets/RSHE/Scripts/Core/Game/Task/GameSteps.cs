@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Windows;
 
 [Serializable]
 public class GameSteps : NetworkBehaviour
@@ -34,22 +35,61 @@ public class GameSteps : NetworkBehaviour
     /// <summary> 当前任务列表 </summary>
     List<GameTaskItem> currTaskList { get { return currStep.tasksList; } }
 
-    [SyncVar]
     int stepIdx = 0; // 大步骤索引
 
-    [SyncVar]
     int taskIdx = 0; // 小任务索引
+
+    public int[,] TaskTable = new int[100, 100];
+
+    public Dictionary<TaskName, int[]> TaskPosDic = new Dictionary<TaskName, int[]>();
 
     public bool isTopTask { get { return currStep.tasksList.Count - 1 == taskIdx; } }
 
     #endregion
+
+    public int GetTaskIdx() => taskIdx;
+
+    private void Start()
+    {
+        InitTaskTable();
+    }
+
+    public void InitTaskTable()
+    {
+        for (int i = 0; i < stepsList.Count; ++i)
+        {
+            GameTask gameTask = stepsList[i];
+            for (int j = 0; j < gameTask.tasksList.Count; ++j)
+            {
+                GameTaskItem task = gameTask.tasksList[j];
+                TaskName taskName = (TaskName)Enum.Parse(typeof(TaskName), task.taskName);
+                task.StepPos = i;
+                task.TaskPos = j;
+                TaskTable[i, j] = 0;
+                TaskPosDic.Add(taskName, new int[2] { i, j });
+            }
+        }
+    }
+
+    public bool IsCheckTaskFinished(TaskName taskName)
+    {
+        int stepIdx = TaskPosDic[taskName][0];
+        int taskIdx = TaskPosDic[taskName][1];
+        return TaskTable[stepIdx, taskIdx] == 1;
+    }
+
+    public void SetTaskFinished(TaskName taskName)
+    {
+        int stepIdx = TaskPosDic[taskName][0];
+        int taskIdx = TaskPosDic[taskName][1];
+        TaskTable[stepIdx, taskIdx] = 1;
+    }
 
     /// <summary>
     /// 开始下一个任务
     /// </summary>
     public void Next()
     {
-        //Log.cinput("yellow", $"@@ Next");
         if (taskIdx + 1 < currTaskList.Count)
         {
             taskIdx++;
@@ -67,6 +107,7 @@ public class GameSteps : NetworkBehaviour
     {
         if (stepIdx + 1 < stepsList.Count)
         {
+            taskIdx = 0;
             stepIdx++;
             RunStart();
             return;
@@ -76,18 +117,21 @@ public class GameSteps : NetworkBehaviour
     /// <summary> 执行开始任务 </summary>
     public void RunStart()
     {
+        // Log.cinput("yellow", $"currTask: {currTask.taskName}  StepPos: {currTask.StepPos}, taskPos: {currTask.TaskPos}, TaskTable: {TaskTable[currTask.StepPos, currTask.TaskPos]}");
         currTask.RunStart();
     }
 
     /// <summary> 执行中间任务 </summary>
     public void RunEnd()
     {
+        //Log.cinput("yellow", $"currTask: StepPos: {currTask.StepPos}, taskPos: {currTask.TaskPos}, TaskTable: {TaskTable[currTask.StepPos, currTask.TaskPos]}");
         currTask.RunEnd();
     }
 
     /// <summary> 执行结束任务 </summary>
     public void Run()
     {
+        //Log.cinput("yellow", $"currTask: StepPos: {currTask.StepPos}, taskPos: {currTask.TaskPos}, TaskTable: {TaskTable[currTask.StepPos, currTask.TaskPos]}");
         currTask.RunTask();
     }
 

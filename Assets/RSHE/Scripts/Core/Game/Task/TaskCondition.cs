@@ -15,6 +15,14 @@ public class TaskCondition
 
         /// <summary> 道具数量 </summary>
         public int pCount = 0;
+
+        public PropsPackage Clone()
+        {
+            PropsPackage copy = new PropsPackage();
+            copy.pName = this.pName;
+            copy.pCount = this.pCount;
+            return copy;
+        }
     }
 
     ///// <summary> 人物身份 </summary>
@@ -32,4 +40,18 @@ public class TaskCondition
 
     /// <summary> HoldingItem 是否为空或者其中的道具都使用结束可以进入 OnEndEvent阶段 </summary>
     public bool HoldingItemsIsEmpty() => HoldingItems == null || HoldingItems.Count == 0;
+
+    public TaskCondition Clone()
+    {
+        TaskCondition copy = new TaskCondition();
+        copy.Identity = this.Identity;
+        copy.BodyPart = this.BodyPart;
+        copy.HoldingItems = new List<PropsPackage>();
+
+        foreach (PropsPackage pkg in this.HoldingItems)
+        {
+            copy.HoldingItems.Add(pkg.Clone());
+        }
+        return copy;
+    }
 }

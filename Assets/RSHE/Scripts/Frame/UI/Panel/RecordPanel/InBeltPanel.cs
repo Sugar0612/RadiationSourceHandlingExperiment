@@ -43,6 +43,10 @@ public class InBeltPanel : RecordPanel
         foreach (var fence in SceneObjectManager.Get().InSideFencesList)
             fence.SetActive<Renderer>(true);
 
+        if (!GameSteps.Get().IsCheckTaskFinished(TaskName.T3))
+        {
+            GameSteps.Get().Run();
+        }
         // GO on Task...
     }
 }

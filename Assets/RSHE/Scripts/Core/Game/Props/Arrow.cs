@@ -25,6 +25,15 @@ public class Arrow : MonoBehaviour
         gameObject.SetActive<Renderer>(false);
     }
 
+    public Arrow Clone()
+    {
+        Arrow copy = new Arrow();
+        copy.IsActive = this.IsActive;
+        copy.Type = this.Type;
+        copy._animator = this._animator;
+        return copy;
+    }
+
     public void SetActive(bool active)
     {
         gameObject.SetRendererEnable(active);
