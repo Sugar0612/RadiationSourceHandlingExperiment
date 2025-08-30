@@ -54,6 +54,28 @@ public class GameSteps : NetworkBehaviour
         InitTaskTable();
     }
 
+
+    public void CheckTaskGoRun(TaskName taskname)
+    {
+        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        {
+            //int stepIdx = TaskPosDic[task][0];
+            //int taskIdx = TaskPosDic[task][1];
+            //Log.cinput("yellow", $"task: {task.ToString()}: {TaskTable[stepIdx, taskIdx]}");
+
+            if (task == taskname)
+                break;
+
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+                return;
+        }
+
+        if (!GameSteps.Get().IsCheckTaskFinished(taskname))
+        {
+            GameSteps.Get().Run();
+        }
+    }
+
     public void InitTaskTable()
     {
         for (int i = 0; i < stepsList.Count; ++i)

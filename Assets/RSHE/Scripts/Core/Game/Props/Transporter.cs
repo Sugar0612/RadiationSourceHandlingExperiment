@@ -42,6 +42,7 @@ public class Transporter : NetworkBehaviour
 
     public JarStatus p_JarStatus = JarStatus.Close;
 
+    TaskName[] _closeTaskArray = new TaskName[3] { TaskName.T5, TaskName.T8, TaskName.T10 };
 
     public void Start()
     {
@@ -66,6 +67,7 @@ public class Transporter : NetworkBehaviour
                 CmdSetActionBool("goPointTwo", false);
                 CmdSetActionBool("goBackTwo", true);
                 CmdSetActive(false);
+                CmdGoTask(TaskName.T12);
             }
         });
 
@@ -76,6 +78,7 @@ public class Transporter : NetworkBehaviour
                 CmdSetActionBool("goPointOne", false);
                 CmdSetActionBool("goBackOne", true);
                 CmdSetActive(false);
+                CmdGoTask(TaskName.T7);
             }
         });
 
@@ -96,12 +99,39 @@ public class Transporter : NetworkBehaviour
             CmdSetJarStatus(JarStatus.Close);
             CloseButton.SetButtonActive(false);
             OpenButton.SetButtonActive(true);
+            CmdGoCloseTask();
         });
 
         GoBackButtonOne.SetButtonActive(false);
         GoBackButtonTwo.SetButtonActive(false);
         CloseButton.SetButtonActive(false);
         CmdSetActionPanelActive(false);
+    }
+
+    [Command(requiresAuthority = false)]
+    void CmdGoCloseTask()
+    {
+        TaskName targetTaskName = TaskName.T13;
+        foreach (TaskName task in _closeTaskArray)
+        {
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+            {
+                targetTaskName = task;
+                break;
+            }
+        }
+
+        Log.cinput("yellow", $"Close Task: {targetTaskName.ToString()}");
+        if (targetTaskName != TaskName.T13)
+        {
+            GameSteps.Get().CheckTaskGoRun(targetTaskName);
+        }
+    }
+
+    [Command (requiresAuthority = false)]
+    void CmdGoTask(TaskName taskName)
+    {
+        GameSteps.Get().CheckTaskGoRun(taskName);
     }
 
     [Command(requiresAuthority = false)]

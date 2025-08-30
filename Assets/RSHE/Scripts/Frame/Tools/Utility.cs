@@ -18,7 +18,7 @@ public static class Utility
 
         if (rsTrans != null)
         {
-            Vector3 rsPos= new Vector3(rsTrans.position.x, 0.0f, rsTrans.position.z);
+            Vector3 rsPos = new Vector3(rsTrans.position.x, 0.0f, rsTrans.position.z);
             Vector3 xzThisPos = new Vector3(go.transform.position.x, 0.0f, go.transform.position.z);
 
             disance = Vector3.Distance(rsPos, xzThisPos);

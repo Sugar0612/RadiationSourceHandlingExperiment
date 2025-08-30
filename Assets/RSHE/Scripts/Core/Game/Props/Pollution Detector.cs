@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Detector : NetworkBehaviour
+public class PollutionDetector: NetworkBehaviour
 {
     public float ScanRadius = 1.5f; // …®√Ë∞Îæ∂
 
@@ -21,6 +21,11 @@ public class Detector : NetworkBehaviour
 
     /// <summary> ≤‚ ‘µ„ </summary>
     public GameObject TestPoint;
+
+    private void Start()
+    {
+
+    }
 
     public void Update()
     {

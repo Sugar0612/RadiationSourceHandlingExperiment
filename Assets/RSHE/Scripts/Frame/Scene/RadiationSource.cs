@@ -24,19 +24,33 @@ public class RadiationSource : NetworkBehaviour
 
     public List<ShovelCollider> ShovelList = new List<ShovelCollider>();
 
-    public bool IsClear { get => isClear(); }
+    public bool IsPickUpClear { get => isPickUpClear(); }
 
     [SyncVar]
     public int PickupNumber;
+
+    [SyncVar]
+    public int ShovelNumber;
 
     private void Start()
     {
 
     }
 
-    bool isClear()
+    bool isShovelClear()
+    {
+        return ShovelNumber <= 0;
+    }
+
+    bool isPickUpClear()
     {
         return PickupNumber <= 0;
+    }
+
+    [ServerCallback]
+    public void SetShovelNumber(int val)
+    {
+        ShovelNumber += val;
     }
 
     [ServerCallback]

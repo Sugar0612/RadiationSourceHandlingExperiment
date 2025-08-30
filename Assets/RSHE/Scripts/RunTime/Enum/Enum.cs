@@ -80,6 +80,5 @@ public enum ArrowType
 /// <summary> 任务步骤标签 </summary>
 public enum TaskName
 {
-    T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13,
-    T3W, T4W, T5W, T6W, T7W, T8W, T9W, T10W, T11W, T12W
+    T1, T2, T3, T3W, T4, T4W, T5, T5W, T6, T6W, T7, T7W, T8, T8W, T9, T9W, T10, T10W, T11, T11W, T12, T12W, T13,
 }

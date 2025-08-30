@@ -32,7 +32,9 @@ public class FlagPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
+        Log.cinput("yellow", "Flag RpcClickedPutButton");
         RpcClickedPutButton();
+        GameSteps.Get().CheckTaskGoRun(TaskName.T4);
     }
 
     [ClientRpc]
@@ -42,8 +44,5 @@ public class FlagPanel : RecordPanel
 
         foreach (var go in SceneObjectManager.Get().FlagList)
             go.SetActive<Renderer>(true);
-
-        // GO on Task...
-
     }
 }

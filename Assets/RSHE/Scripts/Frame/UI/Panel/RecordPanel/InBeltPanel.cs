@@ -33,6 +33,7 @@ public class InBeltPanel : RecordPanel
     public void CmdOnClickedPutButton()
     {
         RpcClickedPutButton();
+        GameSteps.Get().CheckTaskGoRun(TaskName.T3);
     }
 
     [ClientRpc]
@@ -42,11 +43,5 @@ public class InBeltPanel : RecordPanel
 
         foreach (var fence in SceneObjectManager.Get().InSideFencesList)
             fence.SetActive<Renderer>(true);
-
-        if (!GameSteps.Get().IsCheckTaskFinished(TaskName.T3))
-        {
-            GameSteps.Get().Run();
-        }
-        // GO on Task...
     }
 }

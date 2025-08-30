@@ -13,14 +13,13 @@ public class WaitCollider : NetworkBehaviour
     }
 
     [ServerCallback]
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         VRNetworkPlayerController ctrl =
                 other.GetComponentInParent<VRNetworkPlayerController>();
 
         if (ctrl && _task && GameSteps.Get().isTopTask)
         {
-            Log.cinput("yellow", " In WaitCollider OnTriggerEnter");
             GameColliderPackage gamePkg = new GameColliderPackage()
             {
                 VRPlayerCtrl = ctrl,

@@ -59,7 +59,7 @@ public class RecordPanel : NetworkBehaviour
             RadiationSource rs = col.gameObject.GetComponent<RadiationSource>();
             if (rs)
             {
-                if (!rs.IsClear)
+                if (!rs.IsPickUpClear)
                 {
                     _radiationSourceList.Add(rs);
                 }
