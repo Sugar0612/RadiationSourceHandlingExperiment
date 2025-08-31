@@ -563,6 +563,7 @@ MonoBehaviour:
   scanInterval: 1
   DistanceText: {fileID: 2867943606208762776}
   TestPoint: {fileID: 2712930954393096647}
+  TriggerCollider: {fileID: 2728686885659678171}
 --- !u!65 &2728686885659678171
 BoxCollider:
   m_ObjectHideFlags: 0

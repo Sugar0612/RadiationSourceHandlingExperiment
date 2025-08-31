@@ -22,6 +22,8 @@ public class Detector : NetworkBehaviour
     /// <summary> ≤‚ ‘µ„ </summary>
     public GameObject TestPoint;
 
+    public Collider TriggerCollider;
+
     public void Update()
     {
         _timer += Time.deltaTime;
@@ -59,5 +61,12 @@ public class Detector : NetworkBehaviour
         }
 
         DistanceText.text = value.ToString("F2") + "mSv/h";
+    }
+
+    [ClientRpc]
+    public void RpcInvalidateTargetPorpCollider()
+    {
+        if (TriggerCollider != null)
+            TriggerCollider.enabled = false;
     }
 }

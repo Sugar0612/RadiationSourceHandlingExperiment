@@ -22,6 +22,8 @@ public class PollutionDetector: NetworkBehaviour
     /// <summary> ≤‚ ‘µ„ </summary>
     public GameObject TestPoint;
 
+    public Collider TriggerCollider;
+
     private void Start()
     {
 
@@ -64,5 +66,11 @@ public class PollutionDetector: NetworkBehaviour
         }
 
         DistanceText.text = value.ToString("F2") + "mSv/h";
+    }
+
+    [ClientRpc]
+    public void RpcInvalidateTargetPorpCollider()
+    {
+        TriggerCollider.enabled = false;
     }
 }

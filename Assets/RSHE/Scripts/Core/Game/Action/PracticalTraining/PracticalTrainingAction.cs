@@ -116,7 +116,18 @@ public class PracticalTrainingAction : ActionBase
         CoreAction.Get().StartAction_8(gamePkg);
     }
 
-    [ClientRpc] public override void RpcTaskAction_8(GameColliderPackage gamePkg) { }
+    [ClientRpc] public override void RpcTaskAction_8(GameColliderPackage gamePkg)
+    {
+        Log.cinput("yellow", "RpcStartAction_8");
+        RadiationSource[] radArray = FindObjectsOfType<RadiationSource>();
+        foreach (RadiationSource rad in radArray)
+        {
+            if (rad.RName == "Two" && rad.IsPickUpClear)
+            {
+                CoreAction.Get().TaskAction_8(gamePkg);
+            }
+        }
+    }
 
     [ClientRpc] public override void RpcEndAction_8(GameColliderPackage gamePkg) { }
 
@@ -127,7 +138,7 @@ public class PracticalTrainingAction : ActionBase
         CoreAction.Get().StartAction_9(gamePkg);
     }
 
-    [ClientRpc] public override void RpcTaskAction_9(GameColliderPackage gamePkg) { }
+    [ClientRpc] public override void RpcTaskAction_9(GameColliderPackage gamePkg) { CoreAction.Get().TaskAction_9(gamePkg); }
 
     [ClientRpc] public override void RpcEndAction_9(GameColliderPackage gamePkg) { }
 
@@ -139,7 +150,18 @@ public class PracticalTrainingAction : ActionBase
         CoreAction.Get().StartAction_10(gamePkg);
     }
 
-    [ClientRpc] public override void RpcTaskAction_10(GameColliderPackage gamePkg) { }
+    [ClientRpc] public override void RpcTaskAction_10(GameColliderPackage gamePkg)
+    {
+        Log.cinput("yellow", "RpcStartAction_10");
+        RadiationSource[] radArray = FindObjectsOfType<RadiationSource>();
+        foreach (RadiationSource rad in radArray)
+        {
+            if (rad.RName == "Two" && rad.IsShovelClear)
+            {
+                CoreAction.Get().TaskAction_10(gamePkg);
+            }
+        }
+    }
 
     [ClientRpc] public override void RpcEndAction_10(GameColliderPackage gamePkg) { }
 
@@ -150,7 +172,7 @@ public class PracticalTrainingAction : ActionBase
         CoreAction.Get().StartAction_11(gamePkg);
     }
 
-    [ClientRpc] public override void RpcTaskAction_11(GameColliderPackage gamePkg) { }
+    [ClientRpc] public override void RpcTaskAction_11(GameColliderPackage gamePkg) { CoreAction.Get().TaskAction_11(gamePkg); }
 
     [ClientRpc] public override void RpcEndAction_11(GameColliderPackage gamePkg) { }
 
@@ -162,7 +184,7 @@ public class PracticalTrainingAction : ActionBase
         CoreAction.Get().StartAction_12(gamePkg);
     }
 
-    [ClientRpc] public override void RpcTaskAction_12(GameColliderPackage gamePkg) { }
+    [ClientRpc] public override void RpcTaskAction_12(GameColliderPackage gamePkg) { CoreAction.Get().TaskAction_12(gamePkg); }
 
     [ClientRpc] public override void RpcEndAction_12(GameColliderPackage gamePkg) { }
 
@@ -173,7 +195,10 @@ public class PracticalTrainingAction : ActionBase
         CoreAction.Get().StartAction_13(gamePkg);
     }
 
-    [ClientRpc] public override void RpcTaskAction_13(GameColliderPackage gamePkg) { }
+    [ClientRpc] public override void RpcTaskAction_13(GameColliderPackage gamePkg) 
+    {
+        CoreAction.Get().TaskAction_13(gamePkg);
+    }
 
     [ClientRpc] public override void RpcEndAction_13(GameColliderPackage gamePkg) { }
 

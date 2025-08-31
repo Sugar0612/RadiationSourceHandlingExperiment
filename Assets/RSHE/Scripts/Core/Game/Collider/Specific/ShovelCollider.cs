@@ -36,7 +36,7 @@ public class ShovelCollider : NetworkBehaviour
             if (porp && porp.PropName == CanPickupPorp && !ShovelPanel.IsPickingUp)
             {
                 ShovelPanel.IsPickingUp = true;
-                ShovelPanel.PickingUp(RpcPickupSuccessed, RpcPickupCancel);
+                ShovelPanel.PickingUp(ShovelSuccessed, ShovelCancel);
             }
         }
     }
@@ -59,8 +59,22 @@ public class ShovelCollider : NetworkBehaviour
         }
     }
 
+    void ShovelSuccessed()
+    {
+        if (_radiationSource == null)
+            _radiationSource = GetComponentInParent<RadiationSource>();
+        _radiationSource.SetShovelNumber(-1);
+
+        RpcShovelSuccessed();
+    }
+
+    void ShovelCancel()
+    {
+        RpcPickupCancel();
+    }
+
     [ClientRpc]
-    void RpcPickupSuccessed()
+    void RpcShovelSuccessed()
     {
         _isPicked = true;
         ShovelPanel.HintText.text = "“—¥¶¿Ì";
