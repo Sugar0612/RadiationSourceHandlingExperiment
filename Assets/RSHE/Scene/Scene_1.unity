@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 67118121}
   - component: {fileID: 67118122}
   - component: {fileID: 67118123}
-  - component: {fileID: 67118124}
   m_Layer: 0
   m_Name: "\u653E\u5C04\u6E90_2"
   m_TagString: Untagged
@@ -385,25 +384,6 @@ MonoBehaviour:
   serverOnly: 0
   visible: 0
   hasSpawned: 0
---- !u!114 &67118124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67118118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53275fc0d206cb64f87d838d0129a6cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  IsDetector: 0
-  IsPoll: 0
-  isUsed: 0
-  WaitDuration: 3.5
 --- !u!1 &96208603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1041,7 @@ MonoBehaviour:
   IsDetector: 0
   IsPoll: 0
   isUsed: 0
-  WaitDuration: 3.5
+  WaitDuration: 10
 --- !u!1 &191478639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1561,7 @@ MonoBehaviour:
   IsDetector: 0
   IsPoll: 0
   isUsed: 0
-  WaitDuration: 3.5
+  WaitDuration: 10
 --- !u!54 &216065188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4318,7 +4298,7 @@ MonoBehaviour:
   IsDetector: 0
   IsPoll: 0
   isUsed: 0
-  WaitDuration: 3.5
+  WaitDuration: 10
 --- !u!54 &642689583
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8734,7 +8714,6 @@ GameObject:
   - component: {fileID: 1297897995}
   - component: {fileID: 1297897996}
   - component: {fileID: 1297897997}
-  - component: {fileID: 1297897998}
   m_Layer: 0
   m_Name: "\u653E\u5C04\u6E90_1"
   m_TagString: Untagged
@@ -8846,25 +8825,6 @@ MonoBehaviour:
   serverOnly: 0
   visible: 0
   hasSpawned: 0
---- !u!114 &1297897998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297897992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53275fc0d206cb64f87d838d0129a6cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  IsDetector: 0
-  IsPoll: 0
-  isUsed: 0
-  WaitDuration: 3.5
 --- !u!1 &1305911642
 GameObject:
   m_ObjectHideFlags: 0

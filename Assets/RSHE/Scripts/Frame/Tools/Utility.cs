@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,5 +29,24 @@ public static class Utility
         value = (rs.R * rs.A) / ((disance * disance));
 
         return value;
+    }
+
+    /// <summary> Ïú»ÙÍøÂçObject </summary>
+
+    [Server]
+    public static void DestroyNetworkObject(GameObject targetObject)
+    {
+        Log.cinput("red", "@@@ DestroyNetworkObject");
+        if (targetObject == null) return;
+
+        NetworkIdentity identity = targetObject.GetComponentInChildren<NetworkIdentity>();
+        if (identity == null)
+            identity = targetObject.GetComponentInParent<NetworkIdentity>();
+
+        if (NetworkServer.active && identity)
+        {
+            Log.cinput("red", "@@@ In DestroyNetworkObject");
+            NetworkServer.Destroy(identity.gameObject);
+        }
     }
 }

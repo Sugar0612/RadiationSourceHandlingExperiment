@@ -83,6 +83,7 @@ public class NuclideIdentifier: NetworkBehaviour
         foreach (RadiationSource rs in _radiationSourceList)
         {
             value = Math.Max(value, Utility.Record(rs, TestPoint));
+            value = value / 1000.0f;
         }
 
         UpdateView(value);

@@ -26,14 +26,17 @@ public class TestTaskCollider : NetworkBehaviour
     [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
-        _detector = other.GetComponentInParent<Detector>();
-        _pollutionDetector = other.GetComponentInParent<PollutionDetector>();
+        if (_detector == null)
+        {
+            _detector = other.GetComponentInParent<Detector>();
+            IsDetector = _detector != null;
+        }
 
-        if (_pollutionDetector)
-            IsPoll = true;
-
-        if (_detector)
-            IsDetector = true;
+        if (_pollutionDetector == null)
+        {
+            _pollutionDetector = other.GetComponentInParent<PollutionDetector>();
+            IsPoll = _pollutionDetector != null;
+        }
 
         if (IsPoll && IsDetector && !isUsed)
         {
@@ -62,7 +65,8 @@ public class TestTaskCollider : NetworkBehaviour
 
         yield return new WaitForSeconds(WaitDuration);
 
-        
+        Utility.DestroyNetworkObject(_detector.gameObject);
+        Utility.DestroyNetworkObject(_pollutionDetector.gameObject);
         GameSteps.Get().CheckTaskGoRun(targetTaskName);
     }
 
@@ -71,6 +75,4 @@ public class TestTaskCollider : NetworkBehaviour
     {
 
     }
-
-
 }

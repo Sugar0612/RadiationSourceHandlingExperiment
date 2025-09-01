@@ -59,9 +59,9 @@ public class GameSteps : NetworkBehaviour
     {
         foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
         {
-            int stepIdx = TaskPosDic[task][0];
-            int taskIdx = TaskPosDic[task][1];
-            Log.cinput("yellow", $"task: {task.ToString()}: {TaskTable[stepIdx, taskIdx]}");
+            //int stepIdx = TaskPosDic[task][0];
+            //int taskIdx = TaskPosDic[task][1];
+            //Log.cinput("yellow", $"task: {task.ToString()}: {TaskTable[stepIdx, taskIdx]}");
 
             if (task == taskname)
                 break;

@@ -13,6 +13,9 @@ public class ToolRegenerator : NetworkBehaviour
     /// <summary> 场景道具列表 </summary>
     public List<GameObject> PorpScenes = new List<GameObject>();
 
+    /// <summary> 当有新的道具被复制，就要删除场景中已有的相同道具 </summary>
+    Dictionary<string, GameObject> _oldSceneProp = new Dictionary<string, GameObject>();
+
     /// <summary> 道具生成的父节点 </summary>
     public Transform PorpTransform;
 
@@ -71,10 +74,12 @@ public class ToolRegenerator : NetworkBehaviour
     {
         if (_propPrefabDic.TryGetValue(propName, out GameObject prefab) && _spawnPos.ContainsKey(propName) && _spawnRot.ContainsKey(propName))
         {
+
+            Log.cinput("yellow", "@@ RegenerateProp");
             Vector3 spawnPos = _spawnPos[propName];
             Quaternion spawnRot = _spawnRot[propName];
             GameObject newObj = Instantiate(prefab, spawnPos, spawnRot, PorpTransform);
-            NetworkServer.Spawn(newObj);   
+            NetworkServer.Spawn(newObj);
         }
     }
 
@@ -87,6 +92,21 @@ public class ToolRegenerator : NetworkBehaviour
 
         if (propCollider && !propCollider.isCloned && _propPrefabDic.ContainsKey(propCollider.PropName))
         {
+            if (_oldSceneProp.ContainsKey(propCollider.PropName) && _oldSceneProp[propCollider.PropName] != null)
+            {
+                Utility.DestroyNetworkObject(_oldSceneProp[propCollider.PropName]);
+                _oldSceneProp[propCollider.PropName] = other.gameObject;
+            }
+            else if (_oldSceneProp.ContainsKey(propCollider.PropName) && _oldSceneProp[propCollider.PropName] == null)
+            {
+                _oldSceneProp[propCollider.PropName] = other.gameObject;
+            }
+            else
+            {
+                _oldSceneProp.Add(propCollider.PropName, other.gameObject);
+            }   
+
+            // RegenerateProp(propCollider.PropName);
             StartCoroutine(DelayedRegeneration(propCollider.PropName));
             propCollider.isCloned = true;
         }

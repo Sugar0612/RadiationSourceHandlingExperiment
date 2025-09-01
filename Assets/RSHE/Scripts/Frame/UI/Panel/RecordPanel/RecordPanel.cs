@@ -70,6 +70,7 @@ public class RecordPanel : NetworkBehaviour
         foreach (RadiationSource rs in _radiationSourceList)
         {
             value = Math.Max(value, Utility.Record(rs, gameObject));
+            value = value / 1000.0f;
         }
         return value;
     }
