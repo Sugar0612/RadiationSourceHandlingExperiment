@@ -52,11 +52,23 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [Tooltip("Player Right Hand Model Component")]
     GameObject m_RHandModel;
 
-    [Tooltip("游戏中帽子")]
-    public GameObject hat;
+    [Tooltip("游戏中左手套")]
+    public GameObject LeftGlove;
+
+    [Tooltip("游戏中左手套")]
+    public GameObject RightGlove;
+
+    [Tooltip("游戏中眼镜")]
+    public GameObject Spectacles;
+   
+    [Tooltip("游戏中围脖")]
+    public GameObject Collar;
 
     [Tooltip("游戏中衣服")]
-    public GameObject clothes;
+    public GameObject Clothes;
+
+    [Tooltip("游戏中衣服")]
+    public GameObject Hat;
 
     #endregion
 
@@ -89,9 +101,12 @@ public class VRNetworkPlayerController : NetworkBehaviour
         else
             StartCoroutine(Config.Get().GetLocalIdentity(arg => identity = arg));
 
-        hat.SetRendererEnable(false);
-        clothes.SetRendererEnable(false);
-
+        LeftGlove.SetRendererEnable(false);
+        RightGlove.SetRendererEnable(false);
+        Clothes.SetRendererEnable(false);
+        Spectacles.SetRendererEnable(false);
+        Collar.SetRendererEnable(false);
+        Hat.SetRendererEnable(false);
     }
 
     public void OnNameChangedHook(string _old, string _new)

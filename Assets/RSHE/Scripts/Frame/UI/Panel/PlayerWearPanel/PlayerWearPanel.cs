@@ -58,8 +58,12 @@ public class PlayerWearPanel : NetworkBehaviour
             _vrPlayerController.WStatus = VRNetworkPlayerController.WearStatus.Wore;
             if (!_vrPlayerController.isLocalPlayer)
             {
-                _vrPlayerController.hat.SetRendererEnable(true);
-                _vrPlayerController.clothes.SetRendererEnable(true);
+                _vrPlayerController.LeftGlove.SetRendererEnable(true);
+                _vrPlayerController.RightGlove.SetRendererEnable(true);
+                _vrPlayerController.Clothes.SetRendererEnable(true);
+                _vrPlayerController.Spectacles.SetRendererEnable(true);
+                _vrPlayerController.Collar.SetRendererEnable(true);
+                _vrPlayerController.Hat.SetRendererEnable(true);
             }
 
             PercentText.text = "¡Ì";

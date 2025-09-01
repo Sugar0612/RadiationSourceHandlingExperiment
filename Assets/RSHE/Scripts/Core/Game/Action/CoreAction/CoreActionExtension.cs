@@ -51,8 +51,12 @@ public partial class CoreAction : NetworkBehaviour
             {
                 if (!ctrl.isLocalPlayer)
                 {
-                    ctrl.hat.SetRendererEnable(true);
-                    ctrl.clothes.SetRendererEnable(true);
+                    ctrl.LeftGlove.SetRendererEnable(true);
+                    ctrl.RightGlove.SetRendererEnable(true);
+                    ctrl.Clothes.SetRendererEnable(true);
+                    ctrl.Spectacles.SetRendererEnable(true);
+                    ctrl.Collar.SetRendererEnable(true);
+                    ctrl.Hat.SetRendererEnable(true);
                 }
                 wearPanel.SetActive(false);
                 wearPanel.SetWorePanelActive(true);

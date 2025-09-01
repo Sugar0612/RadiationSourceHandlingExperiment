@@ -13,8 +13,12 @@ public partial class TeachingAction : ActionBase
             {
                 if (!ctrl.isLocalPlayer)
                 {
-                    ctrl.hat.SetRendererEnable(true);
-                    ctrl.clothes.SetRendererEnable(true);
+                    ctrl.Hat.SetRendererEnable(true);
+                    ctrl.RightGlove.SetRendererEnable(true);
+                    ctrl.LeftGlove.SetRendererEnable(true);
+                    ctrl.Clothes.SetRendererEnable(true);
+                    ctrl.Spectacles.SetRendererEnable(true);
+                    ctrl.Clothes.SetRendererEnable(true);
                 }
             }
         }); 

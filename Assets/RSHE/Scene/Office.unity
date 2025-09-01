@@ -12775,6 +12775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Interaction Hands Setup
       objectReference: {fileID: 0}
+    - target: {fileID: 873035113750597704, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1763297952357935240, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12815,11 +12819,79 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1906706115106012323, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180080110770123984, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081848687094635093, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065212746644913924, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_LHand
+      value: 
+      objectReference: {fileID: 6669968688590371205}
+    - target: {fileID: 4065212746644913924, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_RHand
+      value: 
+      objectReference: {fileID: 6669968688590371204}
+    - target: {fileID: 4354941290009357584, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895009520489776940, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247495466744745268, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443466559176057342, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996907303587102351, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766843529543741314, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_LeftHand
+      value: 
+      objectReference: {fileID: 6669968688590371207}
+    - target: {fileID: 8766843529543741314, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+      propertyPath: m_RightHand
+      value: 
+      objectReference: {fileID: 6669968688590371206}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+--- !u!4 &6669968688590371204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3558255148114779674, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+  m_PrefabInstance: {fileID: 6669968688590371203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6669968688590371205 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8336446414931158583, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+  m_PrefabInstance: {fileID: 6669968688590371203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6669968688590371206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5996907303587102351, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+  m_PrefabInstance: {fileID: 6669968688590371203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6669968688590371207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4895009520489776940, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}
+  m_PrefabInstance: {fileID: 6669968688590371203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6833146600072954419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1763297952357935240, guid: 0c335b422d81d1f429faba82a9c59fd0, type: 3}

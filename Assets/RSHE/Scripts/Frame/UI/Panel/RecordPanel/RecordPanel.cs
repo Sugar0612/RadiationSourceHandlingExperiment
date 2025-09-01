@@ -25,6 +25,9 @@ public class RecordPanel : NetworkBehaviour
     private float _timer;
 
     private List<RadiationSource> _radiationSourceList = new List<RadiationSource>();
+
+    public GameObject TestPoint;
+
     #endregion
 
     protected List<float> _valueList = new List<float>();
@@ -52,7 +55,7 @@ public class RecordPanel : NetworkBehaviour
     {
         _radiationSourceList.Clear();
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, ScanRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(TestPoint.transform.position, ScanRadius);
 
         foreach (Collider col in hitColliders)
         {
@@ -69,7 +72,7 @@ public class RecordPanel : NetworkBehaviour
         float value = 0.0f;
         foreach (RadiationSource rs in _radiationSourceList)
         {
-            value = Math.Max(value, Utility.Record(rs, gameObject));
+            value = Math.Max(value, Utility.Record(rs, TestPoint));
             value = value / 1000.0f;
         }
         return value;
