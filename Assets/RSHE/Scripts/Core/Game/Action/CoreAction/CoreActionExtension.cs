@@ -331,28 +331,28 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> task 13 trigger collider. </summary>
     public void TaskAction_13(GameColliderPackage gamePkg, Action callback = null)
     {
-        VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
-        if (gamePkg != null && ctrl)
-        {
-            TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
-            if (!GameSteps.Get().IsCheckTaskFinished(taskNameEnum))
-            {
-                Log.cinput("yellow", "In TaskAction_13");
-                bool canGoOn = true;
-                TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
+        //VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
+        //if (gamePkg != null && ctrl)
+        //{
+        //    TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
+        //    if (!GameSteps.Get().IsCheckTaskFinished(taskNameEnum))
+        //    {
+        //        Log.cinput("yellow", "In TaskAction_13");
+        //        bool canGoOn = true;
+        //        TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
 
-                if (condition != null && condition.HoldingItemsIsEmpty())
-                    condition.IsFinished = true;
+        //        if (condition != null && condition.HoldingItemsIsEmpty())
+        //            condition.IsFinished = true;
 
-                foreach (var item in gamePkg.TaskItem.conditions)
-                    canGoOn = canGoOn & item.IsFinished;
+        //        foreach (var item in gamePkg.TaskItem.conditions)
+        //            canGoOn = canGoOn & item.IsFinished;
 
-                if (canGoOn)
-                    GameSteps.Get().SetTaskFinished(taskNameEnum);
+        //        if (canGoOn)
+        //            GameSteps.Get().SetTaskFinished(taskNameEnum);
 
-                Timer.Delay(10.0f, () => { HostIssuesTheGoNext(gamePkg, canGoOn); });
-            }
-        }
+        //        Timer.Delay(10.0f, () => { HostIssuesTheGoNext(gamePkg, canGoOn); });
+        //    }
+        //}
     }
 
     /// <summary> task 13 end. </summary>
