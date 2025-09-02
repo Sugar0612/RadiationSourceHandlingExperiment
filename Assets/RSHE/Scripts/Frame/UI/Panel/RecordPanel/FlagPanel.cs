@@ -23,7 +23,7 @@ public class FlagPanel : RecordPanel
             }
         }
 
-        if (_valueList.Count >= 10)
+        if (_valueList.Count >= 4)
         {
             CmdOnClickedPutButton();
         }
