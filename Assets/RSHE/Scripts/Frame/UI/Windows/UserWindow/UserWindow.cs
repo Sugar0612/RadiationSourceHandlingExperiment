@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Telepathy;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static UserItem;
 
 public class UserWindow : WinBase
@@ -27,6 +28,14 @@ public class UserWindow : WinBase
 
     List<UserItem> userItemList = new List<UserItem>();
 
+    [SerializeField]
+    Button _usrButton; //  用户列表界面按钮。
+
+    [SerializeField]
+    GameObject _usrStatePanel; // 用户状态列表界面
+
+    bool _usrState = true;
+
     public override void Awake()
     {
         base.Awake();
@@ -39,7 +48,16 @@ public class UserWindow : WinBase
         if (!Config.Get().PicoDevice)
         {
             InitList();
+            TriggerUserStatePanel();
+            _usrButton.onClick.AddListener(TriggerUserStatePanel);
         }
+    }
+
+    public void TriggerUserStatePanel()
+    {
+        _usrStatePanel.SetActive<Image>(_usrState);
+        _usrStatePanel.SetActive<TextMeshProUGUI>(_usrState);
+        _usrState = !_usrState;
     }
 
     public void ChangedpersonCountText(int personCount)

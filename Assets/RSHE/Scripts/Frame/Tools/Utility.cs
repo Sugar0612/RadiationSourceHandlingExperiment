@@ -2,6 +2,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class Utility
 {
@@ -47,6 +48,21 @@ public static class Utility
         {
             Log.cinput("red", "@@@ In DestroyNetworkObject");
             NetworkServer.Destroy(identity.gameObject);
+        }
+    }
+
+
+    /// <summary> Õº∆¨‘ÿ»Î </summary>
+    public static void LoadImageFromResource(Image img, string imgPath)
+    {
+        Sprite newSprite = Resources.Load<Sprite>(imgPath);
+        if (newSprite != null)
+        {
+            img.sprite = newSprite;
+        }
+        else
+        {
+            // Debug.LogError($"Failed to load image from Resources: {imgPath}");
         }
     }
 }

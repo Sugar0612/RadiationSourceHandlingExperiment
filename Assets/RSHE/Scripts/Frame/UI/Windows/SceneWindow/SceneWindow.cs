@@ -1,10 +1,14 @@
 
 using DG.Tweening;
 using Mirror;
+using System.Collections;
+using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class SceneWindow : WinBase
+public class SceneWindow : WinBase, IPointerEnterHandler
 {
     #region UI Control
     /// <summary> 教学模式 </summary>
@@ -21,6 +25,9 @@ public class SceneWindow : WinBase
 
     /// <summary> 前景提要 </summary>
     public Button _prevFactsButton;
+
+    [SerializeField]
+    Image _BGImage;
 
     #endregion
 
@@ -42,6 +49,36 @@ public class SceneWindow : WinBase
             _assessmentButton.onClick.AddListener(() => OnClickedModeButton(EGameMode.Assessment));
             _prevFactsButton.onClick.AddListener(() => OnClickedPrevFactsButton());
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        // Loggg();
+    }
+
+    public void HoverTeacherButton()
+    {
+        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Teacher");
+    }
+
+    public void HoverPracticalButton()
+    {
+        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Practical");
+    }
+
+    public void HoverSelfTestButton()
+    {
+        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/SelfTest");
+    }
+
+    public void HoverAssessmentButton()
+    {
+        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Assessment");
+    }
+
+    public void HoverPrevFactsButton()
+    {
+        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/PrevFacts");
     }
 
     /// <summary>

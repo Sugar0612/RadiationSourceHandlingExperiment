@@ -17,7 +17,7 @@ public class GameWaitCollider : NetworkBehaviour
 
     private void Awake()
     {
-        SetPanelButtonEnable(false);
+        SetPanelButtonEnable(false, new List<string>() { "UsrButton" });
     }
 
     [ServerCallback]
@@ -41,11 +41,11 @@ public class GameWaitCollider : NetworkBehaviour
                 EventManager.OnEventTriggered.Invoke(_personCount);
 
             if (_personCount != StaticGlobalVar.PersonCount)
-                SetPanelButtonEnable(false);
+                SetPanelButtonEnable(false, new List<string>() { "UsrButton" });
         }
     }
 
-    public void SetPanelButtonEnable(bool enable)
+    public void SetPanelButtonEnable(bool enable, List<string> excludeName)
     {   
         foreach (var panel in GamePanelList)
         {
@@ -54,7 +54,9 @@ public class GameWaitCollider : NetworkBehaviour
 
             foreach (Button button in buttons)
             {
+                if (excludeName.Contains(button.name)) continue;
                 button.enabled = enable;
+                button.interactable = enable;
             }
         }
     }
@@ -83,8 +85,8 @@ public class GameWaitCollider : NetworkBehaviour
             }
         }
 
-        if (_personCount == StaticGlobalVar.PersonCount)
-            SetPanelButtonEnable(true);
+        if (_personCount == StaticGlobalVar.PersonCount && StaticGlobalVar.PersonCount !=0)
+            SetPanelButtonEnable(true, new List<string>() { "UsrButton" });
 
         if (EventManager.OnEventTriggered != null)
             EventManager.OnEventTriggered.Invoke(_personCount);

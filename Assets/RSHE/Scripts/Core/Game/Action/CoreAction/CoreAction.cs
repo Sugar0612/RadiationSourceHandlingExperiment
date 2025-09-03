@@ -21,18 +21,22 @@ public partial class CoreAction : NetworkBehaviour
 
     public void HostIssuesTheGoNext(GameColliderPackage gamePkg, bool canGoOn)
     {
-        StartCoroutine(TimesUpRun(gamePkg, canGoOn));
+        Log.cinput("yellow", "HostIssuesTheGoNext");
+        if (_instance != null)
+        {
+            StartCoroutine(TimesUpRun(gamePkg, canGoOn));
+        }
     }
 
     IEnumerator TimesUpRun(GameColliderPackage gamePkg, bool canGoOn)
     {
-        CoreAction.Get().SetTaskArrowActive(gamePkg, false);
+        CoreAction.Get()?.SetTaskArrowActive(gamePkg, false);
 
         yield return new WaitForSeconds(1.0f);
 
         if (canGoOn)
         {
-            Log.cinput("yellow", "HostIssuesTheGoNext");
+            Log.cinput("yellow", "In TimesUpRun");
             if (StaticGlobalVar.IsHost)
             {
                 if (!gamePkg.TaskItem.IsAlwayShow)
