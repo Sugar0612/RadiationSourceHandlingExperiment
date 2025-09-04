@@ -68,7 +68,7 @@ public class PickUpPanel : NetworkBehaviour
     {
         _value = 0.0f;
         Progress.value = 0.0f;
-        HintText.text = "待处理废料";
+        HintText.text = "待处理";
 
         Progress.SetAciveForTheUIControl<Image>(false);
     }

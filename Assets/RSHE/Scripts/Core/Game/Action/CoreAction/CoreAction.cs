@@ -30,28 +30,31 @@ public partial class CoreAction : NetworkBehaviour
 
     IEnumerator TimesUpRun(GameColliderPackage gamePkg, bool canGoOn)
     {
-        CoreAction.Get()?.SetTaskArrowActive(gamePkg, false);
-
-        yield return new WaitForSeconds(1.0f);
-
-        if (canGoOn)
+        if (_instance != null)
         {
-            Log.cinput("yellow", "In TimesUpRun");
-            if (StaticGlobalVar.IsHost)
+            CoreAction.Get()?.SetTaskArrowActive(gamePkg, false);
+
+            yield return new WaitForSeconds(1.0f);
+
+            if (canGoOn)
             {
-                if (!gamePkg.TaskItem.IsAlwayShow)
+                Log.cinput("yellow", "In TimesUpRun");
+                if (StaticGlobalVar.IsHost)
                 {
-                    GameSteps.Get().RunEnd();
+                    if (!gamePkg.TaskItem.IsAlwayShow)
+                    {
+                        GameSteps.Get().RunEnd();
+                    }
                 }
+                GameSteps.Get().Next();
             }
-            GameSteps.Get().Next();
         }
     }
 
     /// <summary> 设置箭头的Active </summary>
     public void SetTaskArrowActive(GameColliderPackage gamePkg, bool active)
     {
-        if (gamePkg != null)
+        if (gamePkg != null && _instance != null)
         {
             foreach (Arrow arrow in gamePkg.TaskItem.ArrowList)
                 arrow.SetActive(active);
@@ -61,7 +64,7 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> 设置音频状态 </summary>
     public void SetAudioStatus(GameColliderPackage gamePkg, bool active)
     {
-        if (gamePkg != null)
+        if (gamePkg != null && _instance != null)
         {
             AudioController.Get().Play(gamePkg.TaskItem.HintAudio);
         }
@@ -70,7 +73,7 @@ public partial class CoreAction : NetworkBehaviour
     /// <summary> 用于教学模式自动执行Start Task </summary>
     public void AutoRunStartTask(GameColliderPackage gamePkg, Action timeupAction = null)
     {
-        if (gamePkg != null)
+        if (gamePkg != null && _instance != null)
         {
             CoreAction.Get().SetTaskArrowActive(gamePkg, true);
             CoreAction.Get().SetAudioStatus(gamePkg, true);

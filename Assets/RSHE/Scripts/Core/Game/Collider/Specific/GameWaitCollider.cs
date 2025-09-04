@@ -9,7 +9,7 @@ public class GameWaitCollider : NetworkBehaviour
 {
     [SyncVar] int _personCount = 0;
 
-    public List<GameObject> GamePanelList = new List<GameObject>();
+    // public List<GameObject> GamePanelList = new List<GameObject>();
 
     Dictionary<EIdentity, int> _personDic = new Dictionary<EIdentity, int>() { { EIdentity.A1, 0 }, { EIdentity.A2, 0 }, { EIdentity.B1, 0 }, { EIdentity.B2, 0 }, { EIdentity.C1, 0 }, { EIdentity.C2, 0 },{ EIdentity.C3, 0 }, };
 
@@ -17,7 +17,9 @@ public class GameWaitCollider : NetworkBehaviour
 
     private void Awake()
     {
-        SetPanelButtonEnable(false, new List<string>() { "UsrButton" });
+        // SetPanelButtonEnable(false, new List<string>() { "UsrButton" });
+
+        EventManager.OnButtonEnable?.Invoke(false);
     }
 
     [ServerCallback]
@@ -41,25 +43,26 @@ public class GameWaitCollider : NetworkBehaviour
                 EventManager.OnEventTriggered.Invoke(_personCount);
 
             if (_personCount != StaticGlobalVar.PersonCount)
-                SetPanelButtonEnable(false, new List<string>() { "UsrButton" });
+                EventManager.OnButtonEnable.Invoke(false);
+            // SetPanelButtonEnable(false, new List<string>() { "UsrButton" });
         }
     }
 
-    public void SetPanelButtonEnable(bool enable, List<string> excludeName)
-    {   
-        foreach (var panel in GamePanelList)
-        {
-            if (panel == null) continue;
-            Button[] buttons = panel.GetComponentsInChildren<Button>();
+    //public void SetPanelButtonEnable(bool enable, List<string> excludeName)
+    //{   
+    //    foreach (var panel in GamePanelList)
+    //    {
+    //        if (panel == null) continue;
+    //        Button[] buttons = panel.GetComponentsInChildren<Button>();
 
-            foreach (Button button in buttons)
-            {
-                if (excludeName.Contains(button.name)) continue;
-                button.enabled = enable;
-                button.interactable = enable;
-            }
-        }
-    }
+    //        foreach (Button button in buttons)
+    //        {
+    //            if (excludeName.Contains(button.name)) continue;
+    //            button.enabled = enable;
+    //            button.interactable = enable;
+    //        }
+    //    }
+    //}
 
     [Server]
     public void CheckNumberOfPersonInColliderBox(Collider other)
@@ -85,8 +88,9 @@ public class GameWaitCollider : NetworkBehaviour
             }
         }
 
-        if (_personCount == StaticGlobalVar.PersonCount && StaticGlobalVar.PersonCount !=0)
-            SetPanelButtonEnable(true, new List<string>() { "UsrButton" });
+        if (_personCount == StaticGlobalVar.PersonCount && StaticGlobalVar.PersonCount != 0)
+            EventManager.OnButtonEnable.Invoke(true);
+        // SetPanelButtonEnable(true, new List<string>() { "UsrButton" });
 
         if (EventManager.OnEventTriggered != null)
             EventManager.OnEventTriggered.Invoke(_personCount);
@@ -94,6 +98,6 @@ public class GameWaitCollider : NetworkBehaviour
 
     private void OnDestroy()
     {
-        GamePanelList.Clear();
+        // GamePanelList.Clear();
     }
 }

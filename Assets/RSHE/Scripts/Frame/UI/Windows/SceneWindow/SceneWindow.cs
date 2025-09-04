@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class SceneWindow : WinBase, IPointerEnterHandler
+public class SceneWindow : WinBase, IPointerEnterHandler, IPointerExitHandler
 {
     #region UI Control
     /// <summary> 教学模式 </summary>
@@ -53,33 +53,50 @@ public class SceneWindow : WinBase, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Loggg();
+
     }
+
+    public void OnPointerExit(PointerEventData eventData) { }
 
     public void HoverTeacherButton()
     {
         Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Teacher");
+        _teachingButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverPracticalButton()
     {
         Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Practical");
+        _practicalTrainingButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverSelfTestButton()
     {
         Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/SelfTest");
+        _selfTestButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverAssessmentButton()
     {
         Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Assessment");
+        _assessmentButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverPrevFactsButton()
     {
         Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/PrevFacts");
+        _prevFactsButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
+
+    public void ExitTeacherButton() { _teachingButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); }
+
+    public void ExitPracticalButton() { _practicalTrainingButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); }
+
+    public void ExitSelfTestButton() { _selfTestButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); }
+
+    public void ExitAssessmentButton() { _assessmentButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); }
+
+    public void ExitPrevFactsButton() { _prevFactsButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); }
 
     /// <summary>
     /// 模式按钮点击
@@ -89,7 +106,8 @@ public class SceneWindow : WinBase, IPointerEnterHandler
         if (NetworkServer.active)
         {
             Game game = FindObjectOfType<Game>();
-            game.CmdChangeGameScene(mode);    
+            game.CmdChangeGameScene(mode);
+            StaticGlobalVar.CurrSceneName = "Scene_1";
         }
         //StaticGlobalVar.GameMode = mode;
         //GameHelpler.Get().SwitchGameScene(GameScene);
@@ -100,5 +118,6 @@ public class SceneWindow : WinBase, IPointerEnterHandler
         UIController.Get().ShowWindows(EWindowType.VideoWindow | EWindowType.OverviewWindow);
         NetworkManager.singleton.ServerChangeScene(PrevFactsScene);
         CameraManager.Get().SwitchCamera(CameraTag.Video);
+        StaticGlobalVar.CurrSceneName = "Scene_2";
     }
 }

@@ -29,4 +29,7 @@ public static class StaticGlobalVar
     {
         return (bodyInfo.Part == EBodyParts.RightHand || bodyInfo.Part == EBodyParts.LeftHand);
     }
+
+    /// <summary> 当前场景名 </summary>
+    public static string CurrSceneName = "Office";
 }

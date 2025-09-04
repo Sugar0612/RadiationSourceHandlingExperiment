@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,6 +30,8 @@ public class GameWindow : WinBase
     public void OnClickedExitButton()
     {
         GameHelpler.Get().BackMenu();
+        StaticGlobalVar.CurrSceneName = "Office";
+        //CmdInitPlayer();
     }
 
     /// <summary>

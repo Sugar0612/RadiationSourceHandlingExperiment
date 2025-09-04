@@ -34,7 +34,7 @@ public class Transporter : NetworkBehaviour
     public Button CloseButton;
 
     /// <summary> 行为面板 </summary>
-    public GameObject ActionPanel;
+    public TransporterActionPanel ActionPanel;
 
     public Animator ActionAnimator;
 
@@ -87,8 +87,7 @@ public class Transporter : NetworkBehaviour
             CmdSetCoverBool("isOpening", true);
             CmdSetCoverBool("isClosing", false);
             CmdSetJarStatus(JarStatus.Open);
-            OpenButton.SetButtonActive(false);
-            CloseButton.SetButtonActive(true);
+            ActionPanel.OpenButtonClicked();
         });
 
 
@@ -97,8 +96,9 @@ public class Transporter : NetworkBehaviour
             CmdSetCoverBool("isOpening", false);
             CmdSetCoverBool("isClosing", true);
             CmdSetJarStatus(JarStatus.Close);
-            CloseButton.SetButtonActive(false);
-            OpenButton.SetButtonActive(true);
+            ActionPanel.CloseButtonClicked();
+            // CloseButton.SetButtonActive(false);
+            // OpenButton.SetButtonActive(true);
             CmdGoCloseTask();
         });
 
@@ -121,7 +121,7 @@ public class Transporter : NetworkBehaviour
             }
         }
 
-        Log.cinput("yellow", $"Close Task: {targetTaskName.ToString()}");
+        // Log.cinput("yellow", $"Close Task: {targetTaskName.ToString()}");
         if (targetTaskName != TaskName.T13)
         {
             GameSteps.Get().CheckTaskGoRun(targetTaskName);
@@ -171,7 +171,7 @@ public class Transporter : NetworkBehaviour
         GoBackButtonTwo.SetButtonActive(active);
         GoPointOneButton.SetButtonActive(active);
         GoPointTwoButton.SetButtonActive(active);
-        SetActionPanelActive(active);
+        ActionPanel.SetActive(active);
 
         if (ArriveText) ArriveText.text = active ? "目的地:" : "";
         if (BGImage) BGImage.enabled = active;
@@ -186,13 +186,7 @@ public class Transporter : NetworkBehaviour
     [ClientRpc]
     void RpcSetActionPanelActive(bool active)
     {
-        SetActionPanelActive(active);
-    }
-
-    public void SetActionPanelActive(bool active)
-    {
-        ActionPanel.SetActive<Image>(active);
-        ActionPanel.SetActive<TextMeshProUGUI>(active);
+        ActionPanel.SetActive(active);
     }
 
     [Command(requiresAuthority = false)]
@@ -211,7 +205,7 @@ public class Transporter : NetworkBehaviour
     public void ArriveOnePointEvent()
     {
         GoBackButtonOne.SetButtonActive(true);
-        SetActionPanelActive(true);
+        ActionPanel.SetActive(true);
         if (ArriveText) ArriveText.text = "目的地:";
         if (BGImage) BGImage.enabled = true;
     }
@@ -219,7 +213,7 @@ public class Transporter : NetworkBehaviour
     public void ArriveTwoPointEvent()
     {
         GoBackButtonTwo.SetButtonActive(true);
-        SetActionPanelActive(true);
+        ActionPanel.SetActive(true);
         if (ArriveText) ArriveText.text = "目的地:";
         if (BGImage) BGImage.enabled = true;
     }
@@ -230,7 +224,7 @@ public class Transporter : NetworkBehaviour
         GoBackButtonTwo.SetButtonActive(active);
         GoPointOneButton.SetButtonActive(active);
         GoPointTwoButton.SetButtonActive(active);
-        SetActionPanelActive(active);
+        ActionPanel.SetActive(active);
 
         if (ArriveText) ArriveText.text = active ? "目的地:" : "";
         if (BGImage) BGImage.enabled = active;

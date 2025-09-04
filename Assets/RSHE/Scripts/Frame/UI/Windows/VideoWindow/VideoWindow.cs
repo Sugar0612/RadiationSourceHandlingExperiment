@@ -15,6 +15,7 @@ public class VideoWindow : WinBase
     public void OnClickedExitButton()
     {
         GameHelpler.Get().BackMenu();
+        StaticGlobalVar.CurrSceneName = "Office";
     }
 
     public void OnClckedVideoButton()

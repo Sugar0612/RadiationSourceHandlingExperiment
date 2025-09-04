@@ -7,5 +7,5 @@ public static class EventManager
 {
     public static UnityAction<int> OnEventTriggered;
 
-    // public static UnityAction<EIdentity, EUserState> UsrStateEvent;
+    public static UnityAction<bool> OnButtonEnable;
 }

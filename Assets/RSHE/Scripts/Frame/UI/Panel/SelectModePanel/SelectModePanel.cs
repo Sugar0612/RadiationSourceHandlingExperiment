@@ -1,6 +1,7 @@
 using Mirror;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ public class SelectModePanel : MonoBehaviour
         SelfTest.onClick.AddListener(() => OnClickedModeButton(EGameMode.SelfTest));
         Assessment.onClick.AddListener(() => OnClickedModeButton(EGameMode.Assessment));
 
-        gameObject.SetActive(false);
+        SetActive(false);
     }
 
     public void OnClickedModeButton(EGameMode mode)
@@ -37,5 +38,12 @@ public class SelectModePanel : MonoBehaviour
         }
         //StaticGlobalVar.GameMode = mode;
         //GameHelpler.Get().SwitchGameScene(GameScene);
+    }
+
+    public void SetActive(bool active)
+    {
+        gameObject.SetActive<Image>(active);
+        gameObject.SetActive<Button>(active);
+        gameObject.SetActive<TextMeshProUGUI>(active);
     }
 }

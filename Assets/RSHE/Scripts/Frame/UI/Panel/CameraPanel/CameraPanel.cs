@@ -1,6 +1,7 @@
 using RootMotion;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ public class CameraPanel : MonoBehaviour
         VideoButton.onClick.AddListener(() => OnClickedVideoButton());
         PlayerButton.onClick.AddListener(() => OnClickedPlayerButton());
 
-        gameObject.SetActive(false);
+        SetActive(false);
     }
 
     public void OnClickedVideoButton()
@@ -29,5 +30,12 @@ public class CameraPanel : MonoBehaviour
     public void OnClickedPlayerButton()
     {
         CameraManager.Get().SwitchCamera(CameraTag.OverviewPlayer);
+    }
+
+    public void SetActive(bool active)
+    {
+        gameObject.SetActive<Image>(active);
+        gameObject.SetActive<Button>(active);
+        gameObject.SetActive<TextMeshProUGUI>(active);
     }
 }

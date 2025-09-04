@@ -9,8 +9,6 @@ public class PlayerHintPanel : MonoBehaviour
 {
     public TMP_Text HintText;
 
-    public Button CloseButton;
-
     private void Start()
     {
         SetActive(false);
