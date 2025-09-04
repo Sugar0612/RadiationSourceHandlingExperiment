@@ -73,6 +73,7 @@ public class GameWaitCollider : NetworkBehaviour
         // counting
         if (ctrl && ctrl.identity != EIdentity.None && _personDic[ctrl.identity] == 0)
         {
+            Log.cinput("yellow", $"Register identity: {ctrl.identity}");
             _playerCtrlDic[ctrl.identity] = ctrl;
             _personDic[ctrl.identity] = 1;
             _personCount++;

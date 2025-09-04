@@ -982,7 +982,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintText: {fileID: 3232357083123178824}
-  CloseButton: {fileID: 4500632697446514291}
 --- !u!1 &7557761969606999692
 GameObject:
   m_ObjectHideFlags: 0

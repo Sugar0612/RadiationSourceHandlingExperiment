@@ -83,11 +83,12 @@ public class VRNetworkPlayerController : NetworkBehaviour
     public TMP_Text textPlayerName;
 
     /// <summary> 身份 </summary>
+    [SyncVar(hook = nameof(OnIdentityChanged))]
     public EIdentity identity = EIdentity.None;
 
     /// <summary> Player name variable.</summary>
     [SyncVar(hook = nameof(OnNameChangedHook))]
-    string playerName;
+    public string playerName;
 
     /// <summary> 是否穿戴防护服 </summary>
     public WearStatus WStatus = WearStatus.NoWear;
@@ -96,11 +97,6 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     public void Start()
     {
-        if (isServer && isLocalPlayer)
-            gameObject.SetActive(false);
-        else
-            StartCoroutine(Config.Get().GetLocalIdentity(arg => identity = arg));
-
         LeftGlove.SetRendererEnable(false);
         RightGlove.SetRendererEnable(false);
         Clothes.SetRendererEnable(false);
@@ -117,6 +113,18 @@ public class VRNetworkPlayerController : NetworkBehaviour
         }
     }
 
+    private void OnIdentityChanged(EIdentity oldValue, EIdentity newValue)
+    {
+        // 更新游戏逻辑，比如更新UI、改变外观等
+        Debug.Log($"Player identity changed from {oldValue.ToString()} to {newValue.ToString()}");
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdSetIdentity(EIdentity _identity)
+    {
+        identity = _identity;
+    }
+
     /// <summary> 
     /// To request server revise player name. 
     /// </summary>
@@ -131,17 +139,29 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// </summary>
     public override void OnStartLocalPlayer()
     {
+        if (isServer && isLocalPlayer)
+        {
+            gameObject.SetActive(false);
+        }
+        else if (!isServer &&　isLocalPlayer)
+        {
+            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+            {
+                CmdSetIdentity(arg);
+            }));
+
+            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+            {
+                CmdSetupName(arg.ToString());
+            }));
+        }
+
         InitObject();
 
         m_HeadModel.SetRendererEnable(false);
         m_LHandModel.SetRendererEnable(false);
         m_RHandModel.SetRendererEnable(false);
         textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
-
-        StartCoroutine(Config.Get().GetLocalIdentity(arg =>
-        {
-            CmdSetupName(arg.ToString());
-        }));
     }
 
     /// <summary> 
