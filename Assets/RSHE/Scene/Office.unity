@@ -25656,7 +25656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintText: {fileID: 5168780208601175390}
-  CloseButton: {fileID: 3286332020068219531}
 --- !u!4 &8049004744410086513
 Transform:
   m_ObjectHideFlags: 0

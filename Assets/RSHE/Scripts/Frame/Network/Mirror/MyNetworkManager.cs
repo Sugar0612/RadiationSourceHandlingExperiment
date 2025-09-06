@@ -180,18 +180,8 @@ public class MyNetworkManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerDisconnect(NetworkConnectionToClient conn)
     {
+        Log.cinput("red", "OnServerDisconnect");
         StaticGlobalVar.PersonCount -= 1;
-
-
-        try
-        {
-            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
-            {
-                MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
-                NetworkClient.Send(msg);
-            }));
-        }
-        catch { }
 
         UserWindow userWindow = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
         userWindow?.ChangedpersonCountText(StaticGlobalVar.PersonCount);
@@ -238,7 +228,16 @@ public class MyNetworkManager : NetworkManager
     /// </summary>
     public override void OnClientDisconnect() 
     {
-        Log.cinput("red", "Disconnected from server.");
+        try
+        {
+            Log.cinput("red", "Disconnected from server.");
+            //StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+            //{
+            //    MirrorDisConnMsg msg = new MirrorDisConnMsg { Identity = arg };
+            //    NetworkClient.Send(msg);
+            //}));
+        }
+        catch { }
     }
 
     /// <summary>

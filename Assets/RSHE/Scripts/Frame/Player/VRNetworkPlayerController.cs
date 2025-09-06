@@ -164,6 +164,14 @@ public class VRNetworkPlayerController : NetworkBehaviour
         textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
     }
 
+    public override void OnStopServer()
+    {
+        //Log.cinput("yellow", $"Client Disconnected! Device ID: {identity.ToString()}\n");
+
+        UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+        userWin.SetItemState(identity, EUserState.Offline);
+    }
+
     /// <summary> 
     /// Init Controller.
     /// </summary>
