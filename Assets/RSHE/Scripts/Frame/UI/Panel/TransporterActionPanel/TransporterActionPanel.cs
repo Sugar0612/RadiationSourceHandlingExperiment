@@ -1,14 +1,45 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TransporterActionPanel : MonoBehaviour
+public class TransporterActionPanel : NetworkBehaviour
 {
     public Button OpenButton;
 
     public Button CloseButton;
+
+    #region Command function
+    [Command (requiresAuthority = false)]
+    public void CmdOpenButtonClicked()
+    {
+        RpcOpenButtonClicked();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdCloseButtonClicked()
+    {
+        RpcCloseButtonClicked();
+    }
+
+    #endregion
+
+    #region ClientRpc function
+    [ClientRpc]
+    public void RpcOpenButtonClicked()
+    {
+        OpenButtonClicked();
+    }
+
+    [ClientRpc]
+    public void RpcCloseButtonClicked()
+    {
+        CloseButtonClicked();
+    }
+
+    #endregion
 
     public void OpenButtonClicked()
     {

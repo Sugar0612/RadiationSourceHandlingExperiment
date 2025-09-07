@@ -24,7 +24,7 @@ public partial class CoreAction : NetworkBehaviour
         Log.cinput("yellow", "HostIssuesTheGoNext");
         if (_instance != null)
         {
-            StartCoroutine(TimesUpRun(gamePkg, canGoOn));
+            StartCoroutine(_instance?.TimesUpRun(gamePkg, canGoOn));
         }
     }
 

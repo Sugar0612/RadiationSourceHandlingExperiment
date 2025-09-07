@@ -42,6 +42,16 @@ public class GameHelpler : MonoBehaviour
     /// </summary>
     public void BackMenu()
     {
+        StartCoroutine(IEBackMenu());
+    }
+
+    IEnumerator IEBackMenu()
+    {
+        NetworkGlobalToolkit toolkit = FindObjectOfType<NetworkGlobalToolkit>();
+        toolkit.CmdServerClickedMenuBack();
+
+        yield return new WaitUntil(() => Timer.IsGoOn == false);
+
         UIController.Get().ShowWindows(EWindowType.UserWindow);
         CameraManager.Get().SwitchCamera(CameraTag.Manager); // default.
         NetworkManager.singleton.ServerChangeScene("Office");

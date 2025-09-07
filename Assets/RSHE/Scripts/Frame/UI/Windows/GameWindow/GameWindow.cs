@@ -30,7 +30,6 @@ public class GameWindow : WinBase
     public void OnClickedExitButton()
     {
         GameHelpler.Get().BackMenu();
-        StaticGlobalVar.CurrSceneName = "Office";
         //CmdInitPlayer();
     }
 

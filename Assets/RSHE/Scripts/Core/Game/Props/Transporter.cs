@@ -87,7 +87,7 @@ public class Transporter : NetworkBehaviour
             CmdSetCoverBool("isOpening", true);
             CmdSetCoverBool("isClosing", false);
             CmdSetJarStatus(JarStatus.Open);
-            ActionPanel.OpenButtonClicked();
+            ActionPanel.CmdOpenButtonClicked();
         });
 
 
@@ -96,7 +96,7 @@ public class Transporter : NetworkBehaviour
             CmdSetCoverBool("isOpening", false);
             CmdSetCoverBool("isClosing", true);
             CmdSetJarStatus(JarStatus.Close);
-            ActionPanel.CloseButtonClicked();
+            ActionPanel.CmdCloseButtonClicked();
             // CloseButton.SetButtonActive(false);
             // OpenButton.SetButtonActive(true);
             CmdGoCloseTask();

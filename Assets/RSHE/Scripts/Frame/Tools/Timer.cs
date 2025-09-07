@@ -7,6 +7,8 @@ public static class Timer
 {
     private static TimerComponent _component;
 
+    public static bool IsGoOn = false;
+
     /// <summary>
     /// 延迟执行一个方法
     /// </summary>
@@ -18,6 +20,7 @@ public static class Timer
             return;
         }
 
+        IsGoOn = true;
         EnsureComponentExists();
         _component.StartCoroutine(DelayRoutine(delay, callback));
     }
@@ -40,7 +43,14 @@ public static class Timer
     private static IEnumerator DelayRoutine(float delay, Action callback)
     {
         yield return new WaitForSeconds(delay);
-        callback?.Invoke();
+
+        if (IsGoOn)
+        {
+            Log.cinput("red", $"Timer IsGoOn true..");
+            callback?.Invoke();
+        }
+        else
+            Log.cinput("red", $"Timer IsGoOn false..");
     }
 
     private static IEnumerator DelayRealtimeRoutine(float delay, Action callback)
