@@ -21,7 +21,7 @@ public partial class CoreAction : NetworkBehaviour
         if (ctrl)
         {
             PlayerWearPanel wearPanel = FindObjectOfType<PlayerWearPanel>();
-            if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.NoWear)
+            if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.NoWear && wearPanel.workState == PlayerWearPanel.WearPanelState.Wait)
             {
                 wearPanel.SetActive(true);
                 wearPanel.Wearing(ctrl, () => 

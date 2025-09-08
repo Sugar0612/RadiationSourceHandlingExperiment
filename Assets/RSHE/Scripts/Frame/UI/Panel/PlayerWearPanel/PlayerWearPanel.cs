@@ -19,6 +19,8 @@ public class PlayerWearPanel : NetworkBehaviour
 
     VRNetworkPlayerController _vrPlayerController;
 
+    public WearPanelState workState = WearPanelState.Wait;
+
     private void Start()
     {
         ResetUI();
@@ -29,6 +31,7 @@ public class PlayerWearPanel : NetworkBehaviour
     public void Wearing(VRNetworkPlayerController vrController, Action callback)
     {
         ResetUI();
+        workState = WearPanelState.Working;
         _vrPlayerController = vrController;
         if (_vrPlayerController != null)
         {
@@ -68,7 +71,7 @@ public class PlayerWearPanel : NetworkBehaviour
 
             PercentText.text = "¡Ì";
             HintText.text = $"{_vrPlayerController.identity.ToString()} ´©´÷Íê³É£¡";
-
+            workState = WearPanelState.Wait;
             callback();
         }
         else
@@ -93,5 +96,11 @@ public class PlayerWearPanel : NetworkBehaviour
         HintText.text = $"´©´÷Çø";
         PercentText.text = "0%";
         WearSlider.value = 0.0f;
+    }
+
+    public enum WearPanelState
+    {
+        Wait,
+        Working
     }
 }

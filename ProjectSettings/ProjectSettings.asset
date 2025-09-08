@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: TT11
-  productName: RSHE
+  companyName: QZHA
+  productName: "\u7709\u53BF\u4E8C\u671F-\u6838\u4E8B\u6545\u5904\u7406\u865A\u62DF\u4EFF\u771F\u9879\u76EE"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 83b68c739c44d1b4085ab7f273b2e9c9, type: 3}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 1944d5fc21cc5304c9af97b6fe0e4c8e, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1280
   defaultScreenHeight: 960
@@ -103,7 +103,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 3
+  fullscreenMode: 0
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -139,7 +139,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.2
+  bundleVersion: 0.3
   preloadedAssets:
   - {fileID: 0}
   metroInputSource: 0
@@ -290,7 +290,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 1566af6e663684dbd85aa5fb32fd9148, type: 3}
+      m_Icon: {fileID: 2800000, guid: 1944d5fc21cc5304c9af97b6fe0e4c8e, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

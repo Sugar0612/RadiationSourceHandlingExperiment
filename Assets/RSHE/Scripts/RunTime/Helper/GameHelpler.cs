@@ -48,7 +48,9 @@ public class GameHelpler : MonoBehaviour
     IEnumerator IEBackMenu()
     {
         NetworkGlobalToolkit toolkit = FindObjectOfType<NetworkGlobalToolkit>();
-        toolkit.CmdServerClickedMenuBack();
+
+        if (toolkit != null)
+            toolkit.CmdServerClickedMenuBack();
 
         yield return new WaitUntil(() => Timer.IsGoOn == false);
 

@@ -15275,6 +15275,7 @@ MonoBehaviour:
   HintText: {fileID: 1554324735}
   WearSlider: {fileID: 535321397}
   ShwoWorePanel: {fileID: 1820461009}
+  workState: 0
 --- !u!1 &1484905747
 GameObject:
   m_ObjectHideFlags: 0
@@ -21344,7 +21345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509549716313552517, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.635
+      value: 0.594
       objectReference: {fileID: 0}
     - target: {fileID: 7509549716313552517, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24647,7 +24648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2379121456977728216, guid: c026b16be101c6f4ebdba384af58d6f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.641
+      value: 0.621
       objectReference: {fileID: 0}
     - target: {fileID: 2379121456977728216, guid: c026b16be101c6f4ebdba384af58d6f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25504,7 +25505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5614757844608567002, guid: 866e0cdb9db25614fa1233a60f527797, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.641
+      value: 0.599
       objectReference: {fileID: 0}
     - target: {fileID: 5614757844608567002, guid: 866e0cdb9db25614fa1233a60f527797, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25804,7 +25805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842156842813108915, guid: 342c5b014db602b44a23f403245197bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.641
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 2842156842813108915, guid: 342c5b014db602b44a23f403245197bd, type: 3}
       propertyPath: m_LocalPosition.z

@@ -36,7 +36,19 @@ public class WearCollider : NetworkBehaviour
                 other.GetComponentInParent<VRNetworkPlayerController>();
 
         if (ctrl && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wearing)
+        {
             ctrl.RpcSetWStatus(VRNetworkPlayerController.WearStatus.NoWear);
-            //ctrl.WStatus = ;
+        }
+
+        RpcOnTriggerExitEvent();
+        //ctrl.WStatus = ;
+    }
+
+    [ClientRpc]
+    void RpcOnTriggerExitEvent()
+    {
+        PlayerWearPanel wearPanel = FindObjectOfType<PlayerWearPanel>();
+        if (wearPanel)
+            wearPanel.workState = PlayerWearPanel.WearPanelState.Wait;
     }
 }

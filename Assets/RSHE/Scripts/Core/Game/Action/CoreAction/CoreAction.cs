@@ -32,13 +32,12 @@ public partial class CoreAction : NetworkBehaviour
     {
         if (_instance != null)
         {
-            CoreAction.Get()?.SetTaskArrowActive(gamePkg, false);
-
             yield return new WaitForSeconds(1.0f);
 
             if (canGoOn)
             {
                 Log.cinput("yellow", "In TimesUpRun");
+                CoreAction.Get()?.SetTaskArrowActive(gamePkg, false);
                 if (StaticGlobalVar.IsHost)
                 {
                     if (!gamePkg.TaskItem.IsAlwayShow)
