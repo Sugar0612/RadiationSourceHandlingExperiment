@@ -4513,10 +4513,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -12641,10 +12637,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -13163,10 +13155,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -13494,10 +13482,6 @@ MonoBehaviour:
   duration: 4
   conditions:
   - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14154,10 +14138,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -14568,10 +14548,6 @@ MonoBehaviour:
   duration: 3
   conditions:
   - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -15074,10 +15050,6 @@ MonoBehaviour:
   duration: 4
   conditions:
   - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -17125,10 +17097,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -19076,10 +19044,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -19721,10 +19685,6 @@ MonoBehaviour:
   duration: 4
   conditions:
   - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0

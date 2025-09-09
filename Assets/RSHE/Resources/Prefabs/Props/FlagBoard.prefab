@@ -94,8 +94,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.23695931, y: 0.004521736, z: 0.32624432}
-  m_Center: {x: -0.0007687062, y: -0.0013014772, z: -0.0025009066}
+  m_Size: {x: 0.23695931, y: 0.004521736, z: 0.331468}
+  m_Center: {x: -0.0007687062, y: -0.0013014772, z: 0.00011091679}
 --- !u!54 &214901012074058590
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -255,9 +255,9 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 693308918555968728}
+  m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1

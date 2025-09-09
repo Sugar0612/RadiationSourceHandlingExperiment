@@ -48,22 +48,6 @@ public class GameWaitCollider : NetworkBehaviour
         }
     }
 
-    //public void SetPanelButtonEnable(bool enable, List<string> excludeName)
-    //{   
-    //    foreach (var panel in GamePanelList)
-    //    {
-    //        if (panel == null) continue;
-    //        Button[] buttons = panel.GetComponentsInChildren<Button>();
-
-    //        foreach (Button button in buttons)
-    //        {
-    //            if (excludeName.Contains(button.name)) continue;
-    //            button.enabled = enable;
-    //            button.interactable = enable;
-    //        }
-    //    }
-    //}
-
     [Server]
     public void CheckNumberOfPersonInColliderBox(Collider other)
     {
@@ -95,10 +79,5 @@ public class GameWaitCollider : NetworkBehaviour
 
         if (EventManager.OnEventTriggered != null)
             EventManager.OnEventTriggered.Invoke(_personCount);
-    }
-
-    private void OnDestroy()
-    {
-        // GamePanelList.Clear();
     }
 }
