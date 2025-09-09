@@ -62,8 +62,8 @@ public class PollutionDetector: NetworkBehaviour
         float value = 0.0f;
         foreach (RadiationSource rs in _radiationSourceList)
         {
-            value = Math.Max(value, Utility.Record(rs, TestPoint));
-            value = value / 1000.0f;
+            float temp = Utility.Record(rs, TestPoint);
+            value = Math.Max(value, temp / 1000.0f);
         }
 
         DistanceText.text = value.ToString("F2") + "mSv/h";

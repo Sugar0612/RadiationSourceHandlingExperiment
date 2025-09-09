@@ -40,6 +40,15 @@ public class VideoController : NetworkBehaviour
             RpcPlayVideo();
     }
 
+    [ClientRpc]
+    public void RpcCtrlVideoState()
+    {
+        if (VideoPlayer.isPlaying)
+            VideoPlayer.Pause();
+        else
+            VideoPlayer.Play();
+    }
+
     [ClientRpc] public void RpcPlayVideo() => VideoPlayer.Play();
 
     [ClientRpc] public void RpcPauseVideo() => VideoPlayer.Pause();

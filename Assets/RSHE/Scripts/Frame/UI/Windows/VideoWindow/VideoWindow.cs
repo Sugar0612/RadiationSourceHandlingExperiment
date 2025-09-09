@@ -22,6 +22,8 @@ public class VideoWindow : WinBase
     {
         _isPlay = !_isPlay;
         VideoButton.GetComponentInChildren<TextMeshProUGUI>().text = _isPlay == true ? "ÔÝÍ£" : "²¥·Å";
-        VideoController.Get().CmdCtrlVideoState();
+        
+        if (StaticGlobalVar.IsServer)
+            VideoController.Get().RpcCtrlVideoState();
     }
 }
