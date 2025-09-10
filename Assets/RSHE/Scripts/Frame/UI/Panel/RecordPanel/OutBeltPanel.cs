@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,8 +33,16 @@ public class OutBeltPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        RpcClickedPutButton();
+        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        {
+            if (task == TaskName.T2)
+                break;
 
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+                return;
+        }
+
+        RpcClickedPutButton();
         GameSteps.Get().CheckTaskGoRun(TaskName.T2);
     }
 

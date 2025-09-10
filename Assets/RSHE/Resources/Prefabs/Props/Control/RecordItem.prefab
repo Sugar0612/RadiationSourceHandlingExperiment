@@ -618,6 +618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9e3fc71e0271c499c1e367f2a2beab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   RecordButton: {fileID: 7777998728075002752}
   HintText: {fileID: 4472541895363320823}
   ValueText: {fileID: 5203058274349299599}

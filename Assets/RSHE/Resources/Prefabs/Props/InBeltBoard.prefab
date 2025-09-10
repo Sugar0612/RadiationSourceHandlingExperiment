@@ -904,7 +904,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   PutItem_1: {fileID: 2381622089892037181}
-  ScanRadius: 4
+  ScanRadius: 1
   scanInterval: 1
   TestPoint: {fileID: 5180045808305167794}
 --- !u!1 &4455724565521020622

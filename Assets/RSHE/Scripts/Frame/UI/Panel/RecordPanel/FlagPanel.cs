@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class FlagPanel : RecordPanel
             }
         }
 
-        if (_valueList.Count >= 4)
+        if (_valueList.Count >= 2)
         {
             CmdOnClickedPutButton();
         }
@@ -32,6 +33,15 @@ public class FlagPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
+        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        {
+            if (task == TaskName.T4)
+                break;
+
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+                return;
+        }
+
         Log.cinput("yellow", "Flag RpcClickedPutButton");
         RpcClickedPutButton();
         GameSteps.Get().CheckTaskGoRun(TaskName.T4);

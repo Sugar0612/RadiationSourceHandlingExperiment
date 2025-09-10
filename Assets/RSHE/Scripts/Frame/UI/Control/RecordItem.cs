@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,7 +20,7 @@ public class RecordItem : MonoBehaviour
     private void Start()
     {
         HintText.SetAciveForTheUIControl<TextMeshProUGUI>(false);
-        RecordButton.onClick.AddListener(OnClickedRecordButton);
+        // RecordButton.onClick.AddListener(OnClickedRecordButton);
     }
 
     public void OnClickedRecordButton()

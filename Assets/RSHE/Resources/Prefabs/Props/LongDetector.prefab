@@ -156,8 +156,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.29283682, y: 0.2788986, z: 1.342121}
-  m_Center: {x: 0.002286762, y: 0.0054385066, z: -0.123720616}
+  m_Size: {x: 0.3003767, y: 0.2788986, z: 1.342121}
+  m_Center: {x: 0.0060566887, y: 0.0054385066, z: -0.123720646}
 --- !u!54 &4184562973724298819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -687,6 +687,7 @@ MonoBehaviour:
   DistanceText: {fileID: 9034937835010588305}
   TestPoint: {fileID: 1209860325180278658}
   TriggerCollider: {fileID: 0}
+  DeviceValue: 0
 --- !u!1 &6907862228287160629
 GameObject:
   m_ObjectHideFlags: 0

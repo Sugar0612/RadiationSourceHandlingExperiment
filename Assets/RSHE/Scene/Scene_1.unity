@@ -16282,6 +16282,36 @@ MonoBehaviour:
     - pName: Detector
       pCount: 1
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 4
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 5
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 6
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 7
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:

@@ -24,6 +24,9 @@ public class Detector : NetworkBehaviour
 
     public Collider TriggerCollider;
 
+    [SyncVar]
+    public float DeviceValue = 0.0f;
+
     public void Update()
     {
         _timer += Time.deltaTime;
@@ -62,6 +65,7 @@ public class Detector : NetworkBehaviour
         }
 
         DistanceText.text = value.ToString("F2") + "mSv/h";
+        DeviceValue = value;
     }
 
     [ClientRpc]

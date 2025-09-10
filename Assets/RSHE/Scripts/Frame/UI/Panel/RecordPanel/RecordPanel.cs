@@ -24,7 +24,7 @@ public class RecordPanel : NetworkBehaviour
 
     private float _timer;
 
-    private List<RadiationSource> _radiationSourceList = new List<RadiationSource>();
+    private List<Detector> _detctorList = new List<Detector>();
 
     public GameObject TestPoint;
 
@@ -41,7 +41,8 @@ public class RecordPanel : NetworkBehaviour
             int index = i;
             _recordList[i].RecordButton.onClick.AddListener(() =>
             {
-                _recordList[index].SetValueText(ScanArea());
+                // _recordList[index].SetValueText(ScanArea());
+                CmdRecordButtonClicked(index);
             });
         }
     }
@@ -53,27 +54,24 @@ public class RecordPanel : NetworkBehaviour
 
     float ScanArea()
     {
-        _radiationSourceList.Clear();
+        _detctorList.Clear();
 
         Collider[] hitColliders = Physics.OverlapSphere(TestPoint.transform.position, ScanRadius);
 
         foreach (Collider col in hitColliders)
         {
-            RadiationSource rs = col.gameObject.GetComponent<RadiationSource>();
-            if (rs)
+            Detector detector = col.gameObject.GetComponentInChildren<Detector>();
+            if (detector)
             {
-                if (!rs.IsPickUpClear)
-                {
-                    _radiationSourceList.Add(rs);
-                }
+                _detctorList.Add(detector);
             }
         }
 
         float value = 0.0f;
-        foreach (RadiationSource rs in _radiationSourceList)
+        foreach (Detector detctor in _detctorList)
         {
-            float temp = Utility.Record(rs, TestPoint);
-            value = Math.Max(value, temp / 1000.0f);
+            float temp = detctor.DeviceValue;
+            value = Math.Max(value, temp);
         }
         return value;
     }
@@ -96,12 +94,21 @@ public class RecordPanel : NetworkBehaviour
         gameObject.SetActive<TextMeshProUGUI>(active);
     }
 
+    #region Command Function
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton(List<GameObject> goList)
     {
         RpcClickedPutButton(goList);
     }
 
+    [Command(requiresAuthority = false)]
+    void CmdRecordButtonClicked(int i)
+    {
+        RpcRecordButtonClicked(i);
+    }
+    #endregion
+
+    #region Client RPC Function
     [ClientRpc]
     public void RpcClickedPutButton(List<GameObject> goList)
     {
@@ -110,7 +117,14 @@ public class RecordPanel : NetworkBehaviour
         foreach (var go in goList)
             go.SetActive<Renderer>(true);
 
-        // GO on Task...
-        
+        // GO on Task... 
     }
+
+    [ClientRpc]
+    void RpcRecordButtonClicked(int i)
+    {
+        _recordList[i].SetValueText(ScanArea());
+        _recordList[i].OnClickedRecordButton();
+    }
+    #endregion
 }
