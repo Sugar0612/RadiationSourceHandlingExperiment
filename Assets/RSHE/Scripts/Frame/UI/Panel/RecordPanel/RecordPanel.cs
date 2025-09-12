@@ -15,12 +15,14 @@ public class RecordPanel : NetworkBehaviour
 
     protected List<RecordItem> _recordList = new List<RecordItem>();
 
+    protected int _itemIndex = 0;
+
     #endregion
 
     #region ºÏ≤‚≤Œ ˝
     public float ScanRadius = 1.5f; // …®√Ë∞Îæ∂
 
-    public float scanInterval = 1f; // …®√Ëº‰∏Ù£®√Î£©
+    //public float scanInterval = 1f; // …®√Ëº‰∏Ù£®√Î£©
 
     private float _timer;
 
@@ -34,25 +36,11 @@ public class RecordPanel : NetworkBehaviour
 
     virtual public void Start()
     {
+        _itemIndex = 0;
         _recordList = GetComponentsInChildren<RecordItem>().ToList();
-
-        for (int i = 0; i < _recordList.Count; ++i)
-        {
-            int index = i;
-            _recordList[i].RecordButton.onClick.AddListener(() =>
-            {
-                // _recordList[index].SetValueText(ScanArea());
-                CmdRecordButtonClicked(index);
-            });
-        }
     }
 
-    private void Update()
-    {
-
-    }
-
-    float ScanArea()
+    protected float ScanArea()
     {
         _detctorList.Clear();
 
@@ -76,55 +64,9 @@ public class RecordPanel : NetworkBehaviour
         return value;
     }
 
-    public virtual void RpcOnClickedPutButton()
-    {
-        foreach (RecordItem item in _recordList)
-        {
-            if (item.SelectedToggle.isOn)
-            {
-                _valueList.Add(item.Value);
-            }
-        }
-        PutItem_1.OnClickedPutButton();
-    }
-
     public void SetActive(bool active)
     {
         gameObject.SetActive<Image>(active);
         gameObject.SetActive<TextMeshProUGUI>(active);
     }
-
-    #region Command Function
-    [Command(requiresAuthority = false)]
-    public void CmdOnClickedPutButton(List<GameObject> goList)
-    {
-        RpcClickedPutButton(goList);
-    }
-
-    [Command(requiresAuthority = false)]
-    void CmdRecordButtonClicked(int i)
-    {
-        RpcRecordButtonClicked(i);
-    }
-    #endregion
-
-    #region Client RPC Function
-    [ClientRpc]
-    public void RpcClickedPutButton(List<GameObject> goList)
-    {
-        PutItem_1.OnClickedPutButton();
-
-        foreach (var go in goList)
-            go.SetActive<Renderer>(true);
-
-        // GO on Task... 
-    }
-
-    [ClientRpc]
-    void RpcRecordButtonClicked(int i)
-    {
-        _recordList[i].SetValueText(ScanArea());
-        _recordList[i].OnClickedRecordButton();
-    }
-    #endregion
 }

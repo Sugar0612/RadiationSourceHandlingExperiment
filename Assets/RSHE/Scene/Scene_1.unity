@@ -4513,10 +4513,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -6379,30 +6375,6 @@ MonoBehaviour:
   duration: 13
   conditions:
   - Identity: 1
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 5
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
     BodyPart: 1
     HoldingItems: []
     IsFinished: 0
@@ -12657,11 +12629,7 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -13179,15 +13147,7 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 5
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -13517,7 +13477,7 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 7
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14170,15 +14130,7 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 5
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14591,11 +14543,7 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -15097,11 +15045,7 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -17175,11 +17119,7 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19126,11 +19066,7 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19774,7 +19710,7 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 7
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0

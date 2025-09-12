@@ -84,6 +84,7 @@ public class NuclideIdentifier: NetworkBehaviour
         {
             float temp = Utility.Record(rs, TestPoint);
             value = Math.Max(value, temp / 1000.0f);
+            if (value > 1.0f) value = 0.9f;
         }
 
         UpdateView(value);

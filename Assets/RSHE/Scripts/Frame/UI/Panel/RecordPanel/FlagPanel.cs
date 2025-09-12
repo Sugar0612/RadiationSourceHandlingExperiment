@@ -12,23 +12,20 @@ public class FlagPanel : RecordPanel
         base.Start();
 
         PutItem_1.PutButton.onClick.AddListener(() => OnClickedPutButton());
+        PutItem_1.RecordButton.onClick.AddListener(() => OnClickedRecordButton());
     }
 
     public void OnClickedPutButton()
     {
-        foreach (RecordItem item in _recordList)
-        {
-            if (item.SelectedToggle.isOn)
-            {
-                _valueList.Add(item.Value);
-            }
-        }
-
-        if (_valueList.Count >= 2)
-        {
-            CmdOnClickedPutButton();
-        }
+        CmdOnClickedPutButton();
     }
+
+    public void OnClickedRecordButton()
+    {
+        CmdOnClickedRecordButton();
+    }    
+
+    #region Command Function
 
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
@@ -47,6 +44,18 @@ public class FlagPanel : RecordPanel
         GameSteps.Get().CheckTaskGoRun(TaskName.T4);
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdOnClickedRecordButton()
+    {
+        float val = ScanArea();
+        _valueList.Add(val);
+        RpcOnClickedRecordButton(val);
+    }
+
+    #endregion
+
+    #region Client Rpc Function
+
     [ClientRpc]
     public void RpcClickedPutButton()
     {
@@ -55,4 +64,19 @@ public class FlagPanel : RecordPanel
         foreach (var go in SceneObjectManager.Get().FlagList)
             go.SetActive<Renderer>(true);
     }
+
+    [ClientRpc]
+    public void RpcOnClickedRecordButton(float val)
+    {
+        if (_itemIndex < _recordList.Count)
+        {
+            _recordList[_itemIndex].SetValueText(val);
+            _itemIndex++;
+
+            if (_itemIndex >= 2)
+                PutItem_1.OnClickedRecordButtonFinal();
+        }
+    }
+
+    #endregion
 }

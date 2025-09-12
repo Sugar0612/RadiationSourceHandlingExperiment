@@ -62,6 +62,7 @@ public class Detector : NetworkBehaviour
         {
             float temp = Utility.Record(rs, TestPoint);
             value = Math.Max(value, temp / 1000.0f);
+            if (value > 1.0f) value = 0.9f;
         }
 
         DistanceText.text = value.ToString("F2") + "mSv/h";

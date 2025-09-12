@@ -905,7 +905,6 @@ MonoBehaviour:
   syncInterval: 0
   PutItem_1: {fileID: 2381622089892037181}
   ScanRadius: 1
-  scanInterval: 1
   TestPoint: {fileID: 5180045808305167794}
 --- !u!1 &4455724565521020622
 GameObject:
@@ -1447,23 +1446,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2993939742165635976, guid: 46ba69ed42eb8e14181bf76b4118bd06, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 164.6
+      value: 217.18
       objectReference: {fileID: 0}
     - target: {fileID: 2993939742165635976, guid: 46ba69ed42eb8e14181bf76b4118bd06, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 57
+      value: 73.4
       objectReference: {fileID: 0}
     - target: {fileID: 2993939742165635976, guid: 46ba69ed42eb8e14181bf76b4118bd06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.000070431
       objectReference: {fileID: 0}
     - target: {fileID: 2993939742165635976, guid: 46ba69ed42eb8e14181bf76b4118bd06, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.2
+      value: -4.1975
       objectReference: {fileID: 0}
     - target: {fileID: 2993939742165635976, guid: 46ba69ed42eb8e14181bf76b4118bd06, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.2
+      value: 11.39
       objectReference: {fileID: 0}
     - target: {fileID: 7521935003872528669, guid: 46ba69ed42eb8e14181bf76b4118bd06, type: 3}
       propertyPath: m_Name
