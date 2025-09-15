@@ -415,7 +415,7 @@ MonoBehaviour:
   OnWork: {fileID: 207595921626514991}
   OffWork: {fileID: 5670339835479681898}
   TestPoint: {fileID: 7721338245199756039}
-  NearVal: 0.45
+  NearVal: 0.2
   ScanRadius: 3.8
   scanInterval: 1
 --- !u!1 &1983759149870719827

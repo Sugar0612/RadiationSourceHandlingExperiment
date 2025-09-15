@@ -55,7 +55,7 @@ public class GameSteps : NetworkBehaviour
     }
 
 
-    public void CheckTaskGoRun(TaskName taskname)
+    public bool CheckTaskGoRun(TaskName taskname)
     {
         foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
         {
@@ -67,13 +67,15 @@ public class GameSteps : NetworkBehaviour
                 break;
 
             if (!GameSteps.Get().IsCheckTaskFinished(task))
-                return;
+                return false;
         }
 
         if (!GameSteps.Get().IsCheckTaskFinished(taskname))
         {
             GameSteps.Get().Run();
         }
+
+        return true;
     }
 
     public void InitTaskTable()

@@ -62,7 +62,7 @@ public class Transporter : NetworkBehaviour
 
         GoBackButtonTwo.onClick.AddListener(() =>
         {
-            if (p_JarStatus == JarStatus.Close)
+            if (p_JarStatus == JarStatus.Close && GameSteps.Get().CheckTaskGoRun(TaskName.T12))
             {
                 CmdSetActionBool("goPointTwo", false);
                 CmdSetActionBool("goBackTwo", true);
@@ -73,7 +73,7 @@ public class Transporter : NetworkBehaviour
 
         GoBackButtonOne.onClick.AddListener(() =>
         {
-            if (p_JarStatus == JarStatus.Close)
+            if (p_JarStatus == JarStatus.Close && GameSteps.Get().CheckTaskGoRun(TaskName.T7))
             {
                 CmdSetActionBool("goPointOne", false);
                 CmdSetActionBool("goBackOne", true);

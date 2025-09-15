@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 using System;
-using Unity.VisualScripting;
 
 public class PlayerWearPanel : NetworkBehaviour
 {
@@ -47,10 +46,15 @@ public class PlayerWearPanel : NetworkBehaviour
 
     IEnumerator WearingClothing(Action callback)
     {
-        HintText.text = $"´©´÷ÖÐ...";
         _vrPlayerController.WStatus = VRNetworkPlayerController.WearStatus.Wearing;
         while(_vrPlayerController.WStatus == VRNetworkPlayerController.WearStatus.Wearing && WearSlider.value != 1.0f)
         {
+            float persent = WearSlider.value;
+            if (persent <= 0.2f) HintText.text = $"·À»¤ÊÖÌ×´©´÷ÖÐ...";
+            else if (persent > 0.2f && persent <= 0.4f) HintText.text = $"·À»¤Ã±´©´÷ÖÐ...";
+            else if (persent > 0.4f && persent < 0.6f) HintText.text = $"¼ÁÁ¿Æ¬Óë±¨¾¯ÒÇ´©´÷ÖÐ...";
+            else HintText.text = $"·À»¤ÒÂ´©´÷ÖÐ...";
+
             WearSlider.value += 0.01f;
             PercentText.text = $"{(WearSlider.value * 100f).ToString("F2")}%";
             yield return new WaitForSeconds(0.1f);

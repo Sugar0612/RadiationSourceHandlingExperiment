@@ -8,30 +8,33 @@ public class PutItem : MonoBehaviour
 {
     public Button PutButton;
 
+    public Button RecordButton;
+
     public GameObject HintText;
 
     private void Start()
     {
-        SetActiveForButton(true);
+        PutButton.SetButtonActive(false);
+        RecordButton.SetButtonActive(true);
         SetActiveForText(false);
     }
 
     public void OnClickedPutButton()
     {
-        SetActiveForButton(false);
+        PutButton.SetButtonActive(false);
         SetActiveForText(true);
+    }
+
+    public void OnClickedRecordButtonFinal()
+    {
+        RecordButton.SetButtonActive(false);
+        PutButton.SetButtonActive(true);
     }
 
     public void SetActive(bool active)
     {
-        SetActiveForButton(active);
+        PutButton.SetButtonActive(active);
         SetActiveForText(active);
-    }
-
-    public void SetActiveForButton(bool active)
-    {
-        PutButton.SetAciveForTheUIControl<Image>(active);
-        PutButton.SetAciveForTheUIControl<TextMeshProUGUI>(active);
     }
 
     public void SetActiveForText(bool active)
