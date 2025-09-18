@@ -94,6 +94,10 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// <summary> 是否穿戴防护服 </summary>
     public WearStatus WStatus = WearStatus.NoWear;
 
+    bool isrightLost = false;
+
+    bool isleftLost = false;
+
     #endregion
 
     public void Start()
@@ -106,15 +110,44 @@ public class VRNetworkPlayerController : NetworkBehaviour
         Hat.SetRendererEnable(false);
     }
 
-    public void Update()
+    [ClientCallback]
+    public void FixedUpdate()
+    {
+        DetectingHandModelTracking();
+    }
+
+    #region 手部追踪丢失隐藏手部模型
+
+    /// <summary>
+    /// 手势检测
+    /// </summary>
+    private void DetectingHandModelTracking()
     {
         HandAimState rightState = new HandAimState();
         PXR_HandTracking.GetAimState(HandType.HandRight, ref rightState);
-        CmdSetRightHandEnable(!(rightState.aimStatus == 0));
+        if (rightState.aimStatus == 0 && !isrightLost)
+        {
+            isrightLost = true;
+            CmdSetRightHandEnable(false);
+        }
+        else if (rightState.aimStatus != 0 && isrightLost)
+        {
+            isrightLost = false;
+            CmdSetRightHandEnable(true);
+        }
 
         HandAimState leftState = new HandAimState();
         PXR_HandTracking.GetAimState(HandType.HandLeft, ref leftState);
-        CmdSetLeftHandEnable(!(leftState.aimStatus == 0));
+        if (leftState.aimStatus == 0 && !isleftLost)
+        {
+            isleftLost = true;
+            CmdSetLeftHandEnable(false);
+        }
+        else if (leftState.aimStatus != 0 && isleftLost)
+        {
+            isleftLost = false;
+            CmdSetLeftHandEnable(true);
+        }
     }
 
     [Command(requiresAuthority = false)]
@@ -129,8 +162,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (!isLocalPlayer)
         {
             m_RHandModel.SetRendererEnable(enable);
-            RightGlove.SetRendererEnable(enable && GameSteps.Get().IsCheckTaskFinished(TaskName.T1));
-
+            RightGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
         }
     }
 
@@ -146,10 +178,10 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (!isLocalPlayer)
         {
             m_LHandModel.SetRendererEnable(enable);
-            LeftGlove.SetRendererEnable(enable && GameSteps.Get().IsCheckTaskFinished(TaskName.T1));
+            LeftGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
         }
     }
-
+    #endregion
 
     public void OnNameChangedHook(string _old, string _new)
     {
