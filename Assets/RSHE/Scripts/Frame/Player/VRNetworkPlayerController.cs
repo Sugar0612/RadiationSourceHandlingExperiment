@@ -94,10 +94,6 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// <summary> 是否穿戴防护服 </summary>
     public WearStatus WStatus = WearStatus.NoWear;
 
-    private ulong _lhandState = 1;
-
-    private ulong _rhandState = 1;
-
     #endregion
 
     public void Start()
@@ -114,21 +110,11 @@ public class VRNetworkPlayerController : NetworkBehaviour
     {
         HandAimState rightState = new HandAimState();
         PXR_HandTracking.GetAimState(HandType.HandRight, ref rightState);
-        if ((ulong)rightState.aimStatus != _rhandState)
-        {
-            _rhandState = (ulong)rightState.aimStatus;
-            CmdSetRightHandEnable(!(rightState.aimStatus == 0));
-        }
+        CmdSetRightHandEnable(!(rightState.aimStatus == 0));
 
         HandAimState leftState = new HandAimState();
         PXR_HandTracking.GetAimState(HandType.HandLeft, ref leftState);
-        if ((ulong)leftState.aimStatus != _lhandState)
-        {
-            _lhandState = (ulong)leftState.aimStatus;
-            CmdSetLeftHandEnable(!(leftState.aimStatus == 0));
-        }
-        
-
+        CmdSetLeftHandEnable(!(leftState.aimStatus == 0));
     }
 
     [Command(requiresAuthority = false)]
@@ -143,10 +129,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (!isLocalPlayer)
         {
             m_RHandModel.SetRendererEnable(enable);
-            if (enable)
-            {
-                RightGlove.SetRendererEnable(GameSteps.Get().CheckTaskGoRun(TaskName.T1));
-            }
+            RightGlove.SetRendererEnable(enable && GameSteps.Get().IsCheckTaskFinished(TaskName.T1));
+
         }
     }
 
@@ -162,10 +146,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (!isLocalPlayer)
         {
             m_LHandModel.SetRendererEnable(enable);
-            if (enable)
-            {
-                LeftGlove.SetRendererEnable(GameSteps.Get().CheckTaskGoRun(TaskName.T1));
-            }
+            LeftGlove.SetRendererEnable(enable && GameSteps.Get().IsCheckTaskFinished(TaskName.T1));
         }
     }
 
