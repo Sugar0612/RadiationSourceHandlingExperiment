@@ -2,12 +2,15 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.XR.PXR;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHintPanel : MonoBehaviour
 {
     public TMP_Text HintText;
+
+    public MyVRPlayerRig rig;
 
     private void Start()
     {

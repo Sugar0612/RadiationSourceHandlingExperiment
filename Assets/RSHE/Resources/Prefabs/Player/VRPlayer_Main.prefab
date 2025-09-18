@@ -1378,6 +1378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RigthShouTao
       objectReference: {fileID: 0}
+    - target: {fileID: 4302787162963787656, guid: ac4e3e81af1006a4eaa16672370111fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6987088055058502231, guid: ac4e3e81af1006a4eaa16672370111fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0043
@@ -1727,6 +1731,10 @@ PrefabInstance:
       value: RightHand
       objectReference: {fileID: 0}
     - target: {fileID: 8129811722673939051, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248430471133489003, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

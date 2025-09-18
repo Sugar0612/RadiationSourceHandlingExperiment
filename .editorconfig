@@ -1,0 +1,17 @@
+# 顶级 EditorConfig 文件
+root = true
+
+# 所有 C# 文件使用 UTF-8 编码
+[*.cs]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# 可根据需要添加其他文件类型规则
+[*.json]
+charset = utf-8
+
+[*.txt]
+charset = utf-8
