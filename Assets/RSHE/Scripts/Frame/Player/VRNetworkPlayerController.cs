@@ -1,11 +1,12 @@
 using Mirror;
 using System.Collections;
 using TMPro;
+using Unity.XR.PXR;
 using UnityEngine;
 
 public class VRNetworkPlayerController : NetworkBehaviour
 {
-    #region Íæ¼Ò Transform
+    #region ç©å®¶ Transform
     [Header("Location's Transform")]
 
     [SerializeField]
@@ -36,7 +37,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     public Transform m_PlayerCollider;
     #endregion
 
-    #region Íæ¼ÒÄ£ĞÍ
+    #region ç©å®¶æ¨¡å‹
     [Space]
     [Header("Model Prefab")]
 
@@ -52,27 +53,27 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [Tooltip("Player Right Hand Model Component")]
     GameObject m_RHandModel;
 
-    [Tooltip("ÓÎÏ·ÖĞ×óÊÖÌ×")]
+    [Tooltip("æ¸¸æˆä¸­å·¦æ‰‹å¥—")]
     public GameObject LeftGlove;
 
-    [Tooltip("ÓÎÏ·ÖĞ×óÊÖÌ×")]
+    [Tooltip("æ¸¸æˆä¸­å³æ‰‹å¥—")]
     public GameObject RightGlove;
 
-    [Tooltip("ÓÎÏ·ÖĞÑÛ¾µ")]
+    [Tooltip("æ¸¸æˆä¸­çœ¼é•œ")]
     public GameObject Spectacles;
    
-    [Tooltip("ÓÎÏ·ÖĞÎ§²±")]
+    [Tooltip("æ¸¸æˆä¸­å›´è„–")]
     public GameObject Collar;
 
-    [Tooltip("ÓÎÏ·ÖĞÒÂ·ş")]
+    [Tooltip("æ¸¸æˆä¸­è¡£æœ")]
     public GameObject Clothes;
 
-    [Tooltip("ÓÎÏ·ÖĞÒÂ·ş")]
+    [Tooltip("æ¸¸æˆä¸­è¡£æœ")]
     public GameObject Hat;
 
     #endregion
 
-    #region Íæ¼ÒĞÅÏ¢ & ×é¼ş
+    #region ç©å®¶ä¿¡æ¯ & ç»„ä»¶
     [Space]
     [Header("Other Controller")]
 
@@ -82,7 +83,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     /// <summary> Player Name ui component in Scene. </summary>
     public TMP_Text textPlayerName;
 
-    /// <summary> Éí·İ </summary>
+    /// <summary> èº«ä»½ </summary>
     [SyncVar(hook = nameof(OnIdentityChanged))]
     public EIdentity identity = EIdentity.None;
 
@@ -90,8 +91,12 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [SyncVar(hook = nameof(OnNameChangedHook))]
     public string playerName;
 
-    /// <summary> ÊÇ·ñ´©´÷·À»¤·ş </summary>
+    /// <summary> æ˜¯å¦ç©¿æˆ´é˜²æŠ¤æœ </summary>
     public WearStatus WStatus = WearStatus.NoWear;
+
+    bool isrightLost = false;
+
+    bool isleftLost = false;
 
     #endregion
 
@@ -105,6 +110,79 @@ public class VRNetworkPlayerController : NetworkBehaviour
         Hat.SetRendererEnable(false);
     }
 
+    [ClientCallback]
+    public void FixedUpdate()
+    {
+        DetectingHandModelTracking();
+    }
+
+    #region æ‰‹éƒ¨è¿½è¸ªä¸¢å¤±éšè—æ‰‹éƒ¨æ¨¡å‹
+
+    /// <summary>
+    /// æ‰‹åŠ¿æ£€æµ‹
+    /// </summary>
+    private void DetectingHandModelTracking()
+    {
+        HandAimState rightState = new HandAimState();
+        PXR_HandTracking.GetAimState(HandType.HandRight, ref rightState);
+        if (rightState.aimStatus == 0 && !isrightLost)
+        {
+            isrightLost = true;
+            CmdSetRightHandEnable(false);
+        }
+        else if (rightState.aimStatus != 0 && isrightLost)
+        {
+            isrightLost = false;
+            CmdSetRightHandEnable(true);
+        }
+
+        HandAimState leftState = new HandAimState();
+        PXR_HandTracking.GetAimState(HandType.HandLeft, ref leftState);
+        if (leftState.aimStatus == 0 && !isleftLost)
+        {
+            isleftLost = true;
+            CmdSetLeftHandEnable(false);
+        }
+        else if (leftState.aimStatus != 0 && isleftLost)
+        {
+            isleftLost = false;
+            CmdSetLeftHandEnable(true);
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetRightHandEnable(bool enable)
+    {
+        RpcSetRightHandEnable(enable);
+    }
+
+    [ClientRpc]
+    public void RpcSetRightHandEnable(bool enable)
+    {
+        if (!isLocalPlayer)
+        {
+            m_RHandModel.SetRendererEnable(enable);
+            RightGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetLeftHandEnable(bool enable)
+    {
+        RpcSetLeftHandEnable(enable);
+    }
+
+    [ClientRpc]
+    public void RpcSetLeftHandEnable(bool enable)
+    {
+        if (!isLocalPlayer)
+        {
+            m_LHandModel.SetRendererEnable(enable);
+            LeftGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
+        }
+    }
+    #endregion
+
     public void OnNameChangedHook(string _old, string _new)
     {
         if (textPlayerName != null)
@@ -115,7 +193,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     private void OnIdentityChanged(EIdentity oldValue, EIdentity newValue)
     {
-        // ¸üĞÂÓÎÏ·Âß¼­£¬±ÈÈç¸üĞÂUI¡¢¸Ä±äÍâ¹ÛµÈ
+        // æ›´æ–°æ¸¸æˆé€»è¾‘ï¼Œæ¯”å¦‚æ›´æ–°UIã€æ”¹å˜å¤–è§‚ç­‰
         Debug.Log($"Player identity changed from {oldValue.ToString()} to {newValue.ToString()}");
     }
 
@@ -143,7 +221,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         {
             gameObject.SetActive(false);
         }
-        else if (!isServer &&¡¡isLocalPlayer)
+        else if (!isServer &&ã€€isLocalPlayer)
         {
             StartCoroutine(Config.Get().GetLocalIdentity(arg =>
             {

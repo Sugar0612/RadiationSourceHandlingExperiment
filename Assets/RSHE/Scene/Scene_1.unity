@@ -4515,6 +4515,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -6447,22 +6451,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 3
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 5
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
     BodyPart: 1
     HoldingItems: []
     IsFinished: 0
@@ -9589,77 +9577,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 525601942}
     m_Modifications:
-    - target: {fileID: 681326549218296305, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -17.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 681326549218296305, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 27
-      objectReference: {fileID: 0}
     - target: {fileID: 865075385244835223, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_Name
       value: XR Interaction Hands Setup - Copy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100136753100790367, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100136753100790367, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100136753100790367, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.00555
-      objectReference: {fileID: 0}
-    - target: {fileID: 3232357083123178824, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3312566072940308842, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: CloseButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4406712904544429571, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ff20c2cdc28718942b2b0d5656559d56, type: 3}
-    - target: {fileID: 4406712904544429571, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4406712904544429571, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4406712904544429571, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4406712904544429571, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064834368960419255, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064834368960419255, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064834368960419255, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064834368960419255, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064834368960419255, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9701,17 +9621,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7205517197064240275, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.67500305
-      objectReference: {fileID: 0}
-    - target: {fileID: 7355372289491886277, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 674408865029293912, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
@@ -12715,11 +12626,15 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -13241,15 +13156,15 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 5
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 6
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 7
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -13579,7 +13494,15 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 7
+  - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14232,15 +14155,15 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 5
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 6
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 7
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14653,11 +14576,15 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -15159,11 +15086,15 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 6
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 7
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -16350,30 +16281,6 @@ MonoBehaviour:
     - pName: Detector
       pCount: 1
     IsFinished: 0
-  - Identity: 4
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 5
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 7
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -17237,11 +17144,15 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19173,11 +19084,15 @@ MonoBehaviour:
   fraction: 0
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19744,7 +19659,15 @@ MonoBehaviour:
   fraction: 0
   duration: 4
   conditions:
-  - Identity: 7
+  - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0

@@ -9,31 +9,31 @@ using UnityEngine.UI;
 
 public class Transporter : NetworkBehaviour
 {
-    /// <summary> ±³¾°Í¼Æ¬ </summary>
+    /// <summary> èƒŒæ™¯å›¾ç‰‡ </summary>
     public Image BGImage;
 
-    /// <summary> µ½´ïText </summary>
+    /// <summary> åˆ°è¾¾Text </summary>
     public TMP_Text ArriveText;
 
-    /// <summary> È¥·ÅÉäÔ´Ò» </summary>
+    /// <summary> å»æ”¾å°„æºä¸€ </summary>
     public Button GoPointOneButton;
 
-    /// <summary> È¥·ÅÉäÔ´¶ş </summary>
+    /// <summary> å»æ”¾å°„æºäºŒ </summary>
     public Button GoPointTwoButton;
 
-    /// <summary> Ò»ºÅÏß»ØÊÕ </summary>
+    /// <summary> ä¸€å·çº¿å›æ”¶ </summary>
     public Button GoBackButtonOne;
 
-    /// <summary> ¶şºÅÏß»ØÊÕ </summary>
+    /// <summary> äºŒå·çº¿å›æ”¶ </summary>
     public Button GoBackButtonTwo;
 
-    /// <summary> ´ò¿ª¸Ç×Ó </summary>
+    /// <summary> æ‰“å¼€ç›–å­ </summary>
     public Button OpenButton;
 
-    /// <summary> ¹Ø±Õ¸Ç×Ó </summary>
+    /// <summary> å…³é—­ç›–å­ </summary>
     public Button CloseButton;
 
-    /// <summary> ĞĞÎªÃæ°å </summary>
+    /// <summary> è¡Œä¸ºé¢æ¿ </summary>
     public TransporterActionPanel ActionPanel;
 
     public Animator ActionAnimator;
@@ -173,7 +173,7 @@ public class Transporter : NetworkBehaviour
         GoPointTwoButton.SetButtonActive(active);
         ActionPanel.SetActive(active);
 
-        if (ArriveText) ArriveText.text = active ? "Ä¿µÄµØ:" : "";
+        if (ArriveText) ArriveText.text = active ? "ç›®çš„åœ°:" : "";
         if (BGImage) BGImage.enabled = active;
     }
 
@@ -206,7 +206,7 @@ public class Transporter : NetworkBehaviour
     {
         GoBackButtonOne.SetButtonActive(true);
         ActionPanel.SetActive(true);
-        if (ArriveText) ArriveText.text = "Ä¿µÄµØ:";
+        if (ArriveText) ArriveText.text = "ç›®çš„åœ°:";
         if (BGImage) BGImage.enabled = true;
     }
 
@@ -214,7 +214,7 @@ public class Transporter : NetworkBehaviour
     {
         GoBackButtonTwo.SetButtonActive(true);
         ActionPanel.SetActive(true);
-        if (ArriveText) ArriveText.text = "Ä¿µÄµØ:";
+        if (ArriveText) ArriveText.text = "ç›®çš„åœ°:";
         if (BGImage) BGImage.enabled = true;
     }
 
@@ -226,7 +226,7 @@ public class Transporter : NetworkBehaviour
         GoPointTwoButton.SetButtonActive(active);
         ActionPanel.SetActive(active);
 
-        if (ArriveText) ArriveText.text = active ? "Ä¿µÄµØ:" : "";
+        if (ArriveText) ArriveText.text = active ? "ç›®çš„åœ°:" : "";
         if (BGImage) BGImage.enabled = active;
     }
 

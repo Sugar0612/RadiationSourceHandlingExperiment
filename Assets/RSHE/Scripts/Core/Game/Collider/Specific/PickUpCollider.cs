@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class PickUpCollider : NetworkBehaviour
 {
-    /// <summary> Ê°È¡µÄÎïÌå </summary>
+    /// <summary> æ‹¾å–çš„ç‰©ä½“ </summary>
     public GameObject PickUpObject;
 
-    /// <summary> Ê°È¡½ø¶ÈUI </summary>
+    /// <summary> æ‹¾å–è¿›åº¦UI </summary>
     public PickUpPanel PickupPanel;
 
-    /// <summary> ¿ÉÒÔÊ°È¡ÎÒµÄµÀ¾ßÊÇÊ²Ã´ </summary>
+    /// <summary> å¯ä»¥æ‹¾å–æˆ‘çš„é“å…·æ˜¯ä»€ä¹ˆ </summary>
     public string CanPickupPorp;
 
     bool _isPicked = false;
@@ -72,7 +72,7 @@ public class PickUpCollider : NetworkBehaviour
     void RpcPickupSuccessed()
     {
         _isPicked = true;
-        PickupPanel.HintText.text = "ÒÑ´¦Àí";
+        PickupPanel.HintText.text = "å·²å¤„ç†";
         PickupPanel.Progress.SetAciveForTheUIControl<Image>(false);
 
         PickUpObject.SetActive<Renderer>(false);
