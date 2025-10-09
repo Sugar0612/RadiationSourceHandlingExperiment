@@ -8,9 +8,7 @@ public partial class CoreAction : NetworkBehaviour
 {
 
     /// <summary> Task one start. </summary>
-    public void StartAction_1(GameColliderPackage gamePkg, Action callback = null)
-    {
-    }
+    public void StartAction_1(GameColliderPackage gamePkg, Action callback = null) { }
 
     /// <summary> task one trigger collider. </summary>
     public void TaskAction_1(GameColliderPackage gamePkg, Action callback = null)

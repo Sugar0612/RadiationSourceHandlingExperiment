@@ -59,17 +59,17 @@ public enum GameColliderTriggerMode
     Single
 }
 
-/// <summary> 游戏模式 </summary>
+/// <summary> 娓告垙妯″紡 </summary>
 public enum EGameMode
 {
     None,
-    Teaching, // 教学
-    PracticalTraining, // 实训
-    SelfTest, // 自测
-    Assessment // 考核
+    Teaching, // 鏁欏
+    PracticalTraining, // 瀹炶
+    SelfTest, // 鑷祴
+    Assessment // 鑰冩牳
 }
 
-/// <summary> 任务箭头类型 </summary>
+/// <summary> 浠诲姟绠ご绫诲瀷 </summary>
 public enum ArrowType
 { 
     None,
@@ -77,8 +77,14 @@ public enum ArrowType
     Vertical
 }
 
-/// <summary> 任务步骤标签 </summary>
+/// <summary> 浠诲姟姝ラ鏍囩 </summary>
 public enum TaskName
 {
     T1, T2, T3, T3W, T4, T4W, T5, T5W, T6, T6W, T7, T7W, T8, T8W, T9, T9W, T10, T10W, T11, T11W, T12, T12W, T13,
+}
+
+/// <summary> 鎻愮ず鍐呭绫诲瀷 </summary>
+public enum PromptType
+{
+    None, WearClothing,
 }

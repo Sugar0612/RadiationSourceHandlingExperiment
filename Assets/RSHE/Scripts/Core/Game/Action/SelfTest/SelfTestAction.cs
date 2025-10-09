@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary> �Բ�ģʽ </summary>
+/// <summary> 自测模式 </summary>
 public class SelfTestAction : ActionBase
 {
     [ClientRpc]
-    public override void RpcStartAction_1(GameColliderPackage gamePkg) 
+    public override void RpcStartAction_1(GameColliderPackage gamePkg)
     {
-        Log.cinput("red", "@@  SelfTestAction RpcStartAction_1");
+        // Log.cinput("red", "@@  SelfTestAction RpcStartAction_1");
         CoreAction.Get().SetTaskArrowActive(gamePkg, false);
-        CoreAction.Get().StartAction_1(gamePkg); 
+        CoreAction.Get().StartAction_1(gamePkg);
     }
 
     [ClientRpc] public override void RpcTaskAction_1(GameColliderPackage gamePkg) { CoreAction.Get().TaskAction_1(gamePkg); }

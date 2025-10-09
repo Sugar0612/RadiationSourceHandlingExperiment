@@ -264,6 +264,9 @@ public class VRNetworkPlayerController : NetworkBehaviour
         }
     }
 
+    [TargetRpc]
+    public void Prompt(PromptType type, float duration) => m_VRPlayerRig.HintPanel.ShowHintPanel(MessPromp.Prompt(type), duration);
+
     [ClientRpc] public void RpcSetWStatus(WearStatus status) => WStatus = status;
 
     public enum WearStatus
