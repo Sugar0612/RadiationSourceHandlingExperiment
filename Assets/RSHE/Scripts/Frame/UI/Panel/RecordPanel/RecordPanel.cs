@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class RecordPanel : NetworkBehaviour
 {
-    #region UI¿Ø¼ş
+    #region UIæ§ä»¶
 
     public PutItem PutItem_1;
 
@@ -19,10 +19,10 @@ public class RecordPanel : NetworkBehaviour
 
     #endregion
 
-    #region ¼ì²â²ÎÊı
-    public float ScanRadius = 1.5f; // É¨Ãè°ë¾¶
+    #region æ£€æµ‹å‚æ•°
+    public float ScanRadius = 1.5f; // æ‰«æåŠå¾„
 
-    //public float scanInterval = 1f; // É¨Ãè¼ä¸ô£¨Ãë£©
+    //public float scanInterval = 1f; // æ‰«æé—´éš”ï¼ˆç§’ï¼‰
 
     private float _timer;
 
@@ -32,12 +32,15 @@ public class RecordPanel : NetworkBehaviour
 
     #endregion
 
+    protected NetworkPropsCollider _propCollider;
+
     protected List<float> _valueList = new List<float>();
 
     virtual public void Start()
     {
         _itemIndex = 0;
         _recordList = GetComponentsInChildren<RecordItem>().ToList();
+        _propCollider = GetComponentInParent<NetworkPropsCollider>();
     }
 
     protected float ScanArea()

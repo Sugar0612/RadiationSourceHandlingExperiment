@@ -6,40 +6,41 @@ using UnityEngine;
 
 public class NetworkPropsCollider : NetworkBehaviour
 {
-    #region µÀ¾ßĞÅÏ¢
+    #region é“å…·ä¿¡æ¯
 
-    /// <summary> µÀ¾ßÃû×Ö </summary>
+    /// <summary> é“å…·åå­— </summary>
     public string PropName = "";
 
-    /// <summary> Ä¿Ç°µÄ³ÖÓĞÈË </summary>
-    public EIdentity WhoHolding = EIdentity.None;
+    /// <summary> ç›®å‰çš„æŒæœ‰äºº </summary>
+    public EIdentity WhoHeld = EIdentity.None;
 
-    /// <summary> ÊÇ·ñÒÑ¾­±»¿ËÂ¡¹ıÁË </summary>
+    /// <summary> æ˜¯å¦å·²ç»è¢«å…‹éš†è¿‡äº† </summary>
     [SyncVar]
     public bool isCloned = false;
 
     #endregion
 
+    [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
         BodyPartInfo bodyInfo = other.gameObject.GetComponentInParent<BodyPartInfo>();
         VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
-        // ±ØĞëÊÇÊÖÄÃ
+        // å¿…é¡»æ˜¯æ‰‹æ‹¿
         if (ctrl && bodyInfo && StaticGlobalVar.IsHand(bodyInfo))
         {
-            WhoHolding = ctrl.identity;
+            WhoHeld = ctrl.identity;
         }
     }
     
     public void OnTriggerExit(Collider other)
     {
-        BodyPartInfo bodyInfo = other.gameObject.GetComponentInParent<BodyPartInfo>();
-        VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
+        //BodyPartInfo bodyInfo = other.gameObject.GetComponentInParent<BodyPartInfo>();
+        //VRNetworkPlayerController ctrl = other.gameObject.GetComponentInParent<VRNetworkPlayerController>();
 
-        if (ctrl && StaticGlobalVar.IsHand(bodyInfo))
-        {
-            WhoHolding = (ctrl.identity == WhoHolding) ? EIdentity.None : WhoHolding;
-        }
+        //if (ctrl && StaticGlobalVar.IsHand(bodyInfo))
+        //{
+        //    WhoHeld = (ctrl.identity == WhoHolding) ? EIdentity.None : WhoHolding;
+        //}
     }
 }

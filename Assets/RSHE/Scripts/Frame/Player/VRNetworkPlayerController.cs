@@ -100,6 +100,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     #endregion
 
+    #region 系统函数
+
     public void Start()
     {
         LeftGlove.SetRendererEnable(false);
@@ -113,14 +115,56 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [ClientCallback]
     public void FixedUpdate()
     {
-        DetectingHandModelTracking();
+        //DetectingHandModelTracking();
     }
+
+    /// <summary> 
+    /// Enable local player. Let the player ignore his own model. 
+    /// </summary>
+    public override void OnStartLocalPlayer()
+    {
+        if (isServer && isLocalPlayer)
+        {
+            gameObject.SetActive(false);
+        }
+        else if (!isServer && isLocalPlayer)
+        {
+            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+            {
+                CmdSetIdentity(arg);
+            }));
+
+            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
+            {
+                CmdSetupName(arg.ToString());
+            }));
+        }
+
+        InitObject();
+
+        m_HeadModel.SetRendererEnable(false);
+        m_LHandModel.SetRendererEnable(false);
+        m_RHandModel.SetRendererEnable(false);
+        textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+    }
+
+    public override void OnStopServer()
+    {
+        //Log.cinput("yellow", $"Client Disconnected! Device ID: {identity.ToString()}\n");
+
+        UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+        userWin.SetItemState(identity, EUserState.Offline);
+        PlayerManager.Get().UnRegister(identity);
+    }
+
+    #endregion
 
     #region 手部追踪丢失隐藏手部模型
 
     /// <summary>
     /// 手势检测
     /// </summary>
+
     private void DetectingHandModelTracking()
     {
         HandAimState rightState = new HandAimState();
@@ -194,7 +238,9 @@ public class VRNetworkPlayerController : NetworkBehaviour
     private void OnIdentityChanged(EIdentity oldValue, EIdentity newValue)
     {
         // 更新游戏逻辑，比如更新UI、改变外观等
-        Debug.Log($"Player identity changed from {oldValue.ToString()} to {newValue.ToString()}");
+        // Debug.Log($"Player identity changed from {oldValue.ToString()} to {newValue.ToString()}");
+
+        PlayerManager.Get().Register(newValue, this);
     }
 
     [Command(requiresAuthority = false)]
@@ -213,44 +259,6 @@ public class VRNetworkPlayerController : NetworkBehaviour
     }
 
     /// <summary> 
-    /// Enable local player. Let the player ignore his own model. 
-    /// </summary>
-    public override void OnStartLocalPlayer()
-    {
-        if (isServer && isLocalPlayer)
-        {
-            gameObject.SetActive(false);
-        }
-        else if (!isServer &&　isLocalPlayer)
-        {
-            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
-            {
-                CmdSetIdentity(arg);
-            }));
-
-            StartCoroutine(Config.Get().GetLocalIdentity(arg =>
-            {
-                CmdSetupName(arg.ToString());
-            }));
-        }
-
-        InitObject();
-
-        m_HeadModel.SetRendererEnable(false);
-        m_LHandModel.SetRendererEnable(false);
-        m_RHandModel.SetRendererEnable(false);
-        textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
-    }
-
-    public override void OnStopServer()
-    {
-        //Log.cinput("yellow", $"Client Disconnected! Device ID: {identity.ToString()}\n");
-
-        UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        userWin.SetItemState(identity, EUserState.Offline);
-    }
-
-    /// <summary> 
     /// Init Controller.
     /// </summary>
     public void InitObject()
@@ -265,7 +273,11 @@ public class VRNetworkPlayerController : NetworkBehaviour
     }
 
     [TargetRpc]
-    public void Prompt(PromptType type, float duration) => m_VRPlayerRig.HintPanel.ShowHintPanel(MessPromp.Prompt(type), duration);
+    public void TargetPrompt(NetworkConnectionToClient target, PromptType type)
+    {
+        Log.cinput("green", "@@ TargetPrompt");
+        m_VRPlayerRig.HintPanel.ShowHintPanel(MessPromp.Prompt(type), 5.0f);
+    }
 
     [ClientRpc] public void RpcSetWStatus(WearStatus status) => WStatus = status;
 

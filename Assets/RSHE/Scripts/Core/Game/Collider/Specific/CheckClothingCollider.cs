@@ -15,7 +15,7 @@ public class CheckClothingCollider : MonoBehaviour
             switch (StaticGlobalVar.GameMode)
             {
                 case EGameMode.SelfTest:
-                    vrCtrl.Prompt(PromptType.WearClothing, 5.0f);
+                    vrCtrl.TargetPrompt(vrCtrl.connectionToClient, PromptType.WearClothing);
                     break;
                 case EGameMode.Assessment:
                     // TODO..

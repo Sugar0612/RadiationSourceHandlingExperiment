@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class OutBeltPanel : RecordPanel
 {
+
     public override void Start()
     {
         base.Start();
@@ -15,11 +16,13 @@ public class OutBeltPanel : RecordPanel
         PutItem_1.RecordButton.onClick.AddListener(() => OnClickedRecordButton());
     }
 
+    /// <summary> 放置按钮 </summary>
     public void OnClickedPutButton()
     {
         CmdOnClickedPutButton();
     }
 
+    /// <summary> 记录按钮 </summary>
     public void OnClickedRecordButton()
     {
         CmdOnClickedRecordButton();
@@ -30,13 +33,30 @@ public class OutBeltPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
+        foreach (float val in _valueList)
+        {
+            if (val < 0.10f || val > 0.30f)
+            {
+                Log.cinput("red", $"@@ Data Error: {(float)(val * 1.0f)}");
+                VRNetworkPlayerController vrCtrl = PlayerManager.Get().GetPlayer(_propCollider.WhoHeld);
+                vrCtrl?.TargetPrompt(vrCtrl.connectionToClient, PromptType.DataError);
+                _valueList.Clear();
+                return;
+            }
+        }
+
         foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
         {
             if (task == TaskName.T2)
                 break;
 
             if (!GameSteps.Get().IsCheckTaskFinished(task))
+            {
+                VRNetworkPlayerController vrCtrl = PlayerManager.Get().GetPlayer(_propCollider.WhoHeld);
+                vrCtrl?.TargetPrompt(vrCtrl.connectionToClient, PromptType.TaskOrderWrong);
+                _valueList.Clear();
                 return;
+            }
         }
 
         RpcClickedPutButton();
@@ -64,7 +84,7 @@ public class OutBeltPanel : RecordPanel
             go.SetActive<Renderer>(true);
     }
 
-    [ClientRpc]
+    [ClientRpc] 
     public void RpcOnClickedRecordButton(float val)
     {
         if (_itemIndex < _recordList.Count)

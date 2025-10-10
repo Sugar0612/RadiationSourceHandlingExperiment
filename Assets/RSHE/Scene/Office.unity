@@ -1904,6 +1904,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7740545378594594396, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_LHand
+      value: 
+      objectReference: {fileID: 344790603}
+    - target: {fileID: 7740545378594594396, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_RHand
+      value: 
+      objectReference: {fileID: 344790602}
+    - target: {fileID: 7740545378594594396, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: HintPanel
       value: 
       objectReference: {fileID: 0}
@@ -1913,6 +1921,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+--- !u!4 &344790602 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8724088221210090612, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 344790601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &344790603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 760172173812383872, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 344790601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &344790604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
@@ -4182,7 +4200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d2a21697a70341aa1b2999548cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PicoDevice: 1
+  PicoDevice: 0
 --- !u!1 &824999112
 GameObject:
   m_ObjectHideFlags: 0

@@ -86,5 +86,8 @@ public enum TaskName
 /// <summary> 提示内容类型 </summary>
 public enum PromptType
 {
-    None, WearClothing,
+    None,
+    WearClothing,
+    DataError,
+    TaskOrderWrong,
 }
