@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameModeDispenser
 {
-    /// <summary> baseAction ¶àÌ¬Î¯ÍĞ </summary>
+    /// <summary> baseAction å¤šæ€å§”æ‰˜ </summary>
     private delegate ActionBase ActionCreator();
 
-    /// <summary> ²»Í¬µÄEGameMode£¬´æ´¢²»Í¬µÄactionÎ¯ÍĞ </summary>
+    /// <summary> ä¸åŒçš„EGameModeï¼Œå­˜å‚¨ä¸åŒçš„actionå§”æ‰˜ </summary>
     private static readonly Dictionary<EGameMode, ActionCreator> s_actionCreators;
 
     static GameModeDispenser _instance = null;
@@ -33,7 +33,7 @@ public class GameModeDispenser
     }
 
     /// <summary>
-    /// ·Ö·¢Æ÷
+    /// åˆ†å‘å™¨
     /// </summary>
     public ActionBase Dispenser(EGameMode mode)
     {

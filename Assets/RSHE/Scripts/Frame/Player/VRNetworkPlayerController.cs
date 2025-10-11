@@ -275,7 +275,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [TargetRpc]
     public void TargetPrompt(NetworkConnectionToClient target, PromptType type)
     {
-        Log.cinput("green", "@@ TargetPrompt");
+        //Log.cinput("green", "@@ TargetPrompt");
         m_VRPlayerRig.HintPanel.ShowHintPanel(MessPromp.Prompt(type), 5.0f);
     }
 

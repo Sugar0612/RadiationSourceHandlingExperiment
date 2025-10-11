@@ -12,41 +12,41 @@ using System.Collections;
 [Serializable]
 public class GameTaskItem : NetworkBehaviour
 {
-    #region ÓÎÏ·²ÎÊı & ´¥·¢Ä£Ê½
+    #region æ¸¸æˆå‚æ•° & è§¦å‘æ¨¡å¼
 
-    /// <summary> ÈÎÎñÃû³Æ </summary>
+    /// <summary> ä»»åŠ¡åç§° </summary>
     public string taskName = "";
 
-    /// <summary> ÈÎÎñÖ¸Ïò¼ıÍ· </summary>
+    /// <summary> ä»»åŠ¡æŒ‡å‘ç®­å¤´ </summary>
     public List<Arrow> ArrowList = new List<Arrow>();
 
     /// <summary>  </summary>
     public AudioClip HintAudio;
 
-    /// <summary> ·ÖÊı </summary>
+    /// <summary> åˆ†æ•° </summary>
     public float fraction = 0.0f;
 
-    /// <summary> ³ÖĞøÊ±¼ä </summary>
+    /// <summary> æŒç»­æ—¶é—´ </summary>
     public float duration = 0.0f;
 
-    /// <summary> ÈÎÎñÍê³ÉÌõ¼ş </summary>
+    /// <summary> ä»»åŠ¡å®Œæˆæ¡ä»¶ </summary>
     public List<TaskCondition> conditions = new List<TaskCondition>();
 
-    /// <summary> ½áÊøÈÎÎñ </summary>
+    /// <summary> ç»“æŸä»»åŠ¡ </summary>
     public UnityEvent<GameColliderPackage> EndTask = null;
 
-    /// <summary> ¿ªÊ¼ÈÎÎñ </summary>
+    /// <summary> å¼€å§‹ä»»åŠ¡ </summary>
     public UnityEvent<GameColliderPackage> StartTask = null;
 
-    /// <summary> µ±Íæ¼Ò´¥·¢GameColliderºó´¥·¢ </summary>
+    /// <summary> å½“ç©å®¶è§¦å‘GameCollideråè§¦å‘ </summary>
     public UnityEvent<GameColliderPackage> OnTask = null;
 
-    /// <summary> ÊÇ·ñÒ»Ö±Õ¹Ê¾³¡¾°ÖĞ¸ÃÈÎÎñÏÂµÄËùÓĞ×ÓÎïÌå </summary>
+    /// <summary> æ˜¯å¦ä¸€ç›´å±•ç¤ºåœºæ™¯ä¸­è¯¥ä»»åŠ¡ä¸‹çš„æ‰€æœ‰å­ç‰©ä½“ </summary>
     public bool IsAlwayShow = false;
 
     #endregion
 
-    #region Õâ¸öÈÎÎñ´¦ÔÚµ±Ç°Õâ¸ö²½ÖèµÄÄÄ¸öÎ»ÖÃ(µÚ¼¸²½ÖèµÄµÚ¼¸¸öÈÎÎñ)
+    #region è¿™ä¸ªä»»åŠ¡å¤„åœ¨å½“å‰è¿™ä¸ªæ­¥éª¤çš„å“ªä¸ªä½ç½®(ç¬¬å‡ æ­¥éª¤çš„ç¬¬å‡ ä¸ªä»»åŠ¡)
 
     public int StepPos;
 
@@ -93,15 +93,15 @@ public class GameTaskItem : NetworkBehaviour
         return copy;
     }
 
-    #region ÈÎÎñµÄ¿ªÊ¼Óë½áÊø [Base]
+    #region ä»»åŠ¡çš„å¼€å§‹ä¸ç»“æŸ [Base]
     /*
-       Õâ¸öregionµÄ×÷ÓÃ¾ÍÊÇÈÃÃ¿¸öÈÎÎñ¿ªÊ¼ºÍ½áÊøÏà¹ØµÄ³¡¾°ÎïÆ·¹Ø±Õ£¬ÒÔ¼°ÒôÆµ²¥·Å
-       È»ºó²»Í¬Ä£Ê½²½Öè²»Í¬µÄ´¦Àí¶¼·ÅÔÚÁË Core/Game/Action ÖĞ
+       è¿™ä¸ªregionçš„ä½œç”¨å°±æ˜¯è®©æ¯ä¸ªä»»åŠ¡å¼€å§‹å’Œç»“æŸç›¸å…³çš„åœºæ™¯ç‰©å“å…³é—­ï¼Œä»¥åŠéŸ³é¢‘æ’­æ”¾
+       ç„¶åä¸åŒæ¨¡å¼æ­¥éª¤ä¸åŒçš„å¤„ç†éƒ½æ”¾åœ¨äº† Core/Game/Action ä¸­
      */
 
     private IEnumerator DelayedCommandCall()
     {
-        // µÈ´ıÖ±µ½¿Í»§¶Ë×¼±¸¾ÍĞ÷
+        // ç­‰å¾…ç›´åˆ°å®¢æˆ·ç«¯å‡†å¤‡å°±ç»ª
         while (!NetworkClient.ready)
             yield return null;
 
@@ -122,7 +122,7 @@ public class GameTaskItem : NetworkBehaviour
 
     #endregion
 
-    #region ÊÇ·ñÏÔÊ¾ÈÎÎñÔÚ Network & Local
+    #region æ˜¯å¦æ˜¾ç¤ºä»»åŠ¡åœ¨ Network & Local
     [ClientRpc]
     void RpcSetActive(bool active)
     {
@@ -131,7 +131,7 @@ public class GameTaskItem : NetworkBehaviour
     }
     #endregion
 
-    #region ¿ØÖÆ StartEvent ºÍ EndEventµÄ½Ó¿Ú
+    #region æ§åˆ¶ StartEvent å’Œ EndEventçš„æ¥å£
 
     public void RunStart()
     {

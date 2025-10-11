@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class OutBeltPanel : RecordPanel
 {
-
     public override void Start()
     {
         base.Start();
@@ -33,34 +32,11 @@ public class OutBeltPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        foreach (float val in _valueList)
+        if (_inspector.T2Check(_propCollider, ref _valueList))
         {
-            if (val < 0.10f || val > 0.30f)
-            {
-                Log.cinput("red", $"@@ Data Error: {(float)(val * 1.0f)}");
-                VRNetworkPlayerController vrCtrl = PlayerManager.Get().GetPlayer(_propCollider.WhoHeld);
-                vrCtrl?.TargetPrompt(vrCtrl.connectionToClient, PromptType.DataError);
-                _valueList.Clear();
-                return;
-            }
+            RpcClickedPutButton();
+            GameSteps.Get().CheckTaskGoRun(TaskName.T2);
         }
-
-        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
-        {
-            if (task == TaskName.T2)
-                break;
-
-            if (!GameSteps.Get().IsCheckTaskFinished(task))
-            {
-                VRNetworkPlayerController vrCtrl = PlayerManager.Get().GetPlayer(_propCollider.WhoHeld);
-                vrCtrl?.TargetPrompt(vrCtrl.connectionToClient, PromptType.TaskOrderWrong);
-                _valueList.Clear();
-                return;
-            }
-        }
-
-        RpcClickedPutButton();
-        GameSteps.Get().CheckTaskGoRun(TaskName.T2);
     }
 
     [Command(requiresAuthority = false)]

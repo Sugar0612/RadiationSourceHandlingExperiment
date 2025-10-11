@@ -32,6 +32,8 @@ public class RecordPanel : NetworkBehaviour
 
     #endregion
 
+    protected TaskInspector _inspector;
+
     protected NetworkPropsCollider _propCollider;
 
     protected List<float> _valueList = new List<float>();
@@ -41,6 +43,7 @@ public class RecordPanel : NetworkBehaviour
         _itemIndex = 0;
         _recordList = GetComponentsInChildren<RecordItem>().ToList();
         _propCollider = GetComponentInParent<NetworkPropsCollider>();
+        _inspector = new TaskInspector();
     }
 
     protected float ScanArea()
