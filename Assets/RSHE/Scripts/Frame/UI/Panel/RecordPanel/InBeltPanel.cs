@@ -30,17 +30,11 @@ public class InBeltPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        if (_inspector.T3Check(_propCollider, ref _valueList))
         {
-            if (task == TaskName.T3)
-                break;
-
-            if (!GameSteps.Get().IsCheckTaskFinished(task))
-                return;
+            RpcClickedPutButton();
+            GameSteps.Get().CheckTaskGoRun(TaskName.T3);
         }
-
-        RpcClickedPutButton();
-        GameSteps.Get().CheckTaskGoRun(TaskName.T3);
     }
 
     [Command(requiresAuthority = false)]

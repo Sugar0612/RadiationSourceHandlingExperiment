@@ -14,7 +14,21 @@ public class TaskInspector
 
     public bool T2Check(NetworkPropsCollider collider, ref List<float> valuelist)
     {
-        Log.cinput("red", "@@ TaskInspector T2Check Enter.");
         return _checkBase.CheckTask_2(collider, ref valuelist);
+    }
+
+    public bool T3Check(NetworkPropsCollider collider, ref List<float> valuelist)
+    {
+        return _checkBase.CheckTask_3(collider, ref valuelist);
+    }
+
+    public bool T4Check(NetworkPropsCollider collider, ref List<float> valuelist)
+    {
+        return _checkBase.CheckTask_4(collider, ref valuelist);
+    }
+
+    public bool T5Check(TaskName[] closeTaskArray, out TaskName taskName)
+    {
+        return _checkBase.CheckTask_5(closeTaskArray, out taskName);
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public static class Utility
 {
     /// <summary>
-    /// ¼ÆËãÁ½¸ö·øÉäµãÖÓ×î½üµÄ·øÉäµãÇ¿¶È
+    /// è®¡ç®—ä¸¤ä¸ªè¾å°„ç‚¹é’Ÿæœ€è¿‘çš„è¾å°„ç‚¹å¼ºåº¦
     /// </summary>
     /// <param name="posX"></param>
     /// <param name="posZ"></param>
@@ -24,7 +24,7 @@ public static class Utility
             Vector3 xzThisPos = new Vector3(go.transform.position.x, 0.0f, go.transform.position.z);
 
             disance = Vector3.Distance(rsPos, xzThisPos);
-            //Log.cinput("yellow", $"@@@ disance_1£º{disance_1}, disance_2: {disance_2}, ShowVal: {DistanceText.text}");
+            //Log.cinput("yellow", $"@@@ disance_1ï¼š{disance_1}, disance_2: {disance_2}, ShowVal: {DistanceText.text}");
         }
 
         value = (rs.R * rs.A) / ((disance * disance));
@@ -32,7 +32,7 @@ public static class Utility
         return value;
     }
 
-    /// <summary> Ïú»ÙÍøÂçObject </summary>
+    /// <summary> é”€æ¯ç½‘ç»œObject </summary>
 
     [Server]
     public static void DestroyNetworkObject(GameObject targetObject)
@@ -52,7 +52,7 @@ public static class Utility
     }
 
 
-    /// <summary> Í¼Æ¬ÔØÈë </summary>
+    /// <summary> å›¾ç‰‡è½½å…¥ </summary>
     public static void LoadImageFromResource(Image img, string imgPath)
     {
         Sprite newSprite = Resources.Load<Sprite>(imgPath);

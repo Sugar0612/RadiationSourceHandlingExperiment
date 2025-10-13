@@ -36,7 +36,7 @@ public class RecordPanel : NetworkBehaviour
 
     protected NetworkPropsCollider _propCollider;
 
-    protected List<float> _valueList = new List<float>();
+    protected List<float> _valueList = new List<float>(); 
 
     virtual public void Start()
     {

@@ -44,6 +44,10 @@ public class Transporter : NetworkBehaviour
 
     TaskName[] _closeTaskArray = new TaskName[3] { TaskName.T5, TaskName.T8, TaskName.T10 };
 
+    TaskInspector _inspector;
+
+    [SyncVar] public EIdentity _clickedButtonIdentity;
+
     public void Start()
     {
         GoPointOneButton.onClick.AddListener(() =>
@@ -93,6 +97,8 @@ public class Transporter : NetworkBehaviour
 
         CloseButton.onClick.AddListener(() =>
         {
+            _clickedButtonIdentity = GetLocalPlayer();
+            CmdSetClickedButtonIdentity(_clickedButtonIdentity);
             CmdSetCoverBool("isOpening", false);
             CmdSetCoverBool("isClosing", true);
             CmdSetJarStatus(JarStatus.Close);
@@ -106,25 +112,35 @@ public class Transporter : NetworkBehaviour
         GoBackButtonTwo.SetButtonActive(false);
         CloseButton.SetButtonActive(false);
         CmdSetActionPanelActive(false);
+
+        _inspector = new TaskInspector();
     }
 
     [Command(requiresAuthority = false)]
     void CmdGoCloseTask()
     {
-        TaskName targetTaskName = TaskName.T13;
-        foreach (TaskName task in _closeTaskArray)
-        {
-            if (!GameSteps.Get().IsCheckTaskFinished(task))
-            {
-                targetTaskName = task;
-                break;
-            }
-        }
+        //TaskName targetTaskName = TaskName.T13;
+        //foreach (TaskName task in _closeTaskArray)
+        //{
+        //    if (!GameSteps.Get().IsCheckTaskFinished(task))
+        //    {
+        //        targetTaskName = task;
+        //        break;
+        //    }
+        //}
 
         // Log.cinput("yellow", $"Close Task: {targetTaskName.ToString()}");
-        if (targetTaskName != TaskName.T13)
+        TaskName targetTaskName = TaskName.T13;
+        if (_inspector.T5Check(_closeTaskArray, out targetTaskName))
         {
-            GameSteps.Get().CheckTaskGoRun(targetTaskName);
+            Log.cinput("yellow", "passed t5 check.");
+            if(!GameSteps.Get().CheckTaskGoRun(targetTaskName))
+            {
+                Log.cinput("yellow", "no passed t5 check go run.");
+                VRNetworkPlayerController whoClickedButton = PlayerManager.Get().GetPlayer(_clickedButtonIdentity);
+                whoClickedButton?.TargetPrompt(whoClickedButton.connectionToClient, PromptType.TaskOrderWrong);
+                if (whoClickedButton == null) Log.cinput("yellow", "_whoClickedButton is null.");
+            }
         }
     }
 
@@ -228,6 +244,25 @@ public class Transporter : NetworkBehaviour
 
         if (ArriveText) ArriveText.text = active ? "目的地:" : "";
         if (BGImage) BGImage.enabled = active;
+    }
+
+    public EIdentity GetLocalPlayer()
+    {
+        VRNetworkPlayerController[] players = FindObjectsOfType<VRNetworkPlayerController>();
+        foreach (VRNetworkPlayerController player in players)
+        {
+            if (player.isLocalPlayer)
+            {
+                return player.identity;
+            }
+        }
+        return EIdentity.None;
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetClickedButtonIdentity(EIdentity identity)
+    {
+        _clickedButtonIdentity = identity;
     }
 
     public IEnumerator CoverOpenAndClose(float delay, float switchTime)

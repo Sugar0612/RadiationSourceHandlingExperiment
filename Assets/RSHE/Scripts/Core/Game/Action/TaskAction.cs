@@ -208,7 +208,7 @@ public class TaskAction : NetworkBehaviour
         _gameAction.RpcStartAction_10(gamePkg);
     }
 
-    /// <summary> task 1 action. </summary>
+    /// <summary> task 1 action. </summary> 
     public void TaskAction_10(GameColliderPackage gamePkg)
     {
         if (!isServer) return;
