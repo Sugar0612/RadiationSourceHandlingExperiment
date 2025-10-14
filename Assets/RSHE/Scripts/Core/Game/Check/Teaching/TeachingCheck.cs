@@ -63,4 +63,15 @@ public class TeachingCheck : CheckBase
         }
         return targetName != TaskName.T13;
     }
+
+    public override bool CheckTask_6(Collider propCollider)
+    {
+        Detector detector = propCollider.GetComponentInParent<Detector>();
+        PollutionDetector pollutionDetector = propCollider.GetComponentInParent<PollutionDetector>();
+        if (detector == null && pollutionDetector == null)
+        {
+            return false;
+        }
+        return true;
+    }
 }

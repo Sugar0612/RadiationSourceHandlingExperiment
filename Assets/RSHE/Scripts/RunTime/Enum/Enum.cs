@@ -90,4 +90,5 @@ public enum PromptType
     WearClothing,
     DataError,
     TaskOrderWrong,
+    PropWrong,
 }

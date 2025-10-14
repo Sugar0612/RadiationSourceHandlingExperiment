@@ -30,18 +30,11 @@ public class FlagPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        if (_inspector.T4Check(_propCollider, ref _valueList))
         {
-            if (task == TaskName.T4)
-                break;
-
-            if (!GameSteps.Get().IsCheckTaskFinished(task))
-                return;
+            RpcClickedPutButton();
+            GameSteps.Get().CheckTaskGoRun(TaskName.T4);
         }
-
-        Log.cinput("yellow", "Flag RpcClickedPutButton");
-        RpcClickedPutButton();
-        GameSteps.Get().CheckTaskGoRun(TaskName.T4);
     }
 
     [Command(requiresAuthority = false)]

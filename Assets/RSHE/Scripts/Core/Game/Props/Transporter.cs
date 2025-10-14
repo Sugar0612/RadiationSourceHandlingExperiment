@@ -133,13 +133,12 @@ public class Transporter : NetworkBehaviour
         TaskName targetTaskName = TaskName.T13;
         if (_inspector.T5Check(_closeTaskArray, out targetTaskName))
         {
-            Log.cinput("yellow", "passed t5 check.");
+            //Log.cinput("yellow", "passed t5 check.");
             if(!GameSteps.Get().CheckTaskGoRun(targetTaskName))
             {
-                Log.cinput("yellow", "no passed t5 check go run.");
+                //Log.cinput("yellow", "no passed t5 check go run.");
                 VRNetworkPlayerController whoClickedButton = PlayerManager.Get().GetPlayer(_clickedButtonIdentity);
                 whoClickedButton?.TargetPrompt(whoClickedButton.connectionToClient, PromptType.TaskOrderWrong);
-                if (whoClickedButton == null) Log.cinput("yellow", "_whoClickedButton is null.");
             }
         }
     }

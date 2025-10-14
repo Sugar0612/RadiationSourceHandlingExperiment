@@ -48,7 +48,7 @@ public class SelfTestCheck : CheckBase
         float wrongval = -1.0f;
         foreach (float val in valueList)
         {
-            if (val < 0.10f || val > 0.30f)
+            if (val < 0.10f || val > 0.50f)
             {
                 wrongval = val;
                 break;
@@ -85,7 +85,7 @@ public class SelfTestCheck : CheckBase
         float wrongval = -1.0f;
         foreach (float val in valueList)
         {
-            if (val < 0.10f || val > 0.30f)
+            if (val < 0.10f || val > 1.0f)
             {
                 wrongval = val;
                 break;
@@ -130,5 +130,22 @@ public class SelfTestCheck : CheckBase
             }
         }
         return targetName != TaskName.T13;
+    }
+
+    public override bool CheckTask_6(Collider propCollider)
+    {
+        Detector detector = propCollider.GetComponentInParent<Detector>();
+        PollutionDetector pollutionDetector = propCollider.GetComponentInParent<PollutionDetector>();
+        if (detector == null && pollutionDetector == null)
+        {
+            NetworkPropsCollider propNetCollider = propCollider.GetComponentInParent<NetworkPropsCollider>();
+            if (propNetCollider != null)
+            {
+                VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(propNetCollider.WhoHeld);
+                player?.TargetPrompt(player.connectionToClient, PromptType.PropWrong);
+            }
+            return false;
+        }
+        return true;
     }
 }

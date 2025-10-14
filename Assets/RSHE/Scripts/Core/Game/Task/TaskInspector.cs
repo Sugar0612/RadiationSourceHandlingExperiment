@@ -31,4 +31,9 @@ public class TaskInspector
     {
         return _checkBase.CheckTask_5(closeTaskArray, out taskName);
     }
+
+    public bool T6Check(Collider other)
+    {
+        return _checkBase.CheckTask_6(other);
+    }
 }

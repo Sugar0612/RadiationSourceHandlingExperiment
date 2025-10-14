@@ -4597,10 +4597,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -6529,10 +6525,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
-    BodyPart: 1
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
     BodyPart: 1
     HoldingItems: []
     IsFinished: 0
@@ -12716,10 +12708,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -13246,10 +13234,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -13581,10 +13565,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14245,10 +14225,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -14663,10 +14639,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -15173,10 +15145,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -17328,10 +17296,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -19269,10 +19233,6 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -19888,10 +19848,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0

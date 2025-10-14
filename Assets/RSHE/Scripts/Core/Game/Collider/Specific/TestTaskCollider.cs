@@ -14,7 +14,7 @@ public class TestTaskCollider : NetworkBehaviour
     [SyncVar]
     public bool isUsed = false;
 
-    /// <summary> 两个道具都触发后，等待多久去Goon next task. </summary>
+    /// <summary> 涓や釜閬撳叿閮借Е鍙戝悗锛岀瓑寰呭涔呭幓Goon next task. </summary>
     public float WaitDuration = 3.5f;
 
     TaskName[] _testTaskArray = new TaskName[3] { TaskName.T6, TaskName.T9, TaskName.T11 };
@@ -22,6 +22,13 @@ public class TestTaskCollider : NetworkBehaviour
     Detector _detector;
 
     PollutionDetector _pollutionDetector;
+
+    TaskInspector _inspector;
+
+    private void Start()
+    {
+        _inspector = new TaskInspector();
+    }
 
     [ServerCallback]
     public void OnTriggerEnter(Collider other)
@@ -34,13 +41,13 @@ public class TestTaskCollider : NetworkBehaviour
 
         if (_pollutionDetector == null)
         {
-            _pollutionDetector = other.GetComponentInParent<PollutionDetector>();
+            _pollutionDetector = other.GetComponentInParent<PollutionDetector>(); 
             IsPoll = _pollutionDetector != null;
         }
 
-        if (IsPoll && IsDetector && !isUsed)
+        if (IsPoll && IsDetector && !isUsed && _inspector.T6Check(other))
         {
-            Log.cinput("red", "@@ TestTaskCollider OnTriggerEnter");
+            // Log.cinput("red", "@@ TestTaskCollider OnTriggerEnter");
             StartCoroutine(GoOnTask());
             _detector?.RpcInvalidateTargetPorpCollider();
             _pollutionDetector?.RpcInvalidateTargetPorpCollider();

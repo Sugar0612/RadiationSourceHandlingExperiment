@@ -10,7 +10,7 @@ public class CheckBase: NetworkBehaviour
     public virtual bool CheckTask_3(NetworkPropsCollider collider, ref List<float> valueList) { return true; }
     public virtual bool CheckTask_4(NetworkPropsCollider collider, ref List<float> valueList) { return true; }
     public virtual bool CheckTask_5(TaskName[] closeTaskArray, out TaskName targetName) { targetName = TaskName.T13; return true; }
-    public virtual bool CheckTask_6() { return true; }
+    public virtual bool CheckTask_6(Collider propCollider) { return true; }
     public virtual bool CheckTask_7() { return true; }
     public virtual bool CheckTask_8() { return true; }
     public virtual bool CheckTask_9() { return true; }
