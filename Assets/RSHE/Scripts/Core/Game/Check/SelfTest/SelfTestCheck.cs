@@ -119,7 +119,7 @@ public class SelfTestCheck : CheckBase
 
     public override bool CheckTask_5(TaskName[] closeTaskArray, out TaskName targetName)
     {
-        Log.cinput("yellow", $"@@ closeTaskArray count: {closeTaskArray.Count()}");
+        //Log.cinput("yellow", $"@@ closeTaskArray count: {closeTaskArray.Count()}");
         targetName = TaskName.T13;
         foreach (TaskName task in closeTaskArray)
         {

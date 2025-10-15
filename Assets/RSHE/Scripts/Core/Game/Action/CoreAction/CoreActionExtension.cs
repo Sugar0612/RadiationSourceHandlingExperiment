@@ -37,9 +37,10 @@ public partial class CoreAction : NetworkBehaviour
                             canGoOn = canGoOn & item.IsFinished;
 
                         if (canGoOn)
+                        {
                             GameSteps.Get().SetTaskFinished(taskNameEnum);
-
-                        HostIssuesTheGoNext(gamePkg, canGoOn);
+                            HostIssuesTheGoNext(gamePkg, canGoOn);
+                        }
                     }
 
                     callback?.Invoke();

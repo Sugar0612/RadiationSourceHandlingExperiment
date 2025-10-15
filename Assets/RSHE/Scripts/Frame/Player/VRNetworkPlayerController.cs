@@ -115,7 +115,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [ClientCallback]
     public void FixedUpdate()
     {
-        //DetectingHandModelTracking();
+        DetectingHandModelTracking();
     }
 
     /// <summary> 

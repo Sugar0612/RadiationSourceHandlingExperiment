@@ -91,7 +91,7 @@ public class MyVRPlayerRig : MonoBehaviour
     void FixedUpdate()
     {
         VRTemplatePlayerModelSync();
-        // VRPlayerModleSync();
+        //VRPlayerModleSync();
     }
 
     private void VRTemplatePlayerModelSync()

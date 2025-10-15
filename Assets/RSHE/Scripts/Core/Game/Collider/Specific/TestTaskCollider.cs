@@ -45,7 +45,7 @@ public class TestTaskCollider : NetworkBehaviour
             IsPoll = _pollutionDetector != null;
         }
 
-        if (IsPoll && IsDetector && !isUsed && _inspector.T6Check(other))
+        if (_inspector.T6Check(other) && IsPoll && IsDetector && !isUsed)
         {
             // Log.cinput("red", "@@ TestTaskCollider OnTriggerEnter");
             StartCoroutine(GoOnTask());
