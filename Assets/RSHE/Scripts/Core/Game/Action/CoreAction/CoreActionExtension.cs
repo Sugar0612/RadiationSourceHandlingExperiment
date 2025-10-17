@@ -26,7 +26,6 @@ public partial class CoreAction : NetworkBehaviour
                 {
                     if (gamePkg != null)
                     {
-                        TaskName taskNameEnum = (TaskName)Enum.Parse(typeof(TaskName), gamePkg?.TaskItem.taskName);
                         bool canGoOn = true;
                         TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
 
@@ -36,9 +35,9 @@ public partial class CoreAction : NetworkBehaviour
                         foreach (var item in gamePkg.TaskItem.conditions)
                             canGoOn = canGoOn & item.IsFinished;
 
-                        if (canGoOn)
+                        if (canGoOn && !GameSteps.Get().IsCheckTaskFinished(TaskName.T1))
                         {
-                            GameSteps.Get().SetTaskFinished(taskNameEnum);
+                            GameSteps.Get().SetTaskFinished(TaskName.T1);
                             HostIssuesTheGoNext(gamePkg, canGoOn);
                         }
                     }
