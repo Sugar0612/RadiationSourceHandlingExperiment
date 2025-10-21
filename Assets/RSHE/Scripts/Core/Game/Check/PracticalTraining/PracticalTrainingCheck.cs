@@ -51,9 +51,9 @@ public class PracticalTrainingCheck : CheckBase
         return true;
     }
 
-    public override bool CheckTask_5(TaskName[] closeTaskArray, out TaskName targetName)
+    public override bool CheckTask_5(TaskName[] closeTaskArray, EIdentity identity)
     {
-        targetName = TaskName.T13;
+        TaskName targetName = TaskName.T13;
         foreach (TaskName task in closeTaskArray)
         {
             if (!GameSteps.Get().IsCheckTaskFinished(task))
@@ -62,6 +62,15 @@ public class PracticalTrainingCheck : CheckBase
                 break;
             }
         }
+
+        if (targetName != TaskName.T13)
+        {
+            if (!GameSteps.Get().CheckTaskGoRun(targetName))
+            {
+                return false;
+            }
+        }
+
         return targetName != TaskName.T13;
     }
 

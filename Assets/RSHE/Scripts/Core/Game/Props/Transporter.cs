@@ -119,28 +119,7 @@ public class Transporter : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdGoCloseTask()
     {
-        //TaskName targetTaskName = TaskName.T13;
-        //foreach (TaskName task in _closeTaskArray)
-        //{
-        //    if (!GameSteps.Get().IsCheckTaskFinished(task))
-        //    {
-        //        targetTaskName = task;
-        //        break;
-        //    }
-        //}
-
-        // Log.cinput("yellow", $"Close Task: {targetTaskName.ToString()}");
-        TaskName targetTaskName = TaskName.T13;
-        if (_inspector.T5Check(_closeTaskArray, out targetTaskName))
-        {
-            //Log.cinput("yellow", "passed t5 check.");
-            if(!GameSteps.Get().CheckTaskGoRun(targetTaskName))
-            {
-                //Log.cinput("yellow", "no passed t5 check go run.");
-                VRNetworkPlayerController whoClickedButton = PlayerManager.Get().GetPlayer(_clickedButtonIdentity);
-                whoClickedButton?.TargetPrompt(whoClickedButton.connectionToClient, PromptType.TaskOrderWrong);
-            }
-        }
+        _inspector.T5Check(_closeTaskArray, _clickedButtonIdentity);
     }
 
     [Command (requiresAuthority = false)]

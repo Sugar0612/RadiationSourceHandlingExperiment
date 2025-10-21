@@ -27,9 +27,9 @@ public class TaskInspector
         return _checkBase.CheckTask_4(collider, ref valuelist);
     }
 
-    public bool T5Check(TaskName[] closeTaskArray, out TaskName taskName)
+    public bool T5Check(TaskName[] closeTaskArray, EIdentity identity)
     {
-        return _checkBase.CheckTask_5(closeTaskArray, out taskName);
+        return _checkBase.CheckTask_5(closeTaskArray, identity);
     }
 
     public bool T6Check(Collider other)
