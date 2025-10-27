@@ -91,4 +91,6 @@ public enum PromptType
     DataError,
     TaskOrderWrong,
     PropWrong,
+    TActionWrong,
+    TaskIsFinished
 }

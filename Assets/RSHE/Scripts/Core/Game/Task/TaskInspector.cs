@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Transporter;
 
 public class TaskInspector
 {
@@ -35,5 +37,10 @@ public class TaskInspector
     public bool T6Check(Collider other)
     {
         return _checkBase.CheckTask_6(other);
+    }
+
+    public bool T7Check(JarStatus p_JarStatus, EIdentity identity)
+    {
+        return _checkBase.CheckTask_7(p_JarStatus, identity);
     }
 }

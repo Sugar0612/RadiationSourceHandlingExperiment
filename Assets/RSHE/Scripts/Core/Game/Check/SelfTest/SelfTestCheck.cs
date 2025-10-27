@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Transporter;
 
 public class SelfTestCheck : CheckBase
 {
@@ -34,7 +35,7 @@ public class SelfTestCheck : CheckBase
             if (!GameSteps.Get().IsCheckTaskFinished(task))
             {
                 VRNetworkPlayerController vrCtrl = PlayerManager.Get().GetPlayer(propCollider.WhoHeld);
-                vrCtrl?.TargetPrompt(vrCtrl.connectionToClient, PromptType.TaskOrderWrong);
+                vrCtrl?.TargetPrompt(vrCtrl.connectionToClient, PromptType.TaskOrderWrong); 
                 // valueList.Clear();
                 return false;
             }
@@ -156,6 +157,27 @@ public class SelfTestCheck : CheckBase
             }
             return false;
         }
+        return true;
+    }
+
+    public override bool CheckTask_7(JarStatus p_JarStatus, EIdentity identity)
+    {
+        bool isClose = p_JarStatus == JarStatus.Close;
+        bool isFinished = GameSteps.Get().IsCheckTaskFinished(TaskName.T7);
+
+        PromptType wrongType = PromptType.None;
+        if (wrongType == PromptType.None && isFinished) wrongType = PromptType.TaskIsFinished;
+        else if (wrongType == PromptType.None && isClose == false) wrongType = PromptType.TActionWrong;
+
+        Log.cinput("green", $"@@@@ isFinished： {isFinished}, isClose: {isClose}, wrongType: {wrongType.ToString()}, identity: {identity.ToString()}");
+
+        if (wrongType != PromptType.None)
+        {
+            VRNetworkPlayerController whoClickedButton = PlayerManager.Get().GetPlayer(identity);
+            whoClickedButton?.TargetPrompt(whoClickedButton.connectionToClient, wrongType);
+            return false;
+        }
+
         return true;
     }
 }

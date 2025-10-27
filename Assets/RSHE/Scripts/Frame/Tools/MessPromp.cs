@@ -10,7 +10,9 @@ public class MessPromp
         {PromptType.WearClothing, "未穿戴防护服！请立即返回穿戴！" },
         {PromptType.DataError, "提交数据不在正常范围！" },
         {PromptType.TaskOrderWrong, "请完成前提任务，再来完成该任务！" },
-        {PromptType.PropWrong, "不是本次任务对应的道具！" }
+        {PromptType.TaskIsFinished, "该任务已完成，请勿重复！" },
+        {PromptType.PropWrong, "不是本次任务对应的道具！" },
+        {PromptType.TActionWrong, "运输车行为异常！" }
     };
 
     public static string Prompt(PromptType type)

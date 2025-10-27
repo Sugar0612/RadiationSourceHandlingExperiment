@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Transporter;
 
 public class PracticalTrainingCheck : CheckBase
 {
@@ -82,6 +83,16 @@ public class PracticalTrainingCheck : CheckBase
         {
             return false;
         }
+        return true;
+    }
+
+    public override bool CheckTask_7(JarStatus p_JarStatus, EIdentity identity)
+    {
+        bool isClose = p_JarStatus == JarStatus.Close;
+        bool isNotFinished = !GameSteps.Get().IsCheckTaskFinished(TaskName.T7);
+
+        if (isClose == false || isNotFinished == false) return false;
+
         return true;
     }
 }

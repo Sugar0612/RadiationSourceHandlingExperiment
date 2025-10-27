@@ -48,6 +48,9 @@ public class Transporter : NetworkBehaviour
 
     [SyncVar] public EIdentity _clickedButtonIdentity;
 
+    [SyncVar] public bool _isCanGoBackOne = false;
+    [SyncVar] public bool _isCanGoBackTwo = false;
+
     public void Start()
     {
         GoPointOneButton.onClick.AddListener(() =>
@@ -66,7 +69,7 @@ public class Transporter : NetworkBehaviour
 
         GoBackButtonTwo.onClick.AddListener(() =>
         {
-            if (p_JarStatus == JarStatus.Close && GameSteps.Get().CheckTaskGoRun(TaskName.T12))
+            if (p_JarStatus == JarStatus.Close && !GameSteps.Get().IsCheckTaskFinished(TaskName.T12))
             {
                 CmdSetActionBool("goPointTwo", false);
                 CmdSetActionBool("goBackTwo", true);
@@ -77,7 +80,11 @@ public class Transporter : NetworkBehaviour
 
         GoBackButtonOne.onClick.AddListener(() =>
         {
-            if (p_JarStatus == JarStatus.Close && GameSteps.Get().CheckTaskGoRun(TaskName.T7))
+            _clickedButtonIdentity = GetLocalPlayer();
+            CmdSetClickedButtonIdentity(_clickedButtonIdentity);
+            CmdGoBackOneCheck();
+
+            if (_isCanGoBackOne) //p_JarStatus == JarStatus.Close && !GameSteps.Get().IsCheckTaskFinished(TaskName.T7))
             {
                 CmdSetActionBool("goPointOne", false);
                 CmdSetActionBool("goBackOne", true);
@@ -116,11 +123,25 @@ public class Transporter : NetworkBehaviour
         _inspector = new TaskInspector();
     }
 
+    #region 步骤检查
+
     [Command(requiresAuthority = false)]
     void CmdGoCloseTask()
     {
         _inspector.T5Check(_closeTaskArray, _clickedButtonIdentity);
     }
+
+    [Command(requiresAuthority = false)]
+    void CmdGoBackOneCheck()
+    {
+        bool b = _inspector.T7Check(p_JarStatus, _clickedButtonIdentity);
+        RpcSetisCanGoBackOne(b);
+    }
+
+    [ClientRpc]
+    void RpcSetisCanGoBackOne(bool b) { _isCanGoBackOne = b; }
+
+    #endregion
 
     [Command (requiresAuthority = false)]
     void CmdGoTask(TaskName taskName)
