@@ -20,24 +20,24 @@ public class GameSteps : NetworkBehaviour
         return m_Instance;
     }
 
-    #region ÈÎÎñ²½Öè²ÎÊı
+    #region ä»»åŠ¡æ­¥éª¤å‚æ•°
 
-    /// <summary> ²½Öè´æ·ÅÈİÆ÷£¬Ò»¸ö²½ÖèÀïÃæ¿ÉÄÜÓĞºÜ¶à¸öĞ¡ÈÎÎñ </summary>
+    /// <summary> æ­¥éª¤å­˜æ”¾å®¹å™¨ï¼Œä¸€ä¸ªæ­¥éª¤é‡Œé¢å¯èƒ½æœ‰å¾ˆå¤šä¸ªå°ä»»åŠ¡ </summary>
     [SerializeField]
     public List<GameTask> stepsList = new List<GameTask>();
 
-    /// <summary> µ±Ç°²½Öè </summary>
+    /// <summary> å½“å‰æ­¥éª¤ </summary>
     GameTask currStep { get { return stepsList?[stepIdx]; } }
 
-    /// <summary> µ±Ç°ÈÎÎñ </summary>
+    /// <summary> å½“å‰ä»»åŠ¡ </summary>
     GameTaskItem currTask { get { return currTaskList?[taskIdx]; } }
 
-    /// <summary> µ±Ç°ÈÎÎñÁĞ±í </summary>
+    /// <summary> å½“å‰ä»»åŠ¡åˆ—è¡¨ </summary>
     List<GameTaskItem> currTaskList { get { return currStep.tasksList; } }
 
-    int stepIdx = 0; // ´ó²½ÖèË÷Òı
+    int stepIdx = 0; // å¤§æ­¥éª¤ç´¢å¼•
 
-    int taskIdx = 0; // Ğ¡ÈÎÎñË÷Òı
+    int taskIdx = 0; // å°ä»»åŠ¡ç´¢å¼•
 
     public int[,] TaskTable = new int[100, 100];
 
@@ -110,7 +110,7 @@ public class GameSteps : NetworkBehaviour
     }
 
     /// <summary>
-    /// ¿ªÊ¼ÏÂÒ»¸öÈÎÎñ
+    /// å¼€å§‹ä¸‹ä¸€ä¸ªä»»åŠ¡
     /// </summary>
     public void Next()
     {
@@ -125,7 +125,7 @@ public class GameSteps : NetworkBehaviour
     }
 
     /// <summary>
-    /// ¿ªÊ¼ÏÂÒ»¸ö²½Öè
+    /// å¼€å§‹ä¸‹ä¸€ä¸ªæ­¥éª¤
     /// </summary>
     void NextStep()
     {
@@ -138,28 +138,28 @@ public class GameSteps : NetworkBehaviour
         }
     }
 
-    /// <summary> Ö´ĞĞ¿ªÊ¼ÈÎÎñ </summary>
+    /// <summary> æ‰§è¡Œå¼€å§‹ä»»åŠ¡ </summary>
     public void RunStart()
     {
         // Log.cinput("yellow", $"currTask: {currTask.taskName}  StepPos: {currTask.StepPos}, taskPos: {currTask.TaskPos}, TaskTable: {TaskTable[currTask.StepPos, currTask.TaskPos]}");
         currTask.RunStart();
     }
 
-    /// <summary> Ö´ĞĞÖĞ¼äÈÎÎñ </summary>
+    /// <summary> æ‰§è¡Œä¸­é—´ä»»åŠ¡ </summary>
     public void RunEnd()
     {
         //Log.cinput("yellow", $"currTask: StepPos: {currTask.StepPos}, taskPos: {currTask.TaskPos}, TaskTable: {TaskTable[currTask.StepPos, currTask.TaskPos]}");
         currTask.RunEnd();
     }
 
-    /// <summary> Ö´ĞĞ½áÊøÈÎÎñ </summary>
+    /// <summary> æ‰§è¡Œç»“æŸä»»åŠ¡ </summary>
     public void Run()
     {
         //Log.cinput("yellow", $"currTask: StepPos: {currTask.StepPos}, taskPos: {currTask.TaskPos}, TaskTable: {TaskTable[currTask.StepPos, currTask.TaskPos]}");
         currTask.RunTask();
     }
 
-    /// <summary> ÉèÖÃ²½ÖèË÷Òı </summary>
+    /// <summary> è®¾ç½®æ­¥éª¤ç´¢å¼• </summary>
     public void SetStepIndex(int targetStepIdx) 
     {
         if (targetStepIdx >= 0 && targetStepIdx < stepsList.Count)

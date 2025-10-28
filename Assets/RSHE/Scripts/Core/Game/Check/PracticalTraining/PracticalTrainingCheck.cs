@@ -89,9 +89,17 @@ public class PracticalTrainingCheck : CheckBase
     public override bool CheckTask_7(JarStatus p_JarStatus, EIdentity identity)
     {
         bool isClose = p_JarStatus == JarStatus.Close;
-        bool isNotFinished = !GameSteps.Get().IsCheckTaskFinished(TaskName.T7);
+        bool isOrder = true;
+        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        {
+            if (task == TaskName.T7)
+                break;
 
-        if (isClose == false || isNotFinished == false) return false;
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+                isOrder = false;
+        }
+
+        if (isClose == false || isOrder == false) return false;
 
         return true;
     }

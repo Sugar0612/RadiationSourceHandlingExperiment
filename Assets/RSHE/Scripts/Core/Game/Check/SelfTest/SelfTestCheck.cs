@@ -163,13 +163,19 @@ public class SelfTestCheck : CheckBase
     public override bool CheckTask_7(JarStatus p_JarStatus, EIdentity identity)
     {
         bool isClose = p_JarStatus == JarStatus.Close;
-        bool isFinished = GameSteps.Get().IsCheckTaskFinished(TaskName.T7);
+        bool isOrder = true; //GameSteps.Get().IsCheckTaskFinished(TaskName.T7);
+        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        {
+            if (task == TaskName.T7)
+                break;
+
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+                isOrder = false;
+        }
 
         PromptType wrongType = PromptType.None;
-        if (wrongType == PromptType.None && isFinished) wrongType = PromptType.TaskIsFinished;
+        if (wrongType == PromptType.None && isOrder == false) wrongType = PromptType.TaskOrderWrong;
         else if (wrongType == PromptType.None && isClose == false) wrongType = PromptType.TActionWrong;
-
-        Log.cinput("green", $"@@@@ isFinished： {isFinished}, isClose: {isClose}, wrongType: {wrongType.ToString()}, identity: {identity.ToString()}");
 
         if (wrongType != PromptType.None)
         {
