@@ -2,6 +2,7 @@ using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,8 @@ public class InBeltPanel : RecordPanel
 
     public void OnClickedPutButton()
     {
+        EIdentity identity = GetLocalPlayer();
+        CmdSetClickedButtonIdentity(identity);
         CmdOnClickedPutButton();
     }
 
@@ -30,7 +33,7 @@ public class InBeltPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        if (_inspector.T3Check(_propCollider, ref _valueList))
+        if (_inspector.CheckRecordTask(0.1f, 0.5f, _clickedButtonIdentity, TaskName.T3, ref _valueList))
         {
             RpcClickedPutButton();
             GameSteps.Get().CheckTaskGoRun(TaskName.T3);

@@ -18,6 +18,8 @@ public class OutBeltPanel : RecordPanel
     /// <summary> 放置按钮 </summary>
     public void OnClickedPutButton()
     {
+        EIdentity identity = GetLocalPlayer();
+        CmdSetClickedButtonIdentity(identity);
         CmdOnClickedPutButton();
     }
 
@@ -32,7 +34,7 @@ public class OutBeltPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        if (_inspector.T2Check(_propCollider, ref _valueList))
+        if (_inspector.CheckRecordTask(0.1f, 0.3f, _clickedButtonIdentity, TaskName.T2, ref _valueList))
         {
             RpcClickedPutButton();
             GameSteps.Get().CheckTaskGoRun(TaskName.T2);

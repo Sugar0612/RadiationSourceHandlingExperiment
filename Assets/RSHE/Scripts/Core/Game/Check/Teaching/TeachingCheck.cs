@@ -6,11 +6,11 @@ using static Transporter;
 
 public class TeachingCheck : CheckBase
 {
-    public override bool CheckTask_2(NetworkPropsCollider propCollider, ref List<float> valueList)
+    public override bool CheckRecordTask(float minVal, float maxVal, EIdentity identity, TaskName taskName, ref List<float> valueList)
     {
         foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
         {
-            if (task == TaskName.T2)
+            if (task == taskName)
                 break;
 
             if (!GameSteps.Get().IsCheckTaskFinished(task))
@@ -21,37 +21,52 @@ public class TeachingCheck : CheckBase
         return true;
     }
 
-    public override bool CheckTask_3(NetworkPropsCollider propCollider, ref List<float> valueList)
-    {
-        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
-        {
-            if (task == TaskName.T3)
-                break;
+    //public override bool CheckTask_2(NetworkPropsCollider propCollider, ref List<float> valueList)
+    //{
+    //    foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+    //    {
+    //        if (task == TaskName.T2)
+    //            break;
 
-            if (!GameSteps.Get().IsCheckTaskFinished(task))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    //        if (!GameSteps.Get().IsCheckTaskFinished(task))
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //    return true;
+    //}
 
-    public override bool CheckTask_4(NetworkPropsCollider propCollider, ref List<float> valueList)
-    {
-        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
-        {
-            if (task == TaskName.T4)
-                break;
+    //public override bool CheckTask_3(NetworkPropsCollider propCollider, ref List<float> valueList)
+    //{
+    //    foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+    //    {
+    //        if (task == TaskName.T3)
+    //            break;
 
-            if (!GameSteps.Get().IsCheckTaskFinished(task))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    //        if (!GameSteps.Get().IsCheckTaskFinished(task))
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //    return true;
+    //}
 
-    public override bool CheckTask_5(TaskName[] closeTaskArray, EIdentity identity)
+    //public override bool CheckTask_4(NetworkPropsCollider propCollider, ref List<float> valueList)
+    //{
+    //    foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+    //    {
+    //        if (task == TaskName.T4)
+    //            break;
+
+    //        if (!GameSteps.Get().IsCheckTaskFinished(task))
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //    return true;
+    //}
+
+    public override bool TCloseActionCheck(TaskName[] closeTaskArray, EIdentity identity)
     {
         TaskName targetName = TaskName.T13;
         foreach (TaskName task in closeTaskArray)
@@ -74,7 +89,7 @@ public class TeachingCheck : CheckBase
         return targetName != TaskName.T13;
     }
 
-    public override bool CheckTask_6(Collider propCollider)
+    public override bool InspectionSteps(Collider propCollider)
     {
         Detector detector = propCollider.GetComponentInParent<Detector>();
         PollutionDetector pollutionDetector = propCollider.GetComponentInParent<PollutionDetector>();
@@ -87,7 +102,7 @@ public class TeachingCheck : CheckBase
 
     public override bool CheckTask_7(JarStatus p_JarStatus, EIdentity identity)
     {
-        bool isClose = p_JarStatus == JarStatus.Close;
+        bool isClose = p_JarStatus == JarStatus.Close;  
         bool isOrder = true;
         foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
         {
@@ -100,6 +115,24 @@ public class TeachingCheck : CheckBase
 
         if (isClose == false || isOrder == false) return false;
         
+        return true;
+    }
+
+    public override bool CheckTask_12(JarStatus p_JarStatus, EIdentity identity)
+    {
+        bool isClose = p_JarStatus == JarStatus.Close;
+        bool isOrder = true;
+        foreach (TaskName task in Enum.GetValues(typeof(TaskName)))
+        {
+            if (task == TaskName.T12)
+                break;
+
+            if (!GameSteps.Get().IsCheckTaskFinished(task))
+                isOrder = false;
+        }
+
+        if (isClose == false || isOrder == false) return false;
+
         return true;
     }
 }

@@ -69,10 +69,14 @@ public class Transporter : NetworkBehaviour
 
         GoBackButtonTwo.onClick.AddListener(() =>
         {
-            if (p_JarStatus == JarStatus.Close && !GameSteps.Get().IsCheckTaskFinished(TaskName.T12))
+            _clickedButtonIdentity = GetLocalPlayer();
+            CmdSetClickedButtonIdentity(_clickedButtonIdentity);
+            CmdGoBackOneCheck();
+
+            if (_isCanGoBackTwo) //p_JarStatus == JarStatus.Close && !GameSteps.Get().IsCheckTaskFinished(TaskName.T7))
             {
-                CmdSetActionBool("goPointTwo", false);
-                CmdSetActionBool("goBackTwo", true);
+                CmdSetActionBool("goPointOne", false);
+                CmdSetActionBool("goBackOne", true);
                 CmdSetActive(false);
                 CmdGoTask(TaskName.T12);
             }
@@ -128,7 +132,7 @@ public class Transporter : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdGoCloseTask()
     {
-        _inspector.T5Check(_closeTaskArray, _clickedButtonIdentity);
+        _inspector.TCloseActionCheck(_closeTaskArray, _clickedButtonIdentity);
     }
 
     [Command(requiresAuthority = false)]
@@ -140,6 +144,16 @@ public class Transporter : NetworkBehaviour
 
     [ClientRpc]
     void RpcSetisCanGoBackOne(bool b) { _isCanGoBackOne = b; }
+
+    [Command(requiresAuthority = false)]
+    void CmdGoBackTwoCheck()
+    {
+        bool b = _inspector.T7Check(p_JarStatus, _clickedButtonIdentity);
+        RpcSetisCanGoBackTwo(b);
+    }
+
+    [ClientRpc]
+    void RpcSetisCanGoBackTwo(bool b) { _isCanGoBackTwo = b; }
 
     #endregion
 

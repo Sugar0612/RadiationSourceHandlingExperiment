@@ -17,6 +17,8 @@ public class FlagPanel : RecordPanel
 
     public void OnClickedPutButton()
     {
+        EIdentity identity = GetLocalPlayer();
+        CmdSetClickedButtonIdentity(identity);
         CmdOnClickedPutButton();
     }
 
@@ -30,7 +32,7 @@ public class FlagPanel : RecordPanel
     [Command(requiresAuthority = false)]
     public void CmdOnClickedPutButton()
     {
-        if (_inspector.T4Check(_propCollider, ref _valueList))
+        if (_inspector.CheckRecordTask(0.1f, 1.0f, _clickedButtonIdentity, TaskName.T4, ref _valueList))
         {
             RpcClickedPutButton();
             GameSteps.Get().CheckTaskGoRun(TaskName.T4);

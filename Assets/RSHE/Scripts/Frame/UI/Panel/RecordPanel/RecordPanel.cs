@@ -36,7 +36,9 @@ public class RecordPanel : NetworkBehaviour
 
     protected NetworkPropsCollider _propCollider;
 
-    protected List<float> _valueList = new List<float>(); 
+    protected List<float> _valueList = new List<float>();
+
+    public EIdentity _clickedButtonIdentity;
 
     virtual public void Start()
     {
@@ -74,5 +76,24 @@ public class RecordPanel : NetworkBehaviour
     {
         gameObject.SetActive<Image>(active);
         gameObject.SetActive<TextMeshProUGUI>(active);
+    }
+
+    public EIdentity GetLocalPlayer()
+    {
+        VRNetworkPlayerController[] players = FindObjectsOfType<VRNetworkPlayerController>();
+        foreach (VRNetworkPlayerController player in players)
+        {
+            if (player.isLocalPlayer)
+            {
+                return player.identity;
+            }
+        }
+        return EIdentity.None;
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetClickedButtonIdentity(EIdentity identity)
+    {
+        _clickedButtonIdentity = identity;
     }
 }
