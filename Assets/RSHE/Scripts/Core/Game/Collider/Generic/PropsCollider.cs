@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.XR.PXR.ShapesRecognizer;
 
 public class NetworkPropsCollider : NetworkBehaviour
 {
@@ -29,10 +30,17 @@ public class NetworkPropsCollider : NetworkBehaviour
         // 必须是手拿
         if (ctrl && bodyInfo && StaticGlobalVar.IsHand(bodyInfo))
         {
-            WhoHeld = ctrl.identity;
+            RpcSetWhoHeld(ctrl.identity);
+            //WhoHeld = ctrl.identity;
         }
     }
-    
+
+    [ClientRpc]
+    void RpcSetWhoHeld(EIdentity identity)
+    {
+        WhoHeld = identity;
+    }
+
     public void OnTriggerExit(Collider other)
     {
         //BodyPartInfo bodyInfo = other.gameObject.GetComponentInParent<BodyPartInfo>();

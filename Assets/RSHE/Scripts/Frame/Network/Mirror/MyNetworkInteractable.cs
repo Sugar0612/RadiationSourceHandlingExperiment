@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Unity.VisualScripting;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/guides/networkbehaviour
@@ -28,9 +29,13 @@ public class MyNetworkInteractable : NetworkBehaviour
         ResetInteractableVelocity();
         if (sender != netIdentity.connectionToClient)
         {
-            Debug.Log("AssignClientAuthority");
+            NetworkPropsCollider propCollider = gameObject.GetComponent<NetworkPropsCollider>();
+            VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(propCollider.WhoHeld);
+            
+            Log.cinput("red", $"@@@@@@@@@@@@@@@@@@ AssignClientAuthority, who held: {propCollider.WhoHeld.ToString()}");
             netIdentity.RemoveClientAuthority();
             netIdentity.AssignClientAuthority(sender);
+            gameObject.transform.parent = player.HeldTrans;
         }
     }
 

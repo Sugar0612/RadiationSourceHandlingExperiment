@@ -35,11 +35,14 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     [Tooltip("Player Collider Transform")]
     public Transform m_PlayerCollider;
+
+    public Transform HeldTrans;
+
     #endregion
 
     #region 玩家模型
     [Space]
-    [Header("Model Prefab")]
+    [Header("Models Prefab")]
 
     [SerializeField]
     [Tooltip("Player Head Model Component")]
@@ -77,15 +80,17 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [Space]
     [Header("Other Controller")]
 
-    /// <summary> PlayerRig component on player in scene. </summary>
-    private MyVRPlayerRig m_VRPlayerRig;
-
-    /// <summary> Player Name ui component in Scene. </summary>
-    public TMP_Text textPlayerName;
-
     /// <summary> 身份 </summary>
     [SyncVar(hook = nameof(OnIdentityChanged))]
     public EIdentity identity = EIdentity.None;
+
+    /// <summary> PlayerRig component on player in scene. </summary>
+    private MyVRPlayerRig m_VRPlayerRig;
+
+    public MyVRPlayerRig playerRig {get => m_VRPlayerRig; }
+
+    /// <summary> Player Name ui component in Scene. </summary>
+    public TMP_Text textPlayerName;
 
     /// <summary> Player name variable.</summary>
     [SyncVar(hook = nameof(OnNameChangedHook))]
@@ -115,7 +120,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [ClientCallback]
     public void FixedUpdate()
     {
-        DetectingHandModelTracking();
+        //DetectingHandModelTracking();
     }
 
     /// <summary> 
@@ -143,7 +148,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         InitObject();
 
         m_HeadModel.SetRendererEnable(false);
-        m_LHandModel.SetRendererEnable(false);
+        // m_LHandModel.SetRendererEnable(false);
         m_RHandModel.SetRendererEnable(false);
         textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
     }
@@ -277,6 +282,13 @@ public class VRNetworkPlayerController : NetworkBehaviour
     {
         //Log.cinput("green", "@@ TargetPrompt");
         m_VRPlayerRig.HintPanel.ShowHintPanel(MessPromp.Prompt(type), 5.0f);
+    }
+
+    public void PickUp(NetworkIdentity identity)
+    {
+        Log.cinput("green", "@@@@@@@ Player Pick Up..");
+        MyNetworkInteractable interactable = identity.GetComponentInParent<MyNetworkInteractable>();
+        interactable.EventPick();
     }
 
     [ClientRpc] public void RpcSetWStatus(WearStatus status) => WStatus = status;
