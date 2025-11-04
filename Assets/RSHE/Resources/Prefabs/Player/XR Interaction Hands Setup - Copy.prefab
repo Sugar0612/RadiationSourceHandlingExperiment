@@ -1049,14 +1049,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8784533757604756911}
   m_SourcePrefab: {fileID: 100100000, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
---- !u!4 &961015577546009652 stripped
+--- !u!4 &760172173812383872 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7687002247617239913, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
-  m_PrefabInstance: {fileID: 7492724527406118749}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7114094731005956244 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 378819368205903817, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7887823656286205917, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
   m_PrefabInstance: {fileID: 7492724527406118749}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7990873191231833676 stripped
@@ -1127,6 +1122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gradientTime: 3
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!4 &8724088221210090612 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2227506386554612521, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+  m_PrefabInstance: {fileID: 7492724527406118749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8733093507751517968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2218496723442559053, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
@@ -1149,8 +1149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5873a6160a0cdd458a858d1c37095bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LHand: {fileID: 961015577546009652}
-  m_RHand: {fileID: 7114094731005956244}
+  m_LHand: {fileID: 760172173812383872}
+  m_RHand: {fileID: 8724088221210090612}
   m_Head: {fileID: 7990873191231833676}
   _vRPlayerController: {fileID: 0}
   HintPanel: {fileID: 3312566072940308842}
