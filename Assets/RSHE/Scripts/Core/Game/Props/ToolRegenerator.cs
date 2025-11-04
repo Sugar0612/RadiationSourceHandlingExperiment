@@ -2,33 +2,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using System.Collections;
+using System.Security.Principal;
 
 public class ToolRegenerator : NetworkBehaviour
 {
-    #region ¹«ÓĞ³ÉÔ±
+    #region å…¬æœ‰æˆå‘˜
 
-    /// <summary> µÀ¾ßÔ¤ÖÆ¼şÁĞ±í</summary>
+    /// <summary> é“å…·é¢„åˆ¶ä»¶åˆ—è¡¨</summary>
     public List<GameObject> PropPrefabs = new List<GameObject>();
     
-    /// <summary> ³¡¾°µÀ¾ßÁĞ±í </summary>
+    /// <summary> åœºæ™¯é“å…·åˆ—è¡¨ </summary>
     public List<GameObject> PorpScenes = new List<GameObject>();
 
-    /// <summary> µ±ÓĞĞÂµÄµÀ¾ß±»¸´ÖÆ£¬¾ÍÒªÉ¾³ı³¡¾°ÖĞÒÑÓĞµÄÏàÍ¬µÀ¾ß </summary>
+    /// <summary> å½“æœ‰æ–°çš„é“å…·è¢«å¤åˆ¶ï¼Œå°±è¦åˆ é™¤åœºæ™¯ä¸­å·²æœ‰çš„ç›¸åŒé“å…· </summary>
     Dictionary<string, GameObject> _oldSceneProp = new Dictionary<string, GameObject>();
 
-    /// <summary> µÀ¾ßÉú³ÉµÄ¸¸½Úµã </summary>
+    /// <summary> é“å…·ç”Ÿæˆçš„çˆ¶èŠ‚ç‚¹ </summary>
     public Transform PorpTransform;
 
     #endregion
 
-    #region Ë½ÓĞ³ÉÔ±
+    #region ç§æœ‰æˆå‘˜
 
     Dictionary<string, GameObject> _propPrefabDic = new Dictionary<string, GameObject>();
 
-    /// <summary> Éú³ÉµÄ³õÊ¼Î»ÖÃ </summary>
+    /// <summary> ç”Ÿæˆçš„åˆå§‹ä½ç½® </summary>
     Dictionary<string, Vector3> _spawnPos = new Dictionary<string, Vector3>();
 
-    /// <summary> Éú³ÉµÄ³õÊ¼Î»ÖÃ </summary>
+    /// <summary> ç”Ÿæˆçš„åˆå§‹ä½ç½® </summary>
     Dictionary<string, Quaternion> _spawnRot = new Dictionary<string, Quaternion>();
 
     #endregion
@@ -80,6 +81,42 @@ public class ToolRegenerator : NetworkBehaviour
             Quaternion spawnRot = _spawnRot[propName];
             GameObject newObj = Instantiate(prefab, spawnPos, spawnRot, PorpTransform);
             NetworkServer.Spawn(newObj);
+        }
+    }
+
+    [ServerCallback]
+    private void OnTriggerEnter(Collider other)
+    {
+        GrabHand grabHand = other.GetComponentInChildren<GrabHand>();
+        if (grabHand != null)
+        {
+            if (grabHand.GrabObject != null)
+            {
+                NetworkPropsCollider prop = grabHand.GrabObject.GetComponentInChildren<NetworkPropsCollider>();
+                NetworkIdentity identity = other.GetComponentInParent<NetworkIdentity>();
+
+                if (identity)
+                {
+                    RpcUnbindObject(identity);
+                }
+
+                if (prop)
+                {
+                    Utility.DestroyNetworkObject(_oldSceneProp[prop.PropName]);
+                    _oldSceneProp[prop.PropName] = null;
+                }
+            }
+        }
+    }
+
+    [ClientRpc]
+    void RpcUnbindObject(NetworkIdentity identity)
+    {
+        GrabHand grabHand = identity.GetComponentInChildren<GrabHand>();
+        if (grabHand.GrabObject)
+        {
+            grabHand.GrabObject.transform.parent = null;
+            grabHand.GrabObject = null;
         }
     }
 

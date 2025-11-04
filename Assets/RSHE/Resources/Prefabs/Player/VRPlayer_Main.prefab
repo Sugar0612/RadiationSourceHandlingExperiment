@@ -402,6 +402,7 @@ MonoBehaviour:
   textPlayerName: {fileID: 3069002722878179239}
   playerName: 
   WStatus: 0
+  grabHand: {fileID: 5799566358400709270}
 --- !u!114 &-2337407976546325056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,6 +849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645129918578960704}
+  - component: {fileID: 5799566358400709270}
   m_Layer: 0
   m_Name: HeldTrans
   m_TagString: Untagged
@@ -863,13 +865,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4166459744206967014}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1217936118761774755}
+  m_Father: {fileID: 2451645863641243299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5799566358400709270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166459744206967014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fe6236e7f99f746a4133c40f55fc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabObject: {fileID: 0}
 --- !u!1 &4307493251889032559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,8 +1845,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2213602019732383299}
+  m_Children:
+  - {fileID: 1645129918578960704}
+  m_Father: {fileID: 1217936118761774755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6862283402052478077
 SphereCollider:
@@ -2108,15 +2124,12 @@ PrefabInstance:
     - {fileID: 1641038862298055217, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
     - {fileID: 1251372816237616134, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3741874462076707696, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2451645863641243299}
     - targetCorrespondingSourceObject: {fileID: 4446037728410573712, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
       insertIndex: 0
       addedObject: {fileID: 2600777814745336074}
     - targetCorrespondingSourceObject: {fileID: 4446037728410573712, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1645129918578960704}
+      addedObject: {fileID: 2451645863641243299}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3741874462076707703, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
       insertIndex: -1

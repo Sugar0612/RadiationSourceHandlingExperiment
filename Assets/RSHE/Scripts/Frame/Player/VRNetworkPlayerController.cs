@@ -103,6 +103,9 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     bool isleftLost = false;
 
+    /// <summary> 抓取物体的手部信息 </summary>
+    public GrabHand grabHand;
+
     #endregion
 
     #region 系统函数
@@ -120,7 +123,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [ClientCallback]
     public void FixedUpdate()
     {
-        //DetectingHandModelTracking();
+        DetectingHandModelTracking();
     }
 
     /// <summary> 
@@ -148,7 +151,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         InitObject();
 
         m_HeadModel.SetRendererEnable(false);
-        // m_LHandModel.SetRendererEnable(false);
+        m_LHandModel.SetRendererEnable(false);
         m_RHandModel.SetRendererEnable(false);
         textPlayerName.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
     }

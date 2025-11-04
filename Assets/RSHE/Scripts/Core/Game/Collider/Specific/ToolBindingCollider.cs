@@ -9,25 +9,32 @@ using UnityEngine.UIElements;
 
 public class ToolBindingCollider : NetworkBehaviour
 {
+    public bool isHeld = false;
+
+    /// <summary> 抓取点 </summary>
+    public Transform GrabTransform;
+
     [ServerCallback]
     public void OnTriggerEnter(Collider other)
     {
-        Log.cinput("red", "@@@@@@@@ ToolBindingCollider");
-        VRNetworkPlayerController player = other.GetComponentInParent<VRNetworkPlayerController>();
         NetworkIdentity identity = other.GetComponentInParent<NetworkIdentity>();
-        if (player)
+        if (identity)
         {
             RpcSetHeld(identity);
         }
-
     }
 
     [ClientRpc]
     void RpcSetHeld(NetworkIdentity identity)
     {
         VRNetworkPlayerController player = identity.GetComponent<VRNetworkPlayerController>();
-        gameObject.transform.parent = player.HeldTrans;
-        gameObject.transform.localPosition = Vector3.zero;
-        gameObject.transform.rotation = Quaternion.identity;
+        if (player && player.grabHand.GrabObject == null && !isHeld)
+        {
+            player.grabHand.GrabObject = gameObject;
+            gameObject.transform.parent = player.HeldTrans;
+            gameObject.transform.localPosition = new Vector3(GrabTransform.localPosition.x, -GrabTransform.localPosition.y, GrabTransform.localPosition.z);
+            gameObject.transform.rotation = GrabTransform.rotation;
+            isHeld = true;
+        }
     }
 }
