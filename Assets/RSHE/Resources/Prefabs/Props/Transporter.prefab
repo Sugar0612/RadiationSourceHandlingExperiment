@@ -302,7 +302,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   PropName: Transporter
-  WhoHolding: 0
+  WhoHeld: 0
   isCloned: 0
 --- !u!114 &1438377482595513936
 MonoBehaviour:
@@ -406,6 +406,9 @@ MonoBehaviour:
   ActionAnimator: {fileID: 3616804092212135391}
   CoverAnimator: {fileID: 2416661668005464710}
   p_JarStatus: 1
+  _clickedButtonIdentity: 0
+  _isCanGoBackOne: 0
+  _isCanGoBackTwo: 0
 --- !u!1 &1272751976063297838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db216eb81cdee36489d667e4b9706e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   OpenButton: {fileID: 8062998846169907599}
   CloseButton: {fileID: 4812143499137026368}
 --- !u!1 &5010983379594488094

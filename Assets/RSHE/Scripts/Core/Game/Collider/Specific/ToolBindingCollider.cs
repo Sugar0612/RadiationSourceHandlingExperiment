@@ -11,8 +11,11 @@ public class ToolBindingCollider : NetworkBehaviour
 {
     public bool isHeld = false;
 
-    /// <summary> 抓取点 </summary>
-    public Transform GrabTransform;
+    /// <summary> 拿取道具时Transform </summary>
+    public Transform HeldShapeTransform;
+
+    /// <summary> Root node Transform </summary>
+    public Transform RootTransform;
 
     [ServerCallback]
     public void OnTriggerEnter(Collider other)
@@ -30,10 +33,13 @@ public class ToolBindingCollider : NetworkBehaviour
         VRNetworkPlayerController player = identity.GetComponent<VRNetworkPlayerController>();
         if (player && player.grabHand.GrabObject == null && !isHeld)
         {
-            player.grabHand.GrabObject = gameObject;
             gameObject.transform.parent = player.HeldTrans;
-            gameObject.transform.localPosition = new Vector3(GrabTransform.localPosition.x, -GrabTransform.localPosition.y, GrabTransform.localPosition.z);
-            gameObject.transform.rotation = GrabTransform.rotation;
+            player.grabHand.GrabObject = gameObject;
+
+            gameObject.transform.localPosition = Vector3.zero;
+            gameObject.transform.localRotation = Quaternion.identity;
+            RootTransform.localPosition = HeldShapeTransform.localPosition;
+            RootTransform.rotation = HeldShapeTransform.rotation;
             isHeld = true;
         }
     }
