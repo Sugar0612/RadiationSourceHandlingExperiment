@@ -27,6 +27,12 @@ public class GameStartPanel : NetworkBehaviour
 
     public void OnStartButtonClicked()
     {
+        StartCoroutine(StartGameSequence());
+    }
+
+    IEnumerator StartGameSequence()
+    {
+        yield return new WaitForSeconds(2.5f);
         GameSteps.Get().RunStart();
         SetActive(false);
     }

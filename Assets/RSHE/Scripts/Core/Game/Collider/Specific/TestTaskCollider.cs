@@ -72,8 +72,8 @@ public class TestTaskCollider : NetworkBehaviour
 
         yield return new WaitForSeconds(WaitDuration);
 
-        Utility.DestroyNetworkObject(_detector.gameObject);
-        Utility.DestroyNetworkObject(_pollutionDetector.gameObject);
+        // Utility.DestroyNetworkObject(_detector.gameObject);
+        // Utility.DestroyNetworkObject(_pollutionDetector.gameObject);
         GameSteps.Get().CheckTaskGoRun(targetTaskName);
     }
 

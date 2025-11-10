@@ -35,6 +35,11 @@ public partial class CoreAction : NetworkBehaviour
                         foreach (var item in gamePkg.TaskItem.conditions)
                             canGoOn = canGoOn & item.IsFinished;
 
+                        if (canGoOn)
+                        {
+                            Log.cinput("green", "---@@ HostIssuesTheGoNext");
+                        }
+
                         if (canGoOn && !GameSteps.Get().IsCheckTaskFinished(TaskName.T1))
                         {
                             GameSteps.Get().SetTaskFinished(TaskName.T1);
