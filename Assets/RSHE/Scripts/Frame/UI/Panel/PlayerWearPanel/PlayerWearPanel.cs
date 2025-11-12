@@ -13,7 +13,7 @@ public class PlayerWearPanel : NetworkBehaviour
 
     public Slider WearSlider;
 
-    /// <summary> ÒÑ´©´÷ÌáÊ¾¿ò </summary>
+    /// <summary> å·²ç©¿æˆ´æç¤ºæ¡† </summary>
     public GameObject ShwoWorePanel;
 
     VRNetworkPlayerController _vrPlayerController;
@@ -26,7 +26,7 @@ public class PlayerWearPanel : NetworkBehaviour
         SetActive(false);
     }
 
-    /// <summary> Íæ¼ÒÕıÔÚ´©´÷·À»¤·ş UI ÏÔÊ¾ </summary>
+    /// <summary> ç©å®¶æ­£åœ¨ç©¿æˆ´é˜²æŠ¤æœ UI æ˜¾ç¤º </summary>
     public void Wearing(VRNetworkPlayerController vrController, Action callback)
     {
         ResetUI();
@@ -50,10 +50,10 @@ public class PlayerWearPanel : NetworkBehaviour
         while(_vrPlayerController.WStatus == VRNetworkPlayerController.WearStatus.Wearing && WearSlider.value != 1.0f)
         {
             float persent = WearSlider.value;
-            if (persent <= 0.2f) HintText.text = $"·À»¤ÊÖÌ×´©´÷ÖĞ...";
-            else if (persent > 0.2f && persent <= 0.4f) HintText.text = $"·À»¤Ã±´©´÷ÖĞ...";
-            else if (persent > 0.4f && persent < 0.6f) HintText.text = $"¼ÁÁ¿Æ¬Óë±¨¾¯ÒÇ´©´÷ÖĞ...";
-            else HintText.text = $"·À»¤ÒÂ´©´÷ÖĞ...";
+            if (persent <= 0.2f) HintText.text = $"é˜²æŠ¤æ‰‹å¥—ç©¿æˆ´ä¸­...";
+            else if (persent > 0.2f && persent <= 0.4f) HintText.text = $"é˜²æŠ¤å¸½ç©¿æˆ´ä¸­...";
+            else if (persent > 0.4f && persent < 0.6f) HintText.text = $"å‰‚é‡ç‰‡ä¸æŠ¥è­¦ä»ªç©¿æˆ´ä¸­...";
+            else HintText.text = $"é˜²æŠ¤è¡£ç©¿æˆ´ä¸­...";
 
             WearSlider.value += 0.01f;
             PercentText.text = $"{(WearSlider.value * 100f).ToString("F2")}%";
@@ -73,8 +73,8 @@ public class PlayerWearPanel : NetworkBehaviour
                 _vrPlayerController.Hat.SetRendererEnable(true);
             }
 
-            PercentText.text = "¡Ì";
-            HintText.text = $"{_vrPlayerController.identity.ToString()} ´©´÷Íê³É£¡";
+            PercentText.text = "âˆš";
+            HintText.text = $"{_vrPlayerController.identity.ToString()} ç©¿æˆ´å®Œæˆï¼";
             workState = WearPanelState.Wait;
             callback();
         }
@@ -97,7 +97,7 @@ public class PlayerWearPanel : NetworkBehaviour
     void ResetUI()
     {
         SetWorePanelActive(false);
-        HintText.text = $"´©´÷Çø";
+        HintText.text = $"ç©¿æˆ´åŒº";
         PercentText.text = "0%";
         WearSlider.value = 0.0f;
     }

@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,5 +65,10 @@ public static class Utility
         {
             // Debug.LogError($"Failed to load image from Resources: {imgPath}");
         }
+    }
+
+    public static string GetLocalTime()
+    {
+        return DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
     }
 }
