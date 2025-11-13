@@ -1,8 +1,9 @@
 using Mirror;
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public static class Utility
@@ -70,5 +71,46 @@ public static class Utility
     public static string GetLocalTime()
     {
         return DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+    }
+
+    public static bool OverwriteJSONFile(string filePath, string newContent)
+    {
+        if (!File.Exists(filePath))
+        {
+            Debug.LogWarning("文件不存在，将创建新文件: " + filePath);
+        }
+
+        try
+        {
+            // 将新内容写入文件，完全覆盖原有内容
+            File.WriteAllText(filePath, newContent);
+            Debug.Log("JSON文件覆盖成功: " + filePath);
+            return true;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("写入文件时出错: " + e.Message);
+        }
+        return false;
+    }
+
+    public static IEnumerator ReadFile(string filePath, System.Action<string> callback)
+    {
+        if (filePath.StartsWith("http"))
+        {
+            using (UnityWebRequest request = UnityWebRequest.Get(filePath))
+            {
+                yield return request.SendWebRequest();
+
+                if (request.result == UnityWebRequest.Result.Success)
+                    callback(request.downloadHandler.text);
+                else
+                    callback(null);
+            }
+        }
+        else
+        {
+            callback(File.Exists(filePath) ? File.ReadAllText(filePath) : null);
+        }
     }
 }

@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class FilePath
 {
-    /// <summary> »ñÈ¡Íæ¼ÒÉí·İÁĞ±í </summary>
+    /// <summary> è·å–ç©å®¶èº«ä»½åˆ—è¡¨ </summary>
     public static string UserConfigListPath = Application.streamingAssetsPath + "/Config/UserConfigList.json";
 
-    /// <summary> »ñÈ¡±¾µØÍæ¼ÒµÄÉí·İ </summary>
+    /// <summary> è·å–æœ¬åœ°ç©å®¶çš„èº«ä»½ </summary>
     public static string LocalUserIdentityPath = Application.streamingAssetsPath + "/Config/LocalUserIdentity.json";
+
+    /// <summary> è·å–è€ƒè¯•æ•°æ®è·¯å¾„ </summary>
+    public static string examDataPath = Application.streamingAssetsPath + "/Config/ExamList.json";
 }

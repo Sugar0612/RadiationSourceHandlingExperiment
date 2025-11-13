@@ -18,7 +18,7 @@ public class CheckClothingCollider : MonoBehaviour
                     vrCtrl.TargetPrompt(vrCtrl.connectionToClient, PromptType.WearClothing);
                     break;
                 case EGameMode.Assessment:
-                    // TODO..
+                    Scorer.Get().Deduction(TaskName.T1, vrCtrl.identity, GameSteps.Get().currTask.fraction, PromptType.WearClothing);
                     break;
                 default: break;
             }

@@ -30,7 +30,7 @@ public class GameSteps : NetworkBehaviour
     GameTask currStep { get { return stepsList?[stepIdx]; } }
 
     /// <summary> 当前任务 </summary>
-    GameTaskItem currTask { get { return currTaskList?[taskIdx]; } }
+    public GameTaskItem currTask { get { return currTaskList?[taskIdx]; } }
 
     /// <summary> 当前任务列表 </summary>
     List<GameTaskItem> currTaskList { get { return currStep.tasksList; } }

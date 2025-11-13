@@ -6517,7 +6517,7 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 7262410423349610663}
   HintAudio: {fileID: 8300000, guid: d7bb4b02afcf63c478200bf11141f597, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 13
   conditions:
   - Identity: 1
