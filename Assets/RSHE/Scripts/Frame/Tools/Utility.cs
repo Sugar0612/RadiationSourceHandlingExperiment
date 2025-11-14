@@ -110,7 +110,13 @@ public static class Utility
         }
         else
         {
-            callback(File.Exists(filePath) ? File.ReadAllText(filePath) : null);
+            string localStr = "";
+            if (File.Exists(filePath))
+            {
+                Log.cinput("red", "Json文件读取成功");
+                localStr = File.ReadAllText(filePath);
+            }
+            callback(localStr);
         }
     }
 }

@@ -59,6 +59,4 @@ public class OverviewWindow : WinBase
         _gameModeActive = !_gameModeActive;
         _cameraPanelActive = false;
     }
-
-    
 }

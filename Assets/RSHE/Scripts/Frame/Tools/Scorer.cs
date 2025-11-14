@@ -35,27 +35,31 @@ public class Scorer : MonoBehaviour
         currExamData = new ExamData();
     }
 
-    /// <summary>
-    /// 初始化
+    /// <summary> 
     /// </summary>
     public void Init()
     {
         StartCoroutine(Utility.ReadFile(FilePath.examDataPath, (content) =>
         {
+            Log.cinput("green", $"读取到的文件: {content}");
             if (content.Count() == 0) return;
-            ExamList = JsonMapper.ToObject<List<ExamData>>(content);
+            ExamList = JsonMapper.ToObject< List<ExamData>> (content);
         }));
     }
 
     /// <summary>
     /// 保存数据
     /// </summary>
-    public void Save()
+    public void Save(Action callback)
     {
+        ExamList.Add(currExamData);
         string newData = JsonMapper.ToJson(ExamList);
         Log.cinput("green", $"Save this data string: {newData}");
 
-        Utility.OverwriteJSONFile(FilePath.examDataPath, newData);
+        if (Utility.OverwriteJSONFile(FilePath.examDataPath, newData))
+        {
+            callback();
+        }
     }
 
     /// <summary>
@@ -67,4 +71,6 @@ public class Scorer : MonoBehaviour
         currExamData.Deduction(identity, score, s_reason);
         Log.cinput("red", $"reason: {s_reason}, identity：{identity}, score:{score}");
     }
+
+    public void Spawn() { }
 }

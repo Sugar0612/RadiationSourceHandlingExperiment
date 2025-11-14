@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
+using UnityEngine;
 
 [Serializable]
 public class ExamData
 {
     public string time;
 
+    [SerializeField]
     public List<UsrData> UsrList = new List<UsrData>();
 
     public ExamData()

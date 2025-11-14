@@ -32,7 +32,8 @@ public class GameStartPanel : NetworkBehaviour
 
     IEnumerator StartGameSequence()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
+        Scorer.Get().Spawn();
         GameSteps.Get().RunStart();
         SetActive(false);
     }

@@ -25,16 +25,39 @@ public class GameWindow : WinBase
     }
 
     /// <summary>
-    /// ���ز˵�����
+    /// 返回菜单界面
     /// </summary>
     public void OnClickedExitButton()
     {
-        GameHelpler.Get().BackMenu();
+        // TODO..先这么写着 后面再说
+        if (StaticGlobalVar.GameMode == EGameMode.Assessment)
+        {
+            GlobalPanel.Get().Spawn(@"是否保存本次成绩？",
+                () =>
+                {
+                    Scorer.Get().Save(() =>
+                    {
+                        GameHelpler.Get().BackMenu();
+                        GlobalPanel.Get().Destroy();
+                    });
+                },
+                () =>
+                {
+                    GameHelpler.Get().BackMenu();
+                    GlobalPanel.Get().Destroy();
+                }
+            );
+        }
+        else
+        {
+            GameHelpler.Get().BackMenu();
+            GlobalPanel.Get().Destroy();
+        }
         //CmdInitPlayer();
     }
 
     /// <summary>
-    /// ǰһ���۲��ӽ�
+    /// 前一个观察视角
     /// </summary>
     public void OnClickedPrevButton()
     {
@@ -44,7 +67,7 @@ public class GameWindow : WinBase
     }
 
     /// <summary>
-    /// ��һ���۲��ӽ�
+    /// 后一个观察视角
     /// </summary>
     public void OnClickedNextButton()
     {
