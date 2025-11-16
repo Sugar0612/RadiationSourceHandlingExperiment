@@ -13,6 +13,8 @@ public class Scorer : MonoBehaviour
 
     private static Scorer m_instance;
 
+    public bool isSpawned = false;
+
     public static Scorer Get()
     {
         if (m_instance == null)
@@ -20,6 +22,7 @@ public class Scorer : MonoBehaviour
             GameObject go = new GameObject(typeof(Scorer).ToString());
             m_instance = go.AddComponent<Scorer>();
             go.name = typeof(Scorer).ToString();
+            DontDestroyOnLoad(go);
         }
         return m_instance;
     }
@@ -62,6 +65,15 @@ public class Scorer : MonoBehaviour
         }
     }
 
+    public void DeleteItem(string itemName)
+    {
+        int targetIdx = ExamList.FindIndex(_ => _.time == itemName);
+        if (targetIdx != -1)
+        {
+            ExamList.RemoveAt(targetIdx);
+        }
+    }
+
     /// <summary>
     /// 减分
     /// </summary>
@@ -72,5 +84,5 @@ public class Scorer : MonoBehaviour
         Log.cinput("red", $"reason: {s_reason}, identity：{identity}, score:{score}");
     }
 
-    public void Spawn() { }
+    public void Spawn() { isSpawned = true; }
 }
