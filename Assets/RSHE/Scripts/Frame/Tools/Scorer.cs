@@ -29,8 +29,11 @@ public class Scorer : MonoBehaviour
 
     public void Awake()
     {
-        Register();
-        Init();
+        if (!Config.Get().PicoDevice)
+        {
+            Register();
+            Init();
+        }
     }
 
     public void Register()
@@ -46,7 +49,7 @@ public class Scorer : MonoBehaviour
         {
             Log.cinput("green", $"读取到的文件: {content}");
             if (content.Count() == 0) return;
-            ExamList = JsonMapper.ToObject< List<ExamData>> (content);
+            ExamList = JsonMapper.ToObject<List<ExamData>>(content);
         }));
     }
 
