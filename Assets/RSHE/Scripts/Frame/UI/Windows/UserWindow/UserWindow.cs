@@ -32,9 +32,16 @@ public class UserWindow : WinBase
     Button _usrButton; //  用户列表界面按钮。
 
     [SerializeField]
+    Button _examButton; // 考试记录界面按钮。
+
+    [SerializeField]
     GameObject _usrStatePanel; // 用户状态列表界面
 
+    public ExamRecordPanel _ExamRecordPanel;
+
     bool _usrState = true;
+
+    bool _examState = false;
 
     public override void Awake()
     {
@@ -49,7 +56,9 @@ public class UserWindow : WinBase
         {
             InitList();
             TriggerUserStatePanel();
+            OnClickedExamRecordButton();
             _usrButton.onClick.AddListener(TriggerUserStatePanel);
+            _examButton.onClick.AddListener(OnClickedExamRecordButton);
         }
     }
 
@@ -58,6 +67,12 @@ public class UserWindow : WinBase
         _usrStatePanel.SetActive<Image>(_usrState);
         _usrStatePanel.SetActive<TextMeshProUGUI>(_usrState);
         _usrState = !_usrState;
+    }
+
+    public void OnClickedExamRecordButton()
+    {
+        _ExamRecordPanel.SetActive(_examState);
+        _examState = !_examState;
     }
 
     public void ChangedpersonCountText(int personCount)

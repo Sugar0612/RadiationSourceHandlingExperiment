@@ -49,7 +49,8 @@ public class Scorer : MonoBehaviour
         {
             Log.cinput("green", $"读取到的文件: {content}");
             if (content.Count() == 0) return;
-            ExamList = JsonMapper.ToObject<List<ExamData>>(content);
+            ExamList = JsonMapper.ToObject< List<ExamData>> (content);
+            isSpawned = true;
         }));
     }
 
@@ -58,11 +59,21 @@ public class Scorer : MonoBehaviour
     /// </summary>
     public void Save(Action callback)
     {
+        AddNewCurrExamData();
+        Save2HardDrive(callback);
+    }
+
+    void AddNewCurrExamData()
+    {
         ExamList.Add(currExamData);
+    }
+
+    public void Save2HardDrive(Action callback)
+    {
         string newData = JsonMapper.ToJson(ExamList);
         Log.cinput("green", $"Save this data string: {newData}");
 
-        if (Utility.OverwriteJSONFile(FilePath.examDataPath, newData))
+        if (Utility.OverwriteJSONFile(FilePath.examDataPath, newData) && callback != null)
         {
             callback();
         }
@@ -74,6 +85,7 @@ public class Scorer : MonoBehaviour
         if (targetIdx != -1)
         {
             ExamList.RemoveAt(targetIdx);
+            Save2HardDrive(null);
         }
     }
 

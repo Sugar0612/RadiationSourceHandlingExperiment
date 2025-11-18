@@ -11,6 +11,7 @@ public class ExamItem : MonoBehaviour
 
     public void Init(string examTime)
     {
+        SetActive(true);
         examRecordButton.GetComponentInChildren<TextMeshProUGUI>().text = examTime;
         DeleteButton.onClick.AddListener(OnClickedDeleteButton);
         examRecordButton.onClick.AddListener(OnClickedExamRecordButton);
@@ -35,11 +36,17 @@ public class ExamItem : MonoBehaviour
 
         string examTime = examRecordButton.GetComponentInChildren<TextMeshProUGUI>().text;
         Scorer.Get().DeleteItem(examTime);
+        SetActive(false);
         Destroy(gameObject);
     }
 
     void CancelDelete()
     {
         GlobalPanel.Get().Destroy();
+    }
+
+    public void SetActive(bool active)
+    {
+        gameObject.SetActive(active);
     }
 }
