@@ -7,14 +7,21 @@ using UnityEngine.UI;
 public class ExamItem : MonoBehaviour
 {
     public Button examRecordButton;
+
     public Button DeleteButton;
 
-    public void Init(string examTime)
+    public ExamRecordPanel ExamRecordPanelObject;
+
+    string _examTime = "";
+
+    public void Init(string examTime, ExamRecordPanel parentPanel)
     {
         SetActive(true);
         examRecordButton.GetComponentInChildren<TextMeshProUGUI>().text = examTime;
         DeleteButton.onClick.AddListener(OnClickedDeleteButton);
         examRecordButton.onClick.AddListener(OnClickedExamRecordButton);
+        ExamRecordPanelObject = parentPanel;
+        _examTime = examTime;
     }
 
     void OnClickedDeleteButton()
@@ -24,7 +31,8 @@ public class ExamItem : MonoBehaviour
 
     void OnClickedExamRecordButton()
     {
-        // TODO: 进入成绩页面
+        Log.cinput("green", "@@@ OnClickedExamRecordButton");
+        ExamRecordPanelObject.ShowExamUsrPanel(_examTime);
     }
 
     void DeleteThisExamData()

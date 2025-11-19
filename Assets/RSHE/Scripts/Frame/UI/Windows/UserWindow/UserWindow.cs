@@ -56,7 +56,6 @@ public class UserWindow : WinBase
         {
             InitList();
             TriggerUserStatePanel();
-            OnClickedExamRecordButton();
             _usrButton.onClick.AddListener(TriggerUserStatePanel);
             _examButton.onClick.AddListener(OnClickedExamRecordButton);
         }
@@ -67,12 +66,21 @@ public class UserWindow : WinBase
         _usrStatePanel.SetActive<Image>(_usrState);
         _usrStatePanel.SetActive<TextMeshProUGUI>(_usrState);
         _usrState = !_usrState;
+
+        _examState = false;
+        _ExamRecordPanel.SetActive(_examState);
+        _examState = !_examState;
     }
 
     public void OnClickedExamRecordButton()
     {
         _ExamRecordPanel.SetActive(_examState);
         _examState = !_examState;
+
+        _usrState = false;
+        _usrStatePanel.SetActive<Image>(_usrState);
+        _usrStatePanel.SetActive<TextMeshProUGUI>(_usrState);
+        _usrState = !_usrState;
     }
 
     public void ChangedpersonCountText(int personCount)

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ExamRecordPanel : MonoBehaviour
 {
+    #region UI Component
+
     public GameObject ExamItemTemplate;
 
     public Transform ExamItemParent;
 
+    public ExamUsrPanel ExamUsrPanelObject;
+
+    #endregion
     List<ExamItem> examItemList = new List<ExamItem>();
 
     private bool isInit = false;
@@ -26,7 +31,7 @@ public class ExamRecordPanel : MonoBehaviour
             foreach (var item in Scorer.Get().ExamList)
             {
                 ExamItem examItem = GameObject.Instantiate(ExamItemTemplate, ExamItemParent).GetComponent<ExamItem>();
-                examItem.Init(item.time);
+                examItem.Init(item.time, this);
                 examItemList.Add(examItem);
             }
 
@@ -51,6 +56,13 @@ public class ExamRecordPanel : MonoBehaviour
         gameObject.SetActive(active);
         if (active) Init();
         else Destroy();
+    }
+
+    public void ShowExamUsrPanel(string examTime)
+    {
+        Log.cinput("green", $"@@@ ShowExamUsrPanel： {examTime}");
+        ExamData data = Scorer.Get().Find(examTime);
+        ExamUsrPanelObject.Init(data.UsrList);
     }
 
     public void OnDestroy()

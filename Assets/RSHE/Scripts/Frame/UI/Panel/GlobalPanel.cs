@@ -46,9 +46,9 @@ public class GlobalPanel : MonoBehaviour
     {
         // gameObject.SetActive(active);
         contentText.SetAciveForTheUIControl<TextMeshProUGUI>(active);
-        okButton.SetAciveForTheUIControl<Image>(active);
-        cancelButton.SetAciveForTheUIControl<Image>(active);
         backgroundImg.SetAciveForTheUIControl<Image>(active);
+        okButton.SetButtonActive(active);
+        cancelButton.SetButtonActive(active);
     }
 
     void Init(string content, Action okButtonCallback, Action cancelButtonCallback)

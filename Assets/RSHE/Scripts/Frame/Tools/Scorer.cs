@@ -89,6 +89,11 @@ public class Scorer : MonoBehaviour
         }
     }
 
+    public ExamData Find(string examTime)
+    {
+        return ExamList.Find(_ => _.time == examTime);
+    }
+
     /// <summary>
     /// 减分
     /// </summary>
