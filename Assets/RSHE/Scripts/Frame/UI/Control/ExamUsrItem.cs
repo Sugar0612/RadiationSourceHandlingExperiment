@@ -11,10 +11,16 @@ public class ExamUsrItem : MonoBehaviour
 
     public TextMeshProUGUI Score;
 
+    MistakesPanel _mistakesPanel;
+
     public Button ReasonButton;
 
-    public void Init(UsrData data)
+    UsrData _usrData;
+
+    public void Init(UsrData data, MistakesPanel mistakesPanel)
     {
+        _usrData = data;
+        _mistakesPanel = mistakesPanel;
         UsrName.text = data.identity.ToString();
         Score.text = data.Score.ToString();
         ReasonButton.onClick.AddListener(ReasonButtonOnClicked);
@@ -22,7 +28,10 @@ public class ExamUsrItem : MonoBehaviour
 
     void ReasonButtonOnClicked()
     {
-        // TODO.
+        if (_usrData != null)
+        {
+            _mistakesPanel.Init(_usrData.IncorrectList);
+        }
     }
 
     public void SetActive(bool active)

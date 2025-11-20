@@ -11,7 +11,11 @@ public class ExamUsrPanel : MonoBehaviour
 
     public Transform parentTransform;
 
+    public MistakesPanel MistaskesPanelObject;
+
     List<ExamUsrItem> examUsrList = new List<ExamUsrItem>();
+
+    ExamRecordPanel _examRecordPanel;
 
     private void Start()
     {
@@ -29,7 +33,7 @@ public class ExamUsrPanel : MonoBehaviour
         foreach (var data in list)
         {
             ExamUsrItem item = GameObject.Instantiate(itemTemplate, parentTransform).GetComponent<ExamUsrItem>();
-            item.Init(data);
+            item.Init(data, MistaskesPanelObject);
             item.SetActive(true);
             examUsrList.Add(item);
         }
