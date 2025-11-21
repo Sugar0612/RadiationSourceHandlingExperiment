@@ -89,7 +89,7 @@ public class TeachingCheck : CheckBase
         return targetName != TaskName.T13;
     }
 
-    public override bool InspectionSteps(Collider propCollider)
+    public override bool InspectionSteps(Collider propCollider, TaskName[] testTaskArray)
     {
         Detector detector = propCollider.GetComponentInParent<Detector>();
         PollutionDetector pollutionDetector = propCollider.GetComponentInParent<PollutionDetector>();

@@ -24,9 +24,9 @@ public class TaskInspector
         return _checkBase.TCloseActionCheck(closeTaskArray, identity);
     }
 
-    public bool InspectionSteps(Collider other)
+    public bool InspectionSteps(Collider other, TaskName[] testTaskArray)
     {
-        return _checkBase.InspectionSteps(other);
+        return _checkBase.InspectionSteps(other, testTaskArray);
     }
 
     public bool T7Check(JarStatus p_JarStatus, EIdentity identity)

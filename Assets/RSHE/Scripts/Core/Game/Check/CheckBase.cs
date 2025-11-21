@@ -12,7 +12,7 @@ public class CheckBase: NetworkBehaviour
     //public virtual bool CheckTask_3(NetworkPropsCollider collider, ref List<float> valueList) { return true; }
     //public virtual bool CheckTask_4(NetworkPropsCollider collider, ref List<float> valueList) { return true; }
     public virtual bool TCloseActionCheck(TaskName[] closeTaskArray, EIdentity identity) { return true; }
-    public virtual bool InspectionSteps(Collider propCollider) { return true; }
+    public virtual bool InspectionSteps(Collider propCollider, TaskName[] testTaskArray) { return true; }
     public virtual bool CheckTask_7(JarStatus p_JarStatus, EIdentity identity) { return true; }
     public virtual bool CheckTask_12(JarStatus p_JarStatus, EIdentity identity) { return true; }
     public virtual bool CheckTask_13() { return true; }

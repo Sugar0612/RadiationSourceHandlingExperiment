@@ -17,11 +17,9 @@ public class ToolBindingCollider : NetworkBehaviour
     /// <summary> Root node Transform </summary>
     public Transform RootTransform;
 
-    private LocalSpaceSmoother smoother;
-
     private void Start()
     {
-        smoother = GetComponent<LocalSpaceSmoother>();
+
     }
 
     [ServerCallback]
@@ -37,17 +35,16 @@ public class ToolBindingCollider : NetworkBehaviour
     [ClientRpc]
     void RpcSetHeld(NetworkIdentity identity)
     {
-        VRNetworkPlayerController player = identity.GetComponent<VRNetworkPlayerController>();
-        if (player && player.grabHand.GrabObject == null && !isHeld)
+        VRNetworkPlayerController player = identity.GetComponentInParent<VRNetworkPlayerController>();
+        if (player && player.grabHand?.GrabObject == null && !isHeld)
         {
-            //gameObject.transform.parent = player.HeldTrans;
+            gameObject.transform.parent = player.HeldTrans;
             player.grabHand.GrabObject = gameObject;
-            smoother.target = player.HeldTrans;
 
-            gameObject.transform.localPosition = Vector3.zero;
-            gameObject.transform.localRotation = Quaternion.identity;
-            //RootTransform.localPosition = HeldShapeTransform.localPosition;
-            //RootTransform.rotation = HeldShapeTransform.rotation;
+            //gameObject.transform.localPosition = Vector3.zero;
+            //gameObject.transform.localRotation = Quaternion.identity;
+            RootTransform.localPosition = HeldShapeTransform.localPosition;
+            RootTransform.rotation = HeldShapeTransform.rotation;
             isHeld = true;
         }
     }
