@@ -885,7 +885,7 @@ MonoBehaviour:
   - {fileID: 1272976753}
   - {fileID: 398863771}
   HintAudio: {fileID: 8300000, guid: e90f261e5e739084f9d81e9270b42a58, type: 3}
-  fraction: 0
+  fraction: 3
   duration: 40
   conditions: []
   EndTask:
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   - {fileID: 1541711495}
   - {fileID: 734637826}
   HintAudio: {fileID: 8300000, guid: aa765bff016459140b62340e0a179a1b, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 31
   conditions: []
   EndTask:
@@ -4483,7 +4483,7 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 602804486}
   HintAudio: {fileID: 8300000, guid: e801f47974c3c164e98a51d0893ff944, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 28
   conditions: []
   EndTask:
@@ -4586,7 +4586,7 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: cd16054ba3d97e64b93ee8394e10069b, type: 3}
-  fraction: 0
+  fraction: 3
   duration: 4
   conditions:
   - Identity: 1
@@ -4734,7 +4734,7 @@ MonoBehaviour:
   - {fileID: 398863771}
   - {fileID: 602804486}
   HintAudio: {fileID: 8300000, guid: bffd504c2138f3846adad6f8dc33a93a, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 39
   conditions: []
   EndTask:
@@ -5665,7 +5665,7 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 602804486}
   HintAudio: {fileID: 8300000, guid: cc978e2f45e51bb43a778a4037f7cb1e, type: 3}
-  fraction: 0
+  fraction: 3
   duration: 27
   conditions: []
   EndTask:
@@ -6528,6 +6528,26 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 4
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 5
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 6
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 7
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -7074,7 +7094,7 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1064273762}
   HintAudio: {fileID: 8300000, guid: dd354755a5388e746acab09478518750, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 15
   conditions: []
   EndTask:
@@ -7796,7 +7816,7 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 602804486}
   HintAudio: {fileID: 8300000, guid: aa261076241e2764082f805972272dac, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 20
   conditions: []
   EndTask:
@@ -8169,7 +8189,7 @@ MonoBehaviour:
   - {fileID: 1272976753}
   - {fileID: 602804486}
   HintAudio: {fileID: 8300000, guid: 6bc0863a4f15bfd41afbf6c93cbb7e0a, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 40
   conditions: []
   EndTask:
@@ -9264,7 +9284,7 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1426535679}
   HintAudio: {fileID: 8300000, guid: 50ea3856c4c823b41836a59cd1efd37c, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 15
   conditions: []
   EndTask:
@@ -12723,14 +12743,14 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 3
   conditions:
-  - Identity: 1
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 4
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -13249,14 +13269,18 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: 140a5482c0774d744a26f633fc113629, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 4
   conditions:
-  - Identity: 1
+  - Identity: 5
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 6
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 7
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -13583,14 +13607,10 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ff89f7aa1663a85439ee4388ad400598, type: 3}
-  fraction: 0
+  fraction: 9
   duration: 4
   conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
+  - Identity: 7
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14240,14 +14260,18 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: 140a5482c0774d744a26f633fc113629, type: 3}
-  fraction: 0
+  fraction: 6
   duration: 4
   conditions:
-  - Identity: 1
+  - Identity: 5
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 6
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 7
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14657,14 +14681,14 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 3
   conditions:
-  - Identity: 1
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 4
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -15163,14 +15187,14 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ec908abb944649e4ca4ce7448381141b, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 4
   conditions:
-  - Identity: 1
+  - Identity: 6
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 7
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -16336,10 +16360,46 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: d2cb5d69ec454b54ca817d63dad8462f, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 10
   conditions:
   - Identity: 1
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 4
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 5
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 6
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 7
     BodyPart: 0
     HoldingItems:
     - pName: Detector
@@ -17299,14 +17359,14 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 3
   conditions:
-  - Identity: 1
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 4
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -18036,7 +18096,7 @@ MonoBehaviour:
   - {fileID: 439036186}
   - {fileID: 398863771}
   HintAudio: {fileID: 8300000, guid: 4bf2d03efa1cb2741ae368ece7fe769a, type: 3}
-  fraction: 0
+  fraction: 12
   duration: 27
   conditions: []
   EndTask:
@@ -19024,7 +19084,7 @@ MonoBehaviour:
   - {fileID: 1715802315}
   - {fileID: 648431081}
   HintAudio: {fileID: 8300000, guid: 97fa63d85b903984699061c1a4e60227, type: 3}
-  fraction: 0
+  fraction: 15
   duration: 30
   conditions: []
   EndTask:
@@ -19236,14 +19296,14 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ab2f57e0e4742084ba75f2b7641f4e82, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 3
   conditions:
-  - Identity: 1
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 2
+  - Identity: 4
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19854,14 +19914,10 @@ MonoBehaviour:
   ArrowList:
   - {fileID: 1698349392}
   HintAudio: {fileID: 8300000, guid: ff89f7aa1663a85439ee4388ad400598, type: 3}
-  fraction: 0
+  fraction: 5
   duration: 4
   conditions:
-  - Identity: 1
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 2
+  - Identity: 7
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0

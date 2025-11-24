@@ -36,12 +36,14 @@ public class TestTaskCollider : NetworkBehaviour
         if (_detector == null)
         {
             _detector = other.GetComponentInParent<Detector>();
+            if (_detector == null) _detector = other.GetComponentInChildren<Detector>();
             IsDetector = _detector != null;
         }
 
         if (_pollutionDetector == null)
         {
-            _pollutionDetector = other.GetComponentInParent<PollutionDetector>(); 
+            _pollutionDetector = other.GetComponentInParent<PollutionDetector>();
+            if (_pollutionDetector == null) _pollutionDetector = other.GetComponentInChildren<PollutionDetector>();
             IsPoll = _pollutionDetector != null;
         }
 

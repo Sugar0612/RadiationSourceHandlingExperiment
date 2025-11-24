@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: QZHA_Bate
-  productName: "\u6838\u5904\u7406Bate"
+  productName: "\u6838\u5904\u7406"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: b1347e1083ac4e24ca6ed646637cf429, type: 3}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 1944d5fc21cc5304c9af97b6fe0e4c8e, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1280
   defaultScreenHeight: 960
@@ -139,9 +139,12 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.3.7
+  bundleVersion: 0.4.0
   preloadedAssets:
   - {fileID: 0}
+  - {fileID: -2411713454120093779, guid: fdfd9a7579b1340efac4272be2213881, type: 2}
+  - {fileID: 11400000, guid: 509c58b5a62187d468227a398dd03fb0, type: 2}
+  - {fileID: 764365376040806772, guid: 8b6e819556d814d30a7efd097161c913, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -290,7 +293,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: b1347e1083ac4e24ca6ed646637cf429, type: 3}
+      m_Icon: {fileID: 2800000, guid: 1944d5fc21cc5304c9af97b6fe0e4c8e, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

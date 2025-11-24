@@ -5581,7 +5581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d2a21697a70341aa1b2999548cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PicoDevice: 0
+  PicoDevice: 1
 --- !u!1 &804372684
 GameObject:
   m_ObjectHideFlags: 0
