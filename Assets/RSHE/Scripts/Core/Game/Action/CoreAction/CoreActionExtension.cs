@@ -14,57 +14,8 @@ public partial class CoreAction : NetworkBehaviour
     public void TaskAction_1(GameColliderPackage gamePkg, Action callback = null)
     {
         Log.cinput("yellow", "TaskAction_1");
-        VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
-
-        if (ctrl)
-        {
-            PlayerWearPanel wearPanel = FindObjectOfType<PlayerWearPanel>();
-            if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.NoWear && wearPanel.workState == PlayerWearPanel.WearPanelState.Wait)
-            {
-                wearPanel.SetActive(true);
-                wearPanel.Wearing(ctrl, () => 
-                {
-                    if (gamePkg != null)
-                    {
-                        bool canGoOn = true;
-                        TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
-
-                        if (condition != null && condition.HoldingItemsIsEmpty())
-                            condition.IsFinished = true;
-
-                        foreach (var item in gamePkg.TaskItem.conditions)
-                            canGoOn = canGoOn & item.IsFinished;
-
-                        if (canGoOn)
-                        {
-                            Log.cinput("green", "---@@ HostIssuesTheGoNext");
-                        }
-
-                        if (canGoOn && !GameSteps.Get().IsCheckTaskFinished(TaskName.T1))
-                        {
-                            GameSteps.Get().SetTaskFinished(TaskName.T1);
-                            HostIssuesTheGoNext(gamePkg, canGoOn);
-                        }
-                    }
-
-                    callback?.Invoke();
-                });
-            }
-            else if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wore)
-            {
-                if (!ctrl.isLocalPlayer)
-                {
-                    ctrl.LeftGlove.SetRendererEnable(true);
-                    ctrl.RightGlove.SetRendererEnable(true);
-                    ctrl.Clothes.SetRendererEnable(true);
-                    ctrl.Spectacles.SetRendererEnable(true);
-                    ctrl.Collar.SetRendererEnable(true);
-                    ctrl.Hat.SetRendererEnable(true);
-                }
-                wearPanel.SetActive(false);
-                wearPanel.SetWorePanelActive(true);
-            }
-        }
+        GameSteps.Get().SetTaskFinished(TaskName.T1);
+        HostIssuesTheGoNext(gamePkg, true);
     }
 
     /// <summary> task one end. </summary>

@@ -41,8 +41,8 @@ public class ToolBindingCollider : NetworkBehaviour
             gameObject.transform.parent = player.HeldTrans;
             player.grabHand.GrabObject = gameObject;
 
-            //gameObject.transform.localPosition = Vector3.zero;
-            //gameObject.transform.localRotation = Quaternion.identity;
+            gameObject.transform.localPosition = Vector3.zero;
+            gameObject.transform.localRotation = Quaternion.identity;
             RootTransform.localPosition = HeldShapeTransform.localPosition;
             RootTransform.rotation = HeldShapeTransform.rotation;
             isHeld = true;

@@ -97,7 +97,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
     public string playerName;
 
     /// <summary> 是否穿戴防护服 </summary>
-    public WearStatus WStatus = WearStatus.NoWear;
+    [SyncVar] public WearStatus WStatus = WearStatus.NoWear;
 
     bool isrightLost = false;
 
@@ -118,6 +118,20 @@ public class VRNetworkPlayerController : NetworkBehaviour
         Spectacles.SetRendererEnable(false);
         Collar.SetRendererEnable(false);
         Hat.SetRendererEnable(false);
+    }
+
+    [ClientRpc]
+    public void RpcSetClothingActive(bool active)
+    {
+        if (!isLocalPlayer)
+        {
+            LeftGlove.SetRendererEnable(active);
+            RightGlove.SetRendererEnable(active);
+            Clothes.SetRendererEnable(active);
+            Spectacles.SetRendererEnable(active);
+            Collar.SetRendererEnable(active);
+            Hat.SetRendererEnable(active);
+        }
     }
 
     [ClientCallback]

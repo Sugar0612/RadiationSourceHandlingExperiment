@@ -25,7 +25,8 @@ public class WearCollider : NetworkBehaviour
                 VRPlayerCtrl = ctrl,
                 TaskItem = _task,
             };
-            _task.OnTask?.Invoke(gamePkg);
+            // _task.OnTask?.Invoke(gamePkg);
+            DressingSequence(gamePkg);
         }      
     }
 
@@ -42,6 +43,51 @@ public class WearCollider : NetworkBehaviour
 
         RpcOnTriggerExitEvent();
         //ctrl.WStatus = ;
+    }
+
+    void DressingSequence(GameColliderPackage gamePkg)
+    {
+        VRNetworkPlayerController ctrl = gamePkg?.VRPlayerCtrl.GetComponent<VRNetworkPlayerController>();
+
+        if (ctrl)
+        {
+            PlayerWearPanel wearPanel = FindObjectOfType<PlayerWearPanel>();
+            if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.NoWear && wearPanel.workState == PlayerWearPanel.WearPanelState.Wait)
+            {
+                wearPanel.RpcSetActive(true);
+                wearPanel.Wearing(ctrl, () =>
+                {
+                    ctrl.WStatus = VRNetworkPlayerController.WearStatus.Wore;
+                    ctrl.RpcSetClothingActive(true);
+
+                    if (gamePkg != null)
+                    {
+                        bool canGoOn = true;
+                        TaskCondition condition = gamePkg.TaskItem.conditions.Find(x => x.Identity == ctrl.identity);
+
+                        if (condition != null && condition.HoldingItemsIsEmpty())
+                            condition.IsFinished = true;
+
+                        foreach (var item in gamePkg.TaskItem.conditions)
+                            canGoOn = canGoOn & item.IsFinished;
+
+                        if (canGoOn && !GameSteps.Get().IsCheckTaskFinished(TaskName.T1))
+                        {
+                            _task.OnTask?.Invoke(gamePkg);
+                        }
+                    }
+                });
+            }
+            else if (wearPanel && ctrl.WStatus == VRNetworkPlayerController.WearStatus.Wore)
+            {
+                if (!ctrl.isLocalPlayer)
+                {
+                    ctrl.RpcSetClothingActive(true);
+                }
+                wearPanel.RpcSetActive(false);
+                wearPanel.RpcSetWorePanelActive(true);
+            }
+        }
     }
 
     [ClientRpc]
