@@ -19,6 +19,12 @@ public class NetworkPropsCollider : NetworkBehaviour
     [SyncVar]
     public bool isCloned = false;
 
+    /// <summary> 拿取道具时Transform </summary>
+    public Transform HeldShapeTransform;
+
+    /// <summary> Root node Transform </summary>
+    public Transform RootTransform;
+
     #endregion
 
     [ServerCallback]

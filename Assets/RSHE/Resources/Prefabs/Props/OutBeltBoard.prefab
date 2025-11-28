@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 214901012074058590}
   - component: {fileID: 9072196804901440140}
   - component: {fileID: 7645804024108880578}
-  - component: {fileID: 5218820838105278782}
   m_Layer: 0
   m_Name: OutBeltBoard
   m_TagString: Untagged
@@ -122,6 +121,8 @@ MonoBehaviour:
   PropName: OutBeltBoard
   WhoHeld: 0
   isCloned: 0
+  HeldShapeTransform: {fileID: 4650604363947994667}
+  RootTransform: {fileID: 6936119887483332536}
 --- !u!114 &7645804024108880578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,24 +157,6 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &5218820838105278782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652331334090700089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0002da5a1297c1c449d2c7c71a435466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  isHeld: 0
-  HeldShapeTransform: {fileID: 4650604363947994667}
-  RootTransform: {fileID: 6936119887483332536}
 --- !u!1 &675072194288060430
 GameObject:
   m_ObjectHideFlags: 0

@@ -535,11 +535,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7509549716313552517}
   - component: {fileID: 3358349971547485895}
-  - component: {fileID: 5908916820285543875}
   - component: {fileID: 4709089105622871592}
   - component: {fileID: 3099397696571883558}
   - component: {fileID: 5814384327367629125}
-  - component: {fileID: 6450072775759159247}
   m_Layer: 0
   m_Name: Clamp
   m_TagString: Untagged
@@ -555,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8749082060228181352}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8335328, z: -0, w: 0.55247}
+  m_LocalRotation: {x: 0, y: 0.83353406, z: 0, w: 0.5524681}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -581,27 +579,6 @@ MonoBehaviour:
   serverOnly: 0
   visible: 0
   hasSpawned: 0
---- !u!65 &5908916820285543875
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8749082060228181352}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.11128544, y: 0.21426728, z: 0.23341393}
-  m_Center: {x: -0.0070829224, y: -0.017493293, z: -0.30756444}
 --- !u!54 &4709089105622871592
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -647,6 +624,8 @@ MonoBehaviour:
   PropName: Clamp
   WhoHeld: 0
   isCloned: 0
+  HeldShapeTransform: {fileID: 8057334243220642957}
+  RootTransform: {fileID: 3641000792409283095}
 --- !u!114 &5814384327367629125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,25 +660,6 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &6450072775759159247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8749082060228181352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0002da5a1297c1c449d2c7c71a435466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  isHeld: 0
-  GrabTransform: {fileID: 8560765307564771493}
-  HeldShapeTransform: {fileID: 8057334243220642957}
-  RootTransform: {fileID: 3641000792409283095}
 --- !u!1 &8905108188777189096
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +778,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.004
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -826,23 +786,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.128
+      value: 0.136
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69693035
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7171389
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -850,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 91.638
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d09ee62dc4ef624d93991d0d29d4fc9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

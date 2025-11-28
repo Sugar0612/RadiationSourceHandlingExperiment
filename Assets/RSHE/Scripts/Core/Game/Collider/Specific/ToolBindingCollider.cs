@@ -1,51 +1,143 @@
 using Mirror;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Principal;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class ToolBindingCollider : NetworkBehaviour
 {
-    public bool isHeld = false;
+    public GameObject propPrefab;
 
-    /// <summary> 拿取道具时Transform </summary>
-    public Transform HeldShapeTransform;
+    public Transform parentTransform;
 
-    /// <summary> Root node Transform </summary>
-    public Transform RootTransform;
+    [SyncVar(hook = nameof(OnPropObjectNetIdChanged))]
+    private uint propObjectNetId;
+
+    public GameObject propObject;
+
+    public Button operatorButton;
+
+    Vector3 spawnPos;
+
+    Quaternion spawnRot;
+
+    [SyncVar(hook = nameof(OnTakeIdentityChanged))]
+    public EIdentity takeIdentity = EIdentity.None;
+
+    #region 系统函数
 
     private void Start()
     {
-
+        operatorButton.onClick.AddListener(ClickedOperatorButton);
     }
 
-    [ServerCallback]
-    public void OnTriggerEnter(Collider other)
+    public override void OnStartServer()
     {
-        NetworkIdentity identity = other.GetComponentInParent<NetworkIdentity>();
-        if (identity)
+        base.OnStartServer();
+        spawnPos = propObject.transform.position;
+        spawnRot = propObject.transform.rotation;
+    }
+
+    #endregion
+
+    void ClickedOperatorButton()
+    {
+        EIdentity localIdentity = GetLocalPlayerIdentity();
+
+        if (takeIdentity == EIdentity.None)
         {
-            RpcSetHeld(identity);
+            CmdSetTakeIdentity(localIdentity);
+        }
+        else if (takeIdentity == localIdentity)
+        {
+            CmdSetTakeIdentity(EIdentity.None);
         }
     }
 
-    [ClientRpc]
-    void RpcSetHeld(NetworkIdentity identity)
+    [Command(requiresAuthority = false)]
+    void CmdSetTakeIdentity(EIdentity targetIdentity)
     {
-        VRNetworkPlayerController player = identity.GetComponentInParent<VRNetworkPlayerController>();
-        if (player && player.grabHand?.GrabObject == null && !isHeld)
+        NetworkPropsCollider propInfo = propObject.GetComponent<NetworkPropsCollider>();
+        if (propInfo && targetIdentity == EIdentity.None)
         {
-            gameObject.transform.parent = player.HeldTrans;
-            player.grabHand.GrabObject = gameObject;
+            Utility.DestroyNetworkObject(propObject);
+            // DelayedRegeneration(propInfo.PropName);
 
-            gameObject.transform.localPosition = Vector3.zero;
-            gameObject.transform.localRotation = Quaternion.identity;
-            RootTransform.localPosition = HeldShapeTransform.localPosition;
-            RootTransform.rotation = HeldShapeTransform.rotation;
-            isHeld = true;
+            GameObject newObj = Instantiate(propPrefab, spawnPos, spawnRot, parentTransform);
+            NetworkIdentity newObjNetworkIdentity = newObj.GetComponent<NetworkIdentity>();
+
+            NetworkServer.Spawn(newObj);
+            propObjectNetId = newObjNetworkIdentity.netId;
+            propObject = newObj;
         }
+        else if (targetIdentity != EIdentity.None)
+        {
+            VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(targetIdentity);
+            if (player.grabHand.GrabObject != null)
+                return;
+        }
+        takeIdentity = targetIdentity;
+    }
+
+    void OnTakeIdentityChanged(EIdentity oldIdentity, EIdentity newIdentity)
+    {
+        
+        NetworkPropsCollider propInfo = propObject.GetComponent<NetworkPropsCollider>();
+        if (newIdentity == EIdentity.None)
+        {
+            VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(oldIdentity);
+            player.ClearGrabObject();
+            operatorButton.GetComponentInChildren<TextMeshProUGUI>().text = "拾取";
+        }
+        else
+        {
+            operatorButton.GetComponentInChildren<TextMeshProUGUI>().text = "放回";
+            VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(newIdentity);
+
+            if (propInfo && player && player.grabHand.GrabObject == null)
+            {
+                propObject.transform.parent = player.HeldTrans;
+                player.grabHand.GrabObject = propObject;
+
+                propObject.transform.localPosition = Vector3.zero;
+                propObject.transform.localRotation = Quaternion.identity;
+                propInfo.RootTransform.localPosition = propInfo.HeldShapeTransform.localPosition;
+                propInfo.RootTransform.rotation = propInfo.HeldShapeTransform.rotation;
+            }
+        }
+    }
+
+    private void OnPropObjectNetIdChanged(uint oldNetId, uint newNetId)
+    {
+        if (newNetId == 0)
+        {
+            propObject = null;
+            return;
+        }
+
+        // 通过 netId 在客户端已生成的对象中查找
+        if (NetworkClient.spawned.TryGetValue(newNetId, out NetworkIdentity networkIdentity))
+        {
+            propObject = networkIdentity.gameObject;
+        }
+        else
+        {
+            Debug.LogWarning($"Client: NetworkIdentity with netId {newNetId} not found in spawned list.");
+        }
+    }
+
+
+    EIdentity GetLocalPlayerIdentity()
+    {
+        VRNetworkPlayerController[] players = FindObjectsOfType<VRNetworkPlayerController>();
+        foreach (VRNetworkPlayerController player in players)
+        {
+            if (player.isLocalPlayer)
+            {
+                return player.identity;
+            }
+        }
+        return EIdentity.None;
     }
 }

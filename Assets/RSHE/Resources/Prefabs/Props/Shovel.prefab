@@ -152,7 +152,6 @@ GameObject:
   - component: {fileID: 3272626994619707282}
   - component: {fileID: 5461944900237573574}
   - component: {fileID: 7863705494113390110}
-  - component: {fileID: 7168140119197046970}
   m_Layer: 0
   m_Name: Shovel
   m_TagString: Untagged
@@ -168,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559612030492928105}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.8335328, z: -0, w: 0.55247}
+  m_LocalRotation: {x: 0, y: 0.83353406, z: 0, w: 0.5524681}
   m_LocalPosition: {x: -1.379, y: 0.557, z: -2.589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -260,6 +259,8 @@ MonoBehaviour:
   PropName: Shovel
   WhoHeld: 0
   isCloned: 0
+  HeldShapeTransform: {fileID: 9211824068180481345}
+  RootTransform: {fileID: 4771008270392368103}
 --- !u!114 &7863705494113390110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,24 +295,6 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &7168140119197046970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3559612030492928105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0002da5a1297c1c449d2c7c71a435466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  isHeld: 0
-  HeldShapeTransform: {fileID: 9211824068180481345}
-  RootTransform: {fileID: 4771008270392368103}
 --- !u!1 &3825993086581245065
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,23 +600,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b0e65d9b03d814abeeb70a259a3a8f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.01774433
+      value: -0.00022220612
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b0e65d9b03d814abeeb70a259a3a8f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.018190203
+      value: -0.00022220612
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b0e65d9b03d814abeeb70a259a3a8f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6980542
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b0e65d9b03d814abeeb70a259a3a8f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.715594
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b0e65d9b03d814abeeb70a259a3a8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -266.76
+      value: -270
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59b0e65d9b03d814abeeb70a259a3a8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

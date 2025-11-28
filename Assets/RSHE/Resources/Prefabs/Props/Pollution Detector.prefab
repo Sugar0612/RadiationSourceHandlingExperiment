@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7101457829721515676}
   - component: {fileID: 9092862334387886215}
   - component: {fileID: 6056988180738455824}
-  - component: {fileID: 2397130230513523346}
   m_Layer: 0
   m_Name: Pollution Detector
   m_TagString: Untagged
@@ -122,6 +121,8 @@ MonoBehaviour:
   PropName: Pollution Detector
   WhoHeld: 0
   isCloned: 0
+  HeldShapeTransform: {fileID: 2487467946245620665}
+  RootTransform: {fileID: 6781446483998331806}
 --- !u!114 &6056988180738455824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,24 +157,6 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &2397130230513523346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272208494085347223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0002da5a1297c1c449d2c7c71a435466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  isHeld: 0
-  HeldShapeTransform: {fileID: 2487467946245620665}
-  RootTransform: {fileID: 6781446483998331806}
 --- !u!1 &646645775796595820
 GameObject:
   m_ObjectHideFlags: 0

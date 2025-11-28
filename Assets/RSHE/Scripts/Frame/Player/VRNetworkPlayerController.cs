@@ -56,14 +56,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
     [Tooltip("Player Right Hand Model Component")]
     GameObject m_RHandModel;
 
-    [Tooltip("游戏中左手套")]
-    public GameObject LeftGlove;
-
-    [Tooltip("游戏中右手套")]
-    public GameObject RightGlove;
-
-    [Tooltip("游戏中眼镜")]
-    public GameObject Spectacles;
+    //[Tooltip("游戏中眼镜")]
+    //public GameObject Spectacles;
    
     [Tooltip("游戏中围脖")]
     public GameObject Collar;
@@ -112,10 +106,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
 
     public void Start()
     {
-        LeftGlove.SetRendererEnable(false);
-        RightGlove.SetRendererEnable(false);
         Clothes.SetRendererEnable(false);
-        Spectacles.SetRendererEnable(false);
+        //Spectacles.SetRendererEnable(false);
         Collar.SetRendererEnable(false);
         Hat.SetRendererEnable(false);
     }
@@ -125,10 +117,8 @@ public class VRNetworkPlayerController : NetworkBehaviour
     {
         if (!isLocalPlayer)
         {
-            LeftGlove.SetRendererEnable(active);
-            RightGlove.SetRendererEnable(active);
             Clothes.SetRendererEnable(active);
-            Spectacles.SetRendererEnable(active);
+            //Spectacles.SetRendererEnable(active);
             Collar.SetRendererEnable(active);
             Hat.SetRendererEnable(active);
         }
@@ -228,7 +218,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (!isLocalPlayer)
         {
             m_RHandModel.SetRendererEnable(enable);
-            RightGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
+            // RightGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
         }
     }
 
@@ -244,7 +234,7 @@ public class VRNetworkPlayerController : NetworkBehaviour
         if (!isLocalPlayer)
         {
             m_LHandModel.SetRendererEnable(enable);
-            LeftGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
+            // LeftGlove.SetRendererEnable(enable && WStatus == WearStatus.Wore);
         }
     }
     #endregion
@@ -301,12 +291,39 @@ public class VRNetworkPlayerController : NetworkBehaviour
         m_VRPlayerRig.HintPanel.ShowHintPanel(MessPromp.Prompt(type), 5.0f);
     }
 
+    #region 玩家行为
+
     public void PickUp(NetworkIdentity identity)
     {
         Log.cinput("green", "@@@@@@@ Player Pick Up..");
         MyNetworkInteractable interactable = identity.GetComponentInParent<MyNetworkInteractable>();
         interactable.EventPick();
     }
+
+    //[Command]
+    //public void DestroyNetworkObject(GameObject targetObject)
+    //{
+    //    Log.cinput("red", "@@@ DestroyNetworkObject");
+    //    if (targetObject == null) return;
+
+    //    NetworkIdentity identity = targetObject.GetComponentInChildren<NetworkIdentity>();
+    //    if (identity == null)
+    //        identity = targetObject.GetComponentInParent<NetworkIdentity>();
+
+    //    if (NetworkServer.active && identity)
+    //    {
+    //        Log.cinput("red", "@@@ In DestroyNetworkObject");
+    //        NetworkServer.Destroy(identity.gameObject);
+    //    }
+    //}
+
+    //[Command]
+    public void ClearGrabObject()
+    {
+        grabHand.GrabObject = null;
+    }
+
+    #endregion
 
     [ClientRpc] public void RpcSetWStatus(WearStatus status) => WStatus = status;
 

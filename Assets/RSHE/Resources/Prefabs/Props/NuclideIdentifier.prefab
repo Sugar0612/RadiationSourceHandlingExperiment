@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7256955486508136489}
   - component: {fileID: 6213895711241958447}
   - component: {fileID: 1438377482595513936}
-  - component: {fileID: 8877282279997123710}
   m_Layer: 0
   m_Name: NuclideIdentifier
   m_TagString: Untagged
@@ -122,6 +121,8 @@ MonoBehaviour:
   PropName: NuclideIdentifier
   WhoHeld: 0
   isCloned: 0
+  HeldShapeTransform: {fileID: 4543024071245547988}
+  RootTransform: {fileID: 6999176447197616956}
 --- !u!114 &1438377482595513936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,24 +157,6 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &8877282279997123710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253696526757629339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0002da5a1297c1c449d2c7c71a435466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  isHeld: 0
-  HeldShapeTransform: {fileID: 4543024071245547988}
-  RootTransform: {fileID: 6999176447197616956}
 --- !u!1 &1272751976063297838
 GameObject:
   m_ObjectHideFlags: 0

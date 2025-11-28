@@ -3,6 +3,7 @@ using UnityEngine;
 using Mirror;
 using System.Collections;
 using System.Security.Principal;
+using Unity.VisualScripting;
 
 public class ToolRegenerator : NetworkBehaviour
 {
@@ -84,31 +85,6 @@ public class ToolRegenerator : NetworkBehaviour
         }
     }
 
-    [ServerCallback]
-    private void OnTriggerEnter(Collider other)
-    {
-        GrabHand grabHand = other.GetComponentInChildren<GrabHand>();
-        if (grabHand != null)
-        {
-            if (grabHand.GrabObject != null)
-            {
-                NetworkPropsCollider prop = grabHand.GrabObject.GetComponentInChildren<NetworkPropsCollider>();
-                NetworkIdentity identity = other.GetComponentInParent<NetworkIdentity>();
-
-                if (identity)
-                {
-                    RpcUnbindObject(identity);
-                }
-
-                if (prop)
-                {
-                    Utility.DestroyNetworkObject(_oldSceneProp[prop.PropName]);
-                    _oldSceneProp[prop.PropName] = null;
-                }
-            }
-        }
-    }
-
     [ClientRpc]
     void RpcUnbindObject(NetworkIdentity identity)
     {
@@ -127,7 +103,7 @@ public class ToolRegenerator : NetworkBehaviour
         if (propCollider == null)
             propCollider = other.GetComponentInParent<NetworkPropsCollider>();
 
-        if (propCollider && !propCollider.isCloned && _propPrefabDic.ContainsKey(propCollider.PropName))
+        if (propCollider && !propCollider.isCloned && _propPrefabDic.ContainsKey(propCollider.PropName) && propCollider.PropName == "Transporter") // TODO.
         {
             if (_oldSceneProp.ContainsKey(propCollider.PropName) && _oldSceneProp[propCollider.PropName] != null)
             {

@@ -1,7 +1,7 @@
 using Mirror;
 using UnityEngine;
 
-/// <summary> 教学模式 </summary>
+/// <summary> 鏁欏妯″紡 </summary>
 public partial class TeachingAction : ActionBase
 {
     [ClientRpc] public override void RpcStartAction_1(GameColliderPackage gamePkg) 
@@ -14,10 +14,8 @@ public partial class TeachingAction : ActionBase
                 if (!ctrl.isLocalPlayer)
                 {
                     ctrl.Hat.SetRendererEnable(true);
-                    ctrl.RightGlove.SetRendererEnable(true);
-                    ctrl.LeftGlove.SetRendererEnable(true);
                     ctrl.Clothes.SetRendererEnable(true);
-                    ctrl.Spectacles.SetRendererEnable(true);
+                    //ctrl.Spectacles.SetRendererEnable(true);
                     ctrl.Clothes.SetRendererEnable(true);
                 }
             }
