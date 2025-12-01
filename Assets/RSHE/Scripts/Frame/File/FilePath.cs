@@ -9,5 +9,5 @@ public class FilePath
     public static string LocalUserIdentityPath = Application.streamingAssetsPath + "/Config/LocalUserIdentity.json";
 
     /// <summary> 获取考试数据路径 </summary>
-    public static string examDataPath = Application.streamingAssetsPath + "/Config/ExamList.json";
+    public static string examDataPath = Application.persistentDataPath + "/ExamList.json";
 }

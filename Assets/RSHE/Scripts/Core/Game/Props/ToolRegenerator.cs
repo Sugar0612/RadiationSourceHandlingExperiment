@@ -85,16 +85,16 @@ public class ToolRegenerator : NetworkBehaviour
         }
     }
 
-    [ClientRpc]
-    void RpcUnbindObject(NetworkIdentity identity)
-    {
-        GrabHand grabHand = identity.GetComponentInChildren<GrabHand>();
-        if (grabHand.GrabObject)
-        {
-            grabHand.GrabObject.transform.parent = null;
-            grabHand.GrabObject = null;
-        }
-    }
+    //[ClientRpc]
+    //void RpcUnbindObject(NetworkIdentity identity)
+    //{
+    //    GrabHand grabHand = identity.GetComponentInChildren<GrabHand>();
+    //    if (grabHand.GrabObject)
+    //    {
+    //        grabHand.GrabObject.transform.parent = null;
+    //        grabHand.GrabObject = null;
+    //    }
+    //}
 
     [ServerCallback]
     void OnTriggerExit(Collider other)

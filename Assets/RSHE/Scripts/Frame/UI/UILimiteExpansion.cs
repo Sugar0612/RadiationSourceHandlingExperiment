@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ¸ÃÀàÊÇ¶Ô²»Í¬UIÔÚ²»Í¬»·¾³³¡¾°ÏÂ µÄÔ¼Êø¹¦ÄÜ¡£
+/// è¯¥ç±»æ˜¯å¯¹ä¸åŒUIåœ¨ä¸åŒç¯å¢ƒåœºæ™¯ä¸‹ çš„çº¦æŸåŠŸèƒ½ã€‚
 /// </summary>
 public class UILimiteExpansion : MonoBehaviour
 {
@@ -24,8 +24,8 @@ public class UILimiteExpansion : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸Ãº¯ÊıÊÇ¶ÔÇ°¾°ÌáÒª³¡¾°µÄ²¿·ÖUI½øĞĞÔ¼Êø
-    /// Ô¼ÊøÌõ¼şÊÇµ±ËùÓĞÈËÎï²»ÔÚµÈ´ıÇøÓòUI enable = false;
+    /// è¯¥å‡½æ•°æ˜¯å¯¹å‰æ™¯æè¦åœºæ™¯çš„éƒ¨åˆ†UIè¿›è¡Œçº¦æŸ
+    /// çº¦æŸæ¡ä»¶æ˜¯å½“æ‰€æœ‰äººç‰©ä¸åœ¨ç­‰å¾…åŒºåŸŸUI enable = false;
     /// </summary>
     //public void OverviewUILimite(int personCnt)
     //{
@@ -47,7 +47,7 @@ public class UILimiteExpansion : MonoBehaviour
     //}
 
     /// <summary>
-    /// ¸üĞÂµ±Ç°µÄUserWindowsµÄUI
+    /// æ›´æ–°å½“å‰çš„UserWindowsçš„UI
     /// </summary>
     public void UpdateUserUI(int personCnt)
     {
@@ -77,7 +77,7 @@ public class UILimiteExpansion : MonoBehaviour
     void SetOfficeSceneButtonEnable(bool enable)
     {
         UserWindow usrWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        SetPanelButtonEnable(usrWin, enable, new List<string>() { "UsrButton" });
+        SetPanelButtonEnable(usrWin, enable, new List<string>() { "UsrButton", "ExamButton" });
     }
 
     void SetScene1ButtonEnable(bool enable)

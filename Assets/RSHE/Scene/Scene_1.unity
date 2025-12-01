@@ -5194,6 +5194,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -7118,6 +7122,10 @@ MonoBehaviour:
   duration: 13
   conditions:
   - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -10839,12 +10847,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &935157223 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7990873191126656719, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8724088221210090612, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
   m_PrefabInstance: {fileID: 935157221}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &935157224 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7990873189708867118, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_CorrespondingSourceObject: {fileID: 760172173812383872, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
   m_PrefabInstance: {fileID: 935157221}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &942174267
@@ -14651,6 +14659,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -15173,6 +15185,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -15634,6 +15650,10 @@ MonoBehaviour:
   duration: 4
   conditions:
   - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -16266,6 +16286,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -16840,6 +16864,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -17339,6 +17367,10 @@ MonoBehaviour:
   duration: 4
   conditions:
   - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19756,6 +19788,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -22132,6 +22168,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -22904,6 +22944,10 @@ MonoBehaviour:
   duration: 4
   conditions:
   - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
