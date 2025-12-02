@@ -31,7 +31,7 @@ public class ExamItem : MonoBehaviour
 
     void OnClickedExamRecordButton()
     {
-        Log.cinput("green", "@@@ OnClickedExamRecordButton");
+        // Log.cinput("green", "@@@ OnClickedExamRecordButton");
         ExamRecordPanelObject.ShowExamUsrPanel(_examTime);
     }
 
@@ -44,6 +44,7 @@ public class ExamItem : MonoBehaviour
 
         string examTime = examRecordButton.GetComponentInChildren<TextMeshProUGUI>().text;
         Scorer.Get().DeleteItem(examTime);
+        ExamRecordPanelObject.RefreshUI();
         SetActive(false);
         Destroy(gameObject);
     }

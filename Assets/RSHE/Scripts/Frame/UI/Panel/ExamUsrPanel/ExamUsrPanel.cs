@@ -7,6 +7,8 @@ public class ExamUsrPanel : MonoBehaviour
 {
     public Button backButton;
 
+    public Image MaskImage;
+
     public GameObject itemTemplate;
 
     public Transform parentTransform;
@@ -19,6 +21,7 @@ public class ExamUsrPanel : MonoBehaviour
 
     private void Start()
     {
+        SetActive(false);
         backButton.onClick.AddListener(() =>
         {
             Clear();
@@ -28,7 +31,7 @@ public class ExamUsrPanel : MonoBehaviour
 
     public void Init(List<UsrData> list)
     {
-        Log.cinput("green", $"@@@ ExamUsrPanel Init");
+        // Log.cinput("green", $"@@@ ExamUsrPanel Init");
         SetActive(true);
         foreach (var data in list)
         {
@@ -41,6 +44,7 @@ public class ExamUsrPanel : MonoBehaviour
 
     public void SetActive(bool active)
     {
+        MaskImage.gameObject.SetActive(active);
         gameObject.SetActive(active);
     }
 

@@ -1,20 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MistakesPanel : MonoBehaviour
 {
-    public GameObject MistakeItemTemplate;
+    [SerializeField]
+    GameObject MistakeItemTemplate;
 
-    public Transform itemParent;
+    [SerializeField]
+    Transform itemParent;
 
-    public Button closeButton;
+    [SerializeField]
+    Button closeButton;
+
+    [SerializeField]
+    TextMeshProUGUI emptyText;
+
+    [SerializeField]
+    GameObject propertyObj;
 
     List<MistaskItem> _mistaskesList = new List<MistaskItem>();
 
     private void Start()
     {
+        SetActive(false);
         closeButton.onClick.AddListener(() =>
         {
             SetActive(false);
@@ -24,13 +35,17 @@ public class MistakesPanel : MonoBehaviour
 
     public void Init(List<IncorrectData> list)
     {
-        SetActive(true);
+        emptyText.gameObject.SetActive(list.Count == 0);
+        propertyObj.gameObject.SetActive(list.Count != 0);
+
+        Destroy();
         foreach (IncorrectData data in list)
         {
             MistaskItem item = GameObject.Instantiate(MistakeItemTemplate, itemParent).GetComponent<MistaskItem>();
             item.Init(data);
             _mistaskesList.Add(item);
         }
+        SetActive(true);
     }
 
     public void SetActive(bool active)

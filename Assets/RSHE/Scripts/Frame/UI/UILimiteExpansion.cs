@@ -77,7 +77,7 @@ public class UILimiteExpansion : MonoBehaviour
     void SetOfficeSceneButtonEnable(bool enable)
     {
         UserWindow usrWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        SetPanelButtonEnable(usrWin, enable, new List<string>() { "UsrButton", "ExamButton" });
+        SetPanelButtonEnable(usrWin, enable, new List<string>() { "UsrButton", "ExamButton", "CloseButton", "backButton" });
     }
 
     void SetScene1ButtonEnable(bool enable)

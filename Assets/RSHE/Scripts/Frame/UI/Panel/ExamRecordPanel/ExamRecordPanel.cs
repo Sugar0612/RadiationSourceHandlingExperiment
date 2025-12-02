@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExamRecordPanel : MonoBehaviour
 {
     #region UI Component
 
-    public GameObject ExamItemTemplate;
+    [SerializeField] GameObject ExamItemTemplate;
 
-    public Transform ExamItemParent;
+    [SerializeField] Transform ExamItemParent;
 
-    public ExamUsrPanel ExamUsrPanelObject;
+    [SerializeField] ExamUsrPanel ExamUsrPanelObject;
+
+    [SerializeField] TextMeshProUGUI emptyText;
+
+    [SerializeField] GameObject propertyObj;
 
     #endregion
     List<ExamItem> examItemList = new List<ExamItem>();
@@ -28,6 +34,7 @@ public class ExamRecordPanel : MonoBehaviour
         {
             yield return new WaitUntil(() => Scorer.Get().isSpawned == true);
 
+            RefreshUI();
             foreach (var item in Scorer.Get().ExamList)
             {
                 ExamItem examItem = GameObject.Instantiate(ExamItemTemplate, ExamItemParent).GetComponent<ExamItem>();
@@ -37,6 +44,13 @@ public class ExamRecordPanel : MonoBehaviour
 
             isInit = true;
         }
+    }
+
+    public void RefreshUI()
+    {
+        int examNum = Scorer.Get().ExamList.Count;
+        emptyText.gameObject.SetActive(examNum == 0);
+        propertyObj.gameObject.SetActive(examNum != 0);
     }
 
     void Destroy()
