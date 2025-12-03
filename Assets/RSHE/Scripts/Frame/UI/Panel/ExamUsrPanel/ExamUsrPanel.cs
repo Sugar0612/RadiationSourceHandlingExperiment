@@ -12,7 +12,7 @@ public class ExamUsrPanel : MonoBehaviour
     public GameObject itemTemplate;
 
     public Transform parentTransform;
-
+    
     public MistakesPanel MistaskesPanelObject;
 
     List<ExamUsrItem> examUsrList = new List<ExamUsrItem>();

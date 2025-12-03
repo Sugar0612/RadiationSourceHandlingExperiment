@@ -37,16 +37,19 @@ public class GameWindow : WinBase
                 {
                     Scorer.Get().Save(() =>
                     {
+                        UserWindow usr = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
+                        usr?.ExamRecordPanel?.ReLoadUI();
+                        usr?.ExamRecordPanel?.RefreshUI();
                         GameHelpler.Get().BackMenu();
-                        GlobalPanel.Get().Destroy();
                     });
+                    return true;
                 },
                 () =>
                 {
                     GameHelpler.Get().BackMenu();
-                    GlobalPanel.Get().Destroy();
+                    return true;
                 }
-            );
+            ); 
         }
         else
         {

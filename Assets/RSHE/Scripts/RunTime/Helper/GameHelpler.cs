@@ -28,7 +28,7 @@ public class GameHelpler : MonoBehaviour
     }
 
     /// <summary>
-    /// 切换游戏场景
+    /// 鍒囨崲娓告垙鍦烘櫙
     /// </summary>
     public void SwitchGameScene(string scene)
     {
@@ -38,7 +38,7 @@ public class GameHelpler : MonoBehaviour
     }
 
     /// <summary>
-    /// 返回菜单界面
+    /// 杩斿洖鑿滃崟鐣岄潰
     /// </summary>
     public void BackMenu()
     {

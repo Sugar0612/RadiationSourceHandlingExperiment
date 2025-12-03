@@ -51,14 +51,30 @@ public class GlobalPanel : MonoBehaviour
         cancelButton.SetButtonActive(active);
     }
 
-    void Init(string content, Action okButtonCallback, Action cancelButtonCallback)
+    void Init(string content, Func<bool> okButtonCallback, Func<bool> cancelButtonCallback)
     {
         contentText.text = content;
-        okButton.onClick.AddListener(() => { okButtonCallback.Invoke(); SetActive(false); });
-        cancelButton.onClick.AddListener(() => { cancelButtonCallback.Invoke(); SetActive(false); });
+        okButton.onClick.AddListener(() => { StartCoroutine(OnOkButtonClickedCoroutine(okButtonCallback)); });
+        cancelButton.onClick.AddListener(() => { StartCoroutine(OnCancelButtonClickedCoroutine(cancelButtonCallback)); });
     }
 
-    public void Spawn(string content, Action okButtonCallback, Action CancelButtonCallback)
+    IEnumerator OnOkButtonClickedCoroutine(Func<bool> okButtonCallback)
+    {
+        bool okRes = okButtonCallback.Invoke();
+        yield return new WaitUntil(() => okRes == true);
+        SetActive(false);
+        Destroy();
+    }
+
+    IEnumerator OnCancelButtonClickedCoroutine(Func<bool> cancelButtonCallback)
+    {
+        bool cancelRes = cancelButtonCallback.Invoke();
+        yield return new WaitUntil(() => cancelRes == true);
+        SetActive(false);
+        Destroy();
+    }
+
+    public void Spawn(string content, Func<bool> okButtonCallback, Func<bool> CancelButtonCallback)
     {
         SetActive(true);
         Init(content, okButtonCallback, CancelButtonCallback);

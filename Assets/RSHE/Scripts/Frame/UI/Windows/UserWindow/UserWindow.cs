@@ -37,7 +37,7 @@ public class UserWindow : WinBase
     [SerializeField]
     GameObject _usrStatePanel; // 用户状态列表界面
 
-    public ExamRecordPanel _ExamRecordPanel;
+    public ExamRecordPanel ExamRecordPanel;
 
     bool _usrState = true;
 
@@ -68,13 +68,13 @@ public class UserWindow : WinBase
         _usrState = !_usrState;
 
         _examState = false;
-        _ExamRecordPanel.SetActive(_examState);
+        ExamRecordPanel.SetActive(_examState);
         _examState = !_examState;
     }
 
     public void OnClickedExamRecordButton()
     {
-        _ExamRecordPanel.SetActive(_examState);
+        ExamRecordPanel.SetActive(_examState);
         _examState = !_examState;
 
         _usrState = false;

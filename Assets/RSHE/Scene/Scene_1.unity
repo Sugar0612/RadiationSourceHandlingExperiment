@@ -5198,6 +5198,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -7126,6 +7130,10 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14663,6 +14671,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -15189,6 +15201,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -15654,6 +15670,10 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -16290,6 +16310,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -16868,6 +16892,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -17371,6 +17399,10 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -18706,6 +18738,18 @@ MonoBehaviour:
     - pName: Detector
       pCount: 1
     IsFinished: 0
+  - Identity: 2
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems:
+    - pName: Detector
+      pCount: 1
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -19789,6 +19833,10 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -22172,6 +22220,10 @@ MonoBehaviour:
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
+  - Identity: 3
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -22948,6 +23000,10 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 3
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0

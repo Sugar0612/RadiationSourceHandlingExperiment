@@ -31,12 +31,12 @@ public class Scorer : MonoBehaviour
     {
         if (!Config.Get().PicoDevice)
         {
-            Register();
+            //Register();
             Init();
         }
     }
 
-    public void Register()
+    void Register()
     {
         currExamData = new ExamData();
     }
@@ -104,5 +104,9 @@ public class Scorer : MonoBehaviour
         Log.cinput("red", $"reason: {s_reason}, identity：{identity}, score:{score}");
     }
 
-    public void Spawn() { isSpawned = true; }
+    public void Spawn()
+    {
+        Register();
+        isSpawned = true;
+    }
 }

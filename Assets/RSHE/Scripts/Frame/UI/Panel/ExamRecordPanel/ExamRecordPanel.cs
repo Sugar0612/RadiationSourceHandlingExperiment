@@ -35,13 +35,7 @@ public class ExamRecordPanel : MonoBehaviour
             yield return new WaitUntil(() => Scorer.Get().isSpawned == true);
 
             RefreshUI();
-            foreach (var item in Scorer.Get().ExamList)
-            {
-                ExamItem examItem = GameObject.Instantiate(ExamItemTemplate, ExamItemParent).GetComponent<ExamItem>();
-                examItem.Init(item.time, this);
-                examItemList.Add(examItem);
-            }
-
+            ReLoadUI();
             isInit = true;
         }
     }
@@ -51,6 +45,17 @@ public class ExamRecordPanel : MonoBehaviour
         int examNum = Scorer.Get().ExamList.Count;
         emptyText.gameObject.SetActive(examNum == 0);
         propertyObj.gameObject.SetActive(examNum != 0);
+    }
+
+    public void ReLoadUI()
+    {
+        Destroy();
+        foreach (var item in Scorer.Get().ExamList)
+        {
+            ExamItem examItem = GameObject.Instantiate(ExamItemTemplate, ExamItemParent).GetComponent<ExamItem>();
+            examItem.Init(item.time, this);
+            examItemList.Add(examItem);
+        }
     }
 
     void Destroy()

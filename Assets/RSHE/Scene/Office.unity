@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d2a21697a70341aa1b2999548cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PicoDevice: 0
+  PicoDevice: 1
 --- !u!1 &804372684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6933,10 +6933,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 440610774}
   - {fileID: 224841310}
   - {fileID: 1841317890}
   - {fileID: 1180053914}
-  - {fileID: 440610774}
   - {fileID: 1649369082}
   m_Father: {fileID: 953855850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7110,7 +7110,7 @@ MonoBehaviour:
   _usrButton: {fileID: 1453357955}
   _examButton: {fileID: 1845587180}
   _usrStatePanel: {fileID: 196129397}
-  _ExamRecordPanel: {fileID: 930665786}
+  ExamRecordPanel: {fileID: 930665786}
 --- !u!1 &962963461
 GameObject:
   m_ObjectHideFlags: 0

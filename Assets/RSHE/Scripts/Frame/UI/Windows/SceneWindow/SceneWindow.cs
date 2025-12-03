@@ -1,6 +1,7 @@
 
 using DG.Tweening;
 using Mirror;
+using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class SceneWindow : WinBase, IPointerEnterHandler, IPointerExitHandler
     /// <summary> 自测模式 </summary>
     public Button _selfTestButton;
 
-    /// <summary> 实训模式 </summary>
+    /// <summary> 考核模式 </summary>
     public Button _assessmentButton;
 
     /// <summary> 前景提要 </summary>

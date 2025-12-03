@@ -26,6 +26,7 @@ public class ExamItem : MonoBehaviour
 
     void OnClickedDeleteButton()
     {
+        ExamRecordPanelObject.SetActive(false);
         GlobalPanel.Get().Spawn("是否删除本次考试记录？", DeleteThisExamData, CancelDelete);
     }
 
@@ -35,23 +36,25 @@ public class ExamItem : MonoBehaviour
         ExamRecordPanelObject.ShowExamUsrPanel(_examTime);
     }
 
-    void DeleteThisExamData()
+    bool DeleteThisExamData()
     {
         if (!Scorer.Get().isSpawned)
         {
             Scorer.Get().Spawn();
         }
 
-        string examTime = examRecordButton.GetComponentInChildren<TextMeshProUGUI>().text;
-        Scorer.Get().DeleteItem(examTime);
+        Scorer.Get().DeleteItem(_examTime);
+        ExamRecordPanelObject.SetActive(true);
         ExamRecordPanelObject.RefreshUI();
         SetActive(false);
         Destroy(gameObject);
+        return true;
     }
 
-    void CancelDelete()
+    bool CancelDelete()
     {
-        GlobalPanel.Get().Destroy();
+        ExamRecordPanelObject.SetActive(true);
+        return true;
     }
 
     public void SetActive(bool active)
