@@ -28,14 +28,13 @@ public class UserWindow : WinBase
 
     List<UserItem> userItemList = new List<UserItem>();
 
-    [SerializeField]
-    Button _usrButton; //  用户列表界面按钮。
+    [SerializeField] Button _usrButton; //  用户列表界面按钮。
 
-    [SerializeField]
-    Button _examButton; // 考试记录界面按钮。
+    [SerializeField] Button _examButton; // 考试记录界面按钮。
 
-    [SerializeField]
-    GameObject _usrStatePanel; // 用户状态列表界面
+    [SerializeField] Button closeButton; // 关闭按钮。
+
+    [SerializeField] GameObject _usrStatePanel; // 用户状态列表界面
 
     public ExamRecordPanel ExamRecordPanel;
 
@@ -55,16 +54,16 @@ public class UserWindow : WinBase
         if (!Config.Get().PicoDevice)
         {
             InitList();
-            TriggerUserStatePanel();
-            _usrButton.onClick.AddListener(TriggerUserStatePanel);
+            OnClickedUserButton();
+            _usrButton.onClick.AddListener(OnClickedUserButton);
             _examButton.onClick.AddListener(OnClickedExamRecordButton);
+            closeButton.onClick.AddListener(OnClickedCloseButton);
         }
     }
 
-    public void TriggerUserStatePanel()
+    private void OnClickedUserButton()
     {
-        _usrStatePanel.SetActive<Image>(_usrState);
-        _usrStatePanel.SetActive<TextMeshProUGUI>(_usrState);
+        _usrStatePanel.SetActive(_usrState);
         _usrState = !_usrState;
 
         _examState = false;
@@ -72,15 +71,33 @@ public class UserWindow : WinBase
         _examState = !_examState;
     }
 
-    public void OnClickedExamRecordButton()
+    private void OnClickedExamRecordButton()
     {
         ExamRecordPanel.SetActive(_examState);
         _examState = !_examState;
 
         _usrState = false;
-        _usrStatePanel.SetActive<Image>(_usrState);
-        _usrStatePanel.SetActive<TextMeshProUGUI>(_usrState);
+        _usrStatePanel.SetActive(_usrState);
         _usrState = !_usrState;
+    }
+
+    public void CloseAllPanel()
+    {
+        _examState = true;
+        _usrState = true;
+
+        ExamRecordPanel.SetActive(!_examState);
+        _usrStatePanel.SetActive(!_usrState);
+    }
+
+    private void OnClickedCloseButton()
+    {
+        Game game = FindObjectOfType<Game>();
+        if (game != null)
+        {
+            CloseAllPanel();
+            game.ReadyQuitGame();
+        }
     }
 
     public void ChangedpersonCountText(int personCount)

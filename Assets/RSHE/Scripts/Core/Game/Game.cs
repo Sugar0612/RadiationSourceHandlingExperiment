@@ -1,17 +1,18 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Game : NetworkBehaviour
 {
-    #region ³¡¾°ÇĞ»»¹¦ÄÜ
+    #region åœºæ™¯åˆ‡æ¢åŠŸèƒ½
 
-    /// <summary> ÓÎÏ·³¡¾° </summary>
+    /// <summary> æ¸¸æˆåœºæ™¯ </summary>
     [Scene]
     public string GameScene;
 
-    /// <summary> ÊÇ·ñÓÎÏ·Ä£Ê½ÒÑ¾­¸Ä±ä </summary>
+    /// <summary> æ˜¯å¦æ¸¸æˆæ¨¡å¼å·²ç»æ”¹å˜ </summary>
     bool _isChangedMode = false;
 
     [Command(requiresAuthority = false)]
@@ -32,6 +33,48 @@ public class Game : NetworkBehaviour
     {
         yield return new WaitUntil(() => _isChangedMode == true);
         GameHelpler.Get().SwitchGameScene(GameScene);
+    }
+
+    #endregion
+
+    #region é€€å‡ºæ¸¸æˆ
+    [ServerCallback]
+    public void ReadyQuitGame()
+    {
+        GlobalPanel.Get().Spawn("ç¡®å®šé€€å‡ºç¨‹åºå—ï¼Ÿ", QuitGame, CancelQuitGame);
+    }
+
+    private bool QuitGame()
+    {
+        RpcQuitGame();
+        StartCoroutine(QuitGameCoroutine());
+        return true;
+    }
+
+    private bool CancelQuitGame()
+    {
+        return true;
+    }
+
+    [ClientRpc]
+    private void RpcQuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
+    }
+
+    IEnumerator QuitGameCoroutine()
+    {
+        yield return new WaitUntil(() => { return StaticGlobalVar.PersonCount <= 0; });
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 
     #endregion
