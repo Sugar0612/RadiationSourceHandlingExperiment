@@ -36,7 +36,7 @@ public partial class CoreAction : NetworkBehaviour
 
             if (canGoOn)
             {
-                Log.cinput("yellow", "In TimesUpRun");
+                //Log.cinput("yellow", "In TimesUpRun");
                 CoreAction.Get()?.SetTaskArrowActive(gamePkg, false);
                 if (StaticGlobalVar.IsHost)
                 {
@@ -50,7 +50,7 @@ public partial class CoreAction : NetworkBehaviour
         }
     }
 
-    /// <summary> ÉèÖÃ¼ıÍ·µÄActive </summary>
+    /// <summary> è®¾ç½®ç®­å¤´çš„Active </summary>
     public void SetTaskArrowActive(GameColliderPackage gamePkg, bool active)
     {
         if (gamePkg != null && _instance != null)
@@ -60,7 +60,7 @@ public partial class CoreAction : NetworkBehaviour
         }
     }
 
-    /// <summary> ÉèÖÃÒôÆµ×´Ì¬ </summary>
+    /// <summary> è®¾ç½®éŸ³é¢‘çŠ¶æ€ </summary>
     public void SetAudioStatus(GameColliderPackage gamePkg, bool active)
     {
         if (gamePkg != null && _instance != null)
@@ -69,7 +69,7 @@ public partial class CoreAction : NetworkBehaviour
         }
     }
 
-    /// <summary> ÓÃÓÚ½ÌÑ§Ä£Ê½×Ô¶¯Ö´ĞĞStart Task </summary>
+    /// <summary> ç”¨äºæ•™å­¦æ¨¡å¼è‡ªåŠ¨æ‰§è¡ŒStart Task </summary>
     public void AutoRunStartTask(GameColliderPackage gamePkg, Action timeupAction = null)
     {
         if (gamePkg != null && _instance != null)

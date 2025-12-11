@@ -54,7 +54,7 @@ public class GameWindow : WinBase
         else
         {
             GameHelpler.Get().BackMenu();
-            GlobalPanel.Get().Destroy();
+            GlobalPanel.Get().DestroySelf();
         }
         //CmdInitPlayer();
     }

@@ -62,16 +62,16 @@ public class GlobalPanel : MonoBehaviour
     {
         bool okRes = okButtonCallback.Invoke();
         yield return new WaitUntil(() => okRes == true);
-        SetActive(false);
-        Destroy();
+        //SetActive(false);
+        DestroySelf();
     }
 
     IEnumerator OnCancelButtonClickedCoroutine(Func<bool> cancelButtonCallback)
     {
         bool cancelRes = cancelButtonCallback.Invoke();
         yield return new WaitUntil(() => cancelRes == true);
-        SetActive(false);
-        Destroy();
+        //SetActive(false);
+        DestroySelf();
     }
 
     public void Spawn(string content, Func<bool> okButtonCallback, Func<bool> CancelButtonCallback)
@@ -80,7 +80,7 @@ public class GlobalPanel : MonoBehaviour
         Init(content, okButtonCallback, CancelButtonCallback);
     }
 
-    public void Destroy()
+    public void DestroySelf()
     {
         SetActive(false);
         UnityEngine.Object.Destroy(this.gameObject);

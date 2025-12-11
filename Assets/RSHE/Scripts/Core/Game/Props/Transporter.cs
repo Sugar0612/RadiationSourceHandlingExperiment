@@ -71,12 +71,12 @@ public class Transporter : NetworkBehaviour
         {
             _clickedButtonIdentity = GetLocalPlayer();
             CmdSetClickedButtonIdentity(_clickedButtonIdentity);
-            CmdGoBackOneTaskCheck();
+            CmdGoBackTwoCheck();
 
             if (_isCanGoBackTwo) //p_JarStatus == JarStatus.Close && !GameSteps.Get().IsCheckTaskFinished(TaskName.T7))
             {
-                CmdSetActionBool("goPointOne", false);
-                CmdSetActionBool("goBackOne", true);
+                CmdSetActionBool("goPointTwo", false);
+                CmdSetActionBool("goBackTwo", true);
                 CmdSetActive(false);
                 CmdGoTask(TaskName.T12);
             }
@@ -148,7 +148,7 @@ public class Transporter : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdGoBackTwoCheck()
     {
-        bool b = _inspector.T7Check(p_JarStatus, _clickedButtonIdentity);
+        bool b = _inspector.T12Check(p_JarStatus, _clickedButtonIdentity);
         RpcSetisCanGoBackTwo(b);
     }
 

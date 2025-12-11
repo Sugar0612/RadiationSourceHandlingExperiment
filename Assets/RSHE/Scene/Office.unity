@@ -5838,7 +5838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d2a21697a70341aa1b2999548cccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PicoDevice: 0
+  PicoDevice: 1
 --- !u!1 &804372684
 GameObject:
   m_ObjectHideFlags: 0
@@ -7228,8 +7228,8 @@ MonoBehaviour:
   messageText: {fileID: 298594340}
   userItemTemp: {fileID: 1687396440}
   userItemParent: {fileID: 2079124384}
-  _usrButton: {fileID: 1453357955}
-  _examButton: {fileID: 1845587180}
+  usrButton: {fileID: 1453357955}
+  examButton: {fileID: 1845587180}
   closeButton: {fileID: 314285372}
   _usrStatePanel: {fileID: 196129397}
   ExamRecordPanel: {fileID: 930665786}

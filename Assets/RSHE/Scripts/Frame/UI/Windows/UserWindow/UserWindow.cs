@@ -28,9 +28,9 @@ public class UserWindow : WinBase
 
     List<UserItem> userItemList = new List<UserItem>();
 
-    [SerializeField] Button _usrButton; //  用户列表界面按钮。
+    [SerializeField] Button usrButton; //  用户列表界面按钮。
 
-    [SerializeField] Button _examButton; // 考试记录界面按钮。
+    [SerializeField] Button examButton; // 考试记录界面按钮。
 
     [SerializeField] Button closeButton; // 关闭按钮。
 
@@ -55,8 +55,8 @@ public class UserWindow : WinBase
         {
             InitList();
             OnClickedUserButton();
-            _usrButton.onClick.AddListener(OnClickedUserButton);
-            _examButton.onClick.AddListener(OnClickedExamRecordButton);
+            usrButton.onClick.AddListener(OnClickedUserButton);
+            examButton.onClick.AddListener(OnClickedExamRecordButton);
             closeButton.onClick.AddListener(OnClickedCloseButton);
         }
     }
