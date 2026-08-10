@@ -8,18 +8,18 @@ using UnityEngine.UI;
 
 public class Detector : NetworkBehaviour
 {
-    public float ScanRadius = 1.5f; // É¨Ãè°ë¾¶
+    public float ScanRadius = 1.5f; // æ‰«æåŠå¾„
 
-    public float scanInterval = 1f; // É¨Ãè¼ä¸ô£¨Ãë£©
+    public float scanInterval = 1f; // æ‰«æé—´éš”ï¼ˆç§’ï¼‰
 
     private float _timer;
 
     private List<RadiationSource> _radiationSourceList = new List<RadiationSource>();
 
-    /// <summary> ¼ÆËãµÄ×î¶Ì¾àÀëÏÔÊ¾ </summary>
+    /// <summary> è®¡ç®—çš„æœ€çŸ­è·ç¦»æ˜¾ç¤º </summary>
     public TMP_Text DistanceText;
 
-    /// <summary> ²âÊÔµã </summary>
+    /// <summary> æµ‹è¯•ç‚¹ </summary>
     public GameObject TestPoint;
 
     public Collider TriggerCollider;

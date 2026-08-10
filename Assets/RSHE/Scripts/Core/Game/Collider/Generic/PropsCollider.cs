@@ -1,9 +1,5 @@
 using Mirror;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Unity.XR.PXR.ShapesRecognizer;
 
 public class NetworkPropsCollider : NetworkBehaviour
 {
