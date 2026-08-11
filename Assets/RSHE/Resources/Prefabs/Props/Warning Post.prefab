@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907249040436986266}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7138373, z: -0, w: -0.70031154}
+  m_LocalRotation: {x: 0, y: 0.7138375, z: -0, w: -0.7003114}
   m_LocalPosition: {x: 1.804, y: 0.668, z: 0.889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -411,7 +411,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2556715292285450727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8184492266867600714}
+        m_TargetAssemblyTypeName: WarningPost, Assembly-CSharp
+        m_MethodName: Place
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2337417313637687514
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1739332731375646819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -612,6 +624,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  _prefab: {fileID: 0}
+  _spawnParent: {fileID: 0}
 --- !u!1 &6373537894701972655
 GameObject:
   m_ObjectHideFlags: 0
