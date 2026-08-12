@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PollutionDetector : NetworkBehaviour
+public class PollutionDetector : PropBase
 {
     public float ScanRadius = 1.5f; // 扫描半径
 

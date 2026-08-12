@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7256955486508136489}
   - component: {fileID: 6213895711241958447}
   - component: {fileID: 1438377482595513936}
+  - component: {fileID: 8296305683020031667}
   m_Layer: 0
   m_Name: NuclideIdentifier
   m_TagString: Untagged
@@ -157,6 +158,29 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8296305683020031667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253696526757629339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dc122ac27839b42ac1f2d8be91d481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  ValueText: {fileID: 6870973723931374209}
+  HintText: {fileID: 4633579065452670355}
+  OnWork: {fileID: 207595921626514991}
+  OffWork: {fileID: 5670339835479681898}
+  TestPoint: {fileID: 7721338245199756039}
+  NearVal: 0.2
+  ScanRadius: 3.8
+  scanInterval: 1
 --- !u!1 &1272751976063297838
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +190,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5146894860416839437}
-  - component: {fileID: 3126385796939722759}
   m_Layer: 0
   m_Name: NuclideIdentifier
   m_TagString: Untagged
@@ -189,29 +212,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6999176447197616956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3126385796939722759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272751976063297838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dc122ac27839b42ac1f2d8be91d481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  ValueText: {fileID: 6870973723931374209}
-  HintText: {fileID: 4633579065452670355}
-  OnWork: {fileID: 207595921626514991}
-  OffWork: {fileID: 5670339835479681898}
-  TestPoint: {fileID: 7721338245199756039}
-  NearVal: 0.2
-  ScanRadius: 3.8
-  scanInterval: 1
 --- !u!1 &1983759149870719827
 GameObject:
   m_ObjectHideFlags: 0

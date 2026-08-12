@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 4709089105622871592}
   - component: {fileID: 3099397696571883558}
   - component: {fileID: 5814384327367629125}
+  - component: {fileID: 1744430325331997091}
   m_Layer: 0
   m_Name: Clamp
   m_TagString: Untagged
@@ -660,6 +661,21 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &1744430325331997091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8749082060228181352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935362fd7fe5f2b458cc09c3c9973113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!1 &8905108188777189096
 GameObject:
   m_ObjectHideFlags: 0

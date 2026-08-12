@@ -7,30 +7,30 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NuclideIdentifier: NetworkBehaviour
+public class NuclideIdentifier: PropBase
 {
-    /// <summary> ¼ÆËãµÄ×î¶Ì¾àÀëÏÔÊ¾ </summary>
+    /// <summary> è®¡ç®—çš„æœ€çŸ­è·ç¦»æ˜¾ç¤º </summary>
     public TMP_Text ValueText;
 
-    /// <summary> Î´¼ì²âµ½ºËËØ or ¼ì²âµ½ºËËØ /// </summary>
+    /// <summary> æœªæ£€æµ‹åˆ°æ ¸ç´  or æ£€æµ‹åˆ°æ ¸ç´  /// </summary>
     public TMP_Text HintText;
 
-    /// <summary> ¿ªÊ¼¹¤×÷ </summary>
+    /// <summary> å¼€å§‹å·¥ä½œ </summary>
     public Button OnWork;
 
-    /// <summary> ½áÊø¹¤×÷ </summary>
+    /// <summary> ç»“æŸå·¥ä½œ </summary>
     public Button OffWork;
 
-    /// <summary> ¼ì²âµã </summary>
+    /// <summary> æ£€æµ‹ç‚¹ </summary>
     public GameObject TestPoint;
 
-    /// <summary> ½üµãÖµ </summary>
+    /// <summary> è¿‘ç‚¹å€¼ </summary>
     public float NearVal;
 
-    #region ¼ì²â²ÎÊı
-    public float ScanRadius = 4.0f; // É¨Ãè°ë¾¶
+    #region æ£€æµ‹å‚æ•°
+    public float ScanRadius = 4.0f; // æ‰«æåŠå¾„
 
-    public float scanInterval = 1f; // É¨Ãè¼ä¸ô£¨Ãë£©
+    public float scanInterval = 1f; // æ‰«æé—´éš”ï¼ˆç§’ï¼‰
 
     private float _timer;
 
@@ -99,13 +99,13 @@ public class NuclideIdentifier: NetworkBehaviour
             string Hint;
             if (NearVal <= value)
             {
-                Hint = @"¼ì²âµ½: 137Cs";
+                Hint = @"æ£€æµ‹åˆ°: 137Cs";
                 HintText.GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                 HintText.text = Hint;
             }
             else
             {
-                Hint = @"Î´¼ì²âµ½ºËËØ";
+                Hint = @"æœªæ£€æµ‹åˆ°æ ¸ç´ ";
                 HintText.GetComponent<TextMeshProUGUI>().color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
                 HintText.text = Hint;
             }

@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4184562973724298819}
   - component: {fileID: 3382616987142829247}
   - component: {fileID: 5648058775010784182}
+  - component: {fileID: 8559566288657506495}
   m_Layer: 0
   m_Name: LongDetector
   m_TagString: Untagged
@@ -250,6 +251,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8559566288657506495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2817825375291480433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f5799ccf257a64e802b152887d0960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  ScanRadius: 3.8
+  scanInterval: 1
+  DistanceText: {fileID: 9034937835010588305}
+  TestPoint: {fileID: 1209860325180278658}
+  TriggerCollider: {fileID: 0}
+  DeviceValue: 0
 --- !u!1 &3472952055723187861
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +491,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8042315218487645010}
-  - component: {fileID: 7730733628486899696}
   m_Layer: 0
   m_Name: LongDetector
   m_TagString: Untagged
@@ -493,27 +514,6 @@ Transform:
   - {fileID: 5330960116384891323}
   m_Father: {fileID: 7665271611288049433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7730733628486899696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5182840987961050268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f5799ccf257a64e802b152887d0960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  ScanRadius: 3.8
-  scanInterval: 1
-  DistanceText: {fileID: 9034937835010588305}
-  TestPoint: {fileID: 1209860325180278658}
-  TriggerCollider: {fileID: 0}
-  DeviceValue: 0
 --- !u!1 &6725510140838078008
 GameObject:
   m_ObjectHideFlags: 0

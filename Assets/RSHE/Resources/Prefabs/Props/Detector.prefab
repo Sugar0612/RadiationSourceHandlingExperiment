@@ -376,7 +376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2372009325686077436}
-  - component: {fileID: 1056288700620065394}
   m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
@@ -399,27 +398,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7886264188750337277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1056288700620065394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5415719351049518313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f5799ccf257a64e802b152887d0960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  ScanRadius: 3.6
-  scanInterval: 1
-  DistanceText: {fileID: 2867943606208762776}
-  TestPoint: {fileID: 2712930954393096647}
-  TriggerCollider: {fileID: 3706579312909093308}
-  DeviceValue: 0
 --- !u!1 &5995614720216307410
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +412,7 @@ GameObject:
   - component: {fileID: 6462093508723619769}
   - component: {fileID: 5495969956375295059}
   - component: {fileID: 1315474543918051936}
+  - component: {fileID: 258691336361995274}
   m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
@@ -577,6 +556,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &258691336361995274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995614720216307410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f5799ccf257a64e802b152887d0960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  ScanRadius: 3.6
+  scanInterval: 1
+  DistanceText: {fileID: 2867943606208762776}
+  TestPoint: {fileID: 2712930954393096647}
+  TriggerCollider: {fileID: 3706579312909093308}
+  DeviceValue: 0
 --- !u!1 &8492345145229303008
 GameObject:
   m_ObjectHideFlags: 0

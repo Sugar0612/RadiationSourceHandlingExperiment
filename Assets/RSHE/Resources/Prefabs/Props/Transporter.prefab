@@ -304,6 +304,8 @@ MonoBehaviour:
   PropName: Transporter
   WhoHeld: 0
   isCloned: 0
+  HeldShapeTransform: {fileID: 0}
+  RootTransform: {fileID: 0}
 --- !u!114 &1438377482595513936
 MonoBehaviour:
   m_ObjectHideFlags: 0

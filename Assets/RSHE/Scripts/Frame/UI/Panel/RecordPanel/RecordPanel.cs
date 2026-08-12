@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RecordPanel : NetworkBehaviour
+public class RecordPanel : PropBase
 {
     #region UI控件
 

@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Detector : NetworkBehaviour
+public class Detector : PropBase
 {
     public float ScanRadius = 1.5f; // 扫描半径
 

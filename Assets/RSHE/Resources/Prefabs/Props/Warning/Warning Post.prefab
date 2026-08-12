@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7937802551961436270}
   - component: {fileID: 6865202980362260376}
   - component: {fileID: 1196708447095224115}
+  - component: {fileID: 8027946072614224731}
+  - component: {fileID: 8783318374325035053}
   m_Layer: 0
   m_Name: Warning Post
   m_TagString: Untagged
@@ -34,6 +36,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 6264558957859753954}
   - {fileID: 592463998148922501}
   - {fileID: 4901523827167396052}
   m_Father: {fileID: 0}
@@ -157,6 +160,75 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!135 &8027946072614224731
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907249040436986266}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0.96, z: 0}
+--- !u!114 &8783318374325035053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907249040436986266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4513248b890ae5a468fef7e5606dc5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  linkerPointer: {fileID: 6264558957859753954}
+  _linkPrefab: {fileID: 3094992436021648934, guid: 5926420f96168da4e8f0ec94e052ed6f, type: 3}
+--- !u!1 &922044692726335743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6264558957859753954}
+  m_Layer: 0
+  m_Name: linkerPointer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6264558957859753954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922044692726335743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.96, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2294207885620373930}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1795354212493121375
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +484,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8184492266867600714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WarningPost, Assembly-CSharp
         m_MethodName: Place
         m_Mode: 1
@@ -586,7 +658,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5528753743534244554}
-  - component: {fileID: 8184492266867600714}
   m_Layer: 0
   m_Name: Warning Post
   m_TagString: Untagged
@@ -609,23 +680,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 592463998148922501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8184492266867600714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4900681616052637835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8740a8f9179d7d04f8e4c0aa511b80c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  _prefab: {fileID: 0}
-  _spawnParent: {fileID: 0}
 --- !u!1 &6373537894701972655
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7101457829721515676}
   - component: {fileID: 9092862334387886215}
   - component: {fileID: 6056988180738455824}
+  - component: {fileID: 6064671614048558085}
   m_Layer: 0
   m_Name: Pollution Detector
   m_TagString: Untagged
@@ -157,6 +158,26 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &6064671614048558085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272208494085347223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f07897430c39164e83c74e846a7d45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  ScanRadius: 3.8
+  scanInterval: 1
+  DistanceText: {fileID: 6714027212772564016}
+  TestPoint: {fileID: 1331977136867661907}
+  TriggerCollider: {fileID: 5067689459730069038}
 --- !u!1 &646645775796595820
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +564,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 191791580024284945}
-  - component: {fileID: 3227988163679579828}
   - component: {fileID: 5067689459730069038}
   m_Layer: 0
   m_Name: Pollution Detector
@@ -568,26 +588,6 @@ Transform:
   - {fileID: 6864989318283915496}
   m_Father: {fileID: 6781446483998331806}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3227988163679579828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262884852305457237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f07897430c39164e83c74e846a7d45d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  ScanRadius: 3.8
-  scanInterval: 1
-  DistanceText: {fileID: 6714027212772564016}
-  TestPoint: {fileID: 1331977136867661907}
-  TriggerCollider: {fileID: 5067689459730069038}
 --- !u!65 &5067689459730069038
 BoxCollider:
   m_ObjectHideFlags: 0

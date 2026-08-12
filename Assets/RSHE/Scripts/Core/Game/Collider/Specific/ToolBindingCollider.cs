@@ -14,7 +14,7 @@ public class ToolBindingCollider : NetworkBehaviour
     [SyncVar(hook = nameof(OnPropObjectNetIdChanged))]
     private uint propObjectNetId;
 
-    public GameObject propObject;
+    public PropBase propObject;
 
     public Button operatorButton;
 
@@ -35,8 +35,10 @@ public class ToolBindingCollider : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
-        spawnPos = propObject.transform.position;
-        spawnRot = propObject.transform.rotation;
+
+        propObject.transform.GetPositionAndRotation(out spawnPos, out spawnRot);
+        //spawnPos = propObject.transform.localPosition;
+        //spawnRot = propObject.transform.localRotation;
     }
 
     #endregion
@@ -47,10 +49,12 @@ public class ToolBindingCollider : NetworkBehaviour
 
         if (takeIdentity == EIdentity.None)
         {
+            propObject.OnPickUp();
             CmdSetTakeIdentity(localIdentity);
         }
         else if (takeIdentity == localIdentity)
         {
+            propObject.OnLetGo();
             CmdSetTakeIdentity(EIdentity.None);
         }
     }
@@ -61,15 +65,14 @@ public class ToolBindingCollider : NetworkBehaviour
         NetworkPropsCollider propInfo = propObject.GetComponent<NetworkPropsCollider>();
         if (propInfo && targetIdentity == EIdentity.None)
         {
-            Utility.DestroyNetworkObject(propObject);
-            // DelayedRegeneration(propInfo.PropName);
+            Utility.DestroyNetworkObject(propObject.gameObject);
 
             GameObject newObj = Instantiate(propPrefab, spawnPos, spawnRot, parentTransform);
             NetworkIdentity newObjNetworkIdentity = newObj.GetComponent<NetworkIdentity>();
 
             NetworkServer.Spawn(newObj);
             propObjectNetId = newObjNetworkIdentity.netId;
-            propObject = newObj;
+            propObject = newObj.GetComponent<PropBase>();
         }
         else if (targetIdentity != EIdentity.None)
         {
@@ -98,7 +101,7 @@ public class ToolBindingCollider : NetworkBehaviour
             if (propInfo && player && player.grabHand.GrabObject == null)
             {
                 propObject.transform.parent = player.HeldTrans;
-                player.grabHand.GrabObject = propObject;
+                player.grabHand.GrabObject = propObject.gameObject;
 
                 propObject.transform.localPosition = Vector3.zero;
                 propObject.transform.localRotation = Quaternion.identity;
@@ -119,7 +122,7 @@ public class ToolBindingCollider : NetworkBehaviour
         // 通过 netId 在客户端已生成的对象中查找
         if (NetworkClient.spawned.TryGetValue(newNetId, out NetworkIdentity networkIdentity))
         {
-            propObject = networkIdentity.gameObject;
+            propObject = networkIdentity.gameObject.GetComponent<PropBase>();
         }
         else
         {
