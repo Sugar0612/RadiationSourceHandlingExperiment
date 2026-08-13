@@ -197,7 +197,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   linkerPointer: {fileID: 6264558957859753954}
-  _linkPrefab: {fileID: 3094992436021648934, guid: 5926420f96168da4e8f0ec94e052ed6f, type: 3}
+  canlink: 1
+  activeLinking: 0
+  _virtualLinkPrefab: {fileID: 0}
+  _realLinkPrefab: {fileID: 0}
 --- !u!1 &922044692726335743
 GameObject:
   m_ObjectHideFlags: 0

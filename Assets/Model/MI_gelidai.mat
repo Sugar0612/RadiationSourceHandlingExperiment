@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u8B66\u6212\u5E26"
-  m_Shader: {fileID: -6465566751694194690, guid: b4a73cc964071664fa085847ff41a315, type: 3}
+  m_Name: MI_gelidai
+  m_Shader: {fileID: -6465566751694194690, guid: c3faa1da69d014144826adb9e03aeb8d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -115,9 +115,12 @@ Material:
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
-    - __1: 1.17
+    - __1: 0.52
+    - __2: 10
+    - __3: 0.1
+    - __4: 1
     m_Colors:
-    - _: {r: 0, g: 1.4980392, b: 1.1805712, a: 1}
+    - _: {r: 1, g: 0.5469047, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

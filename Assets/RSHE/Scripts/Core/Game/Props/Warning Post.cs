@@ -21,6 +21,8 @@ public class WarningPost : PropBase
     /// </summary>
     [SerializeField] private GameObject _anticipate;
 
+    [SerializeField] private WarningLinker _warningLinker;
+
     /// <summary> 是否拿起了 </summary>
     private bool _pickingUp = false;
 
@@ -69,23 +71,30 @@ public class WarningPost : PropBase
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdPlace()
+    private void CmdPlace(NetworkConnectionToClient sender = null)
     {
         // 服务器生成
         Vector3 spawnPos = new Vector3(transform.position.x, -0.17f, transform.position.z);
-        //GameObject newObj = Instantiate(_prefab, spawnPos, Quaternion.identity, _spawnParent);
         GameObject newObj = Instantiate(_prefab, spawnPos, Quaternion.identity);
-        NetworkIdentity newObjNetworkIdentity = newObj.GetComponent<NetworkIdentity>();
         NetworkServer.Spawn(newObj);
 
-        // 客户端同步生成物体的父类
-        // RpcAsyncParent(newObj);
+        // 物体放置后，只可以被动链接，不能主动链接。
+        RpcCloseActiveLinks(newObj);
+
+        // 生成警戒带
+        TargetSpawnSceneLinker(sender, newObj);
     }
 
-    //[ClientRpc] private void RpcAsyncParent(GameObject obj)
-    //{
-    //    obj.transform.SetParent(_spawnParent);
-    //}
+    [ClientRpc] private void RpcCloseActiveLinks(GameObject obj)
+    {
+        var linker = obj.GetComponent<WarningLinker>();
+        linker.UnEnable();
+    }
+
+    [TargetRpc] private void TargetSpawnSceneLinker(NetworkConnection sender, GameObject obj)
+    {
+        _warningLinker.SpawnLinker();
+    }
 
     #endregion
 }

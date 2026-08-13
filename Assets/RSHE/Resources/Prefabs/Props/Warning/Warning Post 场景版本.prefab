@@ -364,7 +364,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   linkerPointer: {fileID: 3847008792640423913}
-  _linkPrefab: {fileID: 3094992436021648934, guid: 5926420f96168da4e8f0ec94e052ed6f, type: 3}
+  canlink: 1
+  activeLinking: 1
+  _virtualLinkPrefab: {fileID: 3094992436021648934, guid: 5926420f96168da4e8f0ec94e052ed6f, type: 3}
+  _realLinkPrefab: {fileID: 6946780690883203724, guid: ee1d162112927dd43a08263bf1eed77e, type: 3}
 --- !u!1 &6385207676641476823
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +933,7 @@ MonoBehaviour:
   syncInterval: 0
   _prefab: {fileID: 907249040436986266, guid: 4cbdafa1f34aa874c90c2654f1c9e649, type: 3}
   _anticipate: {fileID: 5676481477426292239}
+  _warningLinker: {fileID: 6247191687980476976}
 --- !u!1 &7925421564153618787
 GameObject:
   m_ObjectHideFlags: 0

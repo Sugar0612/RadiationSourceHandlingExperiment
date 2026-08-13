@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 两个警戒庄的连接器：警戒带
 /// </summary>
-public class Linker : MonoBehaviour
+public class Linker : NetworkBehaviour
 {
     private Transform _targetA;
     private Transform _targetB;

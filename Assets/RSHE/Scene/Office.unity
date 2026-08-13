@@ -1394,6 +1394,7 @@ MonoBehaviour:
   - {fileID: 3559612030492928105, guid: 700c0941b10a29647b53f358c9035b49, type: 3}
   - {fileID: 7312784217149274841, guid: 76d65968a7ecdc147871d7b87cbe9358, type: 3}
   - {fileID: 907249040436986266, guid: 4cbdafa1f34aa874c90c2654f1c9e649, type: 3}
+  - {fileID: 6946780690883203724, guid: ee1d162112927dd43a08263bf1eed77e, type: 3}
   snapshotSettings:
     bufferTimeMultiplier: 2
     catchupNegativeThreshold: -1
