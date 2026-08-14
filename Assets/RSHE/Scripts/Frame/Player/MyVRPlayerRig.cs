@@ -8,6 +8,7 @@ using RootMotion.FinalIK;
 public class MyVRPlayerRig : MonoBehaviour
 {
     #region Model Transform
+
     [Header("Model Transform")]
 
     [SerializeField]
@@ -32,6 +33,8 @@ public class MyVRPlayerRig : MonoBehaviour
     public Transform head { get => m_Head; set => m_Head = value; }
 
     #endregion
+
+    public SkinnedMeshRenderer heldRenderer;
 
     #region Player Controller
     [Space]

@@ -11,4 +11,7 @@ public class PropBase : NetworkBehaviour, IPropMethod
 
     /// <summary> 放下时 </summary>
     public virtual void OnLetGo() { }
+
+    /// <summary> 生成时 </summary>
+    public virtual void OnSpawn() { }
 }

@@ -9,4 +9,7 @@ public interface IPropMethod
 
     /// <summary> 放下时 </summary>
     public void OnLetGo();
+
+    /// <summary> 生成时 </summary>
+    public void OnSpawn();
 }
