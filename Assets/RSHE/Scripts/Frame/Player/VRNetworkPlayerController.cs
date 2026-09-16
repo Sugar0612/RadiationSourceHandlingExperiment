@@ -164,8 +164,11 @@ public class VRNetworkPlayerController : NetworkBehaviour
     {
         //Log.cinput("yellow", $"Client Disconnected! Device ID: {identity.ToString()}\n");
 
+        // 场景中可能没有 UserWindow(未注册),不能让断连路径抛异常
         UserWindow userWin = UIController.Get().GetWindow<UserWindow>(EWindowType.UserWindow) as UserWindow;
-        userWin.SetItemState(identity, EUserState.Offline);
+        if (userWin != null)
+            userWin.SetItemState(identity, EUserState.Offline);
+
         PlayerManager.Get().UnRegister(identity);
     }
 

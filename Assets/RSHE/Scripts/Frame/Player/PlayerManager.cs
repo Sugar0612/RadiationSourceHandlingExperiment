@@ -39,6 +39,10 @@ public class PlayerManager
     public VRNetworkPlayerController GetPlayer(EIdentity identity)
     {
         if (identity == EIdentity.None) return null;
-        return PlayerDic[identity];
+
+        // 查不到时返回 null,而不是抛 KeyNotFoundException
+        // (该方法会在 Mirror 的 SyncVar 钩子/Command 管道中被调用,抛异常会导致连接中断)
+        PlayerDic.TryGetValue(identity, out VRNetworkPlayerController player);
+        return player;
     }
 }

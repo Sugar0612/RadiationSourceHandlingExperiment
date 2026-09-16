@@ -46,8 +46,12 @@ public class ToolBindingCollider : NetworkBehaviour
 
     void ClickedOperatorButton()
     {
+        // 道具可能已被销毁(如上一次放回后引用尚未刷新)
+        if (propObject == null) return;
+
         EIdentity localIdentity = GetLocalPlayerIdentity();
         MyVRPlayerRig localRig = FindObjectOfType<MyVRPlayerRig>();
+        if (localRig == null) return;
 
         if (takeIdentity == EIdentity.None)
         {
@@ -68,9 +72,25 @@ public class ToolBindingCollider : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdSetTakeIdentity(EIdentity targetIdentity, NetworkConnectionToClient sender = null)
     {
-        NetworkPropsCollider propInfo = propObject.GetComponent<NetworkPropsCollider>();
-        if (propInfo && targetIdentity == EIdentity.None)
+        if (targetIdentity == EIdentity.None)
         {
+            // 放回操作:道具必须是已被拿取状态,防止连点重复销毁/重建
+            if (takeIdentity == EIdentity.None) return;
+
+            // 只有当前持有人可以放回
+            if (sender != null && sender.identity != null)
+            {
+                VRNetworkPlayerController senderPlayer = sender.identity.GetComponent<VRNetworkPlayerController>();
+                if (senderPlayer == null || senderPlayer.identity != takeIdentity) return;
+            }
+
+            NetworkPropsCollider propInfo = propObject != null ? propObject.GetComponent<NetworkPropsCollider>() : null;
+            if (propInfo == null)
+            {
+                Log.cinput("red", $"CmdSetTakeIdentity: {propObject} missing NetworkPropsCollider, put back aborted.");
+                return;
+            }
+
             Utility.DestroyNetworkObject(propObject.gameObject);
 
             // Spawn
@@ -83,60 +103,64 @@ public class ToolBindingCollider : NetworkBehaviour
 
             propObjectNetId = newObjNetworkIdentity.netId;
             propObject = newObj.GetComponent<PropBase>();
+            takeIdentity = targetIdentity;
         }
-        else if (targetIdentity != EIdentity.None)
+        else
         {
             VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(targetIdentity);
-            if (player.grabHand.GrabObject != null)
-                return;
+            if (player == null || player.grabHand == null) return;
+            if (player.grabHand.GrabObject != null) return;
+
+            takeIdentity = targetIdentity;
         }
-        takeIdentity = targetIdentity;
     }
 
     [ClientRpc] private void RpcPropSpawn(GameObject propObj)
     {
+        if (propObj == null) return;
+
         var p = propObj.GetComponent<PropBase>();
+        if (p == null) return;
+
         p.OnSpawn();
     }
 
     void OnTakeIdentityChanged(EIdentity oldIdentity, EIdentity newIdentity)
     {
+        // 重连初期或道具销毁瞬间,propObject 可能尚未刷新
+        if (propObject == null) return;
+
         NetworkPropsCollider propInfo = propObject.GetComponent<NetworkPropsCollider>();
+        TextMeshProUGUI buttonText = operatorButton != null ? operatorButton.GetComponentInChildren<TextMeshProUGUI>() : null;
+
         if (newIdentity == EIdentity.None)
         {
             VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(oldIdentity);
+            if (player != null && player.grabHand != null)
+                player.ClearGrabObject();
 
-            //// 隐藏道具专属手部模型，显示自由左手模型
-            //if (!isServer && GetLocalPlayerIdentity() == newIdentity)
-            //{
-            //    player.playerRig.heldRenderer.material.SetColor("_InnerColor", new Color(0.37f, 0.4f, 0.5f, 0.65f));
-            //    player.playerRig.heldRenderer.material.SetColor("_OutColor", new Color(0.76f, 0.81f, 0.94f, 0.65f));
-            //}
-
-            player.ClearGrabObject();
-            operatorButton.GetComponentInChildren<TextMeshProUGUI>().text = "拾取";
+            if (buttonText != null)
+                buttonText.text = "拾取";
         }
         else
         {
-            operatorButton.GetComponentInChildren<TextMeshProUGUI>().text = "放回";
+            if (buttonText != null)
+                buttonText.text = "放回";
+
             VRNetworkPlayerController player = PlayerManager.Get().GetPlayer(newIdentity);
 
-            //// 隐藏左手模型，改为道具专属手部模型
-            //if (!isServer && GetLocalPlayerIdentity() == newIdentity)
-            //{
-            //    player.playerRig.heldRenderer.material.SetColor("_InnerColor", new Color(0.37f, 0.4f, 0.5f, 0.01f));
-            //    player.playerRig.heldRenderer.material.SetColor("_OutColor", new Color(0.76f, 0.81f, 0.94f, 0.01f));
-            //}
-
-            if (propInfo && player && player.grabHand.GrabObject == null)
+            if (propInfo && player && player.grabHand != null && player.grabHand.GrabObject == null && player.HeldTrans != null)
             {
                 propObject.transform.parent = player.HeldTrans;
                 player.grabHand.GrabObject = propObject.gameObject;
 
-                propObject.transform.localPosition = Vector3.zero;
-                propObject.transform.localRotation = Quaternion.identity;
-                propInfo.RootTransform.localPosition = propInfo.HeldShapeTransform.localPosition;
-                propInfo.RootTransform.rotation = propInfo.HeldShapeTransform.rotation;
+                if (propInfo.RootTransform != null && propInfo.HeldShapeTransform != null)
+                {
+                    propObject.transform.localPosition = Vector3.zero;
+                    propObject.transform.localRotation = Quaternion.identity;
+                    propInfo.RootTransform.localPosition = propInfo.HeldShapeTransform.localPosition;
+                    propInfo.RootTransform.rotation = propInfo.HeldShapeTransform.rotation;
+                }
             }
         }
     }
