@@ -2671,7 +2671,8 @@ PrefabInstance:
       value: "\u8B66\u6212\u6869 (6)"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
@@ -7579,26 +7580,6 @@ MonoBehaviour:
     HoldingItems: []
     IsFinished: 0
   - Identity: 2
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 4
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 5
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -14582,7 +14563,6 @@ Transform:
   - {fileID: 818431811}
   - {fileID: 822884035}
   - {fileID: 199946863}
-  - {fileID: 2004655839}
   - {fileID: 1111838100}
   - {fileID: 2129960415}
   - {fileID: 1598030864}
@@ -15028,11 +15008,11 @@ MonoBehaviour:
   fraction: 5
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -15554,15 +15534,11 @@ MonoBehaviour:
   fraction: 5
   duration: 4
   conditions:
-  - Identity: 5
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -16026,7 +16002,11 @@ MonoBehaviour:
   fraction: 9
   duration: 4
   conditions:
-  - Identity: 7
+  - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -16666,15 +16646,11 @@ MonoBehaviour:
   fraction: 6
   duration: 4
   conditions:
-  - Identity: 5
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems: []
-    IsFinished: 0
-  - Identity: 7
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -17248,11 +17224,11 @@ MonoBehaviour:
   fraction: 5
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -17754,11 +17730,11 @@ MonoBehaviour:
   fraction: 5
   duration: 4
   conditions:
-  - Identity: 6
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 7
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -19100,36 +19076,6 @@ MonoBehaviour:
     - pName: Detector
       pCount: 1
     IsFinished: 0
-  - Identity: 3
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 4
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 5
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 6
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
-  - Identity: 7
-    BodyPart: 0
-    HoldingItems:
-    - pName: Detector
-      pCount: 1
-    IsFinished: 0
   EndTask:
     m_PersistentCalls:
       m_Calls:
@@ -20208,11 +20154,11 @@ MonoBehaviour:
   fraction: 5
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -22588,11 +22534,11 @@ MonoBehaviour:
   fraction: 5
   duration: 3
   conditions:
-  - Identity: 3
+  - Identity: 1
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
-  - Identity: 4
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -23367,7 +23313,11 @@ MonoBehaviour:
   fraction: 5
   duration: 4
   conditions:
-  - Identity: 7
+  - Identity: 1
+    BodyPart: 0
+    HoldingItems: []
+    IsFinished: 0
+  - Identity: 2
     BodyPart: 0
     HoldingItems: []
     IsFinished: 0
@@ -23589,106 +23539,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
   m_PrefabInstance: {fileID: 1984113927}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2004655838
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1189860147}
-    m_Modifications:
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.917
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0023
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5339499887220285939, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.523
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.186
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99497074
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.10016602
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -11.497
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-      propertyPath: m_Name
-      value: "\u8B66\u6212\u6869 (7)"
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
---- !u!4 &2004655839 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-  m_PrefabInstance: {fileID: 2004655838}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2004655840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
-  m_PrefabInstance: {fileID: 2004655838}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2008563313
 PrefabInstance:
@@ -24663,7 +24513,6 @@ MonoBehaviour:
   - {fileID: 818431812}
   - {fileID: 822884036}
   - {fileID: 199946864}
-  - {fileID: 2004655840}
   - {fileID: 7862935543519107933}
   InSideFencesList:
   - {fileID: 2017734251}
@@ -25355,6 +25204,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
+--- !u!1 &793374518189640352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 204900750820627901, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
+  m_PrefabInstance: {fileID: 793374518189640351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &887569270981092958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28588,8 +28442,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _prefab: {fileID: 907249040436986266, guid: 4cbdafa1f34aa874c90c2654f1c9e649, type: 3}
   _handPose: {fileID: 841946845}
+  _prefab: {fileID: 907249040436986266, guid: 4cbdafa1f34aa874c90c2654f1c9e649, type: 3}
   _uiCanvas: {fileID: 7143978186156372271}
   _anticipate: {fileID: 5676481478241964258}
   _warningLinker: {fileID: 6247191688779865309}

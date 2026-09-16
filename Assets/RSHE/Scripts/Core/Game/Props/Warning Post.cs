@@ -12,9 +12,6 @@ public class WarningPost : PropBase
     /// <summary> 生成的预制体 </summary>
     [SerializeField] private GameObject _prefab;
 
-    /// <summary> 手部模型 </summary>
-    [SerializeField] private GameObject _handPose;
-
     /// <summary> UI控件 </summary>
     [SerializeField] private GameObject _uiCanvas;
 
@@ -55,24 +52,24 @@ public class WarningPost : PropBase
 
     public override void OnPickUp()
     {
+        base.OnPickUp();
         _pickingUp = true;
         _anticipate.SetActive(true);
-        _handPose.SetActive(true);
         _uiCanvas.SetActive(true);
     }
 
     public override void OnLetGo()
     {
+        base.OnLetGo();
         _pickingUp = false;
         _anticipate.SetActive(false);
-        _handPose.SetActive(false);
         _uiCanvas.SetActive(false);
     }
 
     public override void OnSpawn()
     {
+        base.OnSpawn();
         _anticipate.SetActive(false);
-        _handPose.SetActive(false);
         _uiCanvas.SetActive(false);
     }
 
