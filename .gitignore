@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Trae / Zcode IDE plans
+.zcode/
+
 # Gradle cache directory
 .gradle/
 

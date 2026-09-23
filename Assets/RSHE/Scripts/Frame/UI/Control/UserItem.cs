@@ -24,10 +24,10 @@ public class UserItem : MonoBehaviour
     public void SetState(EUserState _state)
     {
         stateTx.text = m_UserStateDic[_state];
-        Utility.LoadImageFromResource(_stateImg, m_StateImgDic[_state]);
+        Utility.LoadImageFromAddressables(_stateImg, m_StateImgDic[_state]);
     }
 
     Dictionary<EUserState, string> m_UserStateDic = new Dictionary<EUserState, string>() { { EUserState.Offline, "¿Îœﬂ" }, { EUserState.Online, "‘⁄œﬂ"} };
 
-    Dictionary<EUserState, string> m_StateImgDic = new Dictionary<EUserState, string>() { { EUserState.Offline, "Textures/UI/Ctrl/Offline" }, { EUserState.Online, "Textures/UI/Ctrl/Online" } };
+    Dictionary<EUserState, string> m_StateImgDic = new Dictionary<EUserState, string>() { { EUserState.Offline, "UI/Ctrl/Offline" }, { EUserState.Online, "UI/Ctrl/Online" } };
 }

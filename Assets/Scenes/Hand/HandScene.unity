@@ -231,7 +231,6 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  particleSystem: {fileID: 2116829637}
   audioSource: {fileID: 2116829636}
   incrementalNumberText: {fileID: 2116829635}
 --- !u!114 &5728153
@@ -902,7 +901,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1036,7 +1036,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4716,7 +4717,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -6365,11 +6367,6 @@ MonoBehaviour:
 --- !u!82 &2116829636 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8884937157564009091, guid: 05fb76a826758e4409cf98383a5b6489, type: 3}
-  m_PrefabInstance: {fileID: 2116829633}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2116829637 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7961502076936947312, guid: 05fb76a826758e4409cf98383a5b6489, type: 3}
   m_PrefabInstance: {fileID: 2116829633}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2124753037

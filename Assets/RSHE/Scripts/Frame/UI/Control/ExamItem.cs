@@ -27,7 +27,9 @@ public class ExamItem : MonoBehaviour
     void OnClickedDeleteButton()
     {
         ExamRecordPanelObject.SetActive(false);
-        GlobalPanel.Get().Spawn("是否删除本次考试记录？", DeleteThisExamData, CancelDelete);
+        var deletePanel = GlobalPanel.Get();
+        if (deletePanel != null)
+            deletePanel.Spawn("是否删除本次考试记录？", DeleteThisExamData, CancelDelete);
     }
 
     void OnClickedExamRecordButton()

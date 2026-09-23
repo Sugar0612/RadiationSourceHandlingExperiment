@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.548
@@ -205,6 +209,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (3)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -635,6 +643,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 168800331fa40874e98a7ea372bb88cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1041,7 +1053,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1262,6 +1275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -1.42
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.15
@@ -1305,6 +1322,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (7)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1925,7 +1946,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -2670,6 +2692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (6)"
       objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
@@ -3230,6 +3256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_baojingyi
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e27e702a05e47874eaf1a1cf6ad29cb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3334,6 +3364,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -27.487
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.011
@@ -3377,6 +3411,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3578,6 +3616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (12)"
       objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
@@ -3731,6 +3773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_qizi (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 09ed9822750fcff4bb5e4959c64becd4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3862,6 +3908,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.726
@@ -3905,6 +3955,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4048,7 +4102,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4487,7 +4542,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -5014,7 +5070,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -5162,6 +5219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.19
@@ -5205,6 +5266,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (3)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5973,7 +6038,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -6617,6 +6683,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -1.981
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.44
@@ -6660,6 +6730,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (10)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7007,6 +7081,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.632
@@ -7050,6 +7128,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (8)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7109,6 +7191,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1529999
@@ -7152,6 +7238,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7219,6 +7309,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e27e702a05e47874eaf1a1cf6ad29cb4, type: 3}
       propertyPath: m_Name
       value: SM_baojingyi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e27e702a05e47874eaf1a1cf6ad29cb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7748,6 +7842,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.027
@@ -7791,6 +7889,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (5)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8446,6 +8548,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.355
@@ -8489,6 +8595,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (5)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9447,7 +9557,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -9767,7 +9878,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -9880,6 +9992,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.348
@@ -9923,6 +10039,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10014,6 +10134,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.047
@@ -10057,6 +10181,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (5)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10482,7 +10610,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -10718,7 +10847,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -11102,7 +11232,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -11269,6 +11400,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1869842856703731449, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038708796068840160, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5773256366622995465, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11313,6 +11452,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6766468454777503201, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7740545378594594396, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_LHand
       value: 
@@ -11325,6 +11468,26 @@ PrefabInstance:
       propertyPath: heldModel
       value: 
       objectReference: {fileID: 935157224}
+    - target: {fileID: 7990873191231833673, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990873191231833673, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990873191231833673, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990873191231833673, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941957940394023416, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11475,6 +11638,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.665
@@ -11518,6 +11685,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12244,7 +12415,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -12357,6 +12529,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -1.42
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.844
@@ -12400,6 +12576,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12861,6 +13041,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.416
@@ -12904,6 +13088,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (2)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12981,7 +13169,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -13191,7 +13380,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -13445,6 +13635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.796
@@ -13488,6 +13682,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (6)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13871,7 +14069,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -14005,7 +14204,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -14317,6 +14517,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.6121342
@@ -14360,6 +14564,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14633,7 +14841,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -15775,7 +15984,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -15935,6 +16145,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (14)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -16518,7 +16732,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -16753,6 +16968,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 09ed9822750fcff4bb5e4959c64becd4, type: 3}
       propertyPath: m_Name
       value: SM_qizi
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 09ed9822750fcff4bb5e4959c64becd4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17096,7 +17315,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -18581,7 +18801,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -18794,6 +19015,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.36
@@ -18837,6 +19062,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (2)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19674,7 +19903,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -20606,6 +20836,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (13)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -21916,7 +22150,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -22469,6 +22704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_qianweiqun
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a2bcb2f9fbbce94b9fb1df2d4bf35e0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22677,6 +22916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.054
@@ -22720,6 +22963,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (2)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22981,6 +23228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (9)"
       objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
@@ -23040,6 +23291,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.996
@@ -23083,6 +23338,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (3)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23207,6 +23466,14 @@ PrefabInstance:
     - target: {fileID: 2104014340587834959, guid: a9ad9281203462f47a3c8c251d2cb0d5, type: 3}
       propertyPath: m_Name
       value: Factory
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652715913710958923, guid: a9ad9281203462f47a3c8c251d2cb0d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200274621681071958, guid: a9ad9281203462f47a3c8c251d2cb0d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8810343295875022411, guid: a9ad9281203462f47a3c8c251d2cb0d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23486,6 +23753,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -27.487
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.825
@@ -23529,6 +23800,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (11)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23706,6 +23981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869 (9)"
       objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
@@ -23866,6 +24145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.144
@@ -23909,6 +24192,10 @@ PrefabInstance:
     - target: {fileID: 7862935544615239672, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24278,7 +24565,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &2088022203
 Transform:
@@ -24585,7 +24872,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -24861,7 +25149,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!224 &490707021021235654
 RectTransform:
@@ -24948,7 +25236,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -25204,11 +25493,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
---- !u!1 &793374518189640352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 204900750820627901, guid: d1a48471045d5e642a80e50fde3eb2a8, type: 3}
-  m_PrefabInstance: {fileID: 793374518189640351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &887569270981092958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25568,7 +25852,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1574274666330448259
 GameObject:
@@ -25769,7 +26053,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -25929,7 +26214,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -26283,6 +26569,10 @@ PrefabInstance:
     - target: {fileID: 8282200509510883187, guid: 11fcf94adb3a98c4197bf746bd84fe7a, type: 3}
       propertyPath: m_Name
       value: SM_daojuzhuo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282200509510883187, guid: 11fcf94adb3a98c4197bf746bd84fe7a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8771773851777682889, guid: 11fcf94adb3a98c4197bf746bd84fe7a, type: 3}
       propertyPath: m_LocalScale.x
@@ -28137,7 +28427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!224 &5344709031773977647
 RectTransform:
@@ -28265,6 +28555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878909276451124869, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7373820422995125570, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.375
@@ -28309,6 +28603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u8B66\u6212\u6869"
       objectReference: {fileID: 0}
+    - target: {fileID: 9219557607626368147, guid: 2dda50622fddb67489b67a3225060cbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28340,7 +28638,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!224 &5424977954259179300
 RectTransform:
@@ -28688,7 +28986,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -28777,7 +29076,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -29169,7 +29469,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -29250,7 +29551,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!222 &6769328597083149074
 CanvasRenderer:
@@ -29920,7 +30221,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &7671212293246470913
 GameObject:
@@ -30378,7 +30679,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &8511711936931155834
 GameObject:
@@ -30493,6 +30794,10 @@ PrefabInstance:
     - target: {fileID: 8888170771219066513, guid: 4e9a48dc5334b8241ae45486dc2da7d8, type: 3}
       propertyPath: m_Name
       value: "\u7B49\u5F85\u533A\u57DF"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888170771219066513, guid: 4e9a48dc5334b8241ae45486dc2da7d8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

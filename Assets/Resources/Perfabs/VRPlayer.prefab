@@ -258,10 +258,18 @@ MonoBehaviour:
   m_LHand: {fileID: 2213602019732383299}
   m_Head: {fileID: 7293172812215009720}
   m_PlayerCollider: {fileID: 0}
+  HeldTrans: {fileID: 0}
   m_HeadModel: {fileID: 2319475652799005014}
   m_LHandModel: {fileID: 465529162033633478}
   m_RHandModel: {fileID: 4938878741849134738}
+  Collar: {fileID: 0}
+  Clothes: {fileID: 0}
+  Hat: {fileID: 0}
+  identity: 0
   textPlayerName: {fileID: 3069002722878179239}
+  playerName: 
+  WStatus: 0
+  grabHand: {fileID: 0}
 --- !u!114 &5978041223631745730
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,31 +61,31 @@ public class SceneWindow : WinBase, IPointerEnterHandler, IPointerExitHandler
 
     public void HoverTeacherButton()
     {
-        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Teacher");
+        Utility.LoadImageFromAddressables(_BGImage, "UI/MainBG/Teacher");
         _teachingButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverPracticalButton()
     {
-        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Practical");
+        Utility.LoadImageFromAddressables(_BGImage, "UI/MainBG/Practical");
         _practicalTrainingButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverSelfTestButton()
     {
-        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/SelfTest");
+        Utility.LoadImageFromAddressables(_BGImage, "UI/MainBG/SelfTest");
         _selfTestButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverAssessmentButton()
     {
-        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/Assessment");
+        Utility.LoadImageFromAddressables(_BGImage, "UI/MainBG/Assessment");
         _assessmentButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 
     public void HoverPrevFactsButton()
     {
-        Utility.LoadImageFromResource(_BGImage, "Textures/UI/MainBG/PrevFacts");
+        Utility.LoadImageFromAddressables(_BGImage, "UI/MainBG/PrevFacts");
         _prevFactsButton.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
     }
 

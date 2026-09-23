@@ -171,7 +171,6 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  particleSystem: {fileID: 2116829637}
   audioSource: {fileID: 2116829636}
   incrementalNumberText: {fileID: 2116829635}
 --- !u!114 &5728153
@@ -951,7 +950,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1356,7 +1356,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1894,13 +1894,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5873a6160a0cdd458a858d1c37095bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   m_LHand: {fileID: 2029057220}
   m_RHand: {fileID: 1240250767}
   m_Head: {fileID: 15185629}
-  m_VRPlayerController: {fileID: 0}
+  heldRenderer: {fileID: 0}
+  _vRPlayerController: {fileID: 0}
+  HintPanel: {fileID: 0}
 --- !u!114 &908624197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2876,7 +2875,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_sharedMaterial: {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 8260696708285094386, guid: 21988d6a2c82152469ac15927929f129, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3689,7 +3689,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4772,6 +4772,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6964750969046737122, guid: 05fb76a826758e4409cf98383a5b6489, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 7027139490167011502, guid: 05fb76a826758e4409cf98383a5b6489, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
@@ -4896,11 +4900,6 @@ MonoBehaviour:
 --- !u!82 &2116829636 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8884937157564009091, guid: 05fb76a826758e4409cf98383a5b6489, type: 3}
-  m_PrefabInstance: {fileID: 2116829633}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2116829637 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7961502076936947312, guid: 05fb76a826758e4409cf98383a5b6489, type: 3}
   m_PrefabInstance: {fileID: 2116829633}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119287665

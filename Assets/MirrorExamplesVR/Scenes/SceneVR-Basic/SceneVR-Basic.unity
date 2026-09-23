@@ -716,18 +716,7 @@ MonoBehaviour:
   rHandTransform: {fileID: 2147186457}
   lHandTransform: {fileID: 1570328952}
   headTransform: {fileID: 888668571}
-  canvasUIPosition: {fileID: 0}
-  damageTriggerR: {fileID: 0}
-  damageTriggerL: {fileID: 0}
   localVRNetworkPlayerScript: {fileID: 0}
-  audioCue: {fileID: 0}
-  rightHand: {fileID: 2147186462}
-  leftHand: {fileID: 1570328957}
-  buttonR: 2
-  buttonL: 6
-  shootButtonRightHand: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  shootButtonLeftHand: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  testReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1313124812
 GameObject:
   m_ObjectHideFlags: 0

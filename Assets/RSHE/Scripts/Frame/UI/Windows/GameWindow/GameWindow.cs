@@ -32,7 +32,10 @@ public class GameWindow : WinBase
         // TODO..先这么写着 后面再说
         if (StaticGlobalVar.GameMode == EGameMode.Assessment)
         {
-            GlobalPanel.Get().Spawn(@"是否保存本次成绩？",
+            var savePanel = GlobalPanel.Get();
+            if (savePanel == null) return;
+
+            savePanel.Spawn(@"是否保存本次成绩？",
                 () =>
                 {
                     Scorer.Get().Save(() =>
@@ -54,7 +57,9 @@ public class GameWindow : WinBase
         else
         {
             GameHelpler.Get().BackMenu();
-            GlobalPanel.Get().DestroySelf();
+            var exitPanel = GlobalPanel.Get();
+            if (exitPanel != null)
+                exitPanel.DestroySelf();
         }
         //CmdInitPlayer();
     }

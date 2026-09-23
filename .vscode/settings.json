@@ -56,6 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "RadiationSourceHandlingExperiment.sln",
+    "dotnet.defaultSolution": "RadiationSourceHandlingExperiment_Agent.sln",
     "dotnet.preferCSharpExtension": true
 }

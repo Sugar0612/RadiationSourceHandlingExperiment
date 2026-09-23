@@ -3,7 +3,9 @@ using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 public static class Utility
@@ -54,18 +56,20 @@ public static class Utility
     }
 
 
-    /// <summary> 图片载入 </summary>
-    public static void LoadImageFromResource(Image img, string imgPath)
+    /// <summary> 图片载入(从 Addressables 按地址异步加载) </summary>
+    public static void LoadImageFromAddressables(Image img, string address)
     {
-        Sprite newSprite = Resources.Load<Sprite>(imgPath);
-        if (newSprite != null)
+        Addressables.LoadAssetAsync<Sprite>(address).Completed += op =>
         {
-            img.sprite = newSprite;
-        }
-        else
-        {
-            // Debug.LogError($"Failed to load image from Resources: {imgPath}");
-        }
+            if (op.Status == AsyncOperationStatus.Succeeded)
+            {
+                img.sprite = op.Result;
+            }
+            else
+            {
+                Log.cinput("red", $"[Addressables] 背景图加载失败: {address}, {op.OperationException}");
+            }
+        };
     }
 
     public static string GetLocalTime()

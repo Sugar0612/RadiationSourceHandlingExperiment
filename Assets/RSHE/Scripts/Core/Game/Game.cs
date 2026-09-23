@@ -41,7 +41,9 @@ public class Game : NetworkBehaviour
     [ServerCallback]
     public void ReadyQuitGame()
     {
-        GlobalPanel.Get().Spawn("确定退出程序吗？", QuitGame, CancelQuitGame);
+        var quitPanel = GlobalPanel.Get();
+        if (quitPanel != null)
+            quitPanel.Spawn("确定退出程序吗？", QuitGame, CancelQuitGame);
     }
 
     private bool QuitGame()

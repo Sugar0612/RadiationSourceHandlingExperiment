@@ -1,1 +1,2 @@
 Assets/Resources/Font/Alibaba.asset filter=lfs diff=lfs merge=lfs -text
+Assets/RSHE/Art/Font/*.asset filter=lfs diff=lfs merge=lfs -text

@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028373, g: 0.22571398, b: 0.30692294, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3033,18 +3032,7 @@ MonoBehaviour:
   rHandTransform: {fileID: 2147186457}
   lHandTransform: {fileID: 1570328952}
   headTransform: {fileID: 888668571}
-  canvasUIPosition: {fileID: 6769026626989023297}
-  damageTriggerR: {fileID: 86211124791085718}
-  damageTriggerL: {fileID: 5419604950226592369}
   localVRNetworkPlayerScript: {fileID: 0}
-  audioCue: {fileID: 961164381}
-  rightHand: {fileID: 2147186462}
-  leftHand: {fileID: 1570328957}
-  buttonR: 2
-  buttonL: 6
-  shootButtonRightHand: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  shootButtonLeftHand: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  testReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1301250924
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,11 +6957,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &86211124791085718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2305010794356864655, guid: 701438eedae6f428e8f4bebd41d13476, type: 3}
-  m_PrefabInstance: {fileID: 2220067449851149337}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &215763579103030571
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7368,11 +7351,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71716271702681223}
   m_Mesh: {fileID: 8321685774571456786, guid: 9e1dc1c14313460d872de39e35129b39, type: 3}
---- !u!1 &5419604950226592369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1641038862298055217, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
-  m_PrefabInstance: {fileID: 6769026626989023296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5876964137123164052
 GameObject:
   m_ObjectHideFlags: 0
@@ -7450,11 +7428,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
---- !u!4 &6769026626989023297 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4605271143555312011, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
-  m_PrefabInstance: {fileID: 6769026626989023296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7934681895901020976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3741874462076707696, guid: c37c99100405d47a4834aa05bacd5554, type: 3}
